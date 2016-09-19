@@ -131,10 +131,6 @@ namespace Uniso.InStat.Game.Hockey
             {
                 _v.Clear();
 
-                // 1 - категория, action_id
-                // 2 - единоборства
-                // 8 - голы
-
                 _v.Add(ActionEnum._01_01, "Вбрасывание");
                 _v.Add(ActionEnum._01_02, "Голевая передача");
 
