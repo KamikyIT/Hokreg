@@ -208,7 +208,7 @@ namespace Uniso.InStat
                         }
                         catch
                         { }
-                    if (Uniso.InStat.Game.HockeyIce.Role == Game.HockeyIce.RoleEnum.Online)
+                    if (Game.HockeyIce.Role == Game.HockeyIce.RoleEnum.Online)
                     {
                         if (!mk.Compare(1, 1)
                             && !mk.Compare(1, 2) 
@@ -233,24 +233,12 @@ namespace Uniso.InStat
                     if (u.ContainsKey("second_online") && u["second_online"] != null)
                         time2 = Convert.ToInt32(Convert.ToSingle(u["second_online"].ToString().Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator)) * 1000f);
 
-                    /*if (Uniso.InStat.Game.HockeyIce.Role != Game.HockeyIce.RoleEnum.Online && time1 == -1 && mk.Sync == 1 && !mk.Compare(new int[] { 16, 18 }))
-                        continue;
-
-                    if (Uniso.InStat.Game.HockeyIce.Role != Game.HockeyIce.RoleEnum.Online && time1 == time2 && mk.Sync == 1 && !mk.Compare(new int[] { 16, 18 }))
-                        continue;
-
-                    if (Uniso.InStat.Game.HockeyIce.Role == Game.HockeyIce.RoleEnum.Online && time2 == -1 && !mk.Compare(new int[] { 16, 18 }))
-                        continue;*/
-
-                    if (Uniso.InStat.Game.HockeyIce.Role == Game.HockeyIce.RoleEnum.Online)
-                        mk.TimeVideoReal = time2;
-                    else
-                        mk.TimeVideoReal = time1;
+                    mk.TimeVideoReal = Game.HockeyIce.Role == Game.HockeyIce.RoleEnum.Online ? time2 : time1;
 
                     if (u.ContainsKey("players_num_team1"))
                         mk.NumTeam1 = Convert.ToInt32(u["players_num_team1"]);
 
-                    if (u.ContainsKey("players_num_team1"))
+                    if (u.ContainsKey("players_num_team2"))
                         mk.NumTeam2 = Convert.ToInt32(u["players_num_team2"]);
 
                     if (u.ContainsKey("data1_int"))
@@ -448,13 +436,15 @@ namespace Uniso.InStat
                     && u.ContainsKey("sweater_color_2")
                     && u.ContainsKey("number_color"))
                 {
-                    var tc = new TeamColors();
-                    tc.Id = Convert.ToInt32(u["id"]);
-                    tc.Kind = Convert.ToInt32(u["c_uniform_type"]);
-                    tc.SelfColor1 = HexToColor(Convert.ToString(u["sweater_color_1"]));
-                    tc.SelfColor2 = HexToColor(Convert.ToString(u["sweater_color_2"]));
-                    tc.NumberColor = HexToColor(Convert.ToString(u["number_color"]));
-                    tc.Name = Convert.ToString(u["uniform_type"]);
+                    var tc = new TeamColors
+                    {
+                        Id = Convert.ToInt32(u["id"]),
+                        Kind = Convert.ToInt32(u["c_uniform_type"]),
+                        SelfColor1 = HexToColor(Convert.ToString(u["sweater_color_1"])),
+                        SelfColor2 = HexToColor(Convert.ToString(u["sweater_color_2"])),
+                        NumberColor = HexToColor(Convert.ToString(u["number_color"])),
+                        Name = Convert.ToString(u["uniform_type"])
+                    };
                     team.TeamColorsKind.Add(tc.Kind, tc);
                 }
             }
@@ -566,10 +556,9 @@ namespace Uniso.InStat
 
             var game_kind = Convert.ToInt32(data["c_tournament_type"]);
             var game = new Game.HockeyIce(
-                gte, 
-                game_kind == 1 ? Game.HockeyIce.KIND_1 : Game.HockeyIce.KIND_2);
+                gte,
+                game_kind == 1 ? Game.HockeyIce.KIND_1 : Game.HockeyIce.KIND_2) {Match = match};
 
-            game.Match = match;
 
             return game;
         }
