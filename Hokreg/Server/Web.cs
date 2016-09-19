@@ -7,7 +7,7 @@ using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
 
-namespace Uniso.InStat
+namespace Uniso.InStat.Server
 {
     public class Web
     {

@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 
-namespace Uniso.InStat
+namespace Uniso.InStat.Server
 {
     public class MsSql
     {

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel;
+using System.Windows.Forms;
 
-namespace System.Windows.Forms
+namespace Uniso.InStat
 {
     public partial class ComboBoxEx : ComboBox
     {

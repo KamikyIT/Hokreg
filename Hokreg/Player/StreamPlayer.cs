@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
-using System.Threading;
+using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Uniso.InStat.Coders;
 
-namespace Uniso.InStat.Players
+namespace Uniso.InStat.Player
 {
     public partial class StreamPlayer : System.Windows.Forms.Control, IDisposable
     {
@@ -69,7 +69,7 @@ namespace Uniso.InStat.Players
                 Controls.Remove(mediaElement1);
             }
 
-            mediaElement1 = new AxMediaPlayer.FootballPlayer();
+            mediaElement1 = new FootballPlayer();
             mediaElement1.MouseMoveEvent += mediaElement2_MouseMoveEvent;
             mediaElement1.MouseUpEvent += mediaElement2_MouseUpEvent;
             mediaElement1.PlayStateChange += mediaElement1_PlayStateChange;
@@ -86,7 +86,7 @@ namespace Uniso.InStat.Players
                 Controls.Remove(mediaElement2);
             }
 
-            mediaElement2 = new AxMediaPlayer.FootballPlayer();
+            mediaElement2 = new FootballPlayer();
             mediaElement2.MouseMoveEvent += mediaElement2_MouseMoveEvent;
             mediaElement2.MouseUpEvent += mediaElement2_MouseUpEvent;
             mediaElement2.PlayStateChange += mediaElement1_PlayStateChange;
@@ -149,8 +149,8 @@ namespace Uniso.InStat.Players
         public String CacheDirectory { get; set; }
 
         //private AxMediaPlayer.FootballPlayer mediaPlayer1 = null;
-        private AxMediaPlayer.FootballPlayer mediaElement1 = null;
-        private AxMediaPlayer.FootballPlayer mediaElement2 = null;
+        private FootballPlayer mediaElement1 = null;
+        private FootballPlayer mediaElement2 = null;
 
         [Browsable(false)]
         public Rectangle GetVideoRect()
@@ -310,7 +310,7 @@ namespace Uniso.InStat.Players
 
         void mediaElement1_PlayStateChange(object sender, AxMediaPlayer._MediaPlayerEvents_PlayStateChangeEvent e)
         {
-            var player = (AxMediaPlayer.FootballPlayer)sender;
+            var player = (FootballPlayer)sender;
 
             var ps0 = (MediaPlayer.MPPlayStateConstants)e.oldState;
             var ps1 = (MediaPlayer.MPPlayStateConstants)e.newState;
@@ -390,12 +390,12 @@ namespace Uniso.InStat.Players
 
         private bool curr_player = false;
 
-        private AxMediaPlayer.FootballPlayer MediaElement
+        private FootballPlayer MediaElement
         {
             get { return curr_player ? mediaElement1 : mediaElement2; }
         }
 
-        private AxMediaPlayer.FootballPlayer MediaElementShadow
+        private FootballPlayer MediaElementShadow
         {
             get { return curr_player ? mediaElement2 : mediaElement1; }
         }
@@ -462,7 +462,7 @@ namespace Uniso.InStat.Players
                             MediaElement.Pause();
 
                     if (ffprobe == null || MediaType == MediaTypeEnum.FLAT_FILE)
-                        ffprobe = new InStat.Ffprobe(CurrentSceneFileName);
+                        ffprobe = new Ffprobe(CurrentSceneFileName);
                 }
                 catch (Exception ex)
                 {

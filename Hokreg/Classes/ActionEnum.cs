@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Uniso.InStat.Game.Hockey
+﻿namespace Uniso.InStat.Classes
 {
     public enum ActionEnum : int
     {

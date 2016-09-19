@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using Uniso.InStat.Conv;
 
-namespace Uniso.InStat
+namespace Uniso.InStat.Classes
 {
     [Serializable()]
     public class Options

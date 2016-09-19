@@ -126,145 +126,145 @@
     <Compile Include="Classes\ActionEnum.cs" />
     <Compile Include="Conv\WinConverter.cs" />
     <Compile Include="Game\SelectedMarker.cs" />
-    <Compile Include="Gui\ButtonEx.cs">
+    <Compile Include="Gui\Controls\ButtonEx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Gui\ButtonEx.designer.cs">
+    <Compile Include="Gui\Controls\ButtonEx.designer.cs">
       <DependentUpon>ButtonEx.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\CheckForm.cs">
+    <Compile Include="Gui\Forms\CheckForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\CheckForm.Designer.cs">
+    <Compile Include="Gui\Forms\CheckForm.Designer.cs">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\CommonGuiTypes\CommonGuiTypes.cs" />
-    <Compile Include="Gui\CorrectChangedPlayersMarkerForm.cs">
+    <Compile Include="Gui\Forms\CorrectChangedPlayersMarkerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\CorrectChangedPlayersMarkerForm.Designer.cs">
+    <Compile Include="Gui\Forms\CorrectChangedPlayersMarkerForm.Designer.cs">
       <DependentUpon>CorrectChangedPlayersMarkerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\CorrectTimeForm.cs">
+    <Compile Include="Gui\Forms\CorrectTimeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\CorrectTimeForm.Designer.cs">
+    <Compile Include="Gui\Forms\CorrectTimeForm.Designer.cs">
       <DependentUpon>CorrectTimeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Exceptions\TeamMarkerException.cs" />
-    <Compile Include="Gui\DataGridForm.cs">
+    <Compile Include="Gui\Forms\DataGridForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\DataGridForm.Designer.cs">
+    <Compile Include="Gui\Forms\DataGridForm.Designer.cs">
       <DependentUpon>DataGridForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\FoulTypeForm.cs">
+    <Compile Include="Gui\Forms\FoulTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\FoulTypeForm.Designer.cs">
+    <Compile Include="Gui\Forms\FoulTypeForm.Designer.cs">
       <DependentUpon>FoulTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\FineForm.cs">
+    <Compile Include="Gui\Forms\FineForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\FineForm.Designer.cs">
+    <Compile Include="Gui\Forms\FineForm.Designer.cs">
       <DependentUpon>FineForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Game\Marker.cs" />
     <Compile Include="Game\Team.cs" />
-    <Compile Include="Gui\GoalPointForm.cs">
+    <Compile Include="Gui\Forms\GoalPointForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\GoalPointForm.Designer.cs">
+    <Compile Include="Gui\Forms\GoalPointForm.Designer.cs">
       <DependentUpon>GoalPointForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\HockeyGui.cs">
+    <Compile Include="Gui\Controls\HockeyGui.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Gui\Login.cs">
+    <Compile Include="Gui\Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\Login.designer.cs">
+    <Compile Include="Gui\Forms\Login.designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\MainForm.cs">
+    <Compile Include="Gui\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\MainForm.Designer.cs">
+    <Compile Include="Gui\Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\HockeyField.cs">
+    <Compile Include="Gui\Controls\HockeyField.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Gui\HockeyField.Designer.cs">
+    <Compile Include="Gui\Controls\HockeyField.Designer.cs">
       <DependentUpon>HockeyField.cs</DependentUpon>
     </Compile>
     <Compile Include="Game\HockeyIce.cs" />
-    <Compile Include="Gui\MarkerEditForm.cs">
+    <Compile Include="Gui\Forms\MarkerEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\MarkerEditForm.designer.cs">
+    <Compile Include="Gui\Forms\MarkerEditForm.designer.cs">
       <DependentUpon>MarkerEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\OptionsForm.cs">
+    <Compile Include="Gui\Forms\OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\OptionsForm.designer.cs">
+    <Compile Include="Gui\Forms\OptionsForm.designer.cs">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\OvertimeForm.cs">
+    <Compile Include="Gui\Forms\OvertimeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\OvertimeForm.Designer.cs">
+    <Compile Include="Gui\Forms\OvertimeForm.Designer.cs">
       <DependentUpon>OvertimeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\SelectForm.cs">
+    <Compile Include="Gui\Forms\SelectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\SelectForm.designer.cs">
+    <Compile Include="Gui\Forms\SelectForm.designer.cs">
       <DependentUpon>SelectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\TestForm.cs">
+    <Compile Include="Gui\Forms\TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\TestForm.Designer.cs">
+    <Compile Include="Gui\Forms\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\TransparentPanel.cs">
+    <Compile Include="Gui\Controls\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Gui\TransparentPanel.designer.cs">
+    <Compile Include="Gui\Controls\TransparentPanel.designer.cs">
       <DependentUpon>TransparentPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\InsertSubstitutionForm.cs">
+    <Compile Include="Gui\Forms\InsertSubstitutionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\InsertSubstitutionForm.Designer.cs">
+    <Compile Include="Gui\Forms\InsertSubstitutionForm.Designer.cs">
       <DependentUpon>InsertSubstitutionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MediaInfo\MediaInfo.cs" />
-    <Compile Include="Gui\MediaInputForm.cs">
+    <Compile Include="Gui\Forms\MediaInputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\MediaInputForm.Designer.cs">
+    <Compile Include="Gui\Forms\MediaInputForm.Designer.cs">
       <DependentUpon>MediaInputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\OnlinerForm.cs">
+    <Compile Include="Gui\Forms\OnlinerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\OnlinerForm.Designer.cs">
+    <Compile Include="Gui\Forms\OnlinerForm.Designer.cs">
       <DependentUpon>OnlinerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\SelectOvertimeForm.cs">
+    <Compile Include="Gui\Forms\SelectOvertimeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\SelectOvertimeForm.Designer.cs">
+    <Compile Include="Gui\Forms\SelectOvertimeForm.Designer.cs">
       <DependentUpon>SelectOvertimeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\PenaltyForm.cs">
+    <Compile Include="Gui\Forms\PenaltyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\PenaltyForm.Designer.cs">
+    <Compile Include="Gui\Forms\PenaltyForm.Designer.cs">
       <DependentUpon>PenaltyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Player\CaptureStream.cs" />
@@ -281,80 +281,80 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server\MsSql.cs" />
     <Compile Include="Server\Web.cs" />
-    <Compile Include="Gui\SpareField.cs">
+    <Compile Include="Gui\Controls\SpareField.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Gui\SpareField.Designer.cs">
+    <Compile Include="Gui\Controls\SpareField.Designer.cs">
       <DependentUpon>SpareField.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\ViolationForm.cs">
+    <Compile Include="Gui\Forms\ViolationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\ViolationForm.Designer.cs">
+    <Compile Include="Gui\Forms\ViolationForm.Designer.cs">
       <DependentUpon>ViolationForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Gui\CheckForm.resx">
+    <EmbeddedResource Include="Gui\Forms\CheckForm.resx">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\CorrectChangedPlayersMarkerForm.resx">
+    <EmbeddedResource Include="Gui\Forms\CorrectChangedPlayersMarkerForm.resx">
       <DependentUpon>CorrectChangedPlayersMarkerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\CorrectTimeForm.resx">
+    <EmbeddedResource Include="Gui\Forms\CorrectTimeForm.resx">
       <DependentUpon>CorrectTimeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\DataGridForm.resx">
+    <EmbeddedResource Include="Gui\Forms\DataGridForm.resx">
       <DependentUpon>DataGridForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\FoulTypeForm.resx">
+    <EmbeddedResource Include="Gui\Forms\FoulTypeForm.resx">
       <DependentUpon>FoulTypeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\FineForm.resx">
+    <EmbeddedResource Include="Gui\Forms\FineForm.resx">
       <DependentUpon>FineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\GoalPointForm.resx">
+    <EmbeddedResource Include="Gui\Forms\GoalPointForm.resx">
       <DependentUpon>GoalPointForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Login.resx">
+    <EmbeddedResource Include="Gui\Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\MainForm.resx">
+    <EmbeddedResource Include="Gui\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\HockeyField.resx">
+    <EmbeddedResource Include="Gui\Controls\HockeyField.resx">
       <DependentUpon>HockeyField.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\MarkerEditForm.resx">
+    <EmbeddedResource Include="Gui\Forms\MarkerEditForm.resx">
       <DependentUpon>MarkerEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\OptionsForm.resx">
+    <EmbeddedResource Include="Gui\Forms\OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\OvertimeForm.resx">
+    <EmbeddedResource Include="Gui\Forms\OvertimeForm.resx">
       <DependentUpon>OvertimeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\PenaltyForm.resx">
+    <EmbeddedResource Include="Gui\Forms\PenaltyForm.resx">
       <DependentUpon>PenaltyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\SelectForm.resx">
+    <EmbeddedResource Include="Gui\Forms\SelectForm.resx">
       <DependentUpon>SelectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\MediaInputForm.resx">
+    <EmbeddedResource Include="Gui\Forms\MediaInputForm.resx">
       <DependentUpon>MediaInputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\TestForm.resx">
+    <EmbeddedResource Include="Gui\Forms\TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\InsertSubstitutionForm.resx">
+    <EmbeddedResource Include="Gui\Forms\InsertSubstitutionForm.resx">
       <DependentUpon>InsertSubstitutionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\OnlinerForm.resx">
+    <EmbeddedResource Include="Gui\Forms\OnlinerForm.resx">
       <DependentUpon>OnlinerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\SelectOvertimeForm.resx">
+    <EmbeddedResource Include="Gui\Forms\SelectOvertimeForm.resx">
       <DependentUpon>SelectOvertimeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\ViolationForm.resx">
+    <EmbeddedResource Include="Gui\Forms\ViolationForm.resx">
       <DependentUpon>ViolationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Player\StreamPlayer.resx">
@@ -370,7 +370,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Gui\SpareField.resx">
+    <EmbeddedResource Include="Gui\Controls\SpareField.resx">
       <DependentUpon>SpareField.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

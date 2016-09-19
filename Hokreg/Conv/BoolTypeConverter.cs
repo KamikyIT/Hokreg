@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Uniso.InStat
+namespace Uniso.InStat.Conv
 {
     public class BoolConverter : TypeConverter
     {

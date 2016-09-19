@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using Uniso.InStat.Classes;
+using Uniso.InStat.Conv;
 
 namespace Uniso.InStat.Game
 {
@@ -28,7 +30,7 @@ namespace Uniso.InStat.Game
 
         public GameTypeEnum GameType { get; set; }
       
-        public static Uniso.InStat.Game.Hockey.ActionConverter convAction = new Hockey.ActionConverter();
+        public static ActionConverter convAction = new ActionConverter();
         public static User User { get; set; }
         public static RoleEnum Role { get; set; }
         public Dictionary<int, int> SyncTime { get; set; }

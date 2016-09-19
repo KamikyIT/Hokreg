@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Uniso.InStat.Game;
 using Uniso.InStat.Gui;
+using Uniso.InStat.Gui.Forms;
 using Uniso.Update;
 
 namespace Uniso.InStat

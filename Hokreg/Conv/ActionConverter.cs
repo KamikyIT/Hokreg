@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ComponentModel;
+using System.Linq;
+using Uniso.InStat.Classes;
 
-namespace Uniso.InStat.Game.Hockey
+namespace Uniso.InStat.Conv
 {
     public class ActionConverter : TypeConverter
     {

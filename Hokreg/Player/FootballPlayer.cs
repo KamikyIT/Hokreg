@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using AxMediaPlayer;
-using System.Windows.Forms;
-using System.Drawing;
+﻿using System.Windows.Forms;
 
-namespace AxMediaPlayer
+namespace Uniso.InStat.Player
 {
-    class FootballPlayer : AxMediaPlayer
+    class FootballPlayer : AxMediaPlayer.AxMediaPlayer
     {
         public event PaintEventHandler PaintOver;
 

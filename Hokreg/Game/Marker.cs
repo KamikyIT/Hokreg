@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using Uniso.InStat.Classes;
+using Uniso.InStat.Conv;
 
 namespace Uniso.InStat.Game
 {
@@ -120,15 +122,15 @@ namespace Uniso.InStat.Game
             }
         }
         
-        [TypeConverter(typeof(Uniso.InStat.Game.Hockey.ActionConverter))]
+        [TypeConverter(typeof(ActionConverter))]
         [Category("1. Основные")]
         [DisplayName("1. Действие")]
         [Browsable(true)]
-        public virtual Uniso.InStat.Game.Hockey.ActionEnum Action
+        public virtual ActionEnum Action
         {
             get
             {
-                return (Uniso.InStat.Game.Hockey.ActionEnum)(ActionId * 100000 + ActionType * 100 + Win);
+                return (ActionEnum)(ActionId * 100000 + ActionType * 100 + Win);
             }
             set
             {
@@ -185,7 +187,7 @@ namespace Uniso.InStat.Game
             }
         }
 
-        [TypeConverter(typeof(Uniso.InStat.Game.PlayerConverter))]
+        [TypeConverter(typeof(PlayerConverter))]
         [Category("1. Основные")]
         [DisplayName("4. Игрок")]
         [Browsable(true)]
@@ -201,7 +203,7 @@ namespace Uniso.InStat.Game
             }
         }
 
-        [TypeConverter(typeof(Uniso.InStat.Game.PlayerConverter))]
+        [TypeConverter(typeof(PlayerConverter))]
         [Category("1. Основные")]
         [DisplayName("5. Оппонент")]
         [Browsable(true)]

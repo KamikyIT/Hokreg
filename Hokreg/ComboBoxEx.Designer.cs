@@ -1,4 +1,4 @@
-﻿namespace System.Windows.Forms
+﻿namespace Uniso.InStat
 {
     partial class ComboBoxEx
     {
