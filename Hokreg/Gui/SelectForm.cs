@@ -9,6 +9,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Uniso.InStat.Game;
 using Uniso.InStat.Gui;
+using Uniso.InStat.Gui.CommonGuiTypes;
 
 namespace Uniso.InStat
 {
@@ -40,8 +41,9 @@ namespace Uniso.InStat
             UpdateUI();
         }
 
-        private int old_code = 0;
-        public void ShowStatus(String msg, int code)
+        private FormStatusEnum old_code = 0;
+        //public void ShowStatus(String msg, int code)
+        public void ShowStatus(String msg, FormStatusEnum code)
         {
             sync.Execute(() =>
             {
@@ -49,11 +51,11 @@ namespace Uniso.InStat
                 {
                     switch (code)
                     {
-                        case 0:
+                        case FormStatusEnum.Normal:
                             toolStripStatusLabel1.BackColor = SystemColors.Control;
                             toolStripStatusLabel1.ForeColor = Color.Black;
                             break;
-                        case 1:
+                        case FormStatusEnum.Error:
                             toolStripStatusLabel1.BackColor = Color.Red;
                             toolStripStatusLabel1.ForeColor = Color.White;
                             break;
@@ -168,7 +170,7 @@ namespace Uniso.InStat
                     }
                     catch (Exception ex)
                     {
-                        ShowStatus(ex.Message, 1);
+                        ShowStatus(ex.Message, FormStatusEnum.Error);
                         Log.WriteException(ex);
                     }
                     finally
@@ -376,7 +378,7 @@ namespace Uniso.InStat
                     catch (TeamMarkerException ex)
                     {
                         mk.FlagDel = true;
-                        ShowStatus(ex.Message, 1);
+                        ShowStatus(ex.Message, FormStatusEnum.Error);
                         Thread.Sleep(100);
                         continue;
                     }
@@ -552,7 +554,7 @@ namespace Uniso.InStat
                         }
                     }
 
-                    ShowStatus(String.Format("Ошибочно указаны некоторые игроки. Эти маркеры {0} помечены на удаление.", errmks), 1);
+                    ShowStatus(String.Format("Ошибочно указаны некоторые игроки. Эти маркеры {0} помечены на удаление.", errmks), FormStatusEnum.Error);
                 }
                 else
                 {
@@ -566,7 +568,7 @@ namespace Uniso.InStat
             catch (Exception ex)
             {
                 game = null;
-                ShowStatus(ex.Message, 1);
+                ShowStatus(ex.Message, FormStatusEnum.Error);
                 HockeyGui.InvalidateRect();
             }
             finally

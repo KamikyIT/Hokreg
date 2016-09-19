@@ -138,6 +138,7 @@
     <Compile Include="Gui\CheckForm.Designer.cs">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\CommonGuiTypes\CommonGuiTypes.cs" />
     <Compile Include="Gui\CorrectChangedPlayersMarkerForm.cs">
       <SubType>Form</SubType>
     </Compile>
