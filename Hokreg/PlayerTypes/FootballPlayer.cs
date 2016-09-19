@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Uniso.InStat.Player
+namespace Uniso.InStat.PlayerTypes
 {
     class FootballPlayer : AxMediaPlayer.AxMediaPlayer
     {

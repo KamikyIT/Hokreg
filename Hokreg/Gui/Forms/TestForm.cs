@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Uniso.InStat.Player;
+using Uniso.InStat.PlayerTypes;
 
 namespace Uniso.InStat.Gui.Forms
 {

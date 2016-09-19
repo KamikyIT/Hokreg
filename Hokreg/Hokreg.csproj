@@ -267,14 +267,14 @@
     <Compile Include="Gui\Forms\PenaltyForm.Designer.cs">
       <DependentUpon>PenaltyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Player\CaptureStream.cs" />
-    <Compile Include="Player\FootballPlayer.cs">
+    <Compile Include="PlayerTypes\CaptureStream.cs" />
+    <Compile Include="PlayerTypes\FootballPlayer.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Player\StreamPlayer.cs">
+    <Compile Include="PlayerTypes\StreamPlayer.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Player\StreamPlayer.Designer.cs">
+    <Compile Include="PlayerTypes\StreamPlayer.Designer.cs">
       <DependentUpon>StreamPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -357,7 +357,7 @@
     <EmbeddedResource Include="Gui\Forms\ViolationForm.resx">
       <DependentUpon>ViolationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Player\StreamPlayer.resx">
+    <EmbeddedResource Include="PlayerTypes\StreamPlayer.resx">
       <DependentUpon>StreamPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

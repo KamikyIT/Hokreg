@@ -1,4 +1,4 @@
-﻿namespace Uniso.InStat.Player
+﻿namespace Uniso.InStat.PlayerTypes
 {
     partial class StreamPlayer
     {

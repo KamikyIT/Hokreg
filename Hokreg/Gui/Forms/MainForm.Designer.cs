@@ -1,5 +1,5 @@
 ﻿using Uniso.InStat.Gui.Controls;
-using Uniso.InStat.Player;
+using Uniso.InStat.PlayerTypes;
 
 namespace Uniso.InStat.Gui.Forms
 {

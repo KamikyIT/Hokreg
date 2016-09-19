@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Uniso.InStat.Coders;
 
-namespace Uniso.InStat.Player
+namespace Uniso.InStat.PlayerTypes
 {
     public partial class StreamPlayer : System.Windows.Forms.Control, IDisposable
     {

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using Uniso.InStat.Classes;
 using Uniso.InStat.Game;
 using Uniso.InStat.Gui.Controls;
-using Uniso.InStat.Player;
+using Uniso.InStat.PlayerTypes;
 using Uniso.InStat.Server;
 using Utils = Uniso.InStat.Classes.Utils;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
+
 namespace Uniso.InStat.Conv
 {
     public class PlayerConverter : TypeConverter

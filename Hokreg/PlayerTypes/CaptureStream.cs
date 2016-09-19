@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Uniso.InStat.Coders;
 
-namespace Uniso.InStat.Player
+namespace Uniso.InStat.PlayerTypes
 {
     public class CaptureStream
     {
