@@ -187,6 +187,8 @@ namespace Uniso.InStat.Gui.Controls
 
             var dist = 70;
             var res = new Rectangle(0, (int)rcf.Top, 13 + PlaceSize, (int)rcf.Height);
+
+
             for (var i = 1; i < tm.Tactics.Count; i++)
             {
                 if (tm.Tactics[i] == t)
@@ -375,22 +377,8 @@ namespace Uniso.InStat.Gui.Controls
 
             return new RectangleF((Width - dw) / 2.0f, dv / 2, dw, dh);
         }
-
-        /*protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams createParams = base.CreateParams;
-                createParams.ExStyle |= 0x00000020; // WS_EX_TRANSPARENT
-                return createParams;
-            }
-        }
-
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-        }*/
-
-        private void DoPaint(object sender, System.Windows.Forms.PaintEventArgs e)
+        
+        private void DoPaint(object sender, PaintEventArgs e)
         {
             try
             {
@@ -612,7 +600,7 @@ namespace Uniso.InStat.Gui.Controls
 
                         var select = false;// a == omAmplua && omPlace == null && omTactics != null && omTactics.NameActionType == t.NameActionType && HockeyGui.Mode != HockeyGui.ModeEnum.SelectPoint;
 
-                        gdi.Pen.Color = select ? /*HockeyGui.TransformColor(tm.Color.SelfColor1)*/ 0x000000ff : 0x00000000;
+                        gdi.Pen.Color = select ? 0x000000ff : 0x00000000;
                         gdi.Pen.Width = select ? 4 : 2;
 
                         var rca = GetRect(tm, t, a);
@@ -632,7 +620,9 @@ namespace Uniso.InStat.Gui.Controls
                             gdi.LineTo(rca.Right, rca.Bottom);
                             gdi.LineTo(rca.Left - 3, rca.Bottom);
                         }
+                        
 
+                        // TODO: Вот тут вопрос чзётм
                         if (omTactics != null && omTactics.NameActionType == t.NameActionType && omPlace == null && omAmplua == null && false)
                         {
                             var rct = GetRect(omTeam, omTactics);
@@ -847,13 +837,8 @@ namespace Uniso.InStat.Gui.Controls
                 }
             }
         }
-
-        private void DrawNumber(Rectangle rc, Player p)
-        { 
-            
-        }
-
-        public void DoSizeChanged(object sender, System.EventArgs e)
+        
+        public void DoSizeChanged(object sender, EventArgs e)
         {
             gdi.UpdateContext();
         }
@@ -885,11 +870,6 @@ namespace Uniso.InStat.Gui.Controls
 
                 gdi.InvalidateRect();
             }
-        }
-
-        private void contextMenuStrip1_SelectFine(object sender, EventArgs e)
-        {
-
         }
 
         private void HockeyField_MouseDown(object sender, MouseEventArgs e)
@@ -1245,7 +1225,6 @@ namespace Uniso.InStat.Gui.Controls
             {
                 if (num >= 1 && num <= 999)
                 {
-                    var ch = placeChangeNumber.Player.Number != num;
                     placeChangeNumber.Player.Number = num;
                     if (ChangedPlace != null)
                         ChangedPlace(this, new HockeyGui.ChangedPlaceEventArgs { Place = placeChangeNumber, Tactics = omTactics, Team = omTeam });

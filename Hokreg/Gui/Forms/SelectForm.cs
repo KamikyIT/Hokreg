@@ -31,20 +31,11 @@ namespace Uniso.InStat.Gui.Forms
             HockeyGui.HF = hockeyField1;
             HockeyGui.Mode = HockeyGui.ModeEnum.EditTactics;
         }
+        
 
-        private void teamDataEditor2_ChangedData(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void teamDataEditor1_ChangedData(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private FormStatusEnum old_code = 0;
+        private FormShowStatusCode old_code = 0;
         //public void ShowStatus(String msg, int code)
-        public void ShowStatus(String msg, FormStatusEnum code)
+        public void ShowStatus(String msg, FormShowStatusCode code)
         {
             sync.Execute(() =>
             {
@@ -52,11 +43,11 @@ namespace Uniso.InStat.Gui.Forms
                 {
                     switch (code)
                     {
-                        case FormStatusEnum.Normal:
+                        case FormShowStatusCode.Normal:
                             toolStripStatusLabel1.BackColor = SystemColors.Control;
                             toolStripStatusLabel1.ForeColor = Color.Black;
                             break;
-                        case FormStatusEnum.Error:
+                        case FormShowStatusCode.Error:
                             toolStripStatusLabel1.BackColor = Color.Red;
                             toolStripStatusLabel1.ForeColor = Color.White;
                             break;
@@ -102,11 +93,14 @@ namespace Uniso.InStat.Gui.Forms
                     textBox3.Enabled = !loading;
 
                     button1.Enabled = game != null && game.Match != null && hockeyField1.IsTacticsStartValid && !loading;
-                    checkBox1.Enabled = game != null && game.Match != null && !loading;
-                    checkBox2.Enabled = game != null && game.Match != null && !loading;
 
-                    comboBox1.Enabled = game != null && game.Match != null && !loading;
-                    comboBox2.Enabled = game != null && game.Match != null && !loading;
+                    var controlsEnabled = game != null && game.Match != null && !loading;
+
+                    checkBox1.Enabled = controlsEnabled;
+                    checkBox2.Enabled = controlsEnabled;
+
+                    comboBox1.Enabled = controlsEnabled;
+                    comboBox2.Enabled = controlsEnabled;
                 });
         }
 
@@ -171,7 +165,7 @@ namespace Uniso.InStat.Gui.Forms
                     }
                     catch (Exception ex)
                     {
-                        ShowStatus(ex.Message, FormStatusEnum.Error);
+                        ShowStatus(ex.Message, FormShowStatusCode.Error);
                         Log.WriteException(ex);
                     }
                     finally
@@ -379,7 +373,7 @@ namespace Uniso.InStat.Gui.Forms
                     catch (TeamMarkerException ex)
                     {
                         mk.FlagDel = true;
-                        ShowStatus(ex.Message, FormStatusEnum.Error);
+                        ShowStatus(ex.Message, FormShowStatusCode.Error);
                         Thread.Sleep(100);
                         continue;
                     }
@@ -555,7 +549,7 @@ namespace Uniso.InStat.Gui.Forms
                         }
                     }
 
-                    ShowStatus(String.Format("Ошибочно указаны некоторые игроки. Эти маркеры {0} помечены на удаление.", errmks), FormStatusEnum.Error);
+                    ShowStatus(String.Format("Ошибочно указаны некоторые игроки. Эти маркеры {0} помечены на удаление.", errmks), FormShowStatusCode.Error);
                 }
                 else
                 {
@@ -569,7 +563,7 @@ namespace Uniso.InStat.Gui.Forms
             catch (Exception ex)
             {
                 game = null;
-                ShowStatus(ex.Message, FormStatusEnum.Error);
+                ShowStatus(ex.Message, FormShowStatusCode.Error);
                 HockeyGui.InvalidateRect();
             }
             finally
@@ -626,11 +620,6 @@ namespace Uniso.InStat.Gui.Forms
             match_id = 0;
             Int32.TryParse(textBox3.Text, out match_id);
             UpdateUI();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void hockeyField1_ChangedPlace_1(object sender, HockeyGui.ChangedPlaceEventArgs e)

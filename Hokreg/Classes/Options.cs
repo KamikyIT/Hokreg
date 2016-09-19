@@ -252,7 +252,9 @@ namespace Uniso.InStat.Classes
         public static Options Load()
         {
             if (!File.Exists(optionsFileName))
-                return new Options();
+            {
+                return null;
+            }
 
             using (Stream serializationStream = new FileStream(optionsFileName, FileMode.Open, FileAccess.Read))
             {

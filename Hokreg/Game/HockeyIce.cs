@@ -22,6 +22,7 @@ namespace Uniso.InStat.Game
         public enum GameTypeEnum
         { 
             Euro,
+            // ReSharper disable once InconsistentNaming
             NHL,
         }
 

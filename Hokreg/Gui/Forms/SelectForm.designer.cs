@@ -31,7 +31,7 @@ namespace Uniso.InStat.Gui.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectForm));
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -53,7 +53,7 @@ namespace Uniso.InStat.Gui.Forms
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.hockeyField1 = new HockeyField();
+            this.hockeyField1 = new Uniso.InStat.Gui.Controls.HockeyField();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -308,7 +308,7 @@ namespace Uniso.InStat.Gui.Forms
             this.hockeyField1.Size = new System.Drawing.Size(769, 240);
             this.hockeyField1.TabIndex = 25;
             this.hockeyField1.ChangedPlayers += new System.EventHandler(this.hockeyField1_ChangedPlayers);
-            this.hockeyField1.ChangedPlace += new HockeyGui.ChangedPlaceEventHandler(this.hockeyField1_ChangedPlace_1);
+            this.hockeyField1.ChangedPlace += new Uniso.InStat.Gui.Controls.HockeyGui.ChangedPlaceEventHandler(this.hockeyField1_ChangedPlace_1);
             // 
             // panel1
             // 

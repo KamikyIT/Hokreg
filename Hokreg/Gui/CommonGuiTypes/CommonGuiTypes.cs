@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Uniso.InStat.Gui.CommonGuiTypes
 {
-    public enum FormStatusEnum
+    public enum FormShowStatusCode
     {
         Normal = 0,
         Error = 1,
