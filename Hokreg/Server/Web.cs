@@ -380,7 +380,6 @@ namespace Uniso.InStat.Server
             var req = Request(HOCK_PRE, "lst_c_uniform_type", new Dictionary<string, object>(), new Dictionary<string, object>(), out rqst);
             
             var objlist = (Object[])req["data"];
-            var res = new List<Marker>();
 
             TeamColors.KindList = new Dictionary<int, string>();
             foreach (Dictionary<string, object> u in objlist)

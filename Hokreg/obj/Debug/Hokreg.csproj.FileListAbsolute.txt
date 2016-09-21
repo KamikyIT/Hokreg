@@ -62,7 +62,6 @@ C:\Hokreg\Hokreg\obj\Debug\hokreg.exe
 C:\Hokreg\Hokreg\obj\Debug\hokreg.pdb
 C:\Hokreg\release\hokreg.exe
 C:\Hokreg\release\hokreg.pdb
-C:\Hokreg\Hokreg\obj\Debug\Hokreg.csprojResolveAssemblyReference.cache
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Properties.Resources.resources
 C:\Hokreg\Hokreg\obj\Debug\Hokreg.csproj.GenerateResource.Cache
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.CheckForm.resources
@@ -88,3 +87,6 @@ C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.SelectOvertimeForm.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.ViolationForm.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Controls.SpareField.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.PlayerTypes.StreamPlayer.resources
+C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Controls.TacticsHockeyField.resources
+C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.MySelectForm.resources
+C:\Hokreg\Hokreg\obj\Debug\Hokreg.csprojResolveAssemblyReference.cache

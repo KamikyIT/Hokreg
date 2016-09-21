@@ -132,6 +132,12 @@
     <Compile Include="Gui\Controls\ButtonEx.designer.cs">
       <DependentUpon>ButtonEx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Controls\TacticsHockeyField.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\Controls\TacticsHockeyField.Designer.cs">
+      <DependentUpon>TacticsHockeyField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Forms\CheckForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,12 @@
     </Compile>
     <Compile Include="Gui\Forms\MarkerEditForm.designer.cs">
       <DependentUpon>MarkerEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Forms\MySelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Forms\MySelectForm.Designer.cs">
+      <DependentUpon>MySelectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\Forms\OptionsForm.cs">
       <SubType>Form</SubType>
@@ -293,6 +305,9 @@
     <Compile Include="Gui\Forms\ViolationForm.Designer.cs">
       <DependentUpon>ViolationForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Gui\Controls\TacticsHockeyField.resx">
+      <DependentUpon>TacticsHockeyField.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\Forms\CheckForm.resx">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Forms\MarkerEditForm.resx">
       <DependentUpon>MarkerEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Forms\MySelectForm.resx">
+      <DependentUpon>MySelectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Forms\OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>

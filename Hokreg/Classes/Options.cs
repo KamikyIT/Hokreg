@@ -214,6 +214,7 @@ namespace Uniso.InStat.Classes
                 if (_optionsFileName == string.Empty)
                 {
                     var fi = new FileInfo(Application.ExecutablePath);
+                    // TODO: Перепилить Path.
                     _optionsFileName = fi.Directory + options_data_file;
                 }
                 return _optionsFileName;

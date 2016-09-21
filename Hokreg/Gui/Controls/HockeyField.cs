@@ -377,11 +377,13 @@ namespace Uniso.InStat.Gui.Controls
 
             return new RectangleF((Width - dw) / 2.0f, dv / 2, dw, dh);
         }
-        
+
+        // TODO: 9	Тактическая схема	Указывать точку на тактической расстановке, обозначающую координаты последнего зарегистрированного маркера "Х"	Не выполнено
         private void DoPaint(object sender, PaintEventArgs e)
         {
             try
             {
+                
                 gdi.BeforePaint();
 
                 if (Game == null)
@@ -912,6 +914,7 @@ namespace Uniso.InStat.Gui.Controls
             }
         }
 
+        // TODO: 9	Тактическая схема	Координату точки определять в if-е, потом сохранять.
         private void HockeyField_MouseUp(object sender, MouseEventArgs e)
         {
             if (HockeyGui.Mode == HockeyGui.ModeEnum.EditTactics)
@@ -919,44 +922,6 @@ namespace Uniso.InStat.Gui.Controls
 
             if (Game.Match == null)
                 return;
-
-            /*if (e.Button == System.Windows.Forms.MouseButtons.Left && HockeyGui.Mode == HockeyGui.ModeEnum.SelectManyPlayers)
-            {
-                if (omPlace != null && omTactics != null && omTeam != null && omPlace.Player != null && HockeyGui.Marker != null)
-                {
-                    if (HockeyGui.selectedManyPlayers.Contains(omPlace.Player))
-                    {
-                        HockeyGui.selectedManyPlayers.Remove(omPlace.Player);
-                    }
-                    else
-                    {
-                        if (HockeyGui.Marker.ActionId == 12)
-                        {
-                            if (omPlace.Player.IsGk)
-                                return;
-
-                            //Определяем команды атака - оборона
-                            if (HockeyGui.selectedManyPlayers.Count == 0)
-                            {
-                                HockeyGui.Marker.Team1 = omPlace.Player.Team;
-                                HockeyGui.Marker.Team2 = Game.Match.Opponent(omPlace.Player.Team);
-                            }
-
-                            int count = HockeyGui.selectedManyPlayers.Count(o => o.Team == omPlace.Player.Team);
-
-                            //Если в команде больше 3 игроков - отмена
-                            if (HockeyGui.Marker.Team1 == omPlace.Player.Team && count >= 3)
-                                return;
-
-                            if (HockeyGui.Marker.Team2 == omPlace.Player.Team && count >= 3)
-                                return;
-                        }
-
-                        HockeyGui.selectedManyPlayers.Add(omPlace.Player);
-                    }
-                    HockeyGui.InvalidateRect();
-                }
-            }*/
 
             if (e.Button == System.Windows.Forms.MouseButtons.Left && HockeyGui.Mode == HockeyGui.ModeEnum.View)
             {

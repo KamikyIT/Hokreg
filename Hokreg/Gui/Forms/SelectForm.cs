@@ -107,74 +107,73 @@ namespace Uniso.InStat.Gui.Forms
         private void DoBeginWork()
         {
             var t = new Thread(() =>
+            {
+                try
                 {
-                    try
+                    for (var i = 0; i < 3; i++)
+                        game.HalfList[i].Periods[0].Length = Options.G.Game_LengthPrimaryHalf*60000;
+
+                    foreach (Game.Marker mk in game.Markers)
+                        mk.row = null;
+
+                    if (changed_colors)
                     {
-                        for (var i = 0; i < 3; i++)
-                            game.HalfList[i].Periods[0].Length = Options.G.Game_LengthPrimaryHalf * 60000;
+                        ShowStatus("Сохранение вариантов формы...", 0);
+                        Web.SaveMatchColors(game.Match);
+                    }
 
-                        foreach (Game.Marker mk in game.Markers)
-                            mk.row = null;
+                    ShowStatus("Запуск...", 0);
 
-                        if (changed_colors)
+                    if (changeTeam1)
+                        PrepareTactics(game.Match.Team1);
+
+                    if (changeTeam2)
+                        PrepareTactics(game.Match.Team2);
+
+                    if (changeTeam1 || changeTeam2)
+                        MarkerList.SaveToFile(game.Match.Id, game.Markers);
+
+                    game.Match.Team1.FinePlaces.Clear();
+                    game.Match.Team1.FinePlayers.Clear();
+
+                    game.Match.Team2.FinePlaces.Clear();
+                    game.Match.Team2.FinePlayers.Clear();
+
+                    ShowStatus(String.Empty, 0);
+
+                    sync.Execute(() =>
+                    {
+                        WindowVisible(false);
+
+                        if (HockeyIce.Role != HockeyIce.RoleEnum.Online)
                         {
-                            ShowStatus("Сохранение вариантов формы...", 0);
-                            Web.SaveMatchColors(game.Match);
+                            var form = new MainForm(game);
+                            form.Game = game;
+                            form.ShowDialog();
+                        }
+                        else
+                        {
+                            var form = new OnlinerForm(game);
+                            form.ShowDialog();
                         }
 
-                        ShowStatus("Запуск...", 0);
-                        
-                        if (changeTeam1)
-                            PrepareTactics(game.Match.Team1);
-                        
-                        if (changeTeam2)
-                            PrepareTactics(game.Match.Team2);
+                        checkBox1.Checked = false;
+                        checkBox2.Checked = false;
 
-                        if (changeTeam1 || changeTeam2)
-                            MarkerList.SaveToFile(game.Match.Id, game.Markers);
-
-                        game.Match.Team1.FinePlaces.Clear();
-                        game.Match.Team1.FinePlayers.Clear();
-
-                        game.Match.Team2.FinePlaces.Clear();
-                        game.Match.Team2.FinePlayers.Clear();
-
-                        ShowStatus(String.Empty, 0);
-
-                        sync.Execute(() =>
-                        {
-                            WindowVisible(false);
-
-                            if (HockeyIce.Role != HockeyIce.RoleEnum.Online)
-                            {
-                                var form = new MainForm(game);
-                                form.Game = game;
-                                form.ShowDialog();
-                            }
-                            else
-                            {
-                                var form = new OnlinerForm(game);
-                                form.ShowDialog();
-                            }
-
-                            checkBox1.Checked = false;
-                            checkBox2.Checked = false;
-
-                            WindowVisible(true);
-                        });
-                    }
-                    catch (Exception ex)
-                    {
-                        ShowStatus(ex.Message, FormShowStatusCode.Error);
-                        Log.WriteException(ex);
-                    }
-                    finally
-                    {
-                        loading = false;
-                        UpdateUI();
-                    }
-                });
-            t.IsBackground = true;
+                        WindowVisible(true);
+                    });
+                }
+                catch (Exception ex)
+                {
+                    ShowStatus(ex.Message, FormShowStatusCode.Error);
+                    Log.WriteException(ex);
+                }
+                finally
+                {
+                    loading = false;
+                    UpdateUI();
+                }
+            }) {IsBackground = true};
             t.Start();
         }
 

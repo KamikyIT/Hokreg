@@ -960,13 +960,6 @@ namespace Uniso.InStat.Game
                     .First(o => o.ActionId == 14 && o.Player1 != null && o.Player1.Id == player.Id);
         }
 
-        private class Diap
-        {
-            public int Time1 { get; set; }
-            public int Time2 { get; set; }
-            public Marker Mk { get; set; }
-            public bool NoBlockedPlace { get; set; }
-        }
 
         public Tactics GetTactics(Uniso.InStat.Team tm, Half half, int ms, out List<Uniso.InStat.Marker> finePlayers, out List<Place> finePlaces)
         {
@@ -1992,34 +1985,7 @@ namespace Uniso.InStat.Game
                 TimeVideo = video_second
             };
         }
-
         
-
-        /*public override Half InsertNewOvertime(int index)
-        {
-            if (HalfList.Any(o => o.Index == index))
-                return HalfList.First(o => o.Index == index);
-
-            Half half = new Half(
-                    new List<Period> { new Period { Index = 4, Length = 20 * 60000 } })
-                {
-                    Index = 4 + index,
-                    ActionType = 5,
-                    Name = "Overtime " + (index + 1),
-                    MaxPlayersNum = 6,
-                    MinPlayersNum = 4,
-                };
-
-            if (half != null)
-            {
-                List<Half> ami = new List<InStat.Half>(HalfList);
-                ami.Add(half);
-                HalfList.Clear();
-                HalfList.AddRange(ami.OrderBy(o => o.Index));
-            }
-
-            return half;
-        }*/
 
         public override void Remove(InStat.Marker mk)
         {
