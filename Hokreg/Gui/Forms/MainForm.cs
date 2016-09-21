@@ -2959,6 +2959,8 @@ namespace Uniso.InStat.Gui.Forms
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
             vlcStreamPlayer1.Volume = trackBar2.Value;
+
+            label27.Text = string.Format("{0} - {1}", trackBar2.Value, vlcStreamPlayer1.Volume);
         }
 
         private int old_code = 0;
