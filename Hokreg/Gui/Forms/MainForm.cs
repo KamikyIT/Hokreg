@@ -45,6 +45,7 @@ namespace Uniso.InStat.Gui.Forms
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ГОЛЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(8)) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ГОЛЫ+БРОСКИ", Rule = new Func<Game.Marker, bool>(o => o.Compare(new int[] { 4, 8 })) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "СИЛОВЫЕ ПРИЕМЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(6, 1)) });
+            // TODO: Переименовать в ПЕРЕДАЧА
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ЗАМЕНЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(new int[] { 14, 16 })) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ВСЕ КРОМЕ ЗАМЕН", Rule = new Func<Game.Marker, bool>(o => !o.Compare(new int[] { 14, 16 })) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "СИЛОВЫЕ ПРИЕМЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(6, 1)) });
@@ -2132,14 +2133,6 @@ namespace Uniso.InStat.Gui.Forms
             ReloadDataGridView();
         }
 
-        private class Diap
-        {
-            public int Time1 { get; set; }
-            public int Time2 { get; set; }
-            public Marker Mk { get; set; }
-            public bool NoBlockedPlace { get; set; }
-        }
-
         private void UpdateTactics()
         {
             if (lockUpdateTactics)
@@ -4038,7 +4031,8 @@ namespace Uniso.InStat.Gui.Forms
 
             if (e.KeyData == Options.G.Hotkey_RegisterBeginNoFix)
             {
-                if (Game.editMarker != null)
+                if (Game.editMarker.G != null)
+                //if (Game.editMarker == null)
                 {
                     RegisterCancel();
                 }
@@ -4051,13 +4045,14 @@ namespace Uniso.InStat.Gui.Forms
 
             if (e.KeyData == Options.G.Hotkey_RegisterBeginFix)
             {
-                if (Game.editMarker != null)
+                //if (Game.editMarker == null)
+                if (Game.editMarker.G != null)
                 {
                     RegisterCancel();
                 }
                 else
                 {
-                    fixedTime = Second;// Game.Time;
+                    fixedTime = Second; // Game.Time;
                     RegisterBegin(0, 0);
                 }
                 return;
