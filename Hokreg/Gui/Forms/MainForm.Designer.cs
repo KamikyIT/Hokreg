@@ -46,6 +46,20 @@ namespace Uniso.InStat.Gui.Forms
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel12 = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.linkLabel13 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel14 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -98,20 +112,6 @@ namespace Uniso.InStat.Gui.Forms
             this.linkLabel10 = new System.Windows.Forms.LinkLabel();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.linkLabel13 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel14 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.trackBar3 = new System.Windows.Forms.TrackBar();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.hockeyField1 = new Uniso.InStat.Gui.Controls.HockeyField();
             this.comboBox10 = new Uniso.InStat.ComboBoxEx();
             this.button19 = new Uniso.InStat.Gui.Controls.ButtonEx();
@@ -182,6 +182,10 @@ namespace Uniso.InStat.Gui.Forms
             this.button400600 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -201,10 +205,6 @@ namespace Uniso.InStat.Gui.Forms
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -365,6 +365,182 @@ namespace Uniso.InStat.Gui.Forms
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(830, 563);
             this.panel2.TabIndex = 18;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel5.Controls.Add(this.label27);
+            this.panel5.Controls.Add(this.comboBox10);
+            this.panel5.Controls.Add(this.button19);
+            this.panel5.Controls.Add(this.checkBox2);
+            this.panel5.Controls.Add(this.linkLabel13);
+            this.panel5.Controls.Add(this.linkLabel14);
+            this.panel5.Controls.Add(this.linkLabel2);
+            this.panel5.Controls.Add(this.linkLabel1);
+            this.panel5.Controls.Add(this.flowLayoutPanel1);
+            this.panel5.Controls.Add(this.buttonOpen);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.trackBar3);
+            this.panel5.Controls.Add(this.trackBar2);
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Location = new System.Drawing.Point(7, 16);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(815, 119);
+            this.panel5.TabIndex = 15;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(167, 97);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(41, 13);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "label27";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.checkBox2.Location = new System.Drawing.Point(345, 21);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(166, 16);
+            this.checkBox2.TabIndex = 19;
+            this.checkBox2.Text = "Останавливать видео на бросках";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // linkLabel13
+            // 
+            this.linkLabel13.AutoSize = true;
+            this.linkLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.linkLabel13.Location = new System.Drawing.Point(683, 65);
+            this.linkLabel13.Name = "linkLabel13";
+            this.linkLabel13.Size = new System.Drawing.Size(98, 12);
+            this.linkLabel13.TabIndex = 16;
+            this.linkLabel13.TabStop = true;
+            this.linkLabel13.Text = "СДВИНУТЬ ТАЙМЕР";
+            this.linkLabel13.Visible = false;
+            this.linkLabel13.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel13_LinkClicked);
+            // 
+            // linkLabel14
+            // 
+            this.linkLabel14.AutoSize = true;
+            this.linkLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.linkLabel14.Location = new System.Drawing.Point(559, 65);
+            this.linkLabel14.Name = "linkLabel14";
+            this.linkLabel14.Size = new System.Drawing.Size(118, 12);
+            this.linkLabel14.TabIndex = 16;
+            this.linkLabel14.TabStop = true;
+            this.linkLabel14.Text = "ПЕРВОЕ ВБРАСЫВАНИЕ";
+            this.linkLabel14.Visible = false;
+            this.linkLabel14.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel14_LinkClicked_1);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.linkLabel2.Location = new System.Drawing.Point(386, 65);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(164, 12);
+            this.linkLabel2.TabIndex = 14;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "ПОМЕНЯТЬ КОМАНДЫ МЕСТАМИ";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked_1);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.linkLabel1.Location = new System.Drawing.Point(316, 65);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(64, 12);
+            this.linkLabel1.TabIndex = 14;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "НАСТРОЙКИ";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.linkLabel3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(92, 14);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(247, 41);
+            this.flowLayoutPanel1.TabIndex = 13;
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.linkLabel3.ForeColor = System.Drawing.Color.White;
+            this.linkLabel3.LinkColor = System.Drawing.Color.White;
+            this.linkLabel3.Location = new System.Drawing.Point(3, 0);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(46, 12);
+            this.linkLabel3.TabIndex = 0;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "linkLabel3";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.label6.Location = new System.Drawing.Point(132, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(23, 12);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "x1.0";
+            // 
+            // trackBar3
+            // 
+            this.trackBar3.AutoSize = false;
+            this.trackBar3.LargeChange = 1;
+            this.trackBar3.Location = new System.Drawing.Point(34, 60);
+            this.trackBar3.Maximum = 30;
+            this.trackBar3.Minimum = 1;
+            this.trackBar3.Name = "trackBar3";
+            this.trackBar3.Size = new System.Drawing.Size(101, 33);
+            this.trackBar3.TabIndex = 3;
+            this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar3.Value = 10;
+            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
+            // 
+            // trackBar2
+            // 
+            this.trackBar2.AutoSize = false;
+            this.trackBar2.Location = new System.Drawing.Point(195, 61);
+            this.trackBar2.Maximum = 0;
+            this.trackBar2.Minimum = -4000;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(101, 33);
+            this.trackBar2.TabIndex = 3;
+            this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar2.Value = -200;
+            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.label10.Location = new System.Drawing.Point(168, 65);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(27, 12);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "VOL.";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.label9.Location = new System.Drawing.Point(7, 65);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(30, 12);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "RATE";
             // 
             // groupBox4
             // 
@@ -1044,182 +1220,6 @@ namespace Uniso.InStat.Gui.Forms
             this.timer3.Enabled = true;
             this.timer3.Interval = 200;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // panel5
-            // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel5.Controls.Add(this.label27);
-            this.panel5.Controls.Add(this.comboBox10);
-            this.panel5.Controls.Add(this.button19);
-            this.panel5.Controls.Add(this.checkBox2);
-            this.panel5.Controls.Add(this.linkLabel13);
-            this.panel5.Controls.Add(this.linkLabel14);
-            this.panel5.Controls.Add(this.linkLabel2);
-            this.panel5.Controls.Add(this.linkLabel1);
-            this.panel5.Controls.Add(this.flowLayoutPanel1);
-            this.panel5.Controls.Add(this.buttonOpen);
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.trackBar3);
-            this.panel5.Controls.Add(this.trackBar2);
-            this.panel5.Controls.Add(this.label10);
-            this.panel5.Controls.Add(this.label9);
-            this.panel5.Location = new System.Drawing.Point(7, 16);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(815, 119);
-            this.panel5.TabIndex = 15;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(167, 97);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(41, 13);
-            this.label27.TabIndex = 22;
-            this.label27.Text = "label27";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.checkBox2.Location = new System.Drawing.Point(345, 21);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(166, 16);
-            this.checkBox2.TabIndex = 19;
-            this.checkBox2.Text = "Останавливать видео на бросках";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // linkLabel13
-            // 
-            this.linkLabel13.AutoSize = true;
-            this.linkLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.linkLabel13.Location = new System.Drawing.Point(683, 65);
-            this.linkLabel13.Name = "linkLabel13";
-            this.linkLabel13.Size = new System.Drawing.Size(98, 12);
-            this.linkLabel13.TabIndex = 16;
-            this.linkLabel13.TabStop = true;
-            this.linkLabel13.Text = "СДВИНУТЬ ТАЙМЕР";
-            this.linkLabel13.Visible = false;
-            this.linkLabel13.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel13_LinkClicked);
-            // 
-            // linkLabel14
-            // 
-            this.linkLabel14.AutoSize = true;
-            this.linkLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.linkLabel14.Location = new System.Drawing.Point(559, 65);
-            this.linkLabel14.Name = "linkLabel14";
-            this.linkLabel14.Size = new System.Drawing.Size(118, 12);
-            this.linkLabel14.TabIndex = 16;
-            this.linkLabel14.TabStop = true;
-            this.linkLabel14.Text = "ПЕРВОЕ ВБРАСЫВАНИЕ";
-            this.linkLabel14.Visible = false;
-            this.linkLabel14.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel14_LinkClicked_1);
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.linkLabel2.Location = new System.Drawing.Point(386, 65);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(164, 12);
-            this.linkLabel2.TabIndex = 14;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "ПОМЕНЯТЬ КОМАНДЫ МЕСТАМИ";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked_1);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.linkLabel1.Location = new System.Drawing.Point(316, 65);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(64, 12);
-            this.linkLabel1.TabIndex = 14;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "НАСТРОЙКИ";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.linkLabel3);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(92, 14);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(247, 41);
-            this.flowLayoutPanel1.TabIndex = 13;
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.linkLabel3.ForeColor = System.Drawing.Color.White;
-            this.linkLabel3.LinkColor = System.Drawing.Color.White;
-            this.linkLabel3.Location = new System.Drawing.Point(3, 0);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(46, 12);
-            this.linkLabel3.TabIndex = 0;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "linkLabel3";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.label6.Location = new System.Drawing.Point(132, 65);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 12);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "x1.0";
-            // 
-            // trackBar3
-            // 
-            this.trackBar3.AutoSize = false;
-            this.trackBar3.LargeChange = 1;
-            this.trackBar3.Location = new System.Drawing.Point(34, 60);
-            this.trackBar3.Maximum = 30;
-            this.trackBar3.Minimum = 1;
-            this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(101, 33);
-            this.trackBar3.TabIndex = 3;
-            this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar3.Value = 10;
-            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
-            // 
-            // trackBar2
-            // 
-            this.trackBar2.AutoSize = false;
-            this.trackBar2.Location = new System.Drawing.Point(195, 61);
-            this.trackBar2.Maximum = 0;
-            this.trackBar2.Minimum = -4000;
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(101, 33);
-            this.trackBar2.TabIndex = 3;
-            this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar2.Value = -200;
-            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.label10.Location = new System.Drawing.Point(168, 65);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(27, 12);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "VOL.";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.label9.Location = new System.Drawing.Point(7, 65);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 12);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "RATE";
             // 
             // hockeyField1
             // 
@@ -2108,6 +2108,12 @@ namespace Uniso.InStat.Gui.Forms
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -2135,12 +2141,6 @@ namespace Uniso.InStat.Gui.Forms
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

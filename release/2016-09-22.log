@@ -1,0 +1,113 @@
+14:31:50   00:12.3
+14:31:50   Update checking
+14:31:50   CURR VERSION: 0.1.6043.22620
+14:31:50   VERSION: 0.1.6108.30355
+14:39:47   00:12.3
+14:39:47   Update checking
+14:39:47   CURR VERSION: 0.1.6043.22620
+14:39:47   VERSION: 0.1.6109.26335
+14:40:23   INSERT NEW [ID=0] 16-121-0 Period 1 T=00:00.0/00:00.0 P1=[31] Riku Helenius [GK] Йокерит (42) Йокерит P2=  U=1012
+14:40:23   INSERT NEW 2[ID=0] 16-121-0 Period 1 T=00:00.0/00:00.0 P1=[31] Riku Helenius [GK] Йокерит (42) Йокерит P2=  U=1012
+14:40:23   INSERT NEW 3 RECALC MARKER
+14:40:24   INSERT NEW [ID=0] 16-112-0 Period 1 T=00:00.0/00:00.0 P1=[28] Jani Rita Йокерит (31) Йокерит P2=  U=1012
+14:40:24   INSERT NEW 2[ID=0] 16-112-0 Period 1 T=00:00.0/00:00.0 P1=[28] Jani Rita Йокерит (31) Йокерит P2=  U=1012
+14:40:24   INSERT NEW 3 RECALC MARKER
+14:40:24   INSERT NEW [ID=0] 16-132-0 Period 1 T=00:00.0/00:00.0 P1=[32] Arturs  Kulda Йокерит (5036) Йокерит P2=  U=1012
+14:40:24   INSERT NEW 2[ID=0] 16-132-0 Period 1 T=00:00.0/00:00.0 P1=[32] Arturs  Kulda Йокерит (5036) Йокерит P2=  U=1012
+14:40:24   INSERT NEW 3 RECALC MARKER
+14:40:25   INSERT NEW [ID=0] 16-113-0 Period 1 T=00:00.0/00:00.0 P1=[12] Steve Moses Йокерит (27) Йокерит P2=  U=1012
+14:40:25   INSERT NEW 2[ID=0] 16-113-0 Period 1 T=00:00.0/00:00.0 P1=[12] Steve Moses Йокерит (27) Йокерит P2=  U=1012
+14:40:25   INSERT NEW 3 RECALC MARKER
+14:40:25   INSERT NEW [ID=0] 16-123-0 Period 1 T=00:00.0/00:00.0 P1=[2] Rasmus Rissanen Йокерит (5040) Йокерит P2=  U=1012
+14:40:25   INSERT NEW 2[ID=0] 16-123-0 Period 1 T=00:00.0/00:00.0 P1=[2] Rasmus Rissanen Йокерит (5040) Йокерит P2=  U=1012
+14:40:25   INSERT NEW 3 RECALC MARKER
+14:40:25   INSERT NEW [ID=0] 16-133-0 Period 1 T=00:00.0/00:00.0 P1=[21] Brian  O'Neill Йокерит (5049) Йокерит P2=  U=1012
+14:40:25   INSERT NEW 2[ID=0] 16-133-0 Period 1 T=00:00.0/00:00.0 P1=[21] Brian  O'Neill Йокерит (5049) Йокерит P2=  U=1012
+14:40:25   INSERT NEW 3 RECALC MARKER
+14:40:25   INSERT NEW [ID=0] 16-121-0 Period 1 T=00:00.0/00:00.0 P1=[30] Viktor Fasth [GK] ЦСКА Москва (1358) ЦСКА Москва P2=  U=1012
+14:40:25   INSERT NEW 2[ID=0] 16-121-0 Period 1 T=00:00.0/00:00.0 P1=[30] Viktor Fasth [GK] ЦСКА Москва (1358) ЦСКА Москва P2=  U=1012
+14:40:25   INSERT NEW 3 RECALC MARKER
+14:40:25   INSERT NEW [ID=0] 16-112-0 Period 1 T=00:00.0/00:00.0 P1=[55] Bogdan Kiselevich ЦСКА Москва (173) ЦСКА Москва P2=  U=1012
+14:40:25   INSERT NEW 2[ID=0] 16-112-0 Period 1 T=00:00.0/00:00.0 P1=[55] Bogdan Kiselevich ЦСКА Москва (173) ЦСКА Москва P2=  U=1012
+14:40:25   INSERT NEW 3 RECALC MARKER
+14:40:26   INSERT NEW [ID=0] 16-132-0 Period 1 T=00:00.0/00:00.0 P1=[51] Antti Pilstrom ЦСКА Москва (1364) ЦСКА Москва P2=  U=1012
+14:40:26   INSERT NEW 2[ID=0] 16-132-0 Period 1 T=00:00.0/00:00.0 P1=[51] Antti Pilstrom ЦСКА Москва (1364) ЦСКА Москва P2=  U=1012
+14:40:26   INSERT NEW 3 RECALC MARKER
+14:40:26   INSERT NEW [ID=0] 16-113-0 Period 1 T=00:00.0/00:00.0 P1=[41] Greg Scott ЦСКА Москва (4613) ЦСКА Москва P2=  U=1012
+14:40:26   INSERT NEW 2[ID=0] 16-113-0 Period 1 T=00:00.0/00:00.0 P1=[41] Greg Scott ЦСКА Москва (4613) ЦСКА Москва P2=  U=1012
+14:40:26   INSERT NEW 3 RECALC MARKER
+14:40:26   INSERT NEW [ID=0] 16-123-0 Period 1 T=00:00.0/00:00.0 P1=[36] Igor' Myasishev ЦСКА Москва (4611) ЦСКА Москва P2=  U=1012
+14:40:26   INSERT NEW 2[ID=0] 16-123-0 Period 1 T=00:00.0/00:00.0 P1=[36] Igor' Myasishev ЦСКА Москва (4611) ЦСКА Москва P2=  U=1012
+14:40:26   INSERT NEW 3 RECALC MARKER
+14:40:26   INSERT NEW [ID=0] 16-133-0 Period 1 T=00:00.0/00:00.0 P1=[27] Igor' Grigorenko ЦСКА Москва (10) ЦСКА Москва P2=  U=1012
+14:40:26   INSERT NEW 2[ID=0] 16-133-0 Period 1 T=00:00.0/00:00.0 P1=[27] Igor' Grigorenko ЦСКА Москва (10) ЦСКА Москва P2=  U=1012
+14:40:26   INSERT NEW 3 RECALC MARKER
+14:42:52   00:12.3
+14:42:52   Update checking
+14:42:52   CURR VERSION: 0.1.6043.22620
+14:42:53   VERSION: 0.1.6109.26485
+14:47:07   00:12.3
+14:47:07   Update checking
+14:47:07   CURR VERSION: 0.1.6043.22620
+14:47:07   VERSION: 0.1.6109.26612
+2:47:45 PM   Save QUERY=False
+14:47:45   Save BEGIN=325467165
+14:47:56   SAVED [ID=2363556] 18-1-0 Period 1 T=00:09.6/00:00.0 P1=  P2=  U=1012 num=325467165
+14:47:56   SAVED [ID=2363559] 1-1-0 Period 1 T=00:09.6/00:00.0 P1=[3] Daine Todd Йокерит (23) Йокерит P2=[27] Kirill Petrov ЦСКА Москва (1363) ЦСКА Москва U=1012 num=325467165
+14:47:57   SAVED [ID=2363557] 3-8-0 Period 1 T=20:08.3/19:58.6 P1=  P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363558] 16-121-0 Period 1 T=00:00.0/00:00.0 P1=[31] Riku Helenius [GK] Йокерит (42) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363560] 16-112-0 Period 1 T=00:00.0/00:00.0 P1=[28] Jani Rita Йокерит (31) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363561] 16-132-0 Period 1 T=00:00.0/00:00.0 P1=[32] Arturs  Kulda Йокерит (5036) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363562] 16-113-0 Period 1 T=00:00.0/00:00.0 P1=[12] Steve Moses Йокерит (27) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363564] 16-123-0 Period 1 T=00:00.0/00:00.0 P1=[2] Rasmus Rissanen Йокерит (5040) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363563] 16-133-0 Period 1 T=00:00.0/00:00.0 P1=[21] Brian  O'Neill Йокерит (5049) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363565] 16-121-0 Period 1 T=00:00.0/00:00.0 P1=[30] Viktor Fasth [GK] ЦСКА Москва (1358) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363566] 16-112-0 Period 1 T=00:00.0/00:00.0 P1=[55] Bogdan Kiselevich ЦСКА Москва (173) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363568] 16-132-0 Period 1 T=00:00.0/00:00.0 P1=[51] Antti Pilstrom ЦСКА Москва (1364) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363567] 16-113-0 Period 1 T=00:00.0/00:00.0 P1=[41] Greg Scott ЦСКА Москва (4613) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363570] 16-123-0 Period 1 T=00:00.0/00:00.0 P1=[36] Igor' Myasishev ЦСКА Москва (4611) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [ID=2363569] 16-133-0 Period 1 T=00:00.0/00:00.0 P1=[27] Igor' Grigorenko ЦСКА Москва (10) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353832] 14-13-0 Period 1 T=00:00.0/00:00.0 P1=[2] Rasmus Rissanen Йокерит (5040) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353833] 14-23-0 Period 1 T=00:00.0/00:00.0 P1=[3] Daine Todd Йокерит (23) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353834] 14-12-0 Period 1 T=00:00.0/00:00.0 P1=[6] Topi Jaakola Йокерит (25) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353835] 14-33-0 Period 1 T=00:00.0/00:00.0 P1=[4] Ossi Vaananen Йокерит (24) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353836] 14-21-0 Period 1 T=00:00.0/00:00.0 P1=[30] Ryan  Zapolski [GK] Йокерит (5033) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353837] 14-32-0 Period 1 T=00:00.0/00:00.0 P1=[7] Oliver  Lauridsen Йокерит (5038) Йокерит P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353838] 14-23-0 Period 1 T=00:00.0/00:00.0 P1=[27] Kirill Petrov ЦСКА Москва (1363) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353839] 14-33-0 Period 1 T=00:00.0/00:00.0 P1=[16] Geoff Platt ЦСКА Москва (1365) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353840] 14-32-0 Period 1 T=00:00.0/00:00.0 P1=[45] Aleksander Kutuzov ЦСКА Москва (186) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353841] 14-13-0 Period 1 T=00:00.0/00:00.0 P1=[78] Maxim Mamin ЦСКА Москва (19) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353842] 14-12-0 Period 1 T=00:00.0/00:00.0 P1=[47] Alexander Radulov ЦСКА Москва (13) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:57   SAVED [DEL] [ID=2353843] 14-21-0 Period 1 T=00:00.0/00:00.0 P1=[20] Maxim Tretyak [GK] ЦСКА Москва (1357) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   sync_ch=False
+14:47:58   =>RecalcActualTime
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353832] 14-13-0 Period 1 T=00:00.0/00:00.0 P1=[2] Rasmus Rissanen Йокерит (5040) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353833] 14-23-0 Period 1 T=00:00.0/00:00.0 P1=[3] Daine Todd Йокерит (23) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353834] 14-12-0 Period 1 T=00:00.0/00:00.0 P1=[6] Topi Jaakola Йокерит (25) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353835] 14-33-0 Period 1 T=00:00.0/00:00.0 P1=[4] Ossi Vaananen Йокерит (24) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353836] 14-21-0 Period 1 T=00:00.0/00:00.0 P1=[30] Ryan  Zapolski [GK] Йокерит (5033) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353837] 14-32-0 Period 1 T=00:00.0/00:00.0 P1=[7] Oliver  Lauridsen Йокерит (5038) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353838] 14-23-0 Period 1 T=00:00.0/00:00.0 P1=[27] Kirill Petrov ЦСКА Москва (1363) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353839] 14-33-0 Period 1 T=00:00.0/00:00.0 P1=[16] Geoff Platt ЦСКА Москва (1365) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353840] 14-32-0 Period 1 T=00:00.0/00:00.0 P1=[45] Aleksander Kutuzov ЦСКА Москва (186) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353841] 14-13-0 Period 1 T=00:00.0/00:00.0 P1=[78] Maxim Mamin ЦСКА Москва (19) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353842] 14-12-0 Period 1 T=00:00.0/00:00.0 P1=[47] Alexander Radulov ЦСКА Москва (13) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   REMOVE MARKER LOCAL [DEL] [ID=2353843] 14-21-0 Period 1 T=00:00.0/00:00.0 P1=[20] Maxim Tretyak [GK] ЦСКА Москва (1357) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   =>sync_ch => mk.FlagGuiUpdate num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353833] 14-23-0 Period 1 T=00:00.0/00:00.0 P1=[3] Daine Todd Йокерит (23) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353834] 14-12-0 Period 1 T=00:00.0/00:00.0 P1=[6] Topi Jaakola Йокерит (25) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353832] 14-13-0 Period 1 T=00:00.0/00:00.0 P1=[2] Rasmus Rissanen Йокерит (5040) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353836] 14-21-0 Period 1 T=00:00.0/00:00.0 P1=[30] Ryan  Zapolski [GK] Йокерит (5033) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353835] 14-33-0 Period 1 T=00:00.0/00:00.0 P1=[4] Ossi Vaananen Йокерит (24) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353838] 14-23-0 Period 1 T=00:00.0/00:00.0 P1=[27] Kirill Petrov ЦСКА Москва (1363) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353837] 14-32-0 Period 1 T=00:00.0/00:00.0 P1=[7] Oliver  Lauridsen Йокерит (5038) Йокерит P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353840] 14-32-0 Period 1 T=00:00.0/00:00.0 P1=[45] Aleksander Kutuzov ЦСКА Москва (186) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353839] 14-33-0 Period 1 T=00:00.0/00:00.0 P1=[16] Geoff Platt ЦСКА Москва (1365) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353842] 14-12-0 Period 1 T=00:00.0/00:00.0 P1=[47] Alexander Radulov ЦСКА Москва (13) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353841] 14-13-0 Period 1 T=00:00.0/00:00.0 P1=[78] Maxim Mamin ЦСКА Москва (19) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   REMOVE FROM DB [DEL] [ID=2353843] 14-21-0 Period 1 T=00:00.0/00:00.0 P1=[20] Maxim Tretyak [GK] ЦСКА Москва (1357) ЦСКА Москва P2=  U=1012 num=325467165
+14:47:58   =>Game.SaveLocal num=325467165
+14:47:58   =>ReloadDataGridView 1 num=325467165
+14:47:58   =>ReloadDataGridView 2 num=325467165
+14:47:58   Save FIN=325467165
+14:47:58   Save END=325467165

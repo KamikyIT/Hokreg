@@ -146,6 +146,10 @@ namespace Uniso.InStat.Classes
         [TypeConverter(typeof(BoolConverter))]
         public bool IsStopPlayingOnShot { get; set; }
 
+        [Category("Видео")]
+        [DisplayName("4.Включить звук")]
+        [TypeConverter(typeof(BoolConverter))]
+        public bool PlaySound { get; set; }
         //--------------------------
 
         [Category("Сервер")]
@@ -214,8 +218,7 @@ namespace Uniso.InStat.Classes
                 if (_optionsFileName == string.Empty)
                 {
                     var fi = new FileInfo(Application.ExecutablePath);
-                    // TODO: Перепилить Path.
-                    _optionsFileName = fi.Directory + options_data_file;
+                    _optionsFileName  = Path.Combine(fi.DirectoryName, options_data_file);
                 }
                 return _optionsFileName;
             }

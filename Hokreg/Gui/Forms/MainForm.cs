@@ -31,6 +31,14 @@ namespace Uniso.InStat.Gui.Forms
             InitializeComponent();
             checkBox2.Checked = Options.G.IsStopPlayingOnShot;
 
+            if (Options.G.PlaySound == false)
+            {
+                trackBar2.Value = trackBar2.Minimum;
+
+                vlcStreamPlayer1.Volume = trackBar2.Value;
+            }
+            
+
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ВСЕ МАРКЕРЫ", Rule = new Func<Game.Marker, bool>(o => true) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ВБР+СТОП+ГОЛ", Rule = new Func<Game.Marker, bool>(o => o.Compare(1, 1) || o.Compare(3, 8) || o.Compare(8, 1)) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "БРОСКИ", Rule = new Func<Game.Marker, bool>(o => o.Compare(4)) });
