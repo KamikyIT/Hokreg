@@ -41,8 +41,8 @@ namespace Uniso.InStat.Gui.Forms
 
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ВСЕ МАРКЕРЫ", Rule = new Func<Game.Marker, bool>(o => true) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ВБР+СТОП+ГОЛ", Rule = new Func<Game.Marker, bool>(o => o.Compare(1, 1) || o.Compare(3, 8) || o.Compare(8, 1)) });
-            comboBoxEx1.Items.Add(new SelectedMarker { Name = "БРОСКИ", Rule = new Func<Game.Marker, bool>(o => o.Compare(4)) });
-            comboBoxEx1.Items.Add(new SelectedMarker { Name = "ГОЛЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(8)) });
+            comboBoxEx1.Items.Add(new SelectedMarker { Name = "БРОСКИ", Rule = new Func<Game.Marker, bool>(o => o.Compare(4, new int[] {1, 2, 3,})) });
+            comboBoxEx1.Items.Add(new SelectedMarker { Name = "ГОЛЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(8) || o.Compare(1, 2)) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ГОЛЫ+БРОСКИ", Rule = new Func<Game.Marker, bool>(o => o.Compare(new int[] { 4, 8 })) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "СИЛОВЫЕ ПРИЕМЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(6, 1)) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ЗАМЕНЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(new int[] { 14, 16 })) });
