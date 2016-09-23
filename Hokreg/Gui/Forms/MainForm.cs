@@ -48,7 +48,7 @@ namespace Uniso.InStat.Gui.Forms
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ЗАМЕНЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(new int[] { 14, 16 })) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ВСЕ КРОМЕ ЗАМЕН", Rule = new Func<Game.Marker, bool>(o => !o.Compare(new int[] { 14, 16 })) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "СИЛОВЫЕ ПРИЕМЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(6, 1)) });
-            comboBoxEx1.Items.Add(new SelectedMarker { Name = "ШТРАФЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(new int[] { 5, 9 }) || o.Compare(3, 1) || (o.Compare(14) && o.Player1 == null)) });
+            comboBoxEx1.Items.Add(new SelectedMarker { Name = "ШТРАФЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(3, 1) || o.Compare(5)) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ПЕРЕДАЧИ", Rule = new Func<Game.Marker, bool>(o => o.Compare(1, new int[] { 2, 3, 4, 5 })) });
         }
 
