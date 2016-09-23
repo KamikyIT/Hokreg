@@ -45,12 +45,11 @@ namespace Uniso.InStat.Gui.Forms
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ГОЛЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(8)) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ГОЛЫ+БРОСКИ", Rule = new Func<Game.Marker, bool>(o => o.Compare(new int[] { 4, 8 })) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "СИЛОВЫЕ ПРИЕМЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(6, 1)) });
-            // TODO: Переименовать в ПЕРЕДАЧА
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ЗАМЕНЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(new int[] { 14, 16 })) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ВСЕ КРОМЕ ЗАМЕН", Rule = new Func<Game.Marker, bool>(o => !o.Compare(new int[] { 14, 16 })) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "СИЛОВЫЕ ПРИЕМЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(6, 1)) });
             comboBoxEx1.Items.Add(new SelectedMarker { Name = "ШТРАФЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(new int[] { 5, 9 }) || o.Compare(3, 1) || (o.Compare(14) && o.Player1 == null)) });
-            comboBoxEx1.Items.Add(new SelectedMarker { Name = "ЗАМЕНЫ", Rule = new Func<Game.Marker, bool>(o => o.Compare(1, new int[] { 2, 3, 4, 5 })) });
+            comboBoxEx1.Items.Add(new SelectedMarker { Name = "ПЕРЕДАЧИ", Rule = new Func<Game.Marker, bool>(o => o.Compare(1, new int[] { 2, 3, 4, 5 })) });
         }
 
         public Half Half
@@ -4032,7 +4031,6 @@ namespace Uniso.InStat.Gui.Forms
             if (e.KeyData == Options.G.Hotkey_RegisterBeginNoFix)
             {
                 if (Game.editMarker.G != null)
-                //if (Game.editMarker == null)
                 {
                     RegisterCancel();
                 }
@@ -4045,7 +4043,6 @@ namespace Uniso.InStat.Gui.Forms
 
             if (e.KeyData == Options.G.Hotkey_RegisterBeginFix)
             {
-                //if (Game.editMarker == null)
                 if (Game.editMarker.G != null)
                 {
                     RegisterCancel();
