@@ -2684,7 +2684,9 @@ namespace Uniso.InStat.Gui.Forms
         }
 
         
-
+        /// <summary>
+        /// Отобразить контрол HockeyField для выбора в зависимости от режима.
+        /// </summary>
         private void RefreshHockeyField()
         { 
             if (HockeyIce.Role == HockeyIce.RoleEnum.AdvTtd)
@@ -2888,7 +2890,6 @@ namespace Uniso.InStat.Gui.Forms
             }
         }
 
-        private PointF lastClickPointF;
 
         private void hockeyField1_SelectedPoint(object sender, HockeyGui.SelectedPointEventArgs e)
         {
@@ -2898,7 +2899,7 @@ namespace Uniso.InStat.Gui.Forms
                 {
                     Game.editMarker.G.Point1 = e.Point;
 
-                    lastClickPointF = new PointF(e.Point.X, e.Point.Y);
+                    hockeyField1.SetLastClickPointF(e.Point);
 
                     ProcessingMarker(Game.editMarker.G);
                 }

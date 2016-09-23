@@ -378,7 +378,6 @@ namespace Uniso.InStat.Gui.Controls
             return new RectangleF((Width - dw) / 2.0f, dv / 2, dw, dh);
         }
 
-        // TODO: 9	Тактическая схема	Указывать точку на тактической расстановке, обозначающую координаты последнего зарегистрированного маркера "Х"	Не выполнено
         private void DoPaint(object sender, PaintEventArgs e)
         {
             try
@@ -454,6 +453,7 @@ namespace Uniso.InStat.Gui.Controls
                         gdi.Pen.Color = 0x0000ff00;
                         var vvv = Game.TransformBaseToScreen(rcf, ptf, Game.FieldSize, mirror);
 
+
                         if (HockeyGui.Mode == HockeyGui.ModeEnum.SelectPointAndDest && !point.IsEmpty)
                         {
                             mirror = HockeyGui.Marker.Team1 == Game.Match.Team2;
@@ -466,6 +466,7 @@ namespace Uniso.InStat.Gui.Controls
                         gdi.LineTo((int)rcf.Right, (int)vvv.Y);
                         gdi.MoveTo((int)vvv.X, (int)rcf.Y);
                         gdi.LineTo((int)vvv.X, (int)rcf.Bottom);
+                        DrawlastClick(rcf);
                     }
                     else
                     {
@@ -507,6 +508,28 @@ namespace Uniso.InStat.Gui.Controls
             finally
             {
                 gdi.AfterPaint();
+            }
+        }
+
+        /// <summary>
+        /// Отрисовать последний клик по полю
+        /// </summary>
+        /// <param name="rcf"></param>
+        private void DrawlastClick(RectangleF rcf)
+        {
+            if (this.lastClickPoint != null && this.lastClickPoint.lastClickPointF.HasValue)
+            {
+                var pf = Game.TransformBaseToScreen(rcf, lastClickPoint.lastClickPointF.Value,
+                    Game.FieldSize, this.lastClickPoint.Mirror);
+
+                var pi = new Point((int)pf.X, (int)pf.Y);
+
+                gdi.Pen.Color = 0x00000000;
+                gdi.Pen.Width = 3;
+                gdi.Brush.Color = 0x00000000;
+
+                gdi.Rectangle(pi.X - 3, pi.Y - 3, pi.X + 3, pi.Y + 3);
+
             }
         }
 
@@ -914,7 +937,6 @@ namespace Uniso.InStat.Gui.Controls
             }
         }
 
-        // TODO: 9	Тактическая схема	Координату точки определять в if-е, потом сохранять.
         private void HockeyField_MouseUp(object sender, MouseEventArgs e)
         {
             if (HockeyGui.Mode == HockeyGui.ModeEnum.EditTactics)
@@ -1335,6 +1357,28 @@ namespace Uniso.InStat.Gui.Controls
                 if (SelectedManyPlayer != null)
                     SelectedManyPlayer(this, new HockeyGui.SelectedManyPlayerEventArgs { Players = HockeyGui.selectedManyPlayers });
             }
+        }
+
+
+        public class LastClickPoint
+        {
+            public bool Mirror;
+
+            public PointF? lastClickPointF;
+
+            public LastClickPoint()
+            {
+                lastClickPointF = null;
+            }
+        }
+
+        private LastClickPoint lastClickPoint = new LastClickPoint();
+
+        public void SetLastClickPointF(PointF newPointF)
+        {
+            lastClickPoint.Mirror = HockeyGui.Marker.Team1 == Game.Match.Team2;
+
+            this.lastClickPoint.lastClickPointF = newPointF;
         }
     }
 }
