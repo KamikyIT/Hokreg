@@ -751,10 +751,25 @@ namespace Uniso.InStat.Game
             return StageEnum.CreateMarker;
         }
 
+
         public override List<StageEnum> GetStages(List<InStat.Marker> list)
         {
             var res = new List<StageEnum>();
 
+
+            if (list.Count == 2)
+            {
+                // Выброс(0) И Неточная
+                if (list.Any(o => o.Compare(1, 6) && ((Game.Marker)o).Win == 2) && 
+                    list.Any(o => o.Compare(0, 0) && ((Game.Marker)o).Win == 1))
+                {
+                    res.Add(StageEnum.Player1);
+                    res.Add(StageEnum.PointAndDest);
+                    return res;
+                }
+            }
+
+            
             //Игрок
             if (list.Exists(o 
                 => o.ActionId != 18 
@@ -777,7 +792,11 @@ namespace Uniso.InStat.Game
             //Оппонент
             if (!pen_no_opp 
                 && list.Exists(o => o.Compare(1, new int[] { 1/*, 3, 4, 5, 6, 7, 8*/ })
-                || (o.Compare(1, 6) && o.Win == 2)
+                || (o.Compare(1, 6) && o.Win == 2 && (
+                // Если НЕ
+                // Маркер дополнительный для Выброс(-) вместе с Неточная
+                (Game.Marker)o).flag_adding.Any(x => x.Compare(0, 0) && o.Win == 1) == false
+                )
                 || o.Compare(2, new int[] { 1, 2, 6, 9, 10 })
                 || o.Compare(3, new int[] { 1, 2 })
                 || o.Compare(4, 3)
@@ -808,9 +827,12 @@ namespace Uniso.InStat.Game
                 || (o.Compare(1, new int[] { 1, 2, 3, 4, 5, 7, 8, 9 }) && o.Win == 2)
                 || (o.Compare(1, new int[] { 3, 4, 5, 7 }) && ((Game.Marker)o).flag_icing)
                 || (o.Compare(1, 6) && ((Game.Marker)o).flag_icing)
+                || (o.Compare(1, 6) && ((Game.Marker)o).flag_adding.Any(x => x.Compare(0, 0) && x.Win == 1))
                 || (o.Compare(3, 9))))
             {
-                res.Remove(StageEnum.Point);
+                // На всякий запасный, засейвимся
+                if (res.Contains(StageEnum.Point))
+                    res.Remove(StageEnum.Point);
                 res.Add(StageEnum.PointAndDest);
             }
 

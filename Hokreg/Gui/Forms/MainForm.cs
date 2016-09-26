@@ -1736,9 +1736,15 @@ namespace Uniso.InStat.Gui.Forms
             //FormatAddButton(button300300, pas && edit.flag_icing);
             FormatAddButton(button300300, (pas || marker_vibros_plus) && edit.flag_icing);
 
-            //Неточная                
-            button000001.Enabled = pas;
-            FormatAddButton(button000001, pas && edit.Win == 2);
+            //Неточная     
+            var marker_vibros_minus = edit.Compare(1, 6) && edit.Win == 2;
+            button000001.Enabled = pas || marker_vibros_minus;
+            var btn000001_clicked = false;
+            if (edit.flag_adding.Any())
+            {
+                btn000001_clicked = edit.flag_adding.Any(x => x.Compare(0, 0) && x.Win == 2);
+            }
+            FormatAddButton(button000001, pas && edit.Win == 2 || marker_vibros_minus && btn000001_clicked);
 
             //Primary
             button100300.Enabled = mode_keys || mk_ed_wait_add_1;
@@ -1993,7 +1999,7 @@ namespace Uniso.InStat.Gui.Forms
             if (button.Tag is String && Int32.TryParse(button.Tag.ToString(), out tagid))
             {
 #if DEBUG
-                if (tagid == 100601)
+                if (tagid == 200900)
                 {
                     var p = 5;
                 }
@@ -2016,8 +2022,17 @@ namespace Uniso.InStat.Gui.Forms
                     case 000001:
                         if (Game.editMarker.G.Compare(1, new int[] { 3, 4, 5, 7, 8, 9 }))
                             Game.editMarker.G.Win = Game.editMarker.G.Win == 2 ? 0 : 2;
-                        break;
 
+                        if (Game.editMarker.G.Compare(1, 6) && Game.editMarker.G.Win == 2)
+                        {
+                            // TODO: время исправь
+                            Game.editMarker.G.flag_adding.Add(new Game.Marker(this.Game, 0, 0, Half, Game.editMarker.G.TimeVideo)
+                            {
+                                Win = 1,
+                            });
+                        }
+                        
+                        break;
                     case 200900:
                         Game.editMarker.G.flag_hitch = !Game.editMarker.G.flag_hitch;
                         break;
@@ -2042,10 +2057,9 @@ namespace Uniso.InStat.Gui.Forms
                 {
 #if DEBUG
 
-                    if (tagid == 300300)
+                    if (button.Tag.ToString() == "000001")
                     {
                         var p = 5;
-
                     }
 
 #endif
