@@ -58,12 +58,10 @@ c:\Data\Projects\cs\Hokreg\release\hokreg.pdb
 C:\Data\Projects\cs\Hokreg\Hokreg\obj\Debug\Uniso.InStat.PenaltyForm.resources
 C:\Data\Projects\cs\Hokreg\Hokreg\obj\Debug\Uniso.InStat.ViolationForm.resources
 C:\Hokreg\release\hokreg.exe.config
-C:\Hokreg\Hokreg\obj\Debug\hokreg.exe
-C:\Hokreg\Hokreg\obj\Debug\hokreg.pdb
 C:\Hokreg\release\hokreg.exe
 C:\Hokreg\release\hokreg.pdb
-C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Properties.Resources.resources
-C:\Hokreg\Hokreg\obj\Debug\Hokreg.csproj.GenerateResource.Cache
+C:\Hokreg\Hokreg\obj\Debug\Hokreg.csprojResolveAssemblyReference.cache
+C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Controls.TacticsHockeyField.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.CheckForm.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.CorrectChangedPlayersMarkerForm.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.CorrectTimeForm.resources
@@ -75,6 +73,7 @@ C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.Login.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.MainForm.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Controls.HockeyField.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.MarkerEditForm.resources
+C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.MySelectForm.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.OptionsForm.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.OvertimeForm.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.PenaltyForm.resources
@@ -85,8 +84,9 @@ C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.InsertSubstitutionForm.resourc
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.OnlinerForm.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.SelectOvertimeForm.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.ViolationForm.resources
-C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Controls.SpareField.resources
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.PlayerTypes.StreamPlayer.resources
-C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Controls.TacticsHockeyField.resources
-C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.MySelectForm.resources
-C:\Hokreg\Hokreg\obj\Debug\Hokreg.csprojResolveAssemblyReference.cache
+C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Properties.Resources.resources
+C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Controls.SpareField.resources
+C:\Hokreg\Hokreg\obj\Debug\Hokreg.csproj.GenerateResource.Cache
+C:\Hokreg\Hokreg\obj\Debug\hokreg.exe
+C:\Hokreg\Hokreg\obj\Debug\hokreg.pdb

@@ -1727,9 +1727,14 @@ namespace Uniso.InStat.Gui.Forms
             //Текущая - редактируемый пас
             var pas = edit != null && edit.Compare(1, new int[] { 3, 4, 5, 7, 8, 9 });
 
+
             //Проброс
-            button300300.Enabled = pas;
-            FormatAddButton(button300300, pas && edit.flag_icing);
+            //TODO: проверить
+            var marker_vibros_plus = edit.Compare(1, 6) && edit.Win == 1;
+            //button300300.Enabled = pas;
+            button300300.Enabled = pas || marker_vibros_plus;
+            //FormatAddButton(button300300, pas && edit.flag_icing);
+            FormatAddButton(button300300, (pas || marker_vibros_plus) && edit.flag_icing);
 
             //Неточная                
             button000001.Enabled = pas;
@@ -1891,10 +1896,15 @@ namespace Uniso.InStat.Gui.Forms
         private void RegisterBegin(int action_code)
         {
             var mk = new InStat.Game.Marker(Game) { ActionCode = action_code };
-
+            
             lock (Game.editMarker)
             {
-                if (Game.editMarker.G != null && (Game.editMarker.G.Compare(2, new int[] { 1, 10 }) || Game.editMarker.G.Compare(1, new int[] { 4, 5 })))
+                if (Game.editMarker.G != null &&
+                    // Единоборство || Подбор в борьбе
+                    (Game.editMarker.G.Compare(2, new int[] { 1, 10 }) ||
+                    // Пас (конструктивная передача) || ОП (острая передача)
+                    Game.editMarker.G.Compare(1, new int[] { 4, 5 })
+                    ))
                 {
                     Game.editMarker.G.flag_adding.Add(mk);
                     UpdateUI();
@@ -1982,6 +1992,14 @@ namespace Uniso.InStat.Gui.Forms
             var tagid = 0;
             if (button.Tag is String && Int32.TryParse(button.Tag.ToString(), out tagid))
             {
+#if DEBUG
+                if (tagid == 100601)
+                {
+                    var p = 5;
+                }
+
+#endif
+
                 RegisterBegin(tagid);
             }
         }
@@ -2022,6 +2040,16 @@ namespace Uniso.InStat.Gui.Forms
             {
                 if (Game.editMarker.G != null && button.Tag is String && Int32.TryParse(button.Tag.ToString(), out tagid))
                 {
+#if DEBUG
+
+                    if (tagid == 300300)
+                    {
+                        var p = 5;
+
+                    }
+
+#endif
+
                     if (Game.editMarker.G.ActionId > 0)
                     {
                         RegisterAddons(tagid);

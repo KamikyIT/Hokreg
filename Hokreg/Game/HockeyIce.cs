@@ -807,6 +807,7 @@ namespace Uniso.InStat.Game
                 || (o.Compare(1, 6) && o.Win == 2)
                 || (o.Compare(1, new int[] { 1, 2, 3, 4, 5, 7, 8, 9 }) && o.Win == 2)
                 || (o.Compare(1, new int[] { 3, 4, 5, 7 }) && ((Game.Marker)o).flag_icing)
+                || (o.Compare(1, 6) && ((Game.Marker)o).flag_icing)
                 || (o.Compare(3, 9))))
             {
                 res.Remove(StageEnum.Point);
