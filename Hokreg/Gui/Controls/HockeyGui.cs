@@ -58,13 +58,25 @@ namespace Uniso.InStat.Gui.Controls
                 SF2.gdi.InvalidateRect();
         }
 
+        //public static void SetMode(ModeEnum mode, Marker mk, string labelInviteText = null)
         public static void SetMode(ModeEnum mode, Marker mk)
         {
             HockeyGui.Marker = mk;
-            Mode = mode;
+            HockeyGui.Mode = mode;
 
             if (HF != null && mode == ModeEnum.SelectPointAndDest)
                 HF.point = mk.Point1;
+
+            //if (string.IsNullOrEmpty(labelInviteText) == false)
+            //{
+            //    HockeyGui.LabelInviteAction.Text = labelInviteText;
+            //    HockeyGui.LabelInviteAction.Visible = true;
+            //}
+            //else
+            //{
+            //    HockeyGui.LabelInviteAction.Visible = false;
+            //}
+            
 
             InvalidateRect();
         }
@@ -122,6 +134,7 @@ namespace Uniso.InStat.Gui.Controls
         public delegate void SelectedManyPlayerEventHandler(object sender, SelectedManyPlayerEventArgs e);
 
         public static HockeyField HF { get; set; }
+        //public static Label LabelInviteAction { get; set; }
         public static SpareField SF1 { get; set; }
         public static SpareField SF2 { get; set; }
         public static LinkLabel ManyPlayersCompleteA { get; set; }
@@ -182,6 +195,24 @@ namespace Uniso.InStat.Gui.Controls
                 return 0x00dddddd;
 
             return (color.B << 16) + (color.G << 8) + color.R;
+        }
+
+        public static void SetInviteLabel(ModeEnum newmode, Game.Marker mk, string text, Label inviteLabel)
+        {
+            HockeyGui.SetMode(newmode, mk);
+
+            if (mk != null)
+            {
+                inviteLabel.Visible = true;
+
+                inviteLabel.Text = text;
+            }
+            else
+            {
+                inviteLabel.Visible = false;
+            }
+
+
         }
     }
 }

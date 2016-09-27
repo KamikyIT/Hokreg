@@ -164,6 +164,8 @@ namespace Uniso.InStat.Gui.Forms
             label2.Text = "Перерыв";
             flowLayoutPanel1.Controls.Add(label2);
 
+            //HockeyGui.LabelInviteAction = label2;
+
             var label3 = new LinkLabel();
             label3.Font = new Font(label3.Font.Name, 6.5f, FontStyle.Regular);
             label3.LinkColor = Color.White;
@@ -931,25 +933,6 @@ namespace Uniso.InStat.Gui.Forms
             var mkct = Game.GetLastControlTimeMarker(Half, time);
             var stop_time = mkct == null || Game.IsStopTimeMarker(mkct);
 
-            //Фол отложенный
-            /*if (mk.Compare(3, 1) && !stop_time)
-            {
-                Game.Insert(mk);
-                Game.SaveLocal();
-
-                HockeyGui.SetMode(HockeyGui.ModeEnum.View, null);
-                SetEditMarker((Game.Marker)null, StageEnum.CreateMarker);
-
-                ReloadDataGridView();
-                UpdateTactics();
-                UpdateUI();
-
-                if (vlcStreamPlayer1 != null)
-                    vlcStreamPlayer1.Mode = Players.StreamPlayer.PlayerMode.Play;
-
-                return;
-            }*/
-
             HockeyGui.ChangedPlayersList.Clear();
 
             var prevm = Game.GetPrevousMarkers(Half, mk.TimeVideo);
@@ -977,7 +960,7 @@ namespace Uniso.InStat.Gui.Forms
 
             if (stage == StageEnum.Player1 || stage == StageEnum.Player2)
             {
-                if ((mk.Compare(8, 1) || mk.Compare(3, new int[] { 1, 2, })) 
+                if ((mk.Compare(8, 1) || mk.Compare(3, new int[] {1, 2,}))
                     && stage == StageEnum.Player1 && !prevm.Exists(o => o.Compare(4, 6)))
                 {
                     checkBox1.Checked = false;
@@ -998,20 +981,27 @@ namespace Uniso.InStat.Gui.Forms
                     }
                 }
 
-                HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
+                var stageName = mk.GetNameStage(stage);
+                var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk, s);
+
+                HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPlayer, mk, s, this.label2);
+                RefreshHockeyField();
+
+                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
             }
 
             if (stage == StageEnum.Point)
             {
                 if (mk.Compare(1, 1))
                 {
-                    
+
                     if (Game.GetActuialTime(mk.Half, mk.TimeVideo) < 1000 || prevm.Exists(o => o.Compare(8, 1)))
                     {
                         mk.Point1 = Game.GetDumpInPoints(new RectangleF(PointF.Empty, Game.FieldSize))[0];
                         ProcessingMarker(mk);
                         return;
-                    }                   
+                    }
                 }
 
                 if (mk.Compare(4, 6))
@@ -1021,7 +1011,16 @@ namespace Uniso.InStat.Gui.Forms
                     return;
                 }
 
-                HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPoint, mk);
+                //var stageName = mk.GetNameStage(stage);
+                //var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPoint, mk, s);
+
+                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPoint, mk);
+
+                var stageName = mk.GetNameStage(stage);
+                var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPoint, mk, s, label2);
+                RefreshHockeyField();
             }
 
             if (stage == StageEnum.PointAndDest)
@@ -1031,24 +1030,44 @@ namespace Uniso.InStat.Gui.Forms
                     mk.Point1 = Game.GetDumpInPoints(new RectangleF(PointF.Empty, Game.FieldSize))[0];
                 }
 
-                HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPointAndDest, mk);
+                //var stageName = mk.GetNameStage(stage);
+                //var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPointAndDest, mk, s);
+
+                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPointAndDest, mk);
+
+                var stageName = mk.GetNameStage(stage);
+                var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+
+                HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPointAndDest, mk, s, label2);
+                RefreshHockeyField();
             }
 
             if (stage == StageEnum.ExtraOptions)
             {
                 if (mk.Compare(12, 0))
                 {
-                    HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
+                    var stageName = mk.GetNameStage(stage);
+                    var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+
+                    //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
+                    HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectManyPlayers, mk, s, label2);
                 }
 
                 if (mk.Compare(2, 11))
                 {
-                    HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
+                    var stageName = mk.GetNameStage(stage);
+                    var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                    //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
+                    HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectManyPlayers, mk, s, label2);
                 }
 
                 if (mk.Compare(6, 2))
                 {
-                    HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
+                    var stageName = mk.GetNameStage(stage);
+                    var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                    //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
+                    HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectManyPlayers, mk, s, label2);
                 }
 
                 if (mk.Compare(8, 1))
@@ -1057,10 +1076,14 @@ namespace Uniso.InStat.Gui.Forms
                     lock (Game.Markers)
                         Game.RecalcActualTime(Game.Markers, Game.Half);
                     ReloadDataGridView();
-                    HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
+                    var stageName = mk.GetNameStage(stage);
+                    var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                    //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
+                    HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectManyPlayers, mk, s, label2);
+
                 }
 
-                if (mk.Compare(3, new int[] { 1 }))
+                if (mk.Compare(3, new int[] {1}))
                 {
                     var mkf_time = mk.TimeVideo;
                     /*int mkf_time_abs = Game.GetActuialTime(mk.Half, mk.TimeVideo, true);
@@ -1099,12 +1122,13 @@ namespace Uniso.InStat.Gui.Forms
                 if (HockeyIce.Role == HockeyIce.RoleEnum.Online && mk.Sync == 0)
                     mk.Sync = 1;
 
-                if (mk.Compare(3, new int[] { 1, 2 }))
+                if (mk.Compare(3, new int[] {1, 2}))
                     mk.ExtraOptionsExists = true;
 
                 lock (Game.editMarker)
                 {
-                    if (Game.editMarker.G != null && Game.editMarker.G.Compare(8, 1) && !prevm.Exists(o => o.Compare(4, 6)) && checkBox1.Checked)
+                    if (Game.editMarker.G != null && Game.editMarker.G.Compare(8, 1) &&
+                        !prevm.Exists(o => o.Compare(4, 6)) && checkBox1.Checked)
                     {
                         checkBox1.Checked = false;
                         mk.Player2 = null;
@@ -1112,20 +1136,20 @@ namespace Uniso.InStat.Gui.Forms
                 }
 
                 HockeyGui.SetMode(HockeyGui.ModeEnum.View, null);
-                SetEditMarker((Game.Marker)null, stage);
+                SetEditMarker((Game.Marker) null, stage);
 
                 if (mk.Compare(2, 4))
                 {
-                    if (prevm.Any(o => o.Compare(new int[] { 1, 2, 4, 7, 8 })))
+                    if (prevm.Any(o => o.Compare(new int[] {1, 2, 4, 7, 8})))
                     {
-                        var mkp = prevm.First(o => o.Compare(new int[] { 1, 2, 4, 7, 8 }));
-                        if (mk.team1_id == mkp.team1_id && mkp.Compare(1, new int[] { 3, 4, 5 }))
+                        var mkp = prevm.First(o => o.Compare(new int[] {1, 2, 4, 7, 8}));
+                        if (mk.team1_id == mkp.team1_id && mkp.Compare(1, new int[] {3, 4, 5}))
                             mk.ActionType = 4;
                         else
                             mk.ActionType = 5;
                     }
 
-                    if (prevm.Any(o => o.Compare(2, new int[] { 3, 4 }) && o.player1_id == mk.player1_id))
+                    if (prevm.Any(o => o.Compare(2, new int[] {3, 4}) && o.player1_id == mk.player1_id))
                     {
                         mk.ActionType = 3;
                     }
@@ -1143,7 +1167,11 @@ namespace Uniso.InStat.Gui.Forms
                     if (Game.IsInsertPickUp(mk))
                     {
                         var action_type = 5;
-                        Game.Insert(new Game.Marker(Game, 2, action_type, mk.Half, mk.TimeVideo - 100) { Player1 = mk.Player1, Point1 = mk.Point1 });
+                        Game.Insert(new Game.Marker(Game, 2, action_type, mk.Half, mk.TimeVideo - 100)
+                        {
+                            Player1 = mk.Player1,
+                            Point1 = mk.Point1
+                        });
                     }
 
                     var foul_after_stop = mk.Compare(3, 1) && mkct != null && mkct.Compare(3, 8);
@@ -1151,17 +1179,20 @@ namespace Uniso.InStat.Gui.Forms
                     {
                         //Если стоп-игра, то ищем фол и причины, для выставления штрафа
                         var mk11 = Game.GetLastControlTimeMarker(mk.Half, mk.TimeVideo);
-                        if (mk11 != null && ((mk11.Compare(1, 1) && !foul_after_stop) || (mk11.Compare(3, 8) && foul_after_stop)))
+                        if (mk11 != null &&
+                            ((mk11.Compare(1, 1) && !foul_after_stop) || (mk11.Compare(3, 8) && foul_after_stop)))
                         {
                             List<Marker> mk9_list = null;
                             lock (Game.Markers)
                                 mk9_list = Game.Markers.Where(o
-                                    => !o.FlagDel 
-                                    && o.Half.Index == mk.Half.Index 
-                                    && o.TimeVideo <= mk.TimeVideo 
-                                    && o.TimeVideo > mk11.TimeVideo 
-                                    && (!Game.GetSiblings(o).Any(o1 => o1.Compare(5) && o1.player2_id == o.player1_id))
-                                    && o.Compare(9))
+                                        => !o.FlagDel
+                                           && o.Half.Index == mk.Half.Index
+                                           && o.TimeVideo <= mk.TimeVideo
+                                           && o.TimeVideo > mk11.TimeVideo
+                                           &&
+                                           (!Game.GetSiblings(o)
+                                               .Any(o1 => o1.Compare(5) && o1.player2_id == o.player1_id))
+                                           && o.Compare(9))
                                     .ToList<Marker>();
 
                             var withoutdelete = false;
@@ -1176,7 +1207,7 @@ namespace Uniso.InStat.Gui.Forms
                                 var no_opponent = false;
                                 foreach (var mki in form.GetResult())
                                 {
-                                    if (mki.Compare(5, new int[] { 2, 3, 4, 5 }))
+                                    if (mki.Compare(5, new int[] {2, 3, 4, 5}))
                                     {
                                         var placemk = player.Team.Tactics[0].GetPlace(mki.Player1);
                                         mki.Num = 1;
@@ -1191,12 +1222,15 @@ namespace Uniso.InStat.Gui.Forms
 
                                         if (placemk != null)
                                         {
-                                            if (!form.WithoutDelete && (HockeyIce.Role != HockeyIce.RoleEnum.Ttd && HockeyIce.Role != HockeyIce.RoleEnum.Online))
+                                            if (!form.WithoutDelete &&
+                                                (HockeyIce.Role != HockeyIce.RoleEnum.Ttd &&
+                                                 HockeyIce.Role != HockeyIce.RoleEnum.Online))
                                             {
-                                                var mkc = new Game.Marker(Game, 14, placemk.GetCode(), mk.Half, mk.TimeVideo) 
-                                                { 
-                                                    Player1 = null, 
-                                                    Player2 = mki.Player1 
+                                                var mkc = new Game.Marker(Game, 14, placemk.GetCode(), mk.Half,
+                                                    mk.TimeVideo)
+                                                {
+                                                    Player1 = null,
+                                                    Player2 = mki.Player1
                                                 };
 
                                                 Log.Write((string) ("INSERT FINE " + mkc.Player1));
@@ -1206,7 +1240,7 @@ namespace Uniso.InStat.Gui.Forms
                                         }
                                     }
 
-                                    if (mki.Compare(9, new int[] { 8, 11 }))
+                                    if (mki.Compare(9, new int[] {8, 11}))
                                         no_opponent = true;
 
                                     mki.Half = mk.Half;
@@ -1230,9 +1264,12 @@ namespace Uniso.InStat.Gui.Forms
                                     {
                                         var tm = mki.Player1.Team;
 
-                                        if (tm.Tactics[0].Places.Exists(o => o.Player != null && o.Player.Id == mki.Player1.Id))
+                                        if (
+                                            tm.Tactics[0].Places.Exists(
+                                                o => o.Player != null && o.Player.Id == mki.Player1.Id))
                                         {
-                                            var place = Enumerable.First<Place>(tm.Tactics[0].Places, o => o.Player != null && o.Player.Id == mki.Player1.Id);
+                                            var place = Enumerable.First<Place>(tm.Tactics[0].Places,
+                                                o => o.Player != null && o.Player.Id == mki.Player1.Id);
 
                                             if (tctnum[tm].IndexOf(0) < 0)
                                                 tctnum[tm].Add(0);
@@ -1262,15 +1299,24 @@ namespace Uniso.InStat.Gui.Forms
                     //Выброс (-)
                     if (group.Any(o => o.Compare(1, 6) && o.Win == 2))
                     {
-                        //Формируем перехват
-                        var pt = new PointF(Game.FieldSize.Width - mk.Point2.X, Game.FieldSize.Height - mk.Point2.Y);
-                        Game.Insert(new Game.Marker(Game, 2, 7, mk.Half, mk.TimeVideo + 100) { Player1 = mk.Player2, Point1 = pt });
+                        // Если Выброс(-) БЕЗ Неточная
+                        // ТО нихуя не делаем, иначе создаем Выброс(-) И Перехват через 0.1 сек.
+                        if (group.Any(o => o.Compare(0, 0) && o.Win == 1) == false)
+                        {
+                            //Формируем перехват
+                            var pt = new PointF(Game.FieldSize.Width - mk.Point2.X, Game.FieldSize.Height - mk.Point2.Y);
+                            Game.Insert(new Game.Marker(Game, 2, 7, mk.Half, mk.TimeVideo + 100)
+                            {
+                                Player1 = mk.Player2,
+                                Point1 = pt
+                            });
+                        }
                     }
 
                     //Передачи
                     foreach (Marker mka in mk.flag_adding)
                     {
-                        if (mka.Compare(1, 6) && mka.Win == 2 && mk.Compare(1, new int[] {3, 4, 5, 7, }))
+                        if (mka.Compare(1, 6) && mka.Win == 2 && mk.Compare(1, new int[] {3, 4, 5, 7,}))
                         {
                             mka.Player1 = mk.Player1;
                             mka.Player2 = mk.Player2;
@@ -1282,127 +1328,142 @@ namespace Uniso.InStat.Gui.Forms
                         }
                         else
                         {
+                            // Если Выброс(-) И Неточная, то не добавляем дополнительный маркер.
+                            if ((mk.Compare(1, 6) && mk.Win == 2) &&
+                                mka.Compare(0, 0) && mka.Win == 1)
+                            {
+                                continue;
+                            }
                             mka.Player1 = mk.Player1;
                             mka.Point1 = mk.Point1;
                             mka.Half = mk.Half;
                             mka.TimeVideo = mk.TimeVideo;
                             Game.Insert(mka);
                         }
+
+                        //Вставка доп маркера помеха
+                        if (mk.flag_hitch)
+                        {
+                            var pt = new PointF(Game.FieldSize.Width - mk.Point1.X, Game.FieldSize.Height - mk.Point1.Y);
+                            if (mk.Compare(1, 6) && mk.Win == 2)
+                                pt = new PointF(Game.FieldSize.Width - mk.Point2.X, Game.FieldSize.Height - mk.Point2.Y);
+
+                            ProcessingMarker(new Game.Marker(Game, 2, 9, mk.Half, mk.TimeVideo + 100)
+                            {
+                                Point1 = pt,
+                                Player2 = mk.Player1
+                            });
+                            return;
+                        }
+
+                        //Вставка доп маркера проброс
+                        if (mk.flag_icing)
+                        {
+                            Game.Insert(new Game.Marker(Game, 3, 3, mk.Half, mk.TimeVideo + 100)
+                            {
+                                Point1 = mk.Point1,
+                                Player1 = mk.Player1,
+                                Point2 = mk.Point2
+                            });
+                        }
+
+                        lock (Game.Markers)
+                            Game.RecalcActualTime(Game.Markers, Half);
                     }
 
-                    //Вставка доп маркера помеха
-                    if (mk.flag_hitch)
-                    {
-                        var pt = new PointF(Game.FieldSize.Width - mk.Point1.X, Game.FieldSize.Height - mk.Point1.Y);
-                        if (mk.Compare(1, 6) && mk.Win == 2)
-                            pt = new PointF(Game.FieldSize.Width - mk.Point2.X, Game.FieldSize.Height - mk.Point2.Y);
+                    Game.SaveLocal();
 
-                        ProcessingMarker(new Game.Marker(Game, 2, 9, mk.Half, mk.TimeVideo + 100) { Point1 = pt, Player2 = mk.Player1 });
+                    var bullet = false;
+
+                    //Bullet
+                    if (mk.Compare(3, new int[] {1, 2}))
+                    {
+                        var sibl = Game.GetSiblings(Half, mk.TimeVideo);
+                        if (sibl.Exists(o => o.Compare(5, 9)))
+                        {
+                            var mksb = sibl.First(o => o.Compare(5, 9));
+                            var mkb = new Game.Marker(Game, 4, 6) {Half = mk.Half, TimeVideo = mk.TimeVideo};
+                            mkb.Team1 = mksb.Team1;
+                            ProcessingMarker(mkb);
+                            bullet = true;
+                            return;
+                        }
+                    }
+
+                    if (mk.Compare(4, 3) && HockeyIce.Role == HockeyIce.RoleEnum.AdvTtd)
+                    {
+                        ProcessingMarker(new Game.Marker(Game, 2, 5, mk.Half, mk.TimeVideo + 50));
                         return;
                     }
 
-                    //Вставка доп маркера проброс
-                    if (mk.flag_icing)
+                    if (Game.IsStopTimeMarker(mk))
                     {
-                        Game.Insert(new Game.Marker(Game, 3, 3, mk.Half, mk.TimeVideo + 100) { Point1 = mk.Point1, Player1 = mk.Player1, Point2 = mk.Point2 });
+                        //Обработка фола отложенного после остановки времени
+                        var mkfi_list = Game.GetFoulEmpty(Half, mk.TimeVideo);
+                        if (mkfi_list.Count > 0)
+                        {
+                            ProcessingMarker((Game.Marker) mkfi_list[0]);
+                            return;
+                        }
                     }
 
-                    lock (Game.Markers)
-                        Game.RecalcActualTime(Game.Markers, Half);
-                }
-
-                Game.SaveLocal();
-
-                var bullet = false;
-
-                //Bullet
-                if (mk.Compare(3, new int[] { 1, 2 }))
-                {
-                    var sibl = Game.GetSiblings(Half, mk.TimeVideo);
-                    if (sibl.Exists(o => o.Compare(5, 9)))
+                    if (mk.Compare(8, 1) && Half.Index >= 4 && Half.Index < 255)
                     {
-                        var mksb = sibl.First(o => o.Compare(5, 9));
-                        var mkb = new Game.Marker(Game, 4, 6) { Half = mk.Half, TimeVideo = mk.TimeVideo };
-                        mkb.Team1 = mksb.Team1;
-                        ProcessingMarker(mkb);
-                        bullet = true;
-                        return;
+                        Game.Insert(new Game.Marker(Game) {ActionId = 18, ActionType = 4, Half = Half, TimeVideo = time});
                     }
-                }
 
-                if (mk.Compare(4, 3) && HockeyIce.Role == HockeyIce.RoleEnum.AdvTtd)
-                {
-                    ProcessingMarker(new Game.Marker(Game, 2, 5, mk.Half, mk.TimeVideo + 50));
-                    return;
-                }
-                
-                if (Game.IsStopTimeMarker(mk))
-                {
-                    //Обработка фола отложенного после остановки времени
-                    var mkfi_list = Game.GetFoulEmpty(Half, mk.TimeVideo);
-                    if (mkfi_list.Count > 0)
+                    if (!bullet && vlcStreamPlayer1 != null)
+                        vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
+
+                    //SendStreamTicket();
+                    ReloadDataGridView();
+                    UpdateTactics();
+
+                    if (bullet_period)
                     {
-                        ProcessingMarker((Game.Marker)mkfi_list[0]);
-                        return;
+                        RegisterBegin(0, 0);
+                        vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
                     }
-                }
-
-                if (mk.Compare(8, 1) && Half.Index >= 4 && Half.Index < 255)
-                {
-                    Game.Insert(new Game.Marker(Game) { ActionId = 18, ActionType = 4, Half = Half, TimeVideo = time });
-                }
-
-                if (!bullet && vlcStreamPlayer1 != null)
-                    vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
-
-                //SendStreamTicket();
-                ReloadDataGridView();
-                UpdateTactics();
-
-                if (bullet_period)
-                {
-                    RegisterBegin(0, 0);
-                    vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
-                }
-            }
-            else
-                SetEditMarker(mk, stage);
-
-            if (stage == StageEnum.Player2Gk)
-            {
-                if (Half.Index == 255 && mk.Compare(4, 6))
-                {
-                    HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
-                    return;
-                }
-
-                if (Half.Index == 255 && mk.Compare(8, 1) && prevm.Exists(o => o.Compare(4, 6)))
-                {
-                    var boolmk = prevm.First(o => o.Compare(4, 6));
-                    mk.Player2 = boolmk.Player2;
-                    return;
-                }
-
-                if (mk.Team1 != null && mk.Player2 == null)
-                {
-                    var team = Game.Match.Team1 == mk.Team1 ? Game.Match.Team2 : Game.Match.Team1;
-                    var gk = team.Tactics[0].GetGK();
-                    if (gk != null)
-                        mk.Player2 = gk.Player;
-                }
-
-                if (mk.Player2 == null)
-                {
-                    //MessageBox.Show("Не удалось определить оппонента этому действию. Укажите его вручную",
-                        //"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
                 }
                 else
-                    ProcessingMarker(mk);
+                    SetEditMarker(mk, stage);
+
+                if (stage == StageEnum.Player2Gk)
+                {
+                    if (Half.Index == 255 && mk.Compare(4, 6))
+                    {
+                        HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
+                        return;
+                    }
+
+                    if (Half.Index == 255 && mk.Compare(8, 1) && prevm.Exists(o => o.Compare(4, 6)))
+                    {
+                        var boolmk = prevm.First(o => o.Compare(4, 6));
+                        mk.Player2 = boolmk.Player2;
+                        return;
+                    }
+
+                    if (mk.Team1 != null && mk.Player2 == null)
+                    {
+                        var team = Game.Match.Team1 == mk.Team1 ? Game.Match.Team2 : Game.Match.Team1;
+                        var gk = team.Tactics[0].GetGK();
+                        if (gk != null)
+                            mk.Player2 = gk.Player;
+                    }
+
+                    if (mk.Player2 == null)
+                    {
+                        //MessageBox.Show("Не удалось определить оппонента этому действию. Укажите его вручную",
+                        //"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
+                    }
+                    else
+                        ProcessingMarker(mk);
+                }
+
+                UpdateUI();
             }
-            
-            UpdateUI();
         }
 
         /*private List<int> ticket_stream_sent = new List<int>();
@@ -1522,7 +1583,8 @@ namespace Uniso.InStat.Gui.Forms
             macTrackBar1.Enabled = true;
 
             var mode_keys = proc_and_clear && Half != null && video_load && (!stop_time) && !bullet_period && !fine_bullet && prevmk.Count > 0;
-            var mode_keys_add = edit != null && edit.ActionId > 0 && Half != null && video_load && !stop_time && !bullet_period && !fine_bullet && prevmk.Count > 0 && !edit.Compare(2, 9);
+            var mode_keys_add = edit != null && edit.ActionId > 0 && Half != null && 
+                video_load && !stop_time && !bullet_period && !fine_bullet && prevmk.Count > 0 && !edit.Compare(2, 9);
 
             linkLabel_a12_0.Visible = false;
             linkLabel_a12_1.Visible = false;
@@ -1730,17 +1792,18 @@ namespace Uniso.InStat.Gui.Forms
 
             //Проброс
             //TODO: проверить
-            var marker_vibros_plus = edit.Compare(1, 6) && edit.Win == 1;
+            
+            var marker_vibros_plus = edit != null && (edit.Compare(1, 6) && edit.Win == 1);
             //button300300.Enabled = pas;
             button300300.Enabled = pas || marker_vibros_plus;
             //FormatAddButton(button300300, pas && edit.flag_icing);
             FormatAddButton(button300300, (pas || marker_vibros_plus) && edit.flag_icing);
 
             //Неточная     
-            var marker_vibros_minus = edit.Compare(1, 6) && edit.Win == 2;
+            var marker_vibros_minus = edit != null && edit.Compare(1, 6) && edit.Win == 2;
             button000001.Enabled = pas || marker_vibros_minus;
             var btn000001_clicked = false;
-            if (edit.flag_adding.Any())
+            if (edit != null && edit.flag_adding.Any())
             {
                 btn000001_clicked = edit.flag_adding.Any(x => x.Compare(0, 0) && x.Win == 2);
             }
@@ -2025,11 +2088,25 @@ namespace Uniso.InStat.Gui.Forms
 
                         if (Game.editMarker.G.Compare(1, 6) && Game.editMarker.G.Win == 2)
                         {
-                            // TODO: время исправь
-                            Game.editMarker.G.flag_adding.Add(new Game.Marker(this.Game, 0, 0, Half, Game.editMarker.G.TimeVideo)
+                            
+
+                            if (Game.editMarker.G != null)
                             {
-                                Win = 1,
-                            });
+                                if (Game.editMarker.G.flag_adding.Exists(x => x.Compare(0, 0) && x.Win == 1))
+                                {
+                                    var flag000001 = Game.editMarker.G.flag_adding.FirstOrDefault(x => x.Compare(0, 0) && x.Win == 1);
+
+                                    Game.editMarker.G.flag_adding.Remove(flag000001);
+                                }
+                                else
+                                {
+                                    Game.editMarker.G.flag_adding.Add(new Game.Marker(this.Game, 0, 0, Half, Game.editMarker.G.TimeVideo)
+                                    {
+                                        Win = 1,
+                                    });
+                                }
+                            }
+                            
                         }
                         
                         break;
@@ -2796,6 +2873,11 @@ namespace Uniso.InStat.Gui.Forms
                             Convert.ToString(HockeyIce.convAction.ConvertTo(action, typeof(string))),
                             stageName,
                             Game.TimeToString(mk.TimeVideo));
+
+                        //label2.Text = string.Format("{0} {1}: {2}",
+                        //    Game.TimeToString(mk.TimeVideo),
+                        //    Convert.ToString(HockeyIce.convAction.ConvertTo(action, typeof(string))),
+                        //    stageName);
                     }
                     label2.Visible = true;
                 }
@@ -3002,8 +3084,6 @@ namespace Uniso.InStat.Gui.Forms
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
             vlcStreamPlayer1.Volume = trackBar2.Value;
-
-            label27.Text = string.Format("{0} - {1}", trackBar2.Value, vlcStreamPlayer1.Volume);
         }
 
         private int old_code = 0;
@@ -5116,18 +5196,6 @@ namespace Uniso.InStat.Gui.Forms
             dataGrid_Mode = !dataGrid_Mode;
         }
 
-        private void button1_Click_3(object sender, EventArgs e)
-        {
-            if (HockeyIce.Role == HockeyIce.RoleEnum.Ttd)
-                HockeyIce.Role = HockeyIce.RoleEnum.Substitutions;
-            else
-                if (HockeyIce.Role == HockeyIce.RoleEnum.Substitutions)
-                    HockeyIce.Role = HockeyIce.RoleEnum.Ttd;
-
-            RefreshHockeyField();
-            RefreshRole();
-            UpdateUI();
-        }
 
         private void linkLabel7_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
