@@ -1996,10 +1996,10 @@ namespace Uniso.InStat.Gui.Forms
                 {
                     if (Game.editMarker.G != null &&
                         // Единоборство || Подбор в борьбе
-                        Game.editMarker.G.Compare(2, new int[] {1, 10})
+                        (Game.editMarker.G.Compare(2, new int[] {1, 10})
                         ||
                         // Пас (конструктивная передача) || ОП (острая передача)
-                        Game.editMarker.G.Compare(1, new int[] {4, 5}
+                        Game.editMarker.G.Compare(1, new int[] {4, 5})
                         ))
                     {
                         Game.editMarker.G.flag_adding.Add(mk);
