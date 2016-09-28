@@ -982,7 +982,8 @@ namespace Uniso.InStat.Gui.Forms
                 }
 
                 var stageName = mk.GetNameStage(stage);
-                var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                var s = Game.TimeToString(mk.TimeVideo) +
+                        Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
                 //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk, s);
 
                 HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPlayer, mk, s, this.label2);
@@ -1018,7 +1019,8 @@ namespace Uniso.InStat.Gui.Forms
                 //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPoint, mk);
 
                 var stageName = mk.GetNameStage(stage);
-                var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                var s = Game.TimeToString(mk.TimeVideo) +
+                        Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
                 HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPoint, mk, s, label2);
                 RefreshHockeyField();
             }
@@ -1037,7 +1039,8 @@ namespace Uniso.InStat.Gui.Forms
                 //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPointAndDest, mk);
 
                 var stageName = mk.GetNameStage(stage);
-                var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                var s = Game.TimeToString(mk.TimeVideo) +
+                        Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
 
                 HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPointAndDest, mk, s, label2);
                 RefreshHockeyField();
@@ -1048,7 +1051,8 @@ namespace Uniso.InStat.Gui.Forms
                 if (mk.Compare(12, 0))
                 {
                     var stageName = mk.GetNameStage(stage);
-                    var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                    var s = Game.TimeToString(mk.TimeVideo) +
+                            Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
 
                     //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
                     HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectManyPlayers, mk, s, label2);
@@ -1057,7 +1061,8 @@ namespace Uniso.InStat.Gui.Forms
                 if (mk.Compare(2, 11))
                 {
                     var stageName = mk.GetNameStage(stage);
-                    var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                    var s = Game.TimeToString(mk.TimeVideo) +
+                            Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
                     //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
                     HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectManyPlayers, mk, s, label2);
                 }
@@ -1065,7 +1070,8 @@ namespace Uniso.InStat.Gui.Forms
                 if (mk.Compare(6, 2))
                 {
                     var stageName = mk.GetNameStage(stage);
-                    var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                    var s = Game.TimeToString(mk.TimeVideo) +
+                            Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
                     //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
                     HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectManyPlayers, mk, s, label2);
                 }
@@ -1077,7 +1083,8 @@ namespace Uniso.InStat.Gui.Forms
                         Game.RecalcActualTime(Game.Markers, Game.Half);
                     ReloadDataGridView();
                     var stageName = mk.GetNameStage(stage);
-                    var s = Game.TimeToString(mk.TimeVideo) + Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
+                    var s = Game.TimeToString(mk.TimeVideo) +
+                            Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
                     //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectManyPlayers, mk);
                     HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectManyPlayers, mk, s, label2);
 
@@ -1328,17 +1335,34 @@ namespace Uniso.InStat.Gui.Forms
                         }
                         else
                         {
-                            // Если Выброс(-) И Неточная, то не добавляем дополнительный маркер.
-                            if ((mk.Compare(1, 6) && mk.Win == 2) &&
-                                mka.Compare(0, 0) && mka.Win == 1)
+
+
+                            MarkersWomboCombo.AddChildMarkerRule addrule = MarkersWomboCombo.CheckRuleForeExtraMarker(
+                                mk, (Game.Marker) mka);
+
+                            if (addrule == MarkersWomboCombo.AddChildMarkerRule.None)
                             {
-                                continue;
+                                // Если Выброс(-) И Неточная, то не добавляем дополнительный маркер.
+                                if (mk.Compare(1, 6, 2) && ((Game.Marker) mka).Compare(0, 0, 1))
+                                {
+                                    continue;
+                                }
+                                mka.Player1 = mk.Player1;
+                                mka.Point1 = mk.Point1;
+                                mka.Half = mk.Half;
+                                mka.TimeVideo = mk.TimeVideo;
+                                Game.Insert(mka);
                             }
-                            mka.Player1 = mk.Player1;
-                            mka.Point1 = mk.Point1;
-                            mka.Half = mk.Half;
-                            mka.TimeVideo = mk.TimeVideo;
-                            Game.Insert(mka);
+                            else if (addrule == MarkersWomboCombo.AddChildMarkerRule.Add100ms)
+                            {
+                                mka.Player1 = mk.Player1;
+                                mka.Point1 = mk.Point1;
+                                mka.Half = mk.Half;
+                                mka.TimeVideo = mk.TimeVideo + 100;
+                                Game.Insert(mka);
+                            }
+
+
                         }
 
                         //Вставка доп маркера помеха
@@ -1427,43 +1451,44 @@ namespace Uniso.InStat.Gui.Forms
                 }
                 else
                     SetEditMarker(mk, stage);
+            }
 
-                if (stage == StageEnum.Player2Gk)
+            if (stage == StageEnum.Player2Gk)
+            {
+                if (Half.Index == 255 && mk.Compare(4, 6))
                 {
-                    if (Half.Index == 255 && mk.Compare(4, 6))
-                    {
-                        HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
-                        return;
-                    }
-
-                    if (Half.Index == 255 && mk.Compare(8, 1) && prevm.Exists(o => o.Compare(4, 6)))
-                    {
-                        var boolmk = prevm.First(o => o.Compare(4, 6));
-                        mk.Player2 = boolmk.Player2;
-                        return;
-                    }
-
-                    if (mk.Team1 != null && mk.Player2 == null)
-                    {
-                        var team = Game.Match.Team1 == mk.Team1 ? Game.Match.Team2 : Game.Match.Team1;
-                        var gk = team.Tactics[0].GetGK();
-                        if (gk != null)
-                            mk.Player2 = gk.Player;
-                    }
-
-                    if (mk.Player2 == null)
-                    {
-                        //MessageBox.Show("Не удалось определить оппонента этому действию. Укажите его вручную",
-                        //"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
-                    }
-                    else
-                        ProcessingMarker(mk);
+                    HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
+                    return;
                 }
 
-                UpdateUI();
+                if (Half.Index == 255 && mk.Compare(8, 1) && prevm.Exists(o => o.Compare(4, 6)))
+                {
+                    var boolmk = prevm.First(o => o.Compare(4, 6));
+                    mk.Player2 = boolmk.Player2;
+                    return;
+                }
+
+                if (mk.Team1 != null && mk.Player2 == null)
+                {
+                    var team = Game.Match.Team1 == mk.Team1 ? Game.Match.Team2 : Game.Match.Team1;
+                    var gk = team.Tactics[0].GetGK();
+                    if (gk != null)
+                        mk.Player2 = gk.Player;
+                }
+
+                if (mk.Player2 == null)
+                {
+                    //MessageBox.Show("Не удалось определить оппонента этому действию. Укажите его вручную",
+                    //"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
+                }
+                else
+                    ProcessingMarker(mk);
             }
+
+            UpdateUI();
+
         }
 
         /*private List<int> ticket_stream_sent = new List<int>();
@@ -1810,12 +1835,16 @@ namespace Uniso.InStat.Gui.Forms
             FormatAddButton(button000001, pas && edit.Win == 2 || marker_vibros_minus && btn000001_clicked);
 
             //Primary
-            button100300.Enabled = mode_keys || mk_ed_wait_add_1;
-            button100400.Enabled = mode_keys || mk_ed_wait_add_1;
-            button100500.Enabled = mode_keys || mk_ed_wait_add_1;
-            button100601.Enabled = mode_keys || mk_ed_wait_add_2;
+            // ReSharper disable once InconsistentNaming
+            var marker_perehvat =  edit != null && edit.Compare(2, 7, 0);
+            var marker_ediniborstvo = edit != null && edit.Compare(2, 1, 0);
+            var marker_otbor = edit != null && edit.Compare(2, 6, 0);
+            button100300.Enabled = mode_keys || mk_ed_wait_add_1 || marker_perehvat || marker_ediniborstvo || marker_otbor;
+            button100400.Enabled = mode_keys || mk_ed_wait_add_1 || marker_perehvat || marker_ediniborstvo || marker_otbor;
+            button100500.Enabled = mode_keys || mk_ed_wait_add_1 || marker_perehvat || marker_ediniborstvo || marker_otbor;
+            button100601.Enabled = mode_keys || mk_ed_wait_add_2 || marker_perehvat || marker_ediniborstvo || marker_otbor;
             button100602.Enabled = mode_keys || mk_ed_wait_add_2;
-            button100800.Enabled = mode_keys || mk_ed_wait_add_1;
+            button100800.Enabled = mode_keys || mk_ed_wait_add_1 || marker_perehvat || marker_ediniborstvo || marker_otbor;
 
             button1200000.Enabled = mode_keys;
             button1300100.Enabled = mode_keys;
@@ -1965,19 +1994,23 @@ namespace Uniso.InStat.Gui.Forms
         private void RegisterBegin(int action_code)
         {
             var mk = new InStat.Game.Marker(Game) { ActionCode = action_code };
-            
+
             lock (Game.editMarker)
             {
-                if (Game.editMarker.G != null &&
-                    // Единоборство || Подбор в борьбе
-                    (Game.editMarker.G.Compare(2, new int[] { 1, 10 }) ||
-                    // Пас (конструктивная передача) || ОП (острая передача)
-                    Game.editMarker.G.Compare(1, new int[] { 4, 5 })
-                    ))
+                if (MarkersWomboCombo.CheckPrevMarkerNeedsExtraMarker(Game.editMarker.G, mk) == false)
                 {
-                    Game.editMarker.G.flag_adding.Add(mk);
-                    UpdateUI();
-                    return;
+                    if (Game.editMarker.G != null &&
+                        // Единоборство || Подбор в борьбе
+                        Game.editMarker.G.Compare(2, new int[] {1, 10})
+                        ||
+                        // Пас (конструктивная передача) || ОП (острая передача)
+                        Game.editMarker.G.Compare(1, new int[] {4, 5}
+                        ))
+                    {
+                        Game.editMarker.G.flag_adding.Add(mk);
+                        UpdateUI();
+                        return;
+                    }
                 }
             }
 
@@ -2006,13 +2039,25 @@ namespace Uniso.InStat.Gui.Forms
 
                 lock (Game.editMarker)
                 {
-                    Game.editMarker.G = new Game.Marker(Game, action_id, action_type)
+                    var newMarker = new Game.Marker(Game, action_id, action_type)
                     {
                         Half = this.Half,
                         TimeVideo = time,
                         user_id = HockeyIce.User.Id,
                         Win = win
                     };
+
+
+                    if (MarkersWomboCombo.CheckPrevMarkerNeedsExtraMarker(Game.editMarker.G, newMarker))
+                    {
+                        // TODO: Marker добавить доп.маркер, но там корчое смотреть, чтобы не дублировались маркеры + не было их дохуев, а только 1.
+                        //Game.editMarker.G.flag_adding.Add(newMarker);
+                        MarkersWomboCombo.AddSingleNewExtraMarker(Game.editMarker.G, newMarker);
+                    }
+                    else
+                    {
+                        Game.editMarker.G = newMarker;
+                    }
 
                     Log.Write("CREATE NEW 3");
 
@@ -2062,7 +2107,7 @@ namespace Uniso.InStat.Gui.Forms
             if (button.Tag is String && Int32.TryParse(button.Tag.ToString(), out tagid))
             {
 #if DEBUG
-                if (tagid == 200900)
+                if (tagid == 200600)
                 {
                     var p = 5;
                 }
@@ -5290,6 +5335,224 @@ namespace Uniso.InStat.Gui.Forms
         {
             selectedMarker = (SelectedMarker)comboBoxEx1.SelectedItem;
             ReloadDataGridView();
+        }
+
+
+
+
+        private static class MarkersWomboCombo
+        {
+            /// <summary>
+            /// Правило создания дочернего(Marker.flag_adding) маркера после создания исходного маркера.
+            /// Короче, когда сразу несколько маркеров создается, вот.
+            /// </summary>
+            public enum AddChildMarkerRule
+            {
+                /// <summary>
+                /// Не определено мною, оставить то, что было.
+                /// </summary>
+                None = 0,
+                /// <summary>
+                /// Просто. Время доп.маркера = время исходного маркера.
+                /// </summary>
+                //TODO: Пока что не добавляю. оставлю
+                //Simple,
+                /// <summary>
+                /// Время доп.маркера = время исходного + 100 мс.
+                /// </summary>
+                Add100ms,
+            }
+            
+            /// <summary>
+            /// Возможно ли добавить к prevMarker дополнительный extraMarker.
+            /// </summary>
+            /// <param name="prevMarker">Исходный маркер, в который можно добавить новый.</param>
+            /// <param name="extraMarker">Новый маркер.</param>
+            /// <returns>Возвращает true - можно, false - нельзя.</returns>
+            public static bool CheckPrevMarkerNeedsExtraMarker(Game.Marker prevMarker, Game.Marker extraMarker)
+            {
+                #region null and empty marker check
+
+                if (prevMarker == null || extraMarker == null)
+                {
+                    return false;
+                }
+
+                if (prevMarker.Compare(0, 0, 0))
+                {
+                    return false;
+                }
+
+                #endregion
+
+
+                #region Перехват 200700
+
+                // Перехват. 200700
+                // возможен с:
+                // Пас по борту         100300
+                // Пас                  100400
+                // ОП                   100500
+                // Вброс                100800
+                // Выброс(+)            100601
+                if (prevMarker.Compare(2, 7, 0))
+                {
+                    var res = extraMarker.Compare(1, 3, 0) || extraMarker.Compare(1, 4, 0) ||
+                              extraMarker.Compare(1, 5, 0) || extraMarker.Compare(1, 8, 0) ||
+                              extraMarker.Compare(1, 6, 1);
+
+                    return res;
+                }
+
+                #endregion
+
+
+
+                #region Единоборство. 200100
+
+                // Единоборство. 200100
+                // возможен с:
+                // Пас по борту         100300
+                // Пас                  100400
+                // ОП                   100500
+                // Вброс                100800
+                // Выброс(+)            100601
+
+                if (prevMarker.Compare(2, 1, 0))
+                {
+                    var res = extraMarker.Compare(1, 3, 0) || extraMarker.Compare(1, 4, 0) ||
+                              extraMarker.Compare(1, 5, 0) || extraMarker.Compare(1, 8, 0) ||
+                              extraMarker.Compare(1, 6, 1);
+
+                    return res;
+                }
+
+                #endregion
+
+
+                #region Отбор 200600
+
+                // Отбор. 200600
+                // возможен с:
+                // Пас по борту         100300
+                // Пас                  100400
+                // ОП                   100500
+                // Вброс                100800
+                // Выброс(+)            100601
+
+                if (prevMarker.Compare(2, 6, 0))
+                {
+                    var res = extraMarker.Compare(1, 3, 0) || extraMarker.Compare(1, 4, 0) ||
+                              extraMarker.Compare(1, 5, 0) || extraMarker.Compare(1, 8, 0) ||
+                              extraMarker.Compare(1, 6, 1);
+
+                    return res;
+                }
+
+                #endregion
+
+
+                return false;
+            }
+
+            /// <summary>
+            /// Добавить или Убрать в prevMarker дополнительный newMarker. Возможность добавлять СТРОГО один дополнительный маркер.
+            /// </summary>
+            /// <param name="prevMarker">Исходный маркер, в который можно добавить новый.</param>
+            /// <param name="newMarker">Новый маркер.</param>
+            public static void AddSingleNewExtraMarker(Game.Marker prevMarker, Game.Marker newMarker)
+            {
+                if (prevMarker == null || newMarker == null)
+                {
+                    return;
+                }
+
+                var alreadyAddedMarker =
+                    prevMarker.flag_adding.FirstOrDefault(
+                        o => o.Compare(newMarker.ActionId, newMarker.ActionType, newMarker.Win));
+
+                // Если уже есть такой маркер, то выпиливаем его.
+                if (alreadyAddedMarker != null)
+                {
+                    prevMarker.flag_adding.Remove(alreadyAddedMarker);
+                }
+                // Иначе очищаем списокдоп.маркеров и запихивает новый маркер.
+                else
+                {
+                    prevMarker.flag_adding.Clear();
+                    prevMarker.flag_adding.Add(newMarker);
+                }
+            }
+
+            public static AddChildMarkerRule CheckRuleForeExtraMarker(Game.Marker sourceMarker, Game.Marker childMarker)
+            {
+                #region Перехват 200700
+
+                // Перехват. 200700
+                // добавляется 100 мс.
+                // возможен с:
+                // Пас по борту         100300
+                // Пас                  100400
+                // ОП                   100500
+                // Вброс                100800
+                // Выброс(+)            100601
+                if (sourceMarker.Compare(2, 7, 0))
+                {
+                    var isMyRule= childMarker.Compare(1, 3, 0) || childMarker.Compare(1, 4, 0) ||
+                              childMarker.Compare(1, 5, 0) || childMarker.Compare(1, 8, 0) ||
+                              childMarker.Compare(1, 6, 1);
+
+                    return isMyRule ? AddChildMarkerRule.Add100ms : AddChildMarkerRule.None;
+                }
+
+                #endregion
+
+
+                #region Единоборство 200100
+
+                // Единоборство. 200100
+                // добавляется 100 мс.
+                // возможен с:
+                // Пас по борту         100300
+                // Пас                  100400
+                // ОП                   100500
+                // Вброс                100800
+                // Выброс(+)            100601
+                if (sourceMarker.Compare(2, 1, 0))
+                {
+                    var isMyRule = childMarker.Compare(1, 3, 0) || childMarker.Compare(1, 4, 0) ||
+                                   childMarker.Compare(1, 5, 0) || childMarker.Compare(1, 8, 0) ||
+                                   childMarker.Compare(1, 6, 1);
+
+                    return isMyRule ? AddChildMarkerRule.Add100ms : AddChildMarkerRule.None;
+                }
+
+                #endregion
+
+
+                #region Единоборство 200600
+
+                // Отбор. 200600
+                // добавляется 100 мс.
+                // возможен с:
+                // Пас по борту         100300
+                // Пас                  100400
+                // ОП                   100500
+                // Вброс                100800
+                // Выброс(+)            100601
+                if (sourceMarker.Compare(2, 6, 0))
+                {
+                    var isMyRule = childMarker.Compare(1, 3, 0) || childMarker.Compare(1, 4, 0) ||
+                                   childMarker.Compare(1, 5, 0) || childMarker.Compare(1, 8, 0) ||
+                                   childMarker.Compare(1, 6, 1);
+
+                    return isMyRule ? AddChildMarkerRule.Add100ms : AddChildMarkerRule.None;
+                }
+
+                #endregion
+
+                return AddChildMarkerRule.None;
+            }
         }
     }
 }

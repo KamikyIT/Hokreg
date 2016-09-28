@@ -760,8 +760,7 @@ namespace Uniso.InStat.Game
             if (list.Count == 2)
             {
                 // Выброс(0) И Неточная
-                if (list.Any(o => o.Compare(1, 6) && ((Game.Marker)o).Win == 2) && 
-                    list.Any(o => o.Compare(0, 0) && ((Game.Marker)o).Win == 1))
+                if (list.Any(o => ((Game.Marker)o).Compare(1, 6, 2)) && list.Any(o => ((Game.Marker)o).Compare(0, 0, 1)))
                 {
                     res.Add(StageEnum.Player1);
                     res.Add(StageEnum.PointAndDest);

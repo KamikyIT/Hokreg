@@ -389,5 +389,10 @@ namespace Uniso.InStat.Game
 
             return "";
         }
+
+        public bool Compare(int action_id, int action_type, int win)
+        {
+            return this.Compare(action_id, action_type) && this.Win == win;
+        }
     }
 }
