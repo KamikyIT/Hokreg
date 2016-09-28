@@ -1118,7 +1118,6 @@ namespace Uniso.InStat.Gui.Forms
 
             mk.FlagGuiUpdate = true;
 
-            // TODO: 5	Перехват, единоборство, отбор	Добавить возможность регистрировать "перехват", "единоборство", "отбор" совместно с действиями "Пас по борту", "КП", "ОП", "Вброс", "Выброс+", "Выброс-". Следующий маркер после перехвата должен быть через 0,1 сек	Не выполнено
             if (stage == StageEnum.CreateMarker)
             {
                 fixedTime = 0;
@@ -1816,8 +1815,6 @@ namespace Uniso.InStat.Gui.Forms
 
 
             //Проброс
-            //TODO: проверить
-            
             var marker_vibros_plus = edit != null && (edit.Compare(1, 6) && edit.Win == 1);
             //button300300.Enabled = pas;
             button300300.Enabled = pas || marker_vibros_plus;
@@ -1989,8 +1986,6 @@ namespace Uniso.InStat.Gui.Forms
             UpdateUI();
         }
 
-        // TODO: 7	Выброс 	Добавить возможность регистрировать сочетания маркеров "Выброс+" и "Проброс"; "Выброс-" и "Неточная"	Не выполнено	ВАЖНО
-        // TODO: 5	Перехват, единоборство, отбор Добавить возможность регистрировать "перехват", "единоборство", "отбор" совместно с действиями "Пас по борту", "КП", "ОП", "Вброс", "Выброс+", "Выброс-". Следующий маркер после перехвата должен быть через 0,1 сек Не выполнено
         private void RegisterBegin(int action_code)
         {
             var mk = new InStat.Game.Marker(Game) { ActionCode = action_code };
@@ -2050,8 +2045,6 @@ namespace Uniso.InStat.Gui.Forms
 
                     if (MarkersWomboCombo.CheckPrevMarkerNeedsExtraMarker(Game.editMarker.G, newMarker))
                     {
-                        // TODO: Marker добавить доп.маркер, но там корчое смотреть, чтобы не дублировались маркеры + не было их дохуев, а только 1.
-                        //Game.editMarker.G.flag_adding.Add(newMarker);
                         MarkersWomboCombo.AddSingleNewExtraMarker(Game.editMarker.G, newMarker);
                     }
                     else
