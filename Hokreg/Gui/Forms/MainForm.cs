@@ -1631,7 +1631,7 @@ namespace Uniso.InStat.Gui.Forms
                     .Where(o => o.TimeVideo > -1 && (o.Compare(4, new int[] { 1, 2, 3, 4, 5 }) || o.Compare(8, 1)))
                     .OrderByDescending(o => o.TimeVideo).First();
 
-                if (!groupBox1.Visible)
+                if (!groupBoxEditBrosok.Visible)
                 {
                     var pls = new List<Player>();
 
@@ -1672,9 +1672,9 @@ namespace Uniso.InStat.Gui.Forms
                     UpdateCombo29(mk4);
                 }
 
-                groupBox1.Visible = true;
-                groupBox1.Text = Convert.ToString(HockeyIce.convAction.ConvertTo(mk4.Action, typeof(string))) + " " + Utils.TimeFormat(mk4.TimeVideo);
-                groupBox2.Visible = mk4.Compare(8, 1) || mk4.Compare(4, new int[] { 2, 3, 4, 5 });
+                groupBoxEditBrosok.Visible = true;
+                groupBoxEditBrosok.Text = Convert.ToString(HockeyIce.convAction.ConvertTo(mk4.Action, typeof(string))) + " " + Utils.TimeFormat(mk4.TimeVideo);
+                groupBoxEditGoalKeeper.Visible = mk4.Compare(8, 1) || mk4.Compare(4, new int[] { 2, 3, 4, 5 });
 
                 var sibl4 = Game.GetSiblings(mk4.Half, mk4.TimeVideo);
 
@@ -1720,7 +1720,7 @@ namespace Uniso.InStat.Gui.Forms
                 lock_change_players_in_panel = false;
             }
             else
-                groupBox1.Visible = false;
+                groupBoxEditBrosok.Visible = false;
 
             //Правка вбрасываний
             if (HockeyIce.Role == HockeyIce.RoleEnum.AdvTtd
@@ -1731,7 +1731,7 @@ namespace Uniso.InStat.Gui.Forms
                     .Where(o => o.TimeVideo > -1 && o.Compare(1, 1))
                     .OrderByDescending(o => o.TimeVideo).First();
 
-                if (!groupBox3.Visible)
+                if (!groupBoxEditVbrasivanije.Visible)
                 {
                     var pls = new List<Player>();
                     pls.AddRange(Game.Match.Team1.Tactics[0].GetPlayers());
@@ -1744,8 +1744,8 @@ namespace Uniso.InStat.Gui.Forms
                     comboBox4.Items.AddRange(pls.ToArray<Player>());
                 }
 
-                groupBox3.Visible = true;
-                groupBox3.Text = Convert.ToString(HockeyIce.convAction.ConvertTo(mk11.Action, typeof(string))) + " " + Utils.TimeFormat(mk11.TimeVideo);
+                groupBoxEditVbrasivanije.Visible = true;
+                groupBoxEditVbrasivanije.Text = Convert.ToString(HockeyIce.convAction.ConvertTo(mk11.Action, typeof(string))) + " " + Utils.TimeFormat(mk11.TimeVideo);
 
                 var sibl4 = Game.GetSiblings(mk11.Half, mk11.TimeVideo);
 
@@ -1755,7 +1755,7 @@ namespace Uniso.InStat.Gui.Forms
                 lock_change_players_in_panel = false;
             }
             else
-                groupBox3.Visible = false;
+                groupBoxEditVbrasivanije.Visible = false;
 
             //Правка силовых
             if (HockeyIce.Role == HockeyIce.RoleEnum.AdvTtd
@@ -1766,7 +1766,7 @@ namespace Uniso.InStat.Gui.Forms
                     .Where(o => o.TimeVideo > -1 && o.Compare(6, 1))
                     .OrderByDescending(o => o.TimeVideo).First();
 
-                if (!groupBox4.Visible)
+                if (!groupBoxEditVbrasivanie.Visible)
                 {
                     var pls = new List<Player>();
                     pls.AddRange(Game.Match.Team1.Tactics[0].GetPlayers());
@@ -1779,8 +1779,8 @@ namespace Uniso.InStat.Gui.Forms
                     comboBox1.Items.AddRange(pls.ToArray<Player>());
                 }
 
-                groupBox4.Visible = true;
-                groupBox4.Text = Convert.ToString(HockeyIce.convAction.ConvertTo(mk11.Action, typeof(string))) + " " + Utils.TimeFormat(mk11.TimeVideo);
+                groupBoxEditVbrasivanie.Visible = true;
+                groupBoxEditVbrasivanie.Text = Convert.ToString(HockeyIce.convAction.ConvertTo(mk11.Action, typeof(string))) + " " + Utils.TimeFormat(mk11.TimeVideo);
 
                 var sibl4 = Game.GetSiblings(mk11.Half, mk11.TimeVideo);
 
@@ -1790,7 +1790,7 @@ namespace Uniso.InStat.Gui.Forms
                 lock_change_players_in_panel = false;
             }
             else
-                groupBox4.Visible = false;
+                groupBoxEditVbrasivanie.Visible = false;
 
             //Гол
             if (bullet_period || fine_bullet)
@@ -1994,30 +1994,27 @@ namespace Uniso.InStat.Gui.Forms
             {
                 if (MarkersWomboCombo.CheckPrevMarkerNeedsExtraMarker(Game.editMarker.G, mk) == false)
                 {
-                    if (Game.editMarker.G != null &&
-                        // Единоборство || Подбор в борьбе
-                        (Game.editMarker.G.Compare(2, new int[] {1, 10})
-                        ||
-                        // Пас (конструктивная передача) || ОП (острая передача)
-                        Game.editMarker.G.Compare(1, new int[] {4, 5})
-                        ))
-                    {
-                        Game.editMarker.G.flag_adding.Add(mk);
-                        UpdateUI();
-                        return;
-                    }
+                    if (Game.editMarker.G != null)
+                        if (
+                            // Единоборство || Подбор в борьбе
+                            Game.editMarker.G.Compare(2, new int[] {1, 10})
+                            ||
+                            // Пас (конструктивная передача) || ОП (острая передача)
+                            Game.editMarker.G.Compare(1, new int[] {4, 5})
+                        )
+                        {
+                            Game.editMarker.G.flag_adding.Add(mk);
+                            UpdateUI();
+                            return;
+                        }
                 }
             }
 
             RegisterBegin(mk.ActionId, mk.ActionType, mk.Win);
         }
 
-        private void RegisterBegin(int action_id, int action_type)
-        {
-            RegisterBegin(action_id, action_type, 0);
-        }
 
-        private void RegisterBegin(int action_id, int action_type, int win)
+        private void RegisterBegin(int action_id, int action_type, int win = 0)
         {
             try
             {
@@ -2100,7 +2097,7 @@ namespace Uniso.InStat.Gui.Forms
             if (button.Tag is String && Int32.TryParse(button.Tag.ToString(), out tagid))
             {
 #if DEBUG
-                if (tagid == 200600)
+                if (tagid == 400200)
                 {
                     var p = 5;
                 }

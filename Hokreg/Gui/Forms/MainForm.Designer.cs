@@ -47,8 +47,6 @@ namespace Uniso.InStat.Gui.Forms
             this.linkLabel12 = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.comboBox10 = new Uniso.InStat.ComboBoxEx();
-            this.button19 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.linkLabel13 = new System.Windows.Forms.LinkLabel();
             this.linkLabel14 = new System.Windows.Forms.LinkLabel();
@@ -56,51 +54,25 @@ namespace Uniso.InStat.Gui.Forms
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.buttonOpen = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.label6 = new System.Windows.Forms.Label();
             this.trackBar3 = new System.Windows.Forms.TrackBar();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button_61_Point = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.groupBoxEditVbrasivanie = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.comboBox1 = new Uniso.InStat.ComboBoxEx();
-            this.comboBox9 = new Uniso.InStat.ComboBoxEx();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button_11_Point = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.groupBoxEditVbrasivanije = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.comboBox4 = new Uniso.InStat.ComboBoxEx();
-            this.comboBox5 = new Uniso.InStat.ComboBoxEx();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_4_Point = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1100205 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button1100203 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button1100401 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button1100201 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.groupBoxEditBrosok = new System.Windows.Forms.GroupBox();
+            this.groupBoxEditGoalKeeper = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button1100302 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button1100202 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button1100303 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button1100301 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button1100204 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button401100 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button1100101 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button1100102 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button401000 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.comboBox3 = new Uniso.InStat.ComboBoxEx();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.comboBox8 = new Uniso.InStat.ComboBoxEx();
-            this.comboBox7 = new Uniso.InStat.ComboBoxEx();
-            this.comboBox6 = new Uniso.InStat.ComboBoxEx();
-            this.comboBox2 = new Uniso.InStat.ComboBoxEx();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
@@ -117,31 +89,61 @@ namespace Uniso.InStat.Gui.Forms
             this.panel8 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.transparentPanel1 = new Uniso.InStat.Gui.Controls.TransparentPanel();
-            this.vlcStreamPlayer1 = new Uniso.InStat.PlayerTypes.StreamPlayer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button600100 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button800100 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button300100 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button400300 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button400100 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button400200 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button300800 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button100100 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button400600 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
             this.linkLabel9 = new System.Windows.Forms.LinkLabel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.spareField1 = new Uniso.InStat.Gui.Controls.SpareField();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.spareField2 = new Uniso.InStat.Gui.Controls.SpareField();
             this.panelFullTtd = new System.Windows.Forms.Panel();
-            this.button1300200 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.linkLabel_a12_0 = new System.Windows.Forms.LinkLabel();
             this.linkLabel_a12_1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel_a12 = new System.Windows.Forms.LinkLabel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label11 = new System.Windows.Forms.Label();
+            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.dataGridView1 = new System.Windows.Forms.ListView();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.linkLabel10 = new System.Windows.Forms.LinkLabel();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.hockeyField1 = new Uniso.InStat.Gui.Controls.HockeyField();
+            this.comboBox10 = new Uniso.InStat.ComboBoxEx();
+            this.button19 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.buttonOpen = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button_61_Point = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.comboBox1 = new Uniso.InStat.ComboBoxEx();
+            this.comboBox9 = new Uniso.InStat.ComboBoxEx();
+            this.button_11_Point = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.comboBox4 = new Uniso.InStat.ComboBoxEx();
+            this.comboBox5 = new Uniso.InStat.ComboBoxEx();
+            this.button_4_Point = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100205 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100203 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100401 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100201 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100302 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100202 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100303 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100301 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100204 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button401100 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100101 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button1100102 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button401000 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.comboBox3 = new Uniso.InStat.ComboBoxEx();
+            this.comboBox8 = new Uniso.InStat.ComboBoxEx();
+            this.comboBox7 = new Uniso.InStat.ComboBoxEx();
+            this.comboBox6 = new Uniso.InStat.ComboBoxEx();
+            this.comboBox2 = new Uniso.InStat.ComboBoxEx();
+            this.transparentPanel1 = new Uniso.InStat.Gui.Controls.TransparentPanel();
+            this.vlcStreamPlayer1 = new Uniso.InStat.PlayerTypes.StreamPlayer(this.components);
+            this.comboBoxEx1 = new Uniso.InStat.ComboBoxEx();
+            this.button1300200 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button200800 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button200400 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button1300100 = new Uniso.InStat.Gui.Controls.ButtonEx();
@@ -166,29 +168,27 @@ namespace Uniso.InStat.Gui.Forms
             this.button200600 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button100400 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button100300 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.comboBoxEx1 = new Uniso.InStat.ComboBoxEx();
-            this.label11 = new System.Windows.Forms.Label();
-            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.dataGridView1 = new System.Windows.Forms.ListView();
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.linkLabel10 = new System.Windows.Forms.LinkLabel();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.hockeyField1 = new Uniso.InStat.Gui.Controls.HockeyField();
+            this.spareField1 = new Uniso.InStat.Gui.Controls.SpareField();
+            this.spareField2 = new Uniso.InStat.Gui.Controls.SpareField();
+            this.button600100 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button800100 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button300100 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button400300 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button400100 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button400200 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button300800 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button100100 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button400600 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxEditVbrasivanie.SuspendLayout();
+            this.groupBoxEditVbrasivanije.SuspendLayout();
+            this.groupBoxEditBrosok.SuspendLayout();
+            this.groupBoxEditGoalKeeper.SuspendLayout();
             this.panel4.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -344,9 +344,9 @@ namespace Uniso.InStat.Gui.Forms
             // panel2
             // 
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.groupBox4);
-            this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.groupBoxEditVbrasivanie);
+            this.panel2.Controls.Add(this.groupBoxEditVbrasivanije);
+            this.panel2.Controls.Add(this.groupBoxEditBrosok);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.linkLabel6);
@@ -389,36 +389,6 @@ namespace Uniso.InStat.Gui.Forms
             this.panel5.Size = new System.Drawing.Size(815, 119);
             this.panel5.TabIndex = 15;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
-            // 
-            // comboBox10
-            // 
-            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox10.Focusable = false;
-            this.comboBox10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Items.AddRange(new object[] {
-            "ТТД",
-            "ЗАМЕНЫ",
-            "ПОЛНОЕ ТТД"});
-            this.comboBox10.Location = new System.Drawing.Point(532, 18);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(146, 29);
-            this.comboBox10.TabIndex = 21;
-            this.comboBox10.SelectedIndexChanged += new System.EventHandler(this.comboBox10_SelectedIndexChanged);
-            // 
-            // button19
-            // 
-            this.button19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button19.Focusable = false;
-            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button19.Location = new System.Drawing.Point(698, 15);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(99, 40);
-            this.button19.TabIndex = 2;
-            this.button19.Tag = "";
-            this.button19.Text = "Сохранить";
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // checkBox2
             // 
@@ -504,17 +474,6 @@ namespace Uniso.InStat.Gui.Forms
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "linkLabel3";
             // 
-            // buttonOpen
-            // 
-            this.buttonOpen.Focusable = false;
-            this.buttonOpen.Location = new System.Drawing.Point(17, 14);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(66, 34);
-            this.buttonOpen.TabIndex = 9;
-            this.buttonOpen.Text = "Открыть видео";
-            this.buttonOpen.UseVisualStyleBackColor = true;
-            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -572,34 +531,23 @@ namespace Uniso.InStat.Gui.Forms
             this.label9.TabIndex = 0;
             this.label9.Text = "RATE";
             // 
-            // groupBox4
+            // groupBoxEditVbrasivanie
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBoxEditVbrasivanie.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.button_61_Point);
-            this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Controls.Add(this.label26);
-            this.groupBox4.Controls.Add(this.comboBox1);
-            this.groupBox4.Controls.Add(this.comboBox9);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.groupBox4.Location = new System.Drawing.Point(4, 79);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(822, 74);
-            this.groupBox4.TabIndex = 29;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "ВБРАСЫВАНИЕ";
-            this.groupBox4.Visible = false;
-            // 
-            // button_61_Point
-            // 
-            this.button_61_Point.Focusable = false;
-            this.button_61_Point.Location = new System.Drawing.Point(267, 15);
-            this.button_61_Point.Name = "button_61_Point";
-            this.button_61_Point.Size = new System.Drawing.Size(75, 23);
-            this.button_61_Point.TabIndex = 8;
-            this.button_61_Point.Text = "Точка";
-            this.button_61_Point.UseVisualStyleBackColor = true;
-            this.button_61_Point.Click += new System.EventHandler(this.button_61_Point_Click);
+            this.groupBoxEditVbrasivanie.Controls.Add(this.button_61_Point);
+            this.groupBoxEditVbrasivanie.Controls.Add(this.label25);
+            this.groupBoxEditVbrasivanie.Controls.Add(this.label26);
+            this.groupBoxEditVbrasivanie.Controls.Add(this.comboBox1);
+            this.groupBoxEditVbrasivanie.Controls.Add(this.comboBox9);
+            this.groupBoxEditVbrasivanie.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.groupBoxEditVbrasivanie.Location = new System.Drawing.Point(4, 79);
+            this.groupBoxEditVbrasivanie.Name = "groupBoxEditVbrasivanie";
+            this.groupBoxEditVbrasivanie.Size = new System.Drawing.Size(822, 74);
+            this.groupBoxEditVbrasivanie.TabIndex = 29;
+            this.groupBoxEditVbrasivanie.TabStop = false;
+            this.groupBoxEditVbrasivanie.Text = "ВБРАСЫВАНИЕ";
+            this.groupBoxEditVbrasivanie.Visible = false;
             // 
             // label25
             // 
@@ -619,56 +567,23 @@ namespace Uniso.InStat.Gui.Forms
             this.label26.TabIndex = 7;
             this.label26.Text = "ВЫИГРАЛ";
             // 
-            // comboBox1
+            // groupBoxEditVbrasivanije
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Focusable = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(88, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 20);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // comboBox9
-            // 
-            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox9.Focusable = false;
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(88, 16);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(168, 20);
-            this.comboBox9.TabIndex = 6;
-            this.comboBox9.SelectedIndexChanged += new System.EventHandler(this.comboBox9_SelectedIndexChanged);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBoxEditVbrasivanije.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.button_11_Point);
-            this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.comboBox4);
-            this.groupBox3.Controls.Add(this.comboBox5);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.groupBox3.Location = new System.Drawing.Point(5, 76);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(822, 74);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "ВБРАСЫВАНИЕ";
-            this.groupBox3.Visible = false;
-            // 
-            // button_11_Point
-            // 
-            this.button_11_Point.Focusable = false;
-            this.button_11_Point.Location = new System.Drawing.Point(267, 15);
-            this.button_11_Point.Name = "button_11_Point";
-            this.button_11_Point.Size = new System.Drawing.Size(75, 23);
-            this.button_11_Point.TabIndex = 8;
-            this.button_11_Point.Text = "Точка";
-            this.button_11_Point.UseVisualStyleBackColor = true;
-            this.button_11_Point.Click += new System.EventHandler(this.button_11_Point_Click);
+            this.groupBoxEditVbrasivanije.Controls.Add(this.button_11_Point);
+            this.groupBoxEditVbrasivanije.Controls.Add(this.label21);
+            this.groupBoxEditVbrasivanije.Controls.Add(this.label20);
+            this.groupBoxEditVbrasivanije.Controls.Add(this.comboBox4);
+            this.groupBoxEditVbrasivanije.Controls.Add(this.comboBox5);
+            this.groupBoxEditVbrasivanije.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.groupBoxEditVbrasivanije.Location = new System.Drawing.Point(5, 76);
+            this.groupBoxEditVbrasivanije.Name = "groupBoxEditVbrasivanije";
+            this.groupBoxEditVbrasivanije.Size = new System.Drawing.Size(822, 74);
+            this.groupBoxEditVbrasivanije.TabIndex = 1;
+            this.groupBoxEditVbrasivanije.TabStop = false;
+            this.groupBoxEditVbrasivanije.Text = "ВБРАСЫВАНИЕ";
+            this.groupBoxEditVbrasivanije.Visible = false;
             // 
             // label21
             // 
@@ -688,132 +603,52 @@ namespace Uniso.InStat.Gui.Forms
             this.label20.TabIndex = 7;
             this.label20.Text = "ВЫИГРАЛ";
             // 
-            // comboBox4
+            // groupBoxEditBrosok
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.Focusable = false;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(88, 40);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(168, 20);
-            this.comboBox4.TabIndex = 6;
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.Focusable = false;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(88, 16);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(168, 20);
-            this.comboBox5.TabIndex = 6;
-            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBoxEditBrosok.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.button_4_Point);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.button401100);
-            this.groupBox1.Controls.Add(this.button1100101);
-            this.groupBox1.Controls.Add(this.button1100102);
-            this.groupBox1.Controls.Add(this.button401000);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.comboBox8);
-            this.groupBox1.Controls.Add(this.comboBox7);
-            this.groupBox1.Controls.Add(this.comboBox6);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.groupBox1.Location = new System.Drawing.Point(4, 77);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(822, 93);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "БРОСОК";
+            this.groupBoxEditBrosok.Controls.Add(this.button_4_Point);
+            this.groupBoxEditBrosok.Controls.Add(this.groupBoxEditGoalKeeper);
+            this.groupBoxEditBrosok.Controls.Add(this.button401100);
+            this.groupBoxEditBrosok.Controls.Add(this.button1100101);
+            this.groupBoxEditBrosok.Controls.Add(this.button1100102);
+            this.groupBoxEditBrosok.Controls.Add(this.button401000);
+            this.groupBoxEditBrosok.Controls.Add(this.comboBox3);
+            this.groupBoxEditBrosok.Controls.Add(this.label24);
+            this.groupBoxEditBrosok.Controls.Add(this.label23);
+            this.groupBoxEditBrosok.Controls.Add(this.label22);
+            this.groupBoxEditBrosok.Controls.Add(this.comboBox8);
+            this.groupBoxEditBrosok.Controls.Add(this.comboBox7);
+            this.groupBoxEditBrosok.Controls.Add(this.comboBox6);
+            this.groupBoxEditBrosok.Controls.Add(this.comboBox2);
+            this.groupBoxEditBrosok.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.groupBoxEditBrosok.Location = new System.Drawing.Point(4, 77);
+            this.groupBoxEditBrosok.Name = "groupBoxEditBrosok";
+            this.groupBoxEditBrosok.Size = new System.Drawing.Size(822, 93);
+            this.groupBoxEditBrosok.TabIndex = 1;
+            this.groupBoxEditBrosok.TabStop = false;
+            this.groupBoxEditBrosok.Text = "БРОСОК";
             // 
-            // button_4_Point
+            // groupBoxEditGoalKeeper
             // 
-            this.button_4_Point.Focusable = false;
-            this.button_4_Point.Location = new System.Drawing.Point(195, 65);
-            this.button_4_Point.Name = "button_4_Point";
-            this.button_4_Point.Size = new System.Drawing.Size(75, 23);
-            this.button_4_Point.TabIndex = 13;
-            this.button_4_Point.Text = "Точка";
-            this.button_4_Point.UseVisualStyleBackColor = true;
-            this.button_4_Point.Click += new System.EventHandler(this.button_4_Point_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button1100205);
-            this.groupBox2.Controls.Add(this.button1100203);
-            this.groupBox2.Controls.Add(this.button1100401);
-            this.groupBox2.Controls.Add(this.button1100201);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.button1100302);
-            this.groupBox2.Controls.Add(this.button1100202);
-            this.groupBox2.Controls.Add(this.button1100303);
-            this.groupBox2.Controls.Add(this.button1100301);
-            this.groupBox2.Controls.Add(this.button1100204);
-            this.groupBox2.Location = new System.Drawing.Point(553, 1);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(495, 72);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "ВРАТАРЬ";
-            // 
-            // button1100205
-            // 
-            this.button1100205.Focusable = false;
-            this.button1100205.Location = new System.Drawing.Point(18, 20);
-            this.button1100205.Name = "button1100205";
-            this.button1100205.Size = new System.Drawing.Size(52, 20);
-            this.button1100205.TabIndex = 4;
-            this.button1100205.Tag = "1100205";
-            this.button1100205.Text = "НАД";
-            this.button1100205.UseVisualStyleBackColor = true;
-            this.button1100205.Click += new System.EventHandler(this.button1100101_Click);
-            // 
-            // button1100203
-            // 
-            this.button1100203.Focusable = false;
-            this.button1100203.Location = new System.Drawing.Point(18, 40);
-            this.button1100203.Name = "button1100203";
-            this.button1100203.Size = new System.Drawing.Size(52, 20);
-            this.button1100203.TabIndex = 4;
-            this.button1100203.Tag = "1100203";
-            this.button1100203.Text = "ПОД";
-            this.button1100203.UseVisualStyleBackColor = true;
-            this.button1100203.Click += new System.EventHandler(this.button1100101_Click);
-            // 
-            // button1100401
-            // 
-            this.button1100401.Focusable = false;
-            this.button1100401.Location = new System.Drawing.Point(403, 15);
-            this.button1100401.Name = "button1100401";
-            this.button1100401.Size = new System.Drawing.Size(69, 42);
-            this.button1100401.TabIndex = 6;
-            this.button1100401.Text = "ТОЧКА В ВОРОТАХ";
-            this.button1100401.UseVisualStyleBackColor = true;
-            this.button1100401.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button1100201
-            // 
-            this.button1100201.Focusable = false;
-            this.button1100201.Location = new System.Drawing.Point(76, 22);
-            this.button1100201.Name = "button1100201";
-            this.button1100201.Size = new System.Drawing.Size(52, 35);
-            this.button1100201.TabIndex = 4;
-            this.button1100201.Tag = "1100201";
-            this.button1100201.Text = "ДОМИК";
-            this.button1100201.UseVisualStyleBackColor = true;
-            this.button1100201.Click += new System.EventHandler(this.button1100101_Click);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100205);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100203);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100401);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100201);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.label19);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.label18);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.label17);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100302);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100202);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100303);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100301);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100204);
+            this.groupBoxEditGoalKeeper.Location = new System.Drawing.Point(553, 1);
+            this.groupBoxEditGoalKeeper.Name = "groupBoxEditGoalKeeper";
+            this.groupBoxEditGoalKeeper.Size = new System.Drawing.Size(495, 72);
+            this.groupBoxEditGoalKeeper.TabIndex = 6;
+            this.groupBoxEditGoalKeeper.TabStop = false;
+            this.groupBoxEditGoalKeeper.Text = "ВРАТАРЬ";
             // 
             // label19
             // 
@@ -847,125 +682,6 @@ namespace Uniso.InStat.Gui.Forms
             this.label17.Text = "ПОЛОЖЕНИЕ ВРАТАРЯ";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // button1100302
-            // 
-            this.button1100302.Focusable = false;
-            this.button1100302.Location = new System.Drawing.Point(270, 28);
-            this.button1100302.Name = "button1100302";
-            this.button1100302.Size = new System.Drawing.Size(52, 28);
-            this.button1100302.TabIndex = 4;
-            this.button1100302.Tag = "1100302";
-            this.button1100302.Text = "СИДИТ";
-            this.button1100302.UseVisualStyleBackColor = true;
-            this.button1100302.Click += new System.EventHandler(this.button1100101_Click);
-            // 
-            // button1100202
-            // 
-            this.button1100202.Focusable = false;
-            this.button1100202.Location = new System.Drawing.Point(134, 41);
-            this.button1100202.Name = "button1100202";
-            this.button1100202.Size = new System.Drawing.Size(52, 20);
-            this.button1100202.TabIndex = 4;
-            this.button1100202.Tag = "1100202";
-            this.button1100202.Text = "ПОД";
-            this.button1100202.UseVisualStyleBackColor = true;
-            this.button1100202.Click += new System.EventHandler(this.button1100101_Click);
-            // 
-            // button1100303
-            // 
-            this.button1100303.Focusable = false;
-            this.button1100303.Location = new System.Drawing.Point(328, 28);
-            this.button1100303.Name = "button1100303";
-            this.button1100303.Size = new System.Drawing.Size(52, 28);
-            this.button1100303.TabIndex = 4;
-            this.button1100303.Tag = "1100303";
-            this.button1100303.Text = "ЛЕЖИТ";
-            this.button1100303.UseVisualStyleBackColor = true;
-            this.button1100303.Click += new System.EventHandler(this.button1100101_Click);
-            // 
-            // button1100301
-            // 
-            this.button1100301.Focusable = false;
-            this.button1100301.Location = new System.Drawing.Point(212, 28);
-            this.button1100301.Name = "button1100301";
-            this.button1100301.Size = new System.Drawing.Size(52, 28);
-            this.button1100301.TabIndex = 4;
-            this.button1100301.Tag = "1100301";
-            this.button1100301.Text = "СТОИТ";
-            this.button1100301.UseVisualStyleBackColor = true;
-            this.button1100301.Click += new System.EventHandler(this.button1100101_Click);
-            // 
-            // button1100204
-            // 
-            this.button1100204.Focusable = false;
-            this.button1100204.Location = new System.Drawing.Point(134, 20);
-            this.button1100204.Name = "button1100204";
-            this.button1100204.Size = new System.Drawing.Size(52, 20);
-            this.button1100204.TabIndex = 4;
-            this.button1100204.Tag = "1100204";
-            this.button1100204.Text = "НАД";
-            this.button1100204.UseVisualStyleBackColor = true;
-            this.button1100204.Click += new System.EventHandler(this.button1100101_Click);
-            // 
-            // button401100
-            // 
-            this.button401100.Focusable = false;
-            this.button401100.Location = new System.Drawing.Point(104, 16);
-            this.button401100.Name = "button401100";
-            this.button401100.Size = new System.Drawing.Size(81, 21);
-            this.button401100.TabIndex = 3;
-            this.button401100.Tag = "401100";
-            this.button401100.Text = "КИСТЕВОЙ";
-            this.button401100.UseVisualStyleBackColor = true;
-            this.button401100.Click += new System.EventHandler(this.checkBox401000_CheckedChanged);
-            // 
-            // button1100101
-            // 
-            this.button1100101.Focusable = false;
-            this.button1100101.Location = new System.Drawing.Point(17, 39);
-            this.button1100101.Name = "button1100101";
-            this.button1100101.Size = new System.Drawing.Size(81, 21);
-            this.button1100101.TabIndex = 3;
-            this.button1100101.Tag = "1100101";
-            this.button1100101.Text = "ПРАВОЙ";
-            this.button1100101.UseVisualStyleBackColor = true;
-            this.button1100101.Click += new System.EventHandler(this.button1100101_Click);
-            // 
-            // button1100102
-            // 
-            this.button1100102.Focusable = false;
-            this.button1100102.Location = new System.Drawing.Point(104, 39);
-            this.button1100102.Name = "button1100102";
-            this.button1100102.Size = new System.Drawing.Size(81, 21);
-            this.button1100102.TabIndex = 3;
-            this.button1100102.Tag = "1100102";
-            this.button1100102.Text = "ЛЕВОЙ";
-            this.button1100102.UseVisualStyleBackColor = true;
-            this.button1100102.Click += new System.EventHandler(this.button1100101_Click);
-            // 
-            // button401000
-            // 
-            this.button401000.Focusable = false;
-            this.button401000.Location = new System.Drawing.Point(17, 16);
-            this.button401000.Name = "button401000";
-            this.button401000.Size = new System.Drawing.Size(81, 21);
-            this.button401000.TabIndex = 3;
-            this.button401000.Tag = "401000";
-            this.button401000.Text = "ЩЕЛЧОК";
-            this.button401000.UseVisualStyleBackColor = true;
-            this.button401000.Click += new System.EventHandler(this.checkBox401000_CheckedChanged);
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Focusable = false;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(195, 40);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(168, 20);
-            this.comboBox3.TabIndex = 6;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
-            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -998,52 +714,6 @@ namespace Uniso.InStat.Gui.Forms
             this.label22.TabIndex = 12;
             this.label22.Text = "П";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // comboBox8
-            // 
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.Focusable = false;
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(392, 63);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(151, 20);
-            this.comboBox8.TabIndex = 6;
-            this.comboBox8.Tag = "2";
-            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.Focusable = false;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(392, 40);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(151, 20);
-            this.comboBox7.TabIndex = 6;
-            this.comboBox7.Tag = "1";
-            this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.Focusable = false;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(392, 17);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(151, 20);
-            this.comboBox6.TabIndex = 6;
-            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Focusable = false;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(195, 16);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(168, 20);
-            this.comboBox2.TabIndex = 6;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -1233,6 +903,661 @@ namespace Uniso.InStat.Gui.Forms
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
             // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 12;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 254F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.button600100, 11, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button800100, 9, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button300100, 8, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button400300, 6, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button400100, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button400200, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1262, 44);
+            this.tableLayoutPanel2.TabIndex = 20;
+            // 
+            // panel3
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.panel3, 2);
+            this.panel3.Controls.Add(this.button300800);
+            this.panel3.Controls.Add(this.button100100);
+            this.panel3.Controls.Add(this.button400600);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(257, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(232, 38);
+            this.panel3.TabIndex = 3;
+            // 
+            // linkLabel8
+            // 
+            this.linkLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.linkLabel8.Location = new System.Drawing.Point(14, 2);
+            this.linkLabel8.Name = "linkLabel8";
+            this.linkLabel8.Size = new System.Drawing.Size(79, 10);
+            this.linkLabel8.TabIndex = 22;
+            this.linkLabel8.TabStop = true;
+            this.linkLabel8.Text = "УБРАТЬ ВСЕХ";
+            this.linkLabel8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
+            // 
+            // linkLabel9
+            // 
+            this.linkLabel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.linkLabel9.Location = new System.Drawing.Point(14, 2);
+            this.linkLabel9.Name = "linkLabel9";
+            this.linkLabel9.Size = new System.Drawing.Size(79, 10);
+            this.linkLabel9.TabIndex = 22;
+            this.linkLabel9.TabStop = true;
+            this.linkLabel9.Text = "УБРАТЬ ВСЕХ";
+            this.linkLabel9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.linkLabel9.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel9_LinkClicked);
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.linkLabel8);
+            this.panel9.Controls.Add(this.spareField1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.MinimumSize = new System.Drawing.Size(105, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(105, 718);
+            this.panel9.TabIndex = 23;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.linkLabel9);
+            this.panel10.Controls.Add(this.spareField2);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel10.Location = new System.Drawing.Point(1155, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(107, 718);
+            this.panel10.TabIndex = 24;
+            // 
+            // panelFullTtd
+            // 
+            this.panelFullTtd.Controls.Add(this.button1300200);
+            this.panelFullTtd.Controls.Add(this.linkLabel_a12_0);
+            this.panelFullTtd.Controls.Add(this.linkLabel_a12_1);
+            this.panelFullTtd.Controls.Add(this.linkLabel_a12);
+            this.panelFullTtd.Controls.Add(this.button200800);
+            this.panelFullTtd.Controls.Add(this.button200400);
+            this.panelFullTtd.Controls.Add(this.button1300100);
+            this.panelFullTtd.Controls.Add(this.button1200000);
+            this.panelFullTtd.Controls.Add(this.button200300);
+            this.panelFullTtd.Controls.Add(this.button200100);
+            this.panelFullTtd.Controls.Add(this.button1400000);
+            this.panelFullTtd.Controls.Add(this.button000001);
+            this.panelFullTtd.Controls.Add(this.button300900);
+            this.panelFullTtd.Controls.Add(this.button201100);
+            this.panelFullTtd.Controls.Add(this.button700100);
+            this.panelFullTtd.Controls.Add(this.button300300);
+            this.panelFullTtd.Controls.Add(this.button200900);
+            this.panelFullTtd.Controls.Add(this.button100602);
+            this.panelFullTtd.Controls.Add(this.button100601);
+            this.panelFullTtd.Controls.Add(this.button200702);
+            this.panelFullTtd.Controls.Add(this.button200700);
+            this.panelFullTtd.Controls.Add(this.button200202);
+            this.panelFullTtd.Controls.Add(this.button200201);
+            this.panelFullTtd.Controls.Add(this.button100800);
+            this.panelFullTtd.Controls.Add(this.button100500);
+            this.panelFullTtd.Controls.Add(this.button200600);
+            this.panelFullTtd.Controls.Add(this.button100400);
+            this.panelFullTtd.Controls.Add(this.button100300);
+            this.panelFullTtd.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelFullTtd.Location = new System.Drawing.Point(105, 0);
+            this.panelFullTtd.Name = "panelFullTtd";
+            this.panelFullTtd.Size = new System.Drawing.Size(220, 718);
+            this.panelFullTtd.TabIndex = 26;
+            // 
+            // linkLabel_a12_0
+            // 
+            this.linkLabel_a12_0.AutoSize = true;
+            this.linkLabel_a12_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkLabel_a12_0.Location = new System.Drawing.Point(112, 3);
+            this.linkLabel_a12_0.Name = "linkLabel_a12_0";
+            this.linkLabel_a12_0.Size = new System.Drawing.Size(90, 12);
+            this.linkLabel_a12_0.TabIndex = 2;
+            this.linkLabel_a12_0.TabStop = true;
+            this.linkLabel_a12_0.Text = "ОТМЕНИТЬ АТАКУ";
+            this.linkLabel_a12_0.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_a12_0_LinkClicked);
+            // 
+            // linkLabel_a12_1
+            // 
+            this.linkLabel_a12_1.AutoSize = true;
+            this.linkLabel_a12_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkLabel_a12_1.Location = new System.Drawing.Point(11, 3);
+            this.linkLabel_a12_1.Name = "linkLabel_a12_1";
+            this.linkLabel_a12_1.Size = new System.Drawing.Size(96, 12);
+            this.linkLabel_a12_1.TabIndex = 2;
+            this.linkLabel_a12_1.TabStop = true;
+            this.linkLabel_a12_1.Text = "ЗАВЕРШИТЬ АТАКУ";
+            this.linkLabel_a12_1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_a12_1_LinkClicked);
+            // 
+            // linkLabel_a12
+            // 
+            this.linkLabel_a12.AutoSize = true;
+            this.linkLabel_a12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkLabel_a12.Location = new System.Drawing.Point(12, 3);
+            this.linkLabel_a12.Name = "linkLabel_a12";
+            this.linkLabel_a12.Size = new System.Drawing.Size(76, 12);
+            this.linkLabel_a12.TabIndex = 2;
+            this.linkLabel_a12.TabStop = true;
+            this.linkLabel_a12.Text = "НАЧАТЬ АТАКУ";
+            this.linkLabel_a12.Visible = false;
+            this.linkLabel_a12.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
+            // 
+            // panel11
+            // 
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Controls.Add(this.panelFullTtd);
+            this.panel11.Controls.Add(this.panel9);
+            this.panel11.Controls.Add(this.panel10);
+            this.panel11.Location = new System.Drawing.Point(6, 45);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1262, 718);
+            this.panel11.TabIndex = 27;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.splitContainer1);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(325, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(830, 718);
+            this.panel12.TabIndex = 27;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.panel2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.comboBoxEx1);
+            this.splitContainer1.Panel2.Controls.Add(this.label11);
+            this.splitContainer1.Panel2.Controls.Add(this.linkLabel7);
+            this.splitContainer1.Panel2.Controls.Add(this.checkBox4);
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel2.Controls.Add(this.linkLabel10);
+            this.splitContainer1.Size = new System.Drawing.Size(830, 718);
+            this.splitContainer1.SplitterDistance = 563;
+            this.splitContainer1.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.BackColor = System.Drawing.Color.Red;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(3, 28);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(824, 23);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "label11";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label11.Visible = false;
+            // 
+            // linkLabel7
+            // 
+            this.linkLabel7.AutoSize = true;
+            this.linkLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.linkLabel7.Location = new System.Drawing.Point(81, 6);
+            this.linkLabel7.Name = "linkLabel7";
+            this.linkLabel7.Size = new System.Drawing.Size(110, 12);
+            this.linkLabel7.TabIndex = 26;
+            this.linkLabel7.TabStop = true;
+            this.linkLabel7.Text = "ПОДТВЕРДИТЬ ВРЕМЯ";
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.checkBox4.Location = new System.Drawing.Point(675, 6);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(147, 16);
+            this.checkBox4.TabIndex = 24;
+            this.checkBox4.Text = "Только до текущего времени";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip3;
+            this.dataGridView1.FullRowSelect = true;
+            this.dataGridView1.HideSelection = false;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(830, 127);
+            this.dataGridView1.TabIndex = 20;
+            this.dataGridView1.UseCompatibleStateImageBehavior = false;
+            this.dataGridView1.View = System.Windows.Forms.View.Details;
+            this.dataGridView1.SelectedIndexChanged += new System.EventHandler(this.dataGridView1_SelectedIndexChanged);
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyUp);
+            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
+            this.dataGridView1.MouseEnter += new System.EventHandler(this.dataGridView1_MouseEnter);
+            this.dataGridView1.MouseLeave += new System.EventHandler(this.dataGridView1_MouseLeave);
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Name = "contextMenuStrip1";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(61, 4);
+            // 
+            // linkLabel10
+            // 
+            this.linkLabel10.AutoSize = true;
+            this.linkLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.linkLabel10.Location = new System.Drawing.Point(19, 6);
+            this.linkLabel10.Name = "linkLabel10";
+            this.linkLabel10.Size = new System.Drawing.Size(56, 12);
+            this.linkLabel10.TabIndex = 21;
+            this.linkLabel10.TabStop = true;
+            this.linkLabel10.Text = "ОБНОВИТЬ";
+            this.linkLabel10.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel10_LinkClicked);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // timer3
+            // 
+            this.timer3.Enabled = true;
+            this.timer3.Interval = 200;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // hockeyField1
+            // 
+            this.hockeyField1.Game = null;
+            this.hockeyField1.IsShowSpares = false;
+            this.hockeyField1.Location = new System.Drawing.Point(337, 51);
+            this.hockeyField1.Name = "hockeyField1";
+            this.hockeyField1.Size = new System.Drawing.Size(528, 301);
+            this.hockeyField1.TabIndex = 0;
+            this.hockeyField1.ChangedPlayers += new System.EventHandler(this.hockeyField1_ChangedPlayers);
+            this.hockeyField1.SelectedPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedPlayerEventHandler(this.hockeyField1_SelectedPlayer);
+            this.hockeyField1.RestorePlayer += new Uniso.InStat.Gui.Controls.HockeyGui.RestorePlayerEventHandler(this.hockeyField1_RestorePlayer);
+            this.hockeyField1.SelectedPoint += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedPointEventHandler(this.hockeyField1_SelectedPoint);
+            this.hockeyField1.SelectedPointAndDest += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedPointAndDestEventHandler(this.hockeyField1_SelectedPointAndDest);
+            this.hockeyField1.SelectedManyPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedManyPlayerEventHandler(this.hockeyField1_SelectedManyPlayer);
+            this.hockeyField1.Paint += new System.Windows.Forms.PaintEventHandler(this.hockeyField1_Paint);
+            this.hockeyField1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.hockeyField1_MouseDown);
+            this.hockeyField1.MouseEnter += new System.EventHandler(this.hockeyField1_MouseEnter);
+            // 
+            // comboBox10
+            // 
+            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox10.Focusable = false;
+            this.comboBox10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox10.FormattingEnabled = true;
+            this.comboBox10.Items.AddRange(new object[] {
+            "ТТД",
+            "ЗАМЕНЫ",
+            "ПОЛНОЕ ТТД"});
+            this.comboBox10.Location = new System.Drawing.Point(532, 18);
+            this.comboBox10.Name = "comboBox10";
+            this.comboBox10.Size = new System.Drawing.Size(146, 29);
+            this.comboBox10.TabIndex = 21;
+            this.comboBox10.SelectedIndexChanged += new System.EventHandler(this.comboBox10_SelectedIndexChanged);
+            // 
+            // button19
+            // 
+            this.button19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button19.Focusable = false;
+            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.button19.Location = new System.Drawing.Point(698, 15);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(99, 40);
+            this.button19.TabIndex = 2;
+            this.button19.Tag = "";
+            this.button19.Text = "Сохранить";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // buttonOpen
+            // 
+            this.buttonOpen.Focusable = false;
+            this.buttonOpen.Location = new System.Drawing.Point(17, 14);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(66, 34);
+            this.buttonOpen.TabIndex = 9;
+            this.buttonOpen.Text = "Открыть видео";
+            this.buttonOpen.UseVisualStyleBackColor = true;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            // 
+            // button_61_Point
+            // 
+            this.button_61_Point.Focusable = false;
+            this.button_61_Point.Location = new System.Drawing.Point(267, 15);
+            this.button_61_Point.Name = "button_61_Point";
+            this.button_61_Point.Size = new System.Drawing.Size(75, 23);
+            this.button_61_Point.TabIndex = 8;
+            this.button_61_Point.Text = "Точка";
+            this.button_61_Point.UseVisualStyleBackColor = true;
+            this.button_61_Point.Click += new System.EventHandler(this.button_61_Point_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Focusable = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(88, 40);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(168, 20);
+            this.comboBox1.TabIndex = 6;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox9.Focusable = false;
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Location = new System.Drawing.Point(88, 16);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(168, 20);
+            this.comboBox9.TabIndex = 6;
+            this.comboBox9.SelectedIndexChanged += new System.EventHandler(this.comboBox9_SelectedIndexChanged);
+            // 
+            // button_11_Point
+            // 
+            this.button_11_Point.Focusable = false;
+            this.button_11_Point.Location = new System.Drawing.Point(267, 15);
+            this.button_11_Point.Name = "button_11_Point";
+            this.button_11_Point.Size = new System.Drawing.Size(75, 23);
+            this.button_11_Point.TabIndex = 8;
+            this.button_11_Point.Text = "Точка";
+            this.button_11_Point.UseVisualStyleBackColor = true;
+            this.button_11_Point.Click += new System.EventHandler(this.button_11_Point_Click);
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.Focusable = false;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(88, 40);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(168, 20);
+            this.comboBox4.TabIndex = 6;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.Focusable = false;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(88, 16);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(168, 20);
+            this.comboBox5.TabIndex = 6;
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            // 
+            // button_4_Point
+            // 
+            this.button_4_Point.Focusable = false;
+            this.button_4_Point.Location = new System.Drawing.Point(195, 65);
+            this.button_4_Point.Name = "button_4_Point";
+            this.button_4_Point.Size = new System.Drawing.Size(75, 23);
+            this.button_4_Point.TabIndex = 13;
+            this.button_4_Point.Text = "Точка";
+            this.button_4_Point.UseVisualStyleBackColor = true;
+            this.button_4_Point.Click += new System.EventHandler(this.button_4_Point_Click);
+            // 
+            // button1100205
+            // 
+            this.button1100205.Focusable = false;
+            this.button1100205.Location = new System.Drawing.Point(18, 20);
+            this.button1100205.Name = "button1100205";
+            this.button1100205.Size = new System.Drawing.Size(52, 20);
+            this.button1100205.TabIndex = 4;
+            this.button1100205.Tag = "1100205";
+            this.button1100205.Text = "НАД";
+            this.button1100205.UseVisualStyleBackColor = true;
+            this.button1100205.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button1100203
+            // 
+            this.button1100203.Focusable = false;
+            this.button1100203.Location = new System.Drawing.Point(18, 40);
+            this.button1100203.Name = "button1100203";
+            this.button1100203.Size = new System.Drawing.Size(52, 20);
+            this.button1100203.TabIndex = 4;
+            this.button1100203.Tag = "1100203";
+            this.button1100203.Text = "ПОД";
+            this.button1100203.UseVisualStyleBackColor = true;
+            this.button1100203.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button1100401
+            // 
+            this.button1100401.Focusable = false;
+            this.button1100401.Location = new System.Drawing.Point(403, 15);
+            this.button1100401.Name = "button1100401";
+            this.button1100401.Size = new System.Drawing.Size(69, 42);
+            this.button1100401.TabIndex = 6;
+            this.button1100401.Text = "ТОЧКА В ВОРОТАХ";
+            this.button1100401.UseVisualStyleBackColor = true;
+            this.button1100401.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button1100201
+            // 
+            this.button1100201.Focusable = false;
+            this.button1100201.Location = new System.Drawing.Point(76, 22);
+            this.button1100201.Name = "button1100201";
+            this.button1100201.Size = new System.Drawing.Size(52, 35);
+            this.button1100201.TabIndex = 4;
+            this.button1100201.Tag = "1100201";
+            this.button1100201.Text = "ДОМИК";
+            this.button1100201.UseVisualStyleBackColor = true;
+            this.button1100201.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button1100302
+            // 
+            this.button1100302.Focusable = false;
+            this.button1100302.Location = new System.Drawing.Point(270, 28);
+            this.button1100302.Name = "button1100302";
+            this.button1100302.Size = new System.Drawing.Size(52, 28);
+            this.button1100302.TabIndex = 4;
+            this.button1100302.Tag = "1100302";
+            this.button1100302.Text = "СИДИТ";
+            this.button1100302.UseVisualStyleBackColor = true;
+            this.button1100302.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button1100202
+            // 
+            this.button1100202.Focusable = false;
+            this.button1100202.Location = new System.Drawing.Point(134, 41);
+            this.button1100202.Name = "button1100202";
+            this.button1100202.Size = new System.Drawing.Size(52, 20);
+            this.button1100202.TabIndex = 4;
+            this.button1100202.Tag = "1100202";
+            this.button1100202.Text = "ПОД";
+            this.button1100202.UseVisualStyleBackColor = true;
+            this.button1100202.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button1100303
+            // 
+            this.button1100303.Focusable = false;
+            this.button1100303.Location = new System.Drawing.Point(328, 28);
+            this.button1100303.Name = "button1100303";
+            this.button1100303.Size = new System.Drawing.Size(52, 28);
+            this.button1100303.TabIndex = 4;
+            this.button1100303.Tag = "1100303";
+            this.button1100303.Text = "ЛЕЖИТ";
+            this.button1100303.UseVisualStyleBackColor = true;
+            this.button1100303.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button1100301
+            // 
+            this.button1100301.Focusable = false;
+            this.button1100301.Location = new System.Drawing.Point(212, 28);
+            this.button1100301.Name = "button1100301";
+            this.button1100301.Size = new System.Drawing.Size(52, 28);
+            this.button1100301.TabIndex = 4;
+            this.button1100301.Tag = "1100301";
+            this.button1100301.Text = "СТОИТ";
+            this.button1100301.UseVisualStyleBackColor = true;
+            this.button1100301.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button1100204
+            // 
+            this.button1100204.Focusable = false;
+            this.button1100204.Location = new System.Drawing.Point(134, 20);
+            this.button1100204.Name = "button1100204";
+            this.button1100204.Size = new System.Drawing.Size(52, 20);
+            this.button1100204.TabIndex = 4;
+            this.button1100204.Tag = "1100204";
+            this.button1100204.Text = "НАД";
+            this.button1100204.UseVisualStyleBackColor = true;
+            this.button1100204.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button401100
+            // 
+            this.button401100.Focusable = false;
+            this.button401100.Location = new System.Drawing.Point(104, 16);
+            this.button401100.Name = "button401100";
+            this.button401100.Size = new System.Drawing.Size(81, 21);
+            this.button401100.TabIndex = 3;
+            this.button401100.Tag = "401100";
+            this.button401100.Text = "КИСТЕВОЙ";
+            this.button401100.UseVisualStyleBackColor = true;
+            this.button401100.Click += new System.EventHandler(this.checkBox401000_CheckedChanged);
+            // 
+            // button1100101
+            // 
+            this.button1100101.Focusable = false;
+            this.button1100101.Location = new System.Drawing.Point(17, 39);
+            this.button1100101.Name = "button1100101";
+            this.button1100101.Size = new System.Drawing.Size(81, 21);
+            this.button1100101.TabIndex = 3;
+            this.button1100101.Tag = "1100101";
+            this.button1100101.Text = "ПРАВОЙ";
+            this.button1100101.UseVisualStyleBackColor = true;
+            this.button1100101.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button1100102
+            // 
+            this.button1100102.Focusable = false;
+            this.button1100102.Location = new System.Drawing.Point(104, 39);
+            this.button1100102.Name = "button1100102";
+            this.button1100102.Size = new System.Drawing.Size(81, 21);
+            this.button1100102.TabIndex = 3;
+            this.button1100102.Tag = "1100102";
+            this.button1100102.Text = "ЛЕВОЙ";
+            this.button1100102.UseVisualStyleBackColor = true;
+            this.button1100102.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button401000
+            // 
+            this.button401000.Focusable = false;
+            this.button401000.Location = new System.Drawing.Point(17, 16);
+            this.button401000.Name = "button401000";
+            this.button401000.Size = new System.Drawing.Size(81, 21);
+            this.button401000.TabIndex = 3;
+            this.button401000.Tag = "401000";
+            this.button401000.Text = "ЩЕЛЧОК";
+            this.button401000.UseVisualStyleBackColor = true;
+            this.button401000.Click += new System.EventHandler(this.checkBox401000_CheckedChanged);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.Focusable = false;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(195, 40);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(168, 20);
+            this.comboBox3.TabIndex = 6;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox8.Focusable = false;
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(392, 63);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(151, 20);
+            this.comboBox8.TabIndex = 6;
+            this.comboBox8.Tag = "2";
+            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox7.Focusable = false;
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(392, 40);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(151, 20);
+            this.comboBox7.TabIndex = 6;
+            this.comboBox7.Tag = "1";
+            this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox6.Focusable = false;
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(392, 17);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(151, 20);
+            this.comboBox6.TabIndex = 6;
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Focusable = false;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(195, 16);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(168, 20);
+            this.comboBox2.TabIndex = 6;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
             // transparentPanel1
             // 
             this.transparentPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1276,302 +1601,18 @@ namespace Uniso.InStat.Gui.Forms
             this.vlcStreamPlayer1.MediaModeChanged += new System.EventHandler(this.vlcStreamPlayer1_MediaModeChanged);
             this.vlcStreamPlayer1.MouseEnter += new System.EventHandler(this.vlcStreamPlayer1_MouseEnter);
             // 
-            // timer2
+            // comboBoxEx1
             // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 12;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 254F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.button600100, 11, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button800100, 9, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button300100, 8, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button400300, 6, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button400100, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button400200, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1262, 44);
-            this.tableLayoutPanel2.TabIndex = 20;
-            // 
-            // button600100
-            // 
-            this.button600100.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button600100.Focusable = false;
-            this.button600100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button600100.Location = new System.Drawing.Point(1139, 3);
-            this.button600100.Name = "button600100";
-            this.button600100.Size = new System.Drawing.Size(120, 38);
-            this.button600100.TabIndex = 1;
-            this.button600100.Tag = "600100";
-            this.button600100.Text = "Силовой прием";
-            this.button600100.UseVisualStyleBackColor = true;
-            this.button600100.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button800100
-            // 
-            this.button800100.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button800100.Focusable = false;
-            this.button800100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button800100.Location = new System.Drawing.Point(1000, 3);
-            this.button800100.Name = "button800100";
-            this.button800100.Size = new System.Drawing.Size(113, 38);
-            this.button800100.TabIndex = 1;
-            this.button800100.Tag = "800100";
-            this.button800100.Text = "ГОЛ";
-            this.button800100.UseVisualStyleBackColor = true;
-            this.button800100.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button300100
-            // 
-            this.button300100.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button300100.Focusable = false;
-            this.button300100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button300100.Location = new System.Drawing.Point(881, 3);
-            this.button300100.Name = "button300100";
-            this.button300100.Size = new System.Drawing.Size(113, 38);
-            this.button300100.TabIndex = 1;
-            this.button300100.Tag = "300100";
-            this.button300100.Text = "ФОЛ";
-            this.button300100.UseVisualStyleBackColor = true;
-            this.button300100.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button400300
-            // 
-            this.button400300.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button400300.Focusable = false;
-            this.button400300.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button400300.Location = new System.Drawing.Point(742, 3);
-            this.button400300.Name = "button400300";
-            this.button400300.Size = new System.Drawing.Size(113, 38);
-            this.button400300.TabIndex = 1;
-            this.button400300.Tag = "400300";
-            this.button400300.Text = "Бросок заблокирован.";
-            this.button400300.UseVisualStyleBackColor = true;
-            this.button400300.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button400100
-            // 
-            this.button400100.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button400100.Focusable = false;
-            this.button400100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button400100.Location = new System.Drawing.Point(623, 3);
-            this.button400100.Name = "button400100";
-            this.button400100.Size = new System.Drawing.Size(113, 38);
-            this.button400100.TabIndex = 2;
-            this.button400100.Tag = "400100";
-            this.button400100.Text = "Бросок мимо";
-            this.button400100.UseVisualStyleBackColor = true;
-            this.button400100.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button400200
-            // 
-            this.button400200.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button400200.Focusable = false;
-            this.button400200.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button400200.Location = new System.Drawing.Point(504, 3);
-            this.button400200.Name = "button400200";
-            this.button400200.Size = new System.Drawing.Size(113, 38);
-            this.button400200.TabIndex = 1;
-            this.button400200.Tag = "400200";
-            this.button400200.Text = "Бросок отбитый";
-            this.button400200.UseVisualStyleBackColor = true;
-            this.button400200.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panel3
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.panel3, 2);
-            this.panel3.Controls.Add(this.button300800);
-            this.panel3.Controls.Add(this.button100100);
-            this.panel3.Controls.Add(this.button400600);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(257, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(232, 38);
-            this.panel3.TabIndex = 3;
-            // 
-            // button300800
-            // 
-            this.button300800.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button300800.Focusable = false;
-            this.button300800.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button300800.Location = new System.Drawing.Point(0, 0);
-            this.button300800.Name = "button300800";
-            this.button300800.Size = new System.Drawing.Size(232, 38);
-            this.button300800.TabIndex = 1;
-            this.button300800.Tag = "300800";
-            this.button300800.Text = "Стоп ИГРА";
-            this.button300800.UseVisualStyleBackColor = true;
-            this.button300800.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button100100
-            // 
-            this.button100100.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button100100.Focusable = false;
-            this.button100100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button100100.Location = new System.Drawing.Point(0, 0);
-            this.button100100.Name = "button100100";
-            this.button100100.Size = new System.Drawing.Size(232, 38);
-            this.button100100.TabIndex = 2;
-            this.button100100.Tag = "100100";
-            this.button100100.Text = "Вбрасывание";
-            this.button100100.UseVisualStyleBackColor = true;
-            this.button100100.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button400600
-            // 
-            this.button400600.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button400600.Focusable = false;
-            this.button400600.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button400600.Location = new System.Drawing.Point(0, 0);
-            this.button400600.Name = "button400600";
-            this.button400600.Size = new System.Drawing.Size(232, 38);
-            this.button400600.TabIndex = 1;
-            this.button400600.Tag = "400600";
-            this.button400600.Text = "Буллит";
-            this.button400600.UseVisualStyleBackColor = true;
-            this.button400600.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // linkLabel8
-            // 
-            this.linkLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.linkLabel8.Location = new System.Drawing.Point(14, 2);
-            this.linkLabel8.Name = "linkLabel8";
-            this.linkLabel8.Size = new System.Drawing.Size(79, 10);
-            this.linkLabel8.TabIndex = 22;
-            this.linkLabel8.TabStop = true;
-            this.linkLabel8.Text = "УБРАТЬ ВСЕХ";
-            this.linkLabel8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
-            // 
-            // linkLabel9
-            // 
-            this.linkLabel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.linkLabel9.Location = new System.Drawing.Point(14, 2);
-            this.linkLabel9.Name = "linkLabel9";
-            this.linkLabel9.Size = new System.Drawing.Size(79, 10);
-            this.linkLabel9.TabIndex = 22;
-            this.linkLabel9.TabStop = true;
-            this.linkLabel9.Text = "УБРАТЬ ВСЕХ";
-            this.linkLabel9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.linkLabel9.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel9_LinkClicked);
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.linkLabel8);
-            this.panel9.Controls.Add(this.spareField1);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.MinimumSize = new System.Drawing.Size(105, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(105, 718);
-            this.panel9.TabIndex = 23;
-            // 
-            // spareField1
-            // 
-            this.spareField1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.spareField1.Game = null;
-            this.spareField1.Location = new System.Drawing.Point(0, 17);
-            this.spareField1.Name = "spareField1";
-            this.spareField1.Size = new System.Drawing.Size(105, 698);
-            this.spareField1.TabIndex = 21;
-            this.spareField1.Team = null;
-            this.spareField1.ChangedPlayersBegin += new System.EventHandler(this.spareField2_ChangedPlayersBegin);
-            this.spareField1.ChangedPlayersEnd += new System.EventHandler(this.spareField2_ChangedPlayersEnd);
-            this.spareField1.ChangedPlayers += new System.EventHandler(this.hockeyField1_ChangedPlayers);
-            this.spareField1.SelectedPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedPlayerEventHandler(this.hockeyField1_SelectedPlayer);
-            this.spareField1.RestorePlayer += new Uniso.InStat.Gui.Controls.HockeyGui.RestorePlayerEventHandler(this.hockeyField1_RestorePlayer);
-            this.spareField1.SelectedManyPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedManyPlayerEventHandler(this.hockeyField1_SelectedManyPlayer);
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.linkLabel9);
-            this.panel10.Controls.Add(this.spareField2);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(1155, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(107, 718);
-            this.panel10.TabIndex = 24;
-            // 
-            // spareField2
-            // 
-            this.spareField2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.spareField2.Game = null;
-            this.spareField2.Location = new System.Drawing.Point(0, 15);
-            this.spareField2.Name = "spareField2";
-            this.spareField2.Size = new System.Drawing.Size(107, 700);
-            this.spareField2.TabIndex = 21;
-            this.spareField2.Team = null;
-            this.spareField2.ChangedPlayersBegin += new System.EventHandler(this.spareField2_ChangedPlayersBegin);
-            this.spareField2.ChangedPlayersEnd += new System.EventHandler(this.spareField2_ChangedPlayersEnd);
-            this.spareField2.ChangedPlayers += new System.EventHandler(this.hockeyField1_ChangedPlayers);
-            this.spareField2.SelectedPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedPlayerEventHandler(this.hockeyField1_SelectedPlayer);
-            this.spareField2.RestorePlayer += new Uniso.InStat.Gui.Controls.HockeyGui.RestorePlayerEventHandler(this.hockeyField1_RestorePlayer);
-            this.spareField2.SelectedManyPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedManyPlayerEventHandler(this.hockeyField1_SelectedManyPlayer);
-            // 
-            // panelFullTtd
-            // 
-            this.panelFullTtd.Controls.Add(this.button1300200);
-            this.panelFullTtd.Controls.Add(this.linkLabel_a12_0);
-            this.panelFullTtd.Controls.Add(this.linkLabel_a12_1);
-            this.panelFullTtd.Controls.Add(this.linkLabel_a12);
-            this.panelFullTtd.Controls.Add(this.button200800);
-            this.panelFullTtd.Controls.Add(this.button200400);
-            this.panelFullTtd.Controls.Add(this.button1300100);
-            this.panelFullTtd.Controls.Add(this.button1200000);
-            this.panelFullTtd.Controls.Add(this.button200300);
-            this.panelFullTtd.Controls.Add(this.button200100);
-            this.panelFullTtd.Controls.Add(this.button1400000);
-            this.panelFullTtd.Controls.Add(this.button000001);
-            this.panelFullTtd.Controls.Add(this.button300900);
-            this.panelFullTtd.Controls.Add(this.button201100);
-            this.panelFullTtd.Controls.Add(this.button700100);
-            this.panelFullTtd.Controls.Add(this.button300300);
-            this.panelFullTtd.Controls.Add(this.button200900);
-            this.panelFullTtd.Controls.Add(this.button100602);
-            this.panelFullTtd.Controls.Add(this.button100601);
-            this.panelFullTtd.Controls.Add(this.button200702);
-            this.panelFullTtd.Controls.Add(this.button200700);
-            this.panelFullTtd.Controls.Add(this.button200202);
-            this.panelFullTtd.Controls.Add(this.button200201);
-            this.panelFullTtd.Controls.Add(this.button100800);
-            this.panelFullTtd.Controls.Add(this.button100500);
-            this.panelFullTtd.Controls.Add(this.button200600);
-            this.panelFullTtd.Controls.Add(this.button100400);
-            this.panelFullTtd.Controls.Add(this.button100300);
-            this.panelFullTtd.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelFullTtd.Location = new System.Drawing.Point(105, 0);
-            this.panelFullTtd.Name = "panelFullTtd";
-            this.panelFullTtd.Size = new System.Drawing.Size(220, 718);
-            this.panelFullTtd.TabIndex = 26;
+            this.comboBoxEx1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxEx1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEx1.Focusable = false;
+            this.comboBoxEx1.FormattingEnabled = true;
+            this.comboBoxEx1.Location = new System.Drawing.Point(518, 2);
+            this.comboBoxEx1.Name = "comboBoxEx1";
+            this.comboBoxEx1.Size = new System.Drawing.Size(151, 21);
+            this.comboBoxEx1.TabIndex = 27;
+            this.comboBoxEx1.Tag = "2";
+            this.comboBoxEx1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEx1_SelectedIndexChanged);
             // 
             // button1300200
             // 
@@ -1584,43 +1625,6 @@ namespace Uniso.InStat.Gui.Forms
             this.button1300200.Text = "Грубая голевая ошибка";
             this.button1300200.UseVisualStyleBackColor = true;
             this.button1300200.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // linkLabel_a12_0
-            // 
-            this.linkLabel_a12_0.AutoSize = true;
-            this.linkLabel_a12_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkLabel_a12_0.Location = new System.Drawing.Point(112, 3);
-            this.linkLabel_a12_0.Name = "linkLabel_a12_0";
-            this.linkLabel_a12_0.Size = new System.Drawing.Size(90, 12);
-            this.linkLabel_a12_0.TabIndex = 2;
-            this.linkLabel_a12_0.TabStop = true;
-            this.linkLabel_a12_0.Text = "ОТМЕНИТЬ АТАКУ";
-            this.linkLabel_a12_0.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_a12_0_LinkClicked);
-            // 
-            // linkLabel_a12_1
-            // 
-            this.linkLabel_a12_1.AutoSize = true;
-            this.linkLabel_a12_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkLabel_a12_1.Location = new System.Drawing.Point(11, 3);
-            this.linkLabel_a12_1.Name = "linkLabel_a12_1";
-            this.linkLabel_a12_1.Size = new System.Drawing.Size(96, 12);
-            this.linkLabel_a12_1.TabIndex = 2;
-            this.linkLabel_a12_1.TabStop = true;
-            this.linkLabel_a12_1.Text = "ЗАВЕРШИТЬ АТАКУ";
-            this.linkLabel_a12_1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_a12_1_LinkClicked);
-            // 
-            // linkLabel_a12
-            // 
-            this.linkLabel_a12.AutoSize = true;
-            this.linkLabel_a12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkLabel_a12.Location = new System.Drawing.Point(12, 3);
-            this.linkLabel_a12.Name = "linkLabel_a12";
-            this.linkLabel_a12.Size = new System.Drawing.Size(76, 12);
-            this.linkLabel_a12.TabIndex = 2;
-            this.linkLabel_a12.TabStop = true;
-            this.linkLabel_a12.Text = "НАЧАТЬ АТАКУ";
-            this.linkLabel_a12.Visible = false;
-            this.linkLabel_a12.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
             // 
             // button200800
             // 
@@ -1910,171 +1914,167 @@ namespace Uniso.InStat.Gui.Forms
             this.button100300.UseVisualStyleBackColor = true;
             this.button100300.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel11
+            // spareField1
             // 
-            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.spareField1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel11.Controls.Add(this.panel12);
-            this.panel11.Controls.Add(this.panelFullTtd);
-            this.panel11.Controls.Add(this.panel9);
-            this.panel11.Controls.Add(this.panel10);
-            this.panel11.Location = new System.Drawing.Point(6, 45);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1262, 718);
-            this.panel11.TabIndex = 27;
+            this.spareField1.Game = null;
+            this.spareField1.Location = new System.Drawing.Point(0, 17);
+            this.spareField1.Name = "spareField1";
+            this.spareField1.Size = new System.Drawing.Size(105, 698);
+            this.spareField1.TabIndex = 21;
+            this.spareField1.Team = null;
+            this.spareField1.ChangedPlayersBegin += new System.EventHandler(this.spareField2_ChangedPlayersBegin);
+            this.spareField1.ChangedPlayersEnd += new System.EventHandler(this.spareField2_ChangedPlayersEnd);
+            this.spareField1.ChangedPlayers += new System.EventHandler(this.hockeyField1_ChangedPlayers);
+            this.spareField1.SelectedPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedPlayerEventHandler(this.hockeyField1_SelectedPlayer);
+            this.spareField1.RestorePlayer += new Uniso.InStat.Gui.Controls.HockeyGui.RestorePlayerEventHandler(this.hockeyField1_RestorePlayer);
+            this.spareField1.SelectedManyPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedManyPlayerEventHandler(this.hockeyField1_SelectedManyPlayer);
             // 
-            // panel12
+            // spareField2
             // 
-            this.panel12.Controls.Add(this.splitContainer1);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(325, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(830, 718);
-            this.panel12.TabIndex = 27;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.panel2);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.comboBoxEx1);
-            this.splitContainer1.Panel2.Controls.Add(this.label11);
-            this.splitContainer1.Panel2.Controls.Add(this.linkLabel7);
-            this.splitContainer1.Panel2.Controls.Add(this.checkBox4);
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Panel2.Controls.Add(this.linkLabel10);
-            this.splitContainer1.Size = new System.Drawing.Size(830, 718);
-            this.splitContainer1.SplitterDistance = 563;
-            this.splitContainer1.TabIndex = 19;
-            // 
-            // comboBoxEx1
-            // 
-            this.comboBoxEx1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxEx1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEx1.Focusable = false;
-            this.comboBoxEx1.FormattingEnabled = true;
-            this.comboBoxEx1.Location = new System.Drawing.Point(518, 2);
-            this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(151, 21);
-            this.comboBoxEx1.TabIndex = 27;
-            this.comboBoxEx1.Tag = "2";
-            this.comboBoxEx1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEx1_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.BackColor = System.Drawing.Color.Red;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(3, 28);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(824, 23);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "label11";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label11.Visible = false;
-            // 
-            // linkLabel7
-            // 
-            this.linkLabel7.AutoSize = true;
-            this.linkLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.linkLabel7.Location = new System.Drawing.Point(81, 6);
-            this.linkLabel7.Name = "linkLabel7";
-            this.linkLabel7.Size = new System.Drawing.Size(110, 12);
-            this.linkLabel7.TabIndex = 26;
-            this.linkLabel7.TabStop = true;
-            this.linkLabel7.Text = "ПОДТВЕРДИТЬ ВРЕМЯ";
-            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.checkBox4.Location = new System.Drawing.Point(675, 6);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(147, 16);
-            this.checkBox4.TabIndex = 24;
-            this.checkBox4.Text = "Только до текущего времени";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.spareField2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip3;
-            this.dataGridView1.FullRowSelect = true;
-            this.dataGridView1.HideSelection = false;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(830, 127);
-            this.dataGridView1.TabIndex = 20;
-            this.dataGridView1.UseCompatibleStateImageBehavior = false;
-            this.dataGridView1.View = System.Windows.Forms.View.Details;
-            this.dataGridView1.SelectedIndexChanged += new System.EventHandler(this.dataGridView1_SelectedIndexChanged);
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyUp);
-            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
-            this.dataGridView1.MouseEnter += new System.EventHandler(this.dataGridView1_MouseEnter);
-            this.dataGridView1.MouseLeave += new System.EventHandler(this.dataGridView1_MouseLeave);
+            this.spareField2.Game = null;
+            this.spareField2.Location = new System.Drawing.Point(0, 15);
+            this.spareField2.Name = "spareField2";
+            this.spareField2.Size = new System.Drawing.Size(107, 700);
+            this.spareField2.TabIndex = 21;
+            this.spareField2.Team = null;
+            this.spareField2.ChangedPlayersBegin += new System.EventHandler(this.spareField2_ChangedPlayersBegin);
+            this.spareField2.ChangedPlayersEnd += new System.EventHandler(this.spareField2_ChangedPlayersEnd);
+            this.spareField2.ChangedPlayers += new System.EventHandler(this.hockeyField1_ChangedPlayers);
+            this.spareField2.SelectedPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedPlayerEventHandler(this.hockeyField1_SelectedPlayer);
+            this.spareField2.RestorePlayer += new Uniso.InStat.Gui.Controls.HockeyGui.RestorePlayerEventHandler(this.hockeyField1_RestorePlayer);
+            this.spareField2.SelectedManyPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedManyPlayerEventHandler(this.hockeyField1_SelectedManyPlayer);
             // 
-            // contextMenuStrip3
+            // button600100
             // 
-            this.contextMenuStrip3.Name = "contextMenuStrip1";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(61, 4);
+            this.button600100.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button600100.Focusable = false;
+            this.button600100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button600100.Location = new System.Drawing.Point(1139, 3);
+            this.button600100.Name = "button600100";
+            this.button600100.Size = new System.Drawing.Size(120, 38);
+            this.button600100.TabIndex = 1;
+            this.button600100.Tag = "600100";
+            this.button600100.Text = "Силовой прием";
+            this.button600100.UseVisualStyleBackColor = true;
+            this.button600100.Click += new System.EventHandler(this.button1_Click);
             // 
-            // linkLabel10
+            // button800100
             // 
-            this.linkLabel10.AutoSize = true;
-            this.linkLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.linkLabel10.Location = new System.Drawing.Point(19, 6);
-            this.linkLabel10.Name = "linkLabel10";
-            this.linkLabel10.Size = new System.Drawing.Size(56, 12);
-            this.linkLabel10.TabIndex = 21;
-            this.linkLabel10.TabStop = true;
-            this.linkLabel10.Text = "ОБНОВИТЬ";
-            this.linkLabel10.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel10_LinkClicked);
+            this.button800100.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button800100.Focusable = false;
+            this.button800100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button800100.Location = new System.Drawing.Point(1000, 3);
+            this.button800100.Name = "button800100";
+            this.button800100.Size = new System.Drawing.Size(113, 38);
+            this.button800100.TabIndex = 1;
+            this.button800100.Tag = "800100";
+            this.button800100.Text = "ГОЛ";
+            this.button800100.UseVisualStyleBackColor = true;
+            this.button800100.Click += new System.EventHandler(this.button1_Click);
             // 
-            // contextMenuStrip2
+            // button300100
             // 
-            this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            this.button300100.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button300100.Focusable = false;
+            this.button300100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button300100.Location = new System.Drawing.Point(881, 3);
+            this.button300100.Name = "button300100";
+            this.button300100.Size = new System.Drawing.Size(113, 38);
+            this.button300100.TabIndex = 1;
+            this.button300100.Tag = "300100";
+            this.button300100.Text = "ФОЛ";
+            this.button300100.UseVisualStyleBackColor = true;
+            this.button300100.Click += new System.EventHandler(this.button1_Click);
             // 
-            // timer3
+            // button400300
             // 
-            this.timer3.Enabled = true;
-            this.timer3.Interval = 200;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            this.button400300.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button400300.Focusable = false;
+            this.button400300.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button400300.Location = new System.Drawing.Point(742, 3);
+            this.button400300.Name = "button400300";
+            this.button400300.Size = new System.Drawing.Size(113, 38);
+            this.button400300.TabIndex = 1;
+            this.button400300.Tag = "400300";
+            this.button400300.Text = "Бросок заблокирован.";
+            this.button400300.UseVisualStyleBackColor = true;
+            this.button400300.Click += new System.EventHandler(this.button1_Click);
             // 
-            // hockeyField1
+            // button400100
             // 
-            this.hockeyField1.Game = null;
-            this.hockeyField1.IsShowSpares = false;
-            this.hockeyField1.Location = new System.Drawing.Point(337, 51);
-            this.hockeyField1.Name = "hockeyField1";
-            this.hockeyField1.Size = new System.Drawing.Size(528, 301);
-            this.hockeyField1.TabIndex = 0;
-            this.hockeyField1.ChangedPlayers += new System.EventHandler(this.hockeyField1_ChangedPlayers);
-            this.hockeyField1.SelectedPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedPlayerEventHandler(this.hockeyField1_SelectedPlayer);
-            this.hockeyField1.RestorePlayer += new Uniso.InStat.Gui.Controls.HockeyGui.RestorePlayerEventHandler(this.hockeyField1_RestorePlayer);
-            this.hockeyField1.SelectedPoint += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedPointEventHandler(this.hockeyField1_SelectedPoint);
-            this.hockeyField1.SelectedPointAndDest += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedPointAndDestEventHandler(this.hockeyField1_SelectedPointAndDest);
-            this.hockeyField1.SelectedManyPlayer += new Uniso.InStat.Gui.Controls.HockeyGui.SelectedManyPlayerEventHandler(this.hockeyField1_SelectedManyPlayer);
-            this.hockeyField1.Paint += new System.Windows.Forms.PaintEventHandler(this.hockeyField1_Paint);
-            this.hockeyField1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.hockeyField1_MouseDown);
-            this.hockeyField1.MouseEnter += new System.EventHandler(this.hockeyField1_MouseEnter);
+            this.button400100.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button400100.Focusable = false;
+            this.button400100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button400100.Location = new System.Drawing.Point(623, 3);
+            this.button400100.Name = "button400100";
+            this.button400100.Size = new System.Drawing.Size(113, 38);
+            this.button400100.TabIndex = 2;
+            this.button400100.Tag = "400100";
+            this.button400100.Text = "Бросок мимо";
+            this.button400100.UseVisualStyleBackColor = true;
+            this.button400100.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button400200
+            // 
+            this.button400200.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button400200.Focusable = false;
+            this.button400200.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button400200.Location = new System.Drawing.Point(504, 3);
+            this.button400200.Name = "button400200";
+            this.button400200.Size = new System.Drawing.Size(113, 38);
+            this.button400200.TabIndex = 1;
+            this.button400200.Tag = "400200";
+            this.button400200.Text = "Бросок отбитый";
+            this.button400200.UseVisualStyleBackColor = true;
+            this.button400200.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button300800
+            // 
+            this.button300800.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button300800.Focusable = false;
+            this.button300800.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button300800.Location = new System.Drawing.Point(0, 0);
+            this.button300800.Name = "button300800";
+            this.button300800.Size = new System.Drawing.Size(232, 38);
+            this.button300800.TabIndex = 1;
+            this.button300800.Tag = "300800";
+            this.button300800.Text = "Стоп ИГРА";
+            this.button300800.UseVisualStyleBackColor = true;
+            this.button300800.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button100100
+            // 
+            this.button100100.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button100100.Focusable = false;
+            this.button100100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button100100.Location = new System.Drawing.Point(0, 0);
+            this.button100100.Name = "button100100";
+            this.button100100.Size = new System.Drawing.Size(232, 38);
+            this.button100100.TabIndex = 2;
+            this.button100100.Tag = "100100";
+            this.button100100.Text = "Вбрасывание";
+            this.button100100.UseVisualStyleBackColor = true;
+            this.button100100.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button400600
+            // 
+            this.button400600.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button400600.Focusable = false;
+            this.button400600.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.button400600.Location = new System.Drawing.Point(0, 0);
+            this.button400600.Name = "button400600";
+            this.button400600.Size = new System.Drawing.Size(232, 38);
+            this.button400600.TabIndex = 1;
+            this.button400600.Tag = "400600";
+            this.button400600.Text = "Буллит";
+            this.button400600.UseVisualStyleBackColor = true;
+            this.button400600.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -2103,14 +2103,14 @@ namespace Uniso.InStat.Gui.Forms
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxEditVbrasivanie.ResumeLayout(false);
+            this.groupBoxEditVbrasivanie.PerformLayout();
+            this.groupBoxEditVbrasivanije.ResumeLayout(false);
+            this.groupBoxEditVbrasivanije.PerformLayout();
+            this.groupBoxEditBrosok.ResumeLayout(false);
+            this.groupBoxEditBrosok.PerformLayout();
+            this.groupBoxEditGoalKeeper.ResumeLayout(false);
+            this.groupBoxEditGoalKeeper.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -2214,7 +2214,7 @@ namespace Uniso.InStat.Gui.Forms
         private ButtonEx button100400;
         private ButtonEx button100300;
         private ButtonEx button200900;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxEditBrosok;
         private ButtonEx button200202;
         private System.Windows.Forms.CheckBox checkBox2;
         private ButtonEx button100602;
@@ -2223,7 +2223,7 @@ namespace Uniso.InStat.Gui.Forms
         private ButtonEx button200702;
         private ButtonEx button401100;
         private ButtonEx button401000;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxEditGoalKeeper;
         private ButtonEx button1100201;
         private ButtonEx button1100302;
         private ButtonEx button1100202;
@@ -2247,7 +2247,7 @@ namespace Uniso.InStat.Gui.Forms
         private ButtonEx button200300;
         public ComboBoxEx comboBox3;
         public ComboBoxEx comboBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxEditVbrasivanije;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         public ComboBoxEx comboBox4;
@@ -2273,7 +2273,7 @@ namespace Uniso.InStat.Gui.Forms
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
         private ButtonEx button_11_Point;
         private ButtonEx button_4_Point;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBoxEditVbrasivanie;
         private ButtonEx button_61_Point;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
