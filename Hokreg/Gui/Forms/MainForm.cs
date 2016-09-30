@@ -950,16 +950,27 @@ namespace Uniso.InStat.Gui.Forms
 
             var stage = Game.GetNextStage(mk, canceled);
 
+            #region Online HockeyIce.Role
+
             if (HockeyIce.Role == HockeyIce.RoleEnum.Online)
+
+            #region Online
             {
                 if (mk.Compare(1, 1) && stage == StageEnum.Player1)
                     stage = StageEnum.CreateMarker;
                 if (mk.Compare(6, 1) && stage == StageEnum.Player1)
                     stage = StageEnum.CreateMarker;
             }
+            #endregion
+
+            #endregion
+
+            #region Player1 Player2
+
 
             if (stage == StageEnum.Player1 || stage == StageEnum.Player2)
             {
+            #region Player1 Player2
                 if ((mk.Compare(8, 1) || mk.Compare(3, new int[] {1, 2,}))
                     && stage == StageEnum.Player1 && !prevm.Exists(o => o.Compare(4, 6)))
                 {
@@ -992,11 +1003,21 @@ namespace Uniso.InStat.Gui.Forms
                 //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
             }
 
+            #endregion
+
+            #endregion
+
+            #region Point
+
             if (stage == StageEnum.Point)
+            #region Point
+
             {
+                Game.editMarker.G = mk;
+
                 if (mk.Compare(1, 1))
                 {
-
+                    // Если начало матча или это новое вбрасывание после гола.
                     if (Game.GetActuialTime(mk.Half, mk.TimeVideo) < 1000 || prevm.Exists(o => o.Compare(8, 1)))
                     {
                         mk.Point1 = Game.GetDumpInPoints(new RectangleF(PointF.Empty, Game.FieldSize))[0];
@@ -1005,6 +1026,7 @@ namespace Uniso.InStat.Gui.Forms
                     }
                 }
 
+                // Если буллит
                 if (mk.Compare(4, 6))
                 {
                     mk.Point1 = Game.GetDumpInPoints(new RectangleF(PointF.Empty, Game.FieldSize))[0];
@@ -1017,15 +1039,23 @@ namespace Uniso.InStat.Gui.Forms
                 //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPoint, mk, s);
 
                 //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPoint, mk);
-
                 var stageName = mk.GetNameStage(stage);
                 var s = Game.TimeToString(mk.TimeVideo) +
                         Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) + stageName;
                 HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPoint, mk, s, label2);
                 RefreshHockeyField();
+                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPoint, mk);
+
+
             }
+            #endregion
+
+            #endregion
+
+            #region Point1 & Point2
 
             if (stage == StageEnum.PointAndDest)
+            #region Point1 & Point2
             {
                 if (mk.Compare(4, 6))
                 {
@@ -1045,8 +1075,14 @@ namespace Uniso.InStat.Gui.Forms
                 HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPointAndDest, mk, s, label2);
                 RefreshHockeyField();
             }
+            #endregion
+
+            #endregion
+
+            #region Extra Options
 
             if (stage == StageEnum.ExtraOptions)
+            #region Extra Options
             {
                 if (mk.Compare(12, 0))
                 {
@@ -1116,9 +1152,17 @@ namespace Uniso.InStat.Gui.Forms
                 }
             }
 
+            #endregion
+
+            #endregion
+
+
             mk.FlagGuiUpdate = true;
 
+            #region Create Marker
+
             if (stage == StageEnum.CreateMarker)
+            #region Create Marker
             {
                 fixedTime = 0;
 
@@ -1303,7 +1347,7 @@ namespace Uniso.InStat.Gui.Forms
                     }
 
                     //Выброс (-)
-                    if (group.Any(o => o.Compare(1, 6) && o.Win == 2))
+                    if (group.Any(o => ((Game.Marker)o).Compare(1, 6, 2)))
                     {
                         // Если Выброс(-) БЕЗ Неточная
                         // ТО нихуя не делаем, иначе создаем Выброс(-) И Перехват через 0.1 сек.
@@ -1451,8 +1495,14 @@ namespace Uniso.InStat.Gui.Forms
                 else
                     SetEditMarker(mk, stage);
             }
+            #endregion
+
+            #endregion
+
+            #region Player2 GoalKeeper
 
             if (stage == StageEnum.Player2Gk)
+            #region Player2 GoalKeeper
             {
                 if (Half.Index == 255 && mk.Compare(4, 6))
                 {
@@ -1485,43 +1535,13 @@ namespace Uniso.InStat.Gui.Forms
                 else
                     ProcessingMarker(mk);
             }
+                
+            #endregion
+
+            #endregion
 
             UpdateUI();
-
         }
-
-        /*private List<int> ticket_stream_sent = new List<int>();
-
-        private void SendStreamTicket()
-        {
-            if (!ticket_stream_sent.Any(o => o == Half.Index))
-            {
-                Marker mk = null;
-
-                lock (Game.Markers)
-                {
-                    if (Game.Markers.Any(o => o.Half.Index == Half.Index && o.Compare(1, 1) && !o.FlagDel))
-                    {
-                        mk = Game.Markers.Where(o => o.Half.Index == Half.Index && o.Compare(1, 1) && !o.FlagDel).OrderBy(o => o.TimeVideo).First();
-                    }
-                }
-
-                if (mk != null)
-                {
-                    try
-                    {
-                        ShowStatus("Отправка уведомления о начале периода", 0);
-                        InStatAPI.VideoStreamState(Game.Match.Id + 10000000, Half.Index, InStatAPI.VideoStreamStateEnum.First_marker, Convert.ToInt32(mk.TimeVideo));
-                        ticket_stream_sent.Add(Half.Index);
-                        ShowStatus("Отправлено уведомление в InStarAPI о начале периода", 0);
-                    }
-                    catch (Exception ex)
-                    {
-                        ShowStatus(ex.Message, 1);
-                    }
-                }
-            }
-        }*/
 
         private void linkLabel11_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -1681,20 +1701,20 @@ namespace Uniso.InStat.Gui.Forms
                 FormatAddButton(button401000, sibl4.Any(o => o.Compare(4, 10)));
                 FormatAddButton(button401100, sibl4.Any(o => o.Compare(4, 11)));
 
-                FormatAddButton(button1100101, sibl4.Any(o => o.Compare(11, 1) && o.Win == 1));
-                FormatAddButton(button1100102, sibl4.Any(o => o.Compare(11, 1) && o.Win == 2));
+                FormatAddButton(button1100101, sibl4.Any(o => ((Game.Marker)o).Compare(11, 1, 1)));
+                FormatAddButton(button1100102, sibl4.Any(o => ((Game.Marker)o).Compare(11, 1, 2)));
 
-                FormatAddButton(button1100201, sibl4.Any(o => o.Compare(11, 2) && o.Win == 1));
-                FormatAddButton(button1100202, sibl4.Any(o => o.Compare(11, 2) && o.Win == 2));
-                FormatAddButton(button1100203, sibl4.Any(o => o.Compare(11, 2) && o.Win == 3));
-                FormatAddButton(button1100204, sibl4.Any(o => o.Compare(11, 2) && o.Win == 4));
-                FormatAddButton(button1100205, sibl4.Any(o => o.Compare(11, 2) && o.Win == 5));
+                FormatAddButton(button1100201, sibl4.Any(o => ((Game.Marker)o).Compare(11, 2, 1)));
+                FormatAddButton(button1100202, sibl4.Any(o => ((Game.Marker)o).Compare(11, 1, 2)));
+                FormatAddButton(button1100203, sibl4.Any(o => ((Game.Marker)o).Compare(11, 1, 3)));
+                FormatAddButton(button1100204, sibl4.Any(o => ((Game.Marker)o).Compare(11, 1, 4)));
+                FormatAddButton(button1100205, sibl4.Any(o => ((Game.Marker)o).Compare(11, 1, 5)));
 
-                FormatAddButton(button1100301, sibl4.Any(o => o.Compare(11, 3) && o.Win == 1));
-                FormatAddButton(button1100302, sibl4.Any(o => o.Compare(11, 3) && o.Win == 2));
-                FormatAddButton(button1100303, sibl4.Any(o => o.Compare(11, 3) && o.Win == 3));
+                FormatAddButton(button1100301, sibl4.Any(o => ((Game.Marker)o).Compare(11, 3, 1)));
+                FormatAddButton(button1100302, sibl4.Any(o => ((Game.Marker)o).Compare(11, 3, 2)));
+                FormatAddButton(button1100303, sibl4.Any(o => ((Game.Marker)o).Compare(11, 3, 3)));
 
-                FormatAddButton(button1100401, sibl4.Any(o => o.Compare(11, 4) && o.Win == 1));
+                FormatAddButton(button1100401, sibl4.Any(o => ((Game.Marker)o).Compare(11, 4, 1)));
 
                 var pomexa = sibl4.FirstOrDefault(o => o.Compare(2, 9));
 
@@ -2188,7 +2208,7 @@ namespace Uniso.InStat.Gui.Forms
                 }
             }
         }
-        
+
         private void hockeyField1_Paint(object sender, PaintEventArgs e)
         {
             var gdi = hockeyField1.gdi;
@@ -2197,10 +2217,13 @@ namespace Uniso.InStat.Gui.Forms
                 return;
         }
 
+
+
         private void hockeyField1_RestorePlayer(object sender, HockeyGui.RestorePlayerEventArgs e)
         {
             //RestorePlayer(e.Player);
         }
+
 
         private void RestorePlayer(Player player, List<Marker> mklist)
         {
@@ -3054,6 +3077,7 @@ namespace Uniso.InStat.Gui.Forms
         {
             lock (Game.editMarker)
             {
+                // Тута нулл
                 if (Game.editMarker.G != null)
                 {
                     Game.editMarker.G.Point1 = e.Point;
@@ -4469,6 +4493,7 @@ namespace Uniso.InStat.Gui.Forms
 
         private void hockeyField1_MouseEnter(object sender, EventArgs e)
         {
+
         }
 
         private void vlcStreamPlayer1_MouseEnter(object sender, EventArgs e)
@@ -4543,7 +4568,7 @@ namespace Uniso.InStat.Gui.Forms
 
         private void hockeyField1_MouseDown(object sender, MouseEventArgs e)
         {
-            
+
         }
 
         private void spareField2_ChangedPlayersBegin(object sender, EventArgs e)
@@ -4678,49 +4703,6 @@ namespace Uniso.InStat.Gui.Forms
             ReloadDataGridView(sync_ch);
         }
         
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            var rb = (Button)sender;
-
-            var update = false;
-            var code = Convert.ToInt32(rb.Tag);
-
-            var prevmk = Game.GetPrevousMarkersHalf(Half, Second, true);
-            if (prevmk.Any(o => o.Compare(4, new int[] { 1, 2, 3, 4, 5 }) || o.Compare(8, 1)))
-            {
-                var mk4 = prevmk.Where(o => o.Compare(4, new int[] { 1, 2, 3, 4, 5 }) || o.Compare(8, 1)).OrderByDescending(o => o.TimeVideo).First();
-                var lastmk = Game.GetSiblings(mk4.Half, mk4.TimeVideo);
-                var mk_new = new Game.Marker(Game) { ActionCode = code, Half = mk4.Half, TimeVideo = mk4.TimeVideo, Player1 = mk4.Player1, Player2 = mk4.Player2 };
-
-                if (lastmk.Any(o => o.Compare(4, new int[] { 10, 11 })))
-                {
-                    foreach (var mk4p in lastmk.Where(o => o.Compare(4, new int[] { 10, 11 })))
-                    {
-                        if (mk4p.ActionType == mk_new.ActionType)
-                            continue;
-
-                        Game.Remove(mk4p);
-
-                        update = true;
-                    }
-                }
-
-                if (code > 0 && !Game.GetSiblings(mk4.Half, mk4.TimeVideo).Any(o => o.Compare(4, mk_new.ActionType)))
-                {
-                    update = true;
-                    Game.Insert(mk_new);
-                }
-
-                if (update)
-                {
-                    Game.SaveLocal();
-                }
-
-                UpdateUI();
-                ReloadDataGridView(true);
-            }
-        }
-
         private void checkBox401000_CheckedChanged(object sender, EventArgs e)
         {
             var rb = (Button)sender;
@@ -5226,20 +5208,6 @@ namespace Uniso.InStat.Gui.Forms
 
         private bool dataGrid_Mode = false;
 
-        private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            dataGrid_Mode = !dataGrid_Mode;
-        }
-
-
-        private void linkLabel7_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var tag = Convert.ToInt32(((LinkLabel)sender).Tag);
-            var team = (tag == 1) ? Game.Match.Team1 : Game.Match.Team2;
-
-            ReturnAllPlayers(team, Second - 100, 1);                            
-        }
-
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
@@ -5326,8 +5294,6 @@ namespace Uniso.InStat.Gui.Forms
             selectedMarker = (SelectedMarker)comboBoxEx1.SelectedItem;
             ReloadDataGridView();
         }
-
-
 
 
         private static class MarkersWomboCombo

@@ -384,7 +384,24 @@ namespace Uniso.InStat.Game
 
         public class EditMrk
         {
-            public Game.Marker G { get; set; }
+            private Marker g;
+
+            public Game.Marker G
+            {
+                get { return g; }
+                set
+                {
+                    if (value == null)
+                    {
+                        var p = 5;
+                    }
+
+                    if (g != value)
+                    {
+                        g = value;
+                    }
+                }
+            }
         }
 
         public EditMrk editMarker = new EditMrk();

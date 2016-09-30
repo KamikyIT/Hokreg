@@ -61,6 +61,7 @@ namespace Uniso.InStat.Gui.Controls
         //public static void SetMode(ModeEnum mode, Marker mk, string labelInviteText = null)
         public static void SetMode(ModeEnum mode, Marker mk)
         {
+            
             HockeyGui.Marker = mk;
             HockeyGui.Mode = mode;
 
