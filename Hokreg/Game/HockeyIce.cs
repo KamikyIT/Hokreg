@@ -368,10 +368,6 @@ namespace Uniso.InStat.Game
                     Если текущее действие - ни подбор, ни прием, ни единоборство, ни перехват, ни перехват неудачный, ни фол,Подбор в борьбе
                     */
                     {
-                        /*bool r1 = (!prevm.Any(o => o.player1_id == mk.player1_id || o.player2_id == mk.player1_id) || prevm.Any(o => o.team1_id != mk.team1_id));
-                        if (prevm.Any(o => o.Compare(2, 2) && o.Win == 2))
-                            r1 = (!prevm.Any(o => o.player1_id == mk.player1_id || o.player2_id == mk.player1_id) || prevm.Any(o => o.team2_id != mk.team1_id)); ;
-                        */
                         var r1 = !prevm.Any(o => o.player1_id == mk.player1_id || o.player2_id == mk.player1_id);
                         var r2 = !prevm.Any(o => o.Compare(1, new int[] { 3, 4, 5, 7, 9 }) && o.team1_id == mk.team1_id);
                         var r3 = !mk.Compare(2, new int[] { 4, 5, 1, 10, 7, 9, 6 }) && !mk.Compare(3, 8);

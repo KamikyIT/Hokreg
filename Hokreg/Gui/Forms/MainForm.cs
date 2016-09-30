@@ -369,9 +369,6 @@ namespace Uniso.InStat.Gui.Forms
 
         private void FillRow(Game.Marker mk)
         {
-            //if (font_italic == null)
-                //font_italic = new System.Drawing.Font(Font, FontStyle.Italic);
-
             if (mk.row == null)
             {
                 mk.row = new System.Windows.Forms.ListViewItem(mk.Id.ToString());
@@ -391,12 +388,7 @@ namespace Uniso.InStat.Gui.Forms
 
             if (action == ActionEnum._18_05)
                 name += String.Format(" #{0}", mk.Half.Index - 3);
-
-            /*if (Game.IsRestoreTimeMarker(mk) || Game.IsStopTimeMarker(mk))
-                mk.row.Font = font_italic;
-            else
-                mk.row.Font = Font;*/
-
+            
             var time = Game.TimeToString(mk.TimeVideo);
             if (Options.G.Game_ShowActualTime)
                 time += "/" + Game.TimeToString(mk.TimeActual);
@@ -1057,6 +1049,8 @@ namespace Uniso.InStat.Gui.Forms
             if (stage == StageEnum.PointAndDest)
             #region Point1 & Point2
             {
+                Game.editMarker.G = mk;
+
                 if (mk.Compare(4, 6))
                 {
                     mk.Point1 = Game.GetDumpInPoints(new RectangleF(PointF.Empty, Game.FieldSize))[0];
@@ -1835,7 +1829,7 @@ namespace Uniso.InStat.Gui.Forms
 
 
             //Проброс
-            var marker_vibros_plus = edit != null && (edit.Compare(1, 6) && edit.Win == 1);
+            var marker_vibros_plus = edit != null && (edit.Compare(1, 6, 1));
             //button300300.Enabled = pas;
             button300300.Enabled = pas || marker_vibros_plus;
             //FormatAddButton(button300300, pas && edit.flag_icing);
@@ -2117,7 +2111,7 @@ namespace Uniso.InStat.Gui.Forms
             if (button.Tag is String && Int32.TryParse(button.Tag.ToString(), out tagid))
             {
 #if DEBUG
-                if (tagid == 400200)
+                if (tagid == 200400)
                 {
                     var p = 5;
                 }
@@ -2189,7 +2183,7 @@ namespace Uniso.InStat.Gui.Forms
                 {
 #if DEBUG
 
-                    if (button.Tag.ToString() == "000001")
+                    if (button.Tag.ToString() == "300300")
                     {
                         var p = 5;
                     }

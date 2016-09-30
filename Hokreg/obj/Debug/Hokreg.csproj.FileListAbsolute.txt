@@ -89,4 +89,3 @@ C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Controls.SpareField.resources
 C:\Hokreg\Hokreg\obj\Debug\Hokreg.csproj.GenerateResource.Cache
 C:\Hokreg\Hokreg\obj\Debug\hokreg.exe
 C:\Hokreg\Hokreg\obj\Debug\hokreg.pdb
-C:\Hokreg\Hokreg\obj\Debug\Hokreg.csprojResolveAssemblyReference.cache

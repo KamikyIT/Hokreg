@@ -567,8 +567,6 @@ namespace Uniso.InStat.Server
             var method = Method.POST;// datain.Count == 0 && dataout.Count == 0 ? Method.GET : Method.POST;
 
             var url = "http://service.instatfootball.com/ws.php";
-            //if (pre.Contains("hokkey"))
-                //url = "http://service.instatfootball.com/ws_test.php";
 
             //GET DATA
             if (method == Method.GET)

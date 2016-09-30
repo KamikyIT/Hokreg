@@ -125,6 +125,7 @@
     <Compile Include="Conv\TeamConverter.cs" />
     <Compile Include="Classes\ActionEnum.cs" />
     <Compile Include="Conv\WinConverter.cs" />
+    <Compile Include="Game\MyMarker.cs" />
     <Compile Include="Game\SelectedMarker.cs" />
     <Compile Include="Gui\Controls\ButtonEx.cs">
       <SubType>Component</SubType>
