@@ -2082,11 +2082,8 @@ namespace Uniso.InStat.Gui.Forms
             }
             finally
             {
-                Log.Write("CREATE NEW 6");
                 ShowTimer();
-                Log.Write("CREATE NEW 7");
                 UpdateUI();
-                Log.Write("CREATE NEW 8");
             }
         }
 
@@ -2098,7 +2095,7 @@ namespace Uniso.InStat.Gui.Forms
             if (button.Tag is String && Int32.TryParse(button.Tag.ToString(), out tagid))
             {
 #if DEBUG
-                if (tagid == 200400 || tagid == 100601)
+                if (tagid == 200400 || tagid == 100601 || tagid == 800100)
                 {
                     var p = 5;
                 }
