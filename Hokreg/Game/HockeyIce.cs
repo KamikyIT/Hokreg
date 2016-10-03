@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Uniso.InStat.Classes;
 using Uniso.InStat.Conv;
+using Uniso.InStat.Gui.Forms;
 
 namespace Uniso.InStat.Game
 {
@@ -767,6 +768,13 @@ namespace Uniso.InStat.Game
 
         public override List<StageEnum> GetStages(List<InStat.Marker> list)
         {
+           List<StageEnum> newMarkerStages = MarkersWomboCombo.GetMarkersStage(list);
+
+            if (newMarkerStages != null && newMarkerStages.Count > 0)
+            {
+                return newMarkerStages;
+            }
+
             var res = new List<StageEnum>();
 
 
@@ -793,7 +801,7 @@ namespace Uniso.InStat.Game
 
             var pen_no_opp = false;
             var pen = list.FirstOrDefault(o => o.Compare(3, 1));
-            if (pen != null && pen.Compare(3, 1))
+            if (pen != null)
             {
                 if (GetSiblings(pen).Any(o => o.Compare(9, new int[] { 8, 11 })))
                 {

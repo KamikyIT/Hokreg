@@ -65,14 +65,6 @@ namespace Uniso.InStat.Gui.Forms
             this.groupBoxEditVbrasivanije = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.groupBoxEditBrosok = new System.Windows.Forms.GroupBox();
-            this.groupBoxEditGoalKeeper = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
@@ -121,11 +113,17 @@ namespace Uniso.InStat.Gui.Forms
             this.button_11_Point = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.comboBox4 = new Uniso.InStat.ComboBoxEx();
             this.comboBox5 = new Uniso.InStat.ComboBoxEx();
+            this.transparentPanel1 = new Uniso.InStat.Gui.Controls.TransparentPanel();
+            this.groupBoxEditBrosok = new System.Windows.Forms.GroupBox();
             this.button_4_Point = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.groupBoxEditGoalKeeper = new System.Windows.Forms.GroupBox();
             this.button1100205 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button1100203 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button1100401 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button1100201 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.button1100302 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button1100202 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button1100303 = new Uniso.InStat.Gui.Controls.ButtonEx();
@@ -136,11 +134,13 @@ namespace Uniso.InStat.Gui.Forms
             this.button1100102 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button401000 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.comboBox3 = new Uniso.InStat.ComboBoxEx();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.comboBox8 = new Uniso.InStat.ComboBoxEx();
             this.comboBox7 = new Uniso.InStat.ComboBoxEx();
             this.comboBox6 = new Uniso.InStat.ComboBoxEx();
             this.comboBox2 = new Uniso.InStat.ComboBoxEx();
-            this.transparentPanel1 = new Uniso.InStat.Gui.Controls.TransparentPanel();
             this.vlcStreamPlayer1 = new Uniso.InStat.PlayerTypes.StreamPlayer(this.components);
             this.comboBoxEx1 = new Uniso.InStat.ComboBoxEx();
             this.button1300200 = new Uniso.InStat.Gui.Controls.ButtonEx();
@@ -156,7 +156,6 @@ namespace Uniso.InStat.Gui.Forms
             this.button201100 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button700100 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button300300 = new Uniso.InStat.Gui.Controls.ButtonEx();
-            this.button200900 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button100602 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button100601 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button200702 = new Uniso.InStat.Gui.Controls.ButtonEx();
@@ -187,8 +186,6 @@ namespace Uniso.InStat.Gui.Forms
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.groupBoxEditVbrasivanie.SuspendLayout();
             this.groupBoxEditVbrasivanije.SuspendLayout();
-            this.groupBoxEditBrosok.SuspendLayout();
-            this.groupBoxEditGoalKeeper.SuspendLayout();
             this.panel4.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -204,6 +201,8 @@ namespace Uniso.InStat.Gui.Forms
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBoxEditBrosok.SuspendLayout();
+            this.groupBoxEditGoalKeeper.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -367,7 +366,7 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // panel5
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel5.Controls.Add(this.comboBox10);
@@ -533,7 +532,7 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // groupBoxEditVbrasivanie
             // 
-            this.groupBoxEditVbrasivanie.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBoxEditVbrasivanie.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxEditVbrasivanie.Controls.Add(this.button_61_Point);
             this.groupBoxEditVbrasivanie.Controls.Add(this.label25);
@@ -569,7 +568,7 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // groupBoxEditVbrasivanije
             // 
-            this.groupBoxEditVbrasivanije.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBoxEditVbrasivanije.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxEditVbrasivanije.Controls.Add(this.button_11_Point);
             this.groupBoxEditVbrasivanije.Controls.Add(this.label21);
@@ -603,121 +602,9 @@ namespace Uniso.InStat.Gui.Forms
             this.label20.TabIndex = 7;
             this.label20.Text = "ВЫИГРАЛ";
             // 
-            // groupBoxEditBrosok
-            // 
-            this.groupBoxEditBrosok.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxEditBrosok.Controls.Add(this.button_4_Point);
-            this.groupBoxEditBrosok.Controls.Add(this.groupBoxEditGoalKeeper);
-            this.groupBoxEditBrosok.Controls.Add(this.button401100);
-            this.groupBoxEditBrosok.Controls.Add(this.button1100101);
-            this.groupBoxEditBrosok.Controls.Add(this.button1100102);
-            this.groupBoxEditBrosok.Controls.Add(this.button401000);
-            this.groupBoxEditBrosok.Controls.Add(this.comboBox3);
-            this.groupBoxEditBrosok.Controls.Add(this.label24);
-            this.groupBoxEditBrosok.Controls.Add(this.label23);
-            this.groupBoxEditBrosok.Controls.Add(this.label22);
-            this.groupBoxEditBrosok.Controls.Add(this.comboBox8);
-            this.groupBoxEditBrosok.Controls.Add(this.comboBox7);
-            this.groupBoxEditBrosok.Controls.Add(this.comboBox6);
-            this.groupBoxEditBrosok.Controls.Add(this.comboBox2);
-            this.groupBoxEditBrosok.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.groupBoxEditBrosok.Location = new System.Drawing.Point(4, 77);
-            this.groupBoxEditBrosok.Name = "groupBoxEditBrosok";
-            this.groupBoxEditBrosok.Size = new System.Drawing.Size(822, 93);
-            this.groupBoxEditBrosok.TabIndex = 1;
-            this.groupBoxEditBrosok.TabStop = false;
-            this.groupBoxEditBrosok.Text = "БРОСОК";
-            // 
-            // groupBoxEditGoalKeeper
-            // 
-            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100205);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100203);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100401);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100201);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.label19);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.label18);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.label17);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100302);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100202);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100303);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100301);
-            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100204);
-            this.groupBoxEditGoalKeeper.Location = new System.Drawing.Point(553, 1);
-            this.groupBoxEditGoalKeeper.Name = "groupBoxEditGoalKeeper";
-            this.groupBoxEditGoalKeeper.Size = new System.Drawing.Size(495, 72);
-            this.groupBoxEditGoalKeeper.TabIndex = 6;
-            this.groupBoxEditGoalKeeper.TabStop = false;
-            this.groupBoxEditGoalKeeper.Text = "ВРАТАРЬ";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(6, 33);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(13, 12);
-            this.label19.TabIndex = 12;
-            this.label19.Text = "R";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(187, 33);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(11, 12);
-            this.label18.TabIndex = 12;
-            this.label18.Text = "L";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label17
-            // 
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.label17.Location = new System.Drawing.Point(210, 15);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(125, 12);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "ПОЛОЖЕНИЕ ВРАТАРЯ";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.label24.Location = new System.Drawing.Point(372, 66);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(17, 12);
-            this.label24.TabIndex = 12;
-            this.label24.Text = "А2";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.label23.Location = new System.Drawing.Point(372, 43);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(17, 12);
-            this.label23.TabIndex = 12;
-            this.label23.Text = "А1";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            this.label22.Location = new System.Drawing.Point(375, 20);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(12, 12);
-            this.label22.TabIndex = 12;
-            this.label22.Text = "П";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BackColor = System.Drawing.Color.ForestGreen;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -759,7 +646,7 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel4.Controls.Add(this.label16);
@@ -822,7 +709,7 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // macTrackBar1
             // 
-            this.macTrackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.macTrackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.macTrackBar1.BackColor = System.Drawing.Color.Transparent;
             this.macTrackBar1.BorderColor = System.Drawing.SystemColors.ActiveBorder;
@@ -849,7 +736,7 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.toolStripStatusLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.toolStripStatusLabel1.ContextMenuStrip = this.contextMenuStrip1;
             this.toolStripStatusLabel1.Location = new System.Drawing.Point(100, 4);
@@ -909,7 +796,7 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 12;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 254F));
@@ -955,7 +842,7 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // linkLabel8
             // 
-            this.linkLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.linkLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
             this.linkLabel8.Location = new System.Drawing.Point(14, 2);
@@ -969,7 +856,7 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // linkLabel9
             // 
-            this.linkLabel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.linkLabel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
             this.linkLabel9.Location = new System.Drawing.Point(14, 2);
@@ -1020,7 +907,6 @@ namespace Uniso.InStat.Gui.Forms
             this.panelFullTtd.Controls.Add(this.button201100);
             this.panelFullTtd.Controls.Add(this.button700100);
             this.panelFullTtd.Controls.Add(this.button300300);
-            this.panelFullTtd.Controls.Add(this.button200900);
             this.panelFullTtd.Controls.Add(this.button100602);
             this.panelFullTtd.Controls.Add(this.button100601);
             this.panelFullTtd.Controls.Add(this.button200702);
@@ -1077,8 +963,8 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // panel11
             // 
-            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Controls.Add(this.panelFullTtd);
@@ -1123,7 +1009,7 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.BackColor = System.Drawing.Color.Red;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -1163,8 +1049,8 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip3;
             this.dataGridView1.FullRowSelect = true;
@@ -1335,6 +1221,43 @@ namespace Uniso.InStat.Gui.Forms
             this.comboBox5.TabIndex = 6;
             this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
+            // transparentPanel1
+            // 
+            this.transparentPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.transparentPanel1.Location = new System.Drawing.Point(5, 19);
+            this.transparentPanel1.Name = "transparentPanel1";
+            this.transparentPanel1.Size = new System.Drawing.Size(821, 541);
+            this.transparentPanel1.TabIndex = 25;
+            this.transparentPanel1.MouseEnter += new System.EventHandler(this.transparentPanel1_MouseEnter);
+            // 
+            // groupBoxEditBrosok
+            // 
+            this.groupBoxEditBrosok.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxEditBrosok.Controls.Add(this.button_4_Point);
+            this.groupBoxEditBrosok.Controls.Add(this.groupBoxEditGoalKeeper);
+            this.groupBoxEditBrosok.Controls.Add(this.button401100);
+            this.groupBoxEditBrosok.Controls.Add(this.button1100101);
+            this.groupBoxEditBrosok.Controls.Add(this.button1100102);
+            this.groupBoxEditBrosok.Controls.Add(this.button401000);
+            this.groupBoxEditBrosok.Controls.Add(this.comboBox3);
+            this.groupBoxEditBrosok.Controls.Add(this.label24);
+            this.groupBoxEditBrosok.Controls.Add(this.label23);
+            this.groupBoxEditBrosok.Controls.Add(this.label22);
+            this.groupBoxEditBrosok.Controls.Add(this.comboBox8);
+            this.groupBoxEditBrosok.Controls.Add(this.comboBox7);
+            this.groupBoxEditBrosok.Controls.Add(this.comboBox6);
+            this.groupBoxEditBrosok.Controls.Add(this.comboBox2);
+            this.groupBoxEditBrosok.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.groupBoxEditBrosok.Location = new System.Drawing.Point(4, 77);
+            this.groupBoxEditBrosok.Name = "groupBoxEditBrosok";
+            this.groupBoxEditBrosok.Size = new System.Drawing.Size(822, 93);
+            this.groupBoxEditBrosok.TabIndex = 1;
+            this.groupBoxEditBrosok.TabStop = false;
+            this.groupBoxEditBrosok.Text = "БРОСОК";
+            // 
             // button_4_Point
             // 
             this.button_4_Point.Focusable = false;
@@ -1345,6 +1268,27 @@ namespace Uniso.InStat.Gui.Forms
             this.button_4_Point.Text = "Точка";
             this.button_4_Point.UseVisualStyleBackColor = true;
             this.button_4_Point.Click += new System.EventHandler(this.button_4_Point_Click);
+            // 
+            // groupBoxEditGoalKeeper
+            // 
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100205);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100203);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100401);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100201);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.label19);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.label18);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.label17);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100302);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100202);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100303);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100301);
+            this.groupBoxEditGoalKeeper.Controls.Add(this.button1100204);
+            this.groupBoxEditGoalKeeper.Location = new System.Drawing.Point(553, 1);
+            this.groupBoxEditGoalKeeper.Name = "groupBoxEditGoalKeeper";
+            this.groupBoxEditGoalKeeper.Size = new System.Drawing.Size(495, 72);
+            this.groupBoxEditGoalKeeper.TabIndex = 6;
+            this.groupBoxEditGoalKeeper.TabStop = false;
+            this.groupBoxEditGoalKeeper.Text = "ВРАТАРЬ";
             // 
             // button1100205
             // 
@@ -1392,6 +1336,38 @@ namespace Uniso.InStat.Gui.Forms
             this.button1100201.Text = "ДОМИК";
             this.button1100201.UseVisualStyleBackColor = true;
             this.button1100201.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Bold);
+            this.label19.Location = new System.Drawing.Point(6, 33);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(13, 12);
+            this.label19.TabIndex = 12;
+            this.label19.Text = "R";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Bold);
+            this.label18.Location = new System.Drawing.Point(187, 33);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(11, 12);
+            this.label18.TabIndex = 12;
+            this.label18.Text = "L";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label17
+            // 
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.label17.Location = new System.Drawing.Point(210, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(125, 12);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "ПОЛОЖЕНИЕ ВРАТАРЯ";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button1100302
             // 
@@ -1512,6 +1488,39 @@ namespace Uniso.InStat.Gui.Forms
             this.comboBox3.TabIndex = 6;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.label24.Location = new System.Drawing.Point(372, 66);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(17, 12);
+            this.label24.TabIndex = 12;
+            this.label24.Text = "А2";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.label23.Location = new System.Drawing.Point(372, 43);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(17, 12);
+            this.label23.TabIndex = 12;
+            this.label23.Text = "А1";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            this.label22.Location = new System.Drawing.Point(375, 20);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(12, 12);
+            this.label22.TabIndex = 12;
+            this.label22.Text = "П";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // comboBox8
             // 
             this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1558,21 +1567,10 @@ namespace Uniso.InStat.Gui.Forms
             this.comboBox2.TabIndex = 6;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // transparentPanel1
-            // 
-            this.transparentPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.transparentPanel1.Location = new System.Drawing.Point(5, 19);
-            this.transparentPanel1.Name = "transparentPanel1";
-            this.transparentPanel1.Size = new System.Drawing.Size(821, 541);
-            this.transparentPanel1.TabIndex = 25;
-            this.transparentPanel1.MouseEnter += new System.EventHandler(this.transparentPanel1_MouseEnter);
-            // 
             // vlcStreamPlayer1
             // 
-            this.vlcStreamPlayer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.vlcStreamPlayer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.vlcStreamPlayer1.BackColor = System.Drawing.Color.Black;
             this.vlcStreamPlayer1.BufferTime = 500;
@@ -1770,18 +1768,6 @@ namespace Uniso.InStat.Gui.Forms
             this.button300300.UseVisualStyleBackColor = true;
             this.button300300.Click += new System.EventHandler(this.button1a_Click);
             // 
-            // button200900
-            // 
-            this.button200900.Focusable = false;
-            this.button200900.Location = new System.Drawing.Point(112, 210);
-            this.button200900.Name = "button200900";
-            this.button200900.Size = new System.Drawing.Size(98, 36);
-            this.button200900.TabIndex = 0;
-            this.button200900.Tag = "200900";
-            this.button200900.Text = "Помеха";
-            this.button200900.UseVisualStyleBackColor = true;
-            this.button200900.Click += new System.EventHandler(this.button1a_Click);
-            // 
             // button100602
             // 
             this.button100602.Focusable = false;
@@ -1916,8 +1902,8 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // spareField1
             // 
-            this.spareField1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.spareField1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.spareField1.Game = null;
             this.spareField1.Location = new System.Drawing.Point(0, 17);
@@ -1934,8 +1920,8 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // spareField2
             // 
-            this.spareField2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.spareField2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.spareField2.Game = null;
             this.spareField2.Location = new System.Drawing.Point(0, 15);
@@ -2107,10 +2093,6 @@ namespace Uniso.InStat.Gui.Forms
             this.groupBoxEditVbrasivanie.PerformLayout();
             this.groupBoxEditVbrasivanije.ResumeLayout(false);
             this.groupBoxEditVbrasivanije.PerformLayout();
-            this.groupBoxEditBrosok.ResumeLayout(false);
-            this.groupBoxEditBrosok.PerformLayout();
-            this.groupBoxEditGoalKeeper.ResumeLayout(false);
-            this.groupBoxEditGoalKeeper.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -2130,6 +2112,10 @@ namespace Uniso.InStat.Gui.Forms
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBoxEditBrosok.ResumeLayout(false);
+            this.groupBoxEditBrosok.PerformLayout();
+            this.groupBoxEditGoalKeeper.ResumeLayout(false);
+            this.groupBoxEditGoalKeeper.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2213,7 +2199,6 @@ namespace Uniso.InStat.Gui.Forms
         private ButtonEx button200600;
         private ButtonEx button100400;
         private ButtonEx button100300;
-        private ButtonEx button200900;
         private System.Windows.Forms.GroupBox groupBoxEditBrosok;
         private ButtonEx button200202;
         private System.Windows.Forms.CheckBox checkBox2;
