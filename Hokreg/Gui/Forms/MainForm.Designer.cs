@@ -92,6 +92,8 @@ namespace Uniso.InStat.Gui.Forms
             this.button401100 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button1100101 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button1100102 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button300600 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button100900 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.button401000 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.comboBox3 = new Uniso.InStat.ComboBoxEx();
             this.label24 = new System.Windows.Forms.Label();
@@ -718,6 +720,8 @@ namespace Uniso.InStat.Gui.Forms
             this.groupBoxEditBrosok.Controls.Add(this.button401100);
             this.groupBoxEditBrosok.Controls.Add(this.button1100101);
             this.groupBoxEditBrosok.Controls.Add(this.button1100102);
+            this.groupBoxEditBrosok.Controls.Add(this.button300600);
+            this.groupBoxEditBrosok.Controls.Add(this.button100900);
             this.groupBoxEditBrosok.Controls.Add(this.button401000);
             this.groupBoxEditBrosok.Controls.Add(this.comboBox3);
             this.groupBoxEditBrosok.Controls.Add(this.label24);
@@ -941,6 +945,30 @@ namespace Uniso.InStat.Gui.Forms
             this.button1100102.Text = "ЛЕВОЙ";
             this.button1100102.UseVisualStyleBackColor = true;
             this.button1100102.Click += new System.EventHandler(this.button1100101_Click);
+            // 
+            // button300600
+            // 
+            this.button300600.Focusable = false;
+            this.button300600.Location = new System.Drawing.Point(17, 62);
+            this.button300600.Name = "button300600";
+            this.button300600.Size = new System.Drawing.Size(81, 34);
+            this.button300600.TabIndex = 14;
+            this.button300600.Tag = "300600";
+            this.button300600.Text = "Фиксация шабы вратарем";
+            this.button300600.UseVisualStyleBackColor = true;
+            this.button300600.Click += new System.EventHandler(this.button300600_Click);
+            // 
+            // button100900
+            // 
+            this.button100900.Focusable = false;
+            this.button100900.Location = new System.Drawing.Point(104, 62);
+            this.button100900.Name = "button100900";
+            this.button100900.Size = new System.Drawing.Size(81, 34);
+            this.button100900.TabIndex = 15;
+            this.button100900.Tag = "100900";
+            this.button100900.Text = "Отбивание шайбы вратарем";
+            this.button100900.UseVisualStyleBackColor = true;
+            this.button100900.Click += new System.EventHandler(this.button100900_Click);
             // 
             // button401000
             // 
@@ -2219,6 +2247,8 @@ namespace Uniso.InStat.Gui.Forms
         private ButtonEx button1100203;
         private ButtonEx button1100101;
         private ButtonEx button1100102;
+        private ButtonEx button300600;
+        private ButtonEx button100900;
         private System.Windows.Forms.LinkLabel linkLabel_a12_0;
         private System.Windows.Forms.LinkLabel linkLabel_a12;
         private System.Windows.Forms.LinkLabel linkLabel_a12_1;

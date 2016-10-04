@@ -5271,8 +5271,16 @@ namespace Uniso.InStat.Gui.Forms
             ReloadDataGridView();
         }
 
+        private void button300600_Click(object sender, EventArgs e)
+        {
+            // TODO:
+        }
 
-        
+        private void button100900_Click(object sender, EventArgs e)
+        {
+            // TODO: 123
+
+        }
     }
 
     
