@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Options xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Hotkey_RegisterBeginFix>F2</Hotkey_RegisterBeginFix>
+  <Hotkey_RegisterBeginNoFix>F3</Hotkey_RegisterBeginNoFix>
+  <Hotkey_StepNext>F5</Hotkey_StepNext>
+  <Hotkey_StepPrev>F4</Hotkey_StepPrev>
+  <Hotkey_Action_DumpIn>Space</Hotkey_Action_DumpIn>
+  <Hotkey_PauseResume>Q</Hotkey_PauseResume>
+  <HotKeyAction_1_1>LButton A Shift Control Alt</HotKeyAction_1_1>
+  <HotKeyAction_1_3>None</HotKeyAction_1_3>
+  <HotKeyAction_1_4>None</HotKeyAction_1_4>
+  <HotKeyAction_1_5>None</HotKeyAction_1_5>
+  <HotKeyAction_1_6_1>None</HotKeyAction_1_6_1>
+  <HotKeyAction_1_6_2>None</HotKeyAction_1_6_2>
+  <HotKeyAction_1_8>None</HotKeyAction_1_8>
+  <HotKeyAction_2_1>None</HotKeyAction_2_1>
+  <HotKeyAction_2_2_1>None</HotKeyAction_2_2_1>
+  <HotKeyAction_2_2_2>None</HotKeyAction_2_2_2>
+  <HotKeyAction_2_3>None</HotKeyAction_2_3>
+  <HotKeyAction_2_4>None</HotKeyAction_2_4>
+  <HotKeyAction_2_6>None</HotKeyAction_2_6>
+  <HotKeyAction_2_7>None</HotKeyAction_2_7>
+  <HotKeyAction_2_7_2>None</HotKeyAction_2_7_2>
+  <HotKeyAction_2_8>None</HotKeyAction_2_8>
+  <HotKeyAction_2_9>None</HotKeyAction_2_9>
+  <HotKey_1_1_1_2>None</HotKey_1_1_1_2>
+  <HotKeyAction_6_1>None</HotKeyAction_6_1>
+  <StepNextValue>200</StepNextValue>
+  <StepPrevValue>1000</StepPrevValue>
+  <IsStopPlayingOnShot>false</IsStopPlayingOnShot>
+  <PlaySound>false</PlaySound>
+  <AutoSavePeriod>0</AutoSavePeriod>
+  <Game_LengthPrimaryHalf>20</Game_LengthPrimaryHalf>
+  <Game_FindActualTimeForHalfFinally>true</Game_FindActualTimeForHalfFinally>
+  <Game_ShowActualTime>true</Game_ShowActualTime>
+  <Game_NoStopVideoInOnline>false</Game_NoStopVideoInOnline>
+  <Game_EnableFailureSaving>false</Game_EnableFailureSaving>
+  <Game_EnableApplyTimeEx>false</Game_EnableApplyTimeEx>
+</Options>

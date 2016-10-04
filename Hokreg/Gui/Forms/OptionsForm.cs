@@ -18,7 +18,7 @@ namespace Uniso.InStat.Gui.Forms
 
         private void OptionsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Options.G.Save();
+            Options.G.SaveXml();
         }
     }
 }

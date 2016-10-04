@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using Uniso.InStat.Conv;
 
 namespace Uniso.InStat.Classes
@@ -192,83 +194,92 @@ namespace Uniso.InStat.Classes
 
         private static Options options = null;
 
-        private const string options_data_file = @".\\.options.dat";
+        private const string options_xml_data_file = @"options.xml";
+        private const string tester_options_xml_data_file = @"tester_options.xml";
+        private static string[] tester_names = new string[] { @"Yakovlev",};
 
         public static Options G
         {
             get
             {
                 if (options == null)
-                    options = Options.Load();
+                    options = Options.LoadXml();
 
                 if (options == null)
                 {
                     options = new Options();
-                    options.Save();
+                    options.SaveXml();
                 }
 
                 return options;
             }
         }
 
-        private static String _optionsFileName = String.Empty;
-        private static String optionsFileName {
+        //private static String _optionsFileName = String.Empty;
+
+        //private static String optionsFileName {
+        //    get
+        //    {
+        //        if (_optionsFileName == string.Empty)
+        //        {
+        //            var fi = new FileInfo(Application.ExecutablePath);
+        //            _optionsFileName  = Path.Combine(fi.DirectoryName, options_data_file);
+        //        }
+        //        return _optionsFileName;
+        //    }
+        //    set { _optionsFileName = value; }
+        //}
+
+        private static string _optionsXmlFileName;
+
+        private static string optionsXmlFileName
+        {
             get
             {
-                if (_optionsFileName == string.Empty)
+                // Если запустил тестировщик.
+                if (tester_names.Contains(User.Load().Login))
                 {
                     var fi = new FileInfo(Application.ExecutablePath);
-                    _optionsFileName  = Path.Combine(fi.DirectoryName, options_data_file);
+                    _optionsXmlFileName = Path.Combine(fi.DirectoryName, tester_options_xml_data_file);
                 }
-                return _optionsFileName;
+                else
+                if (string.IsNullOrEmpty(_optionsXmlFileName))
+                {
+                    var fi = new FileInfo(Application.ExecutablePath);
+                    _optionsXmlFileName = Path.Combine(fi.DirectoryName, options_xml_data_file);
+                }
+                return _optionsXmlFileName;
             }
-            set { _optionsFileName = value; }
         }
+        
 
-        [Obsolete("Use optionsFileName.")]
-        private static String GetOptionsFileName()
+        public void SaveXml()
         {
-            if (optionsFileName == String.Empty)
+            using (var fs = new FileStream(optionsXmlFileName, FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                var fi = new FileInfo(System.Windows.Forms.Application.ExecutablePath);
-                optionsFileName = fi.Directory + @".\\.options.dat";
-            }
+                var xmlSerializer = new XmlSerializer(typeof(Options));
 
-            return optionsFileName;
-        }
-
-        public void Save()
-        {
-            Stream serializationStream = new FileStream(optionsFileName, FileMode.Create, FileAccess.Write);
-            try
-            {
-                var formatter = new BinaryFormatter();
-                formatter.Serialize(serializationStream, this);
-            }
-            catch
-            { }
-            finally
-            {
-                serializationStream.Close();
+                xmlSerializer.Serialize(fs, this);
             }
         }
 
-        public static Options Load()
+        public static Options LoadXml()
         {
-            if (!File.Exists(optionsFileName))
+            if (!File.Exists(optionsXmlFileName))
             {
                 return null;
             }
 
-            using (Stream serializationStream = new FileStream(optionsFileName, FileMode.Open, FileAccess.Read))
+            
+        
+
+            using (var fs = new FileStream(optionsXmlFileName, FileMode.Open, FileAccess.Read))
             {
-                var formatter = new BinaryFormatter();
-                var res = (Options)formatter.Deserialize(serializationStream);
+                var xmlDeSerializer = new XmlSerializer(typeof(Options));
 
-                if (res.Game_LengthPrimaryHalf == 0)
-                    res.Game_LengthPrimaryHalf = 20;
+                var opt = (Options) xmlDeSerializer.Deserialize(fs);
 
-                return res;
+                return opt;
             }
         }
 

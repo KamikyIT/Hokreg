@@ -6,6 +6,7 @@ using System.Text;
 using Uniso.InStat.Classes;
 using Uniso.InStat.Conv;
 using Uniso.InStat.Gui.Forms;
+using Uniso.InStat.Models;
 
 namespace Uniso.InStat.Game
 {

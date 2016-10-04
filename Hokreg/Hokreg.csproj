@@ -280,6 +280,8 @@
     <Compile Include="Gui\Forms\PenaltyForm.Designer.cs">
       <DependentUpon>PenaltyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\MarkersWomboCombo.cs" />
+    <Compile Include="Models\MyMarkerModel.cs" />
     <Compile Include="PlayerTypes\CaptureStream.cs" />
     <Compile Include="PlayerTypes\FootballPlayer.cs">
       <SubType>Component</SubType>
