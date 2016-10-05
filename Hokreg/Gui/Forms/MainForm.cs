@@ -1688,8 +1688,15 @@ namespace Uniso.InStat.Gui.Forms
                 groupBoxEditBrosok.Visible = true;
                 groupBoxEditBrosok.Text = Convert.ToString(HockeyIce.convAction.ConvertTo(mk4.Action, typeof(string))) + " " + Utils.TimeFormat(mk4.TimeVideo);
                 groupBoxEditGoalKeeper.Visible = mk4.Compare(8, 1) || mk4.Compare(4, new int[] { 2, 3, 4, 5 });
-
+                
                 var sibl4 = Game.GetSiblings(mk4.Half, mk4.TimeVideo);
+
+
+                button300600.Enabled = mk4.Compare(4, 2);
+                button100900.Enabled = mk4.Compare(4, 2);
+
+                FormatAddButton(button300600, sibl4.Any(o => ((Game.Marker)o).Compare(3, 6, 0)));
+                FormatAddButton(button100900, sibl4.Any(o => ((Game.Marker)o).Compare(1, 9, 0)));
 
                 FormatAddButton(button401000, sibl4.Any(o => o.Compare(4, 10)));
                 FormatAddButton(button401100, sibl4.Any(o => o.Compare(4, 11)));
@@ -2093,7 +2100,7 @@ namespace Uniso.InStat.Gui.Forms
             if (button.Tag is String && Int32.TryParse(button.Tag.ToString(), out tagid))
             {
 #if DEBUG
-                if (tagid == 200400 || tagid == 100601 || tagid == 800100)
+                if (tagid == 200400 || tagid == 100601 || tagid == 800100 || tagid == 300600 || tagid == 100900)
                 {
                     var p = 5;
                 }
@@ -5271,16 +5278,72 @@ namespace Uniso.InStat.Gui.Forms
             ReloadDataGridView();
         }
 
-        private void button300600_Click(object sender, EventArgs e)
+        private void button300600_100900_Click(object sender, EventArgs e)
         {
             // TODO:
+            var prevmk = Game.GetPrevousMarkersHalf(Half, Second, true);
+            // 4.2.0
+            if (prevmk == null || prevmk.Count == 0)
+            {
+                return;
+            }
+
+            var markerk400200 = (Game.Marker)prevmk.FirstOrDefault(o => ((Game.Marker) o).Compare(4, 2, 0));
+
+            if (markerk400200 == null)
+            {
+                return;
+            }
+
+            var tag = (sender as ButtonEx).Tag.ToString();
+
+            var tagid = 0;
+
+            if (int.TryParse(tag, out tagid) == false)
+            {
+                return;
+            }
+
+            var newMarker = new Game.Marker(Game)
+            {
+                ActionCode = tagid,
+                Half = markerk400200.Half,
+                TimeVideo = markerk400200.TimeVideo,
+                Player1 = markerk400200.Player2,
+                Point1 = markerk400200.Point2,
+                FlagGuiUpdate = true,
+            };
+
+            if (MarkersWomboCombo.CheckPrevMarkerNeedsExtraMarker(markerk400200, newMarker))
+            {
+                MarkersWomboCombo.XorAddSingleNewExtraMarker(markerk400200, newMarker);
+                
+
+                var markersToDelete = Game.Markers.Where(x =>
+                                ((Game.Marker)x).Half.Index == newMarker.Half.Index &&
+                                ((Game.Marker)x).TimeVideo == newMarker.TimeVideo &&
+                                (((Game.Marker)x).Compare(3, 6, 0) || ((Game.Marker)x).Compare(1, 9, 0))
+                    );
+
+                var toDelete = markersToDelete.ToList<Marker>(); //markersToDelete as Marker[] ?? markersToDelete.ToArray()
+                if (toDelete.Any())
+                {
+                    foreach (var marker in toDelete)
+                    {
+                        Game.Remove(marker);
+                    }
+                }
+                else
+                {
+                    Game.Insert(newMarker);
+                }
+            }
+
+            ReloadDataGridView(true);
+
+            UpdateUI();
         }
 
-        private void button100900_Click(object sender, EventArgs e)
-        {
-            // TODO: 123
-
-        }
     }
 
     

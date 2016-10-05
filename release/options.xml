@@ -6,7 +6,7 @@
   <Hotkey_StepPrev>F4</Hotkey_StepPrev>
   <Hotkey_Action_DumpIn>Space</Hotkey_Action_DumpIn>
   <Hotkey_PauseResume>Q</Hotkey_PauseResume>
-  <HotKeyAction_1_1>LButton A Shift Control Alt</HotKeyAction_1_1>
+  <HotKeyAction_1_1>Space Control</HotKeyAction_1_1>
   <HotKeyAction_1_3>None</HotKeyAction_1_3>
   <HotKeyAction_1_4>None</HotKeyAction_1_4>
   <HotKeyAction_1_5>None</HotKeyAction_1_5>

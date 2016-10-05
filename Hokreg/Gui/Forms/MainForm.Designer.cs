@@ -956,7 +956,7 @@ namespace Uniso.InStat.Gui.Forms
             this.button300600.Tag = "300600";
             this.button300600.Text = "Фиксация шабы вратарем";
             this.button300600.UseVisualStyleBackColor = true;
-            this.button300600.Click += new System.EventHandler(this.button300600_Click);
+            this.button300600.Click += new System.EventHandler(this.button300600_100900_Click);
             // 
             // button100900
             // 
@@ -968,7 +968,7 @@ namespace Uniso.InStat.Gui.Forms
             this.button100900.Tag = "100900";
             this.button100900.Text = "Отбивание шайбы вратарем";
             this.button100900.UseVisualStyleBackColor = true;
-            this.button100900.Click += new System.EventHandler(this.button100900_Click);
+            this.button100900.Click += new System.EventHandler(this.button300600_100900_Click);
             // 
             // button401000
             // 

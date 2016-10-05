@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using Uniso.InStat.Classes;
 using Uniso.InStat.Conv;
 using Uniso.InStat.Gui.Forms;
@@ -275,7 +276,10 @@ namespace Uniso.InStat.Game
 
             var sibl = GetSiblings(mk);
 
+            // Замены
             if (mk.ActionId == 14 && mk.player1_id > 0 && mk.player2_id > 0)
+                #region Замены
+
             {
                 if (mk.team2_id > 0 && sibl.Any(o => !o.FlagDel && o.Compare(mk.ActionId, mk.ActionType) && o.team2_id > 0 && o.team2_id == mk.team2_id))
                 {
@@ -299,14 +303,14 @@ namespace Uniso.InStat.Game
                 }
 
                 if (sibl.Any(o => !o.FlagDel
-                    && o.ActionId == 14
-                    && ((o.player1_id > 0 && o.player1_id == mk.player1_id)
-                     || (o.player1_id > 0 && o.player1_id == mk.player2_id)
-                     || (o.player2_id > 0 && o.player2_id == mk.player1_id)
-                     || (o.player2_id > 0 && o.player2_id == mk.player2_id))))
+                                  && o.ActionId == 14
+                                  && ((o.player1_id > 0 && o.player1_id == mk.player1_id)
+                                      || (o.player1_id > 0 && o.player1_id == mk.player2_id)
+                                      || (o.player2_id > 0 && o.player2_id == mk.player1_id)
+                                      || (o.player2_id > 0 && o.player2_id == mk.player2_id))))
                 {
-                    System.Windows.Forms.MessageBox.Show(String.Format("Невозможно вставить замену {0} на {1}\nт.к. такая замена присутствует в это же время", mk.Player1, mk.Player2),
-                        "ERROR", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                    MessageBox.Show(String.Format("Невозможно вставить замену {0} на {1}\nт.к. такая замена присутствует в это же время", mk.Player1, mk.Player2),
+                        "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -322,6 +326,8 @@ namespace Uniso.InStat.Game
                     return;
                 }
             }
+
+            #endregion
 
             Log.Write("INSERT NEW " + mk);
 
@@ -538,15 +544,15 @@ namespace Uniso.InStat.Game
                     var prev = new List<InStat.Marker>();
                     if (mlist.Count > 0)
                     {
-                        var mk = mlist[mlist.Count - 1];
+                        var mk = mlist.Last();
                         prev.AddRange(mlist.Where(o => o.Half == mk.Half && o.TimeVideo == mk.TimeVideo).ToList<Uniso.InStat.Marker>());
                     }
 
                     if (prev.Count > 0)
                     {
-                        if (prev.Any(o => o.Compare(1, new int[] { 3, 4, 5, 7, 8, 9, 10 })))
+                        if (prev.Any(o => o.Compare(1, new int[] { 3, 4, 5, 7, 8, 10 })))
                         {
-                            var mkp = prev.First(o => o.Compare(1, new int[] { 3, 4, 5, 7, 8, 9, 10 }));
+                            var mkp = prev.First(o => o.Compare(1, new int[] { 3, 4, 5, 7, 8, 10 }));
 
                             if (mkp.player2_id == 0 && mkp.Win == 2 && !mkp.Point2.IsEmpty)
                                 continue;
@@ -1703,7 +1709,7 @@ namespace Uniso.InStat.Game
                 }
 
                 //Проверка точности передач
-                if (mk.Compare(1, new int[] { 3, 4, 5, 7, 8, 9 }))
+                if (mk.Compare(1, new int[] { 3, 4, 5, 7, 8 }))
                 {
                     if (mk.team2_id == 0 && mk.Win < 2)
                         throw new CheckValidMarkerException(String.Format("В маркере отсутствует оппонент!",

@@ -72,7 +72,6 @@ namespace Uniso.InStat.Models
             #endregion
 
 
-
             #region Единоборство. 200100
 
             // Единоборство. 200100
@@ -110,6 +109,22 @@ namespace Uniso.InStat.Models
                 var res = extraMarker.Compare(1, 3, 0) || extraMarker.Compare(1, 4, 0) ||
                           extraMarker.Compare(1, 5, 0) || extraMarker.Compare(1, 8, 0) ||
                           extraMarker.Compare(1, 6, 1);
+
+                return res;
+            }
+
+            #endregion
+
+            #region Отбитый бросок
+
+            // Отбитый бросок               400200
+            // возможен с флагами:
+            // Фиксация шайбы вратарем      300600
+            // Отбивание шайбы вратарем     100900
+
+            if (prevMarker.Compare(4, 2, 0))
+            {
+                var res = extraMarker.Compare(3, 6, 0) || extraMarker.Compare(1, 9, 0);
 
                 return res;
             }
@@ -382,5 +397,36 @@ namespace Uniso.InStat.Models
         }
 
         private static List<MyMarkerModel> markerModels;
+
+        /// <summary>
+        /// Добавить новый ИЛИ убрать предыдущее вхождение нового маркера ИЛИ переключить на новый дочерний маркер в prevMarker дополнительный newMarker. Возможность добавлять СТРОГО один дополнительный маркер.
+        /// </summary>
+        /// <param name="marker">Исходный маркер, в который можно добавить новый.</param>
+        /// <param name="extraMarker">Новый дочерний маркер.</param>
+        public static void XorAddSingleNewExtraMarker(Game.Marker marker, Game.Marker extraMarker)
+        {
+            // Если еще не пустой.
+            if (marker.flag_adding.Any())
+            {
+                // Проверяем, если пытаемся добавить тот же самый, то вырубаем его.
+                if (marker.flag_adding.Any(x => x.Compare(extraMarker.ActionId, extraMarker.ActionType, extraMarker.Win)))
+                {
+                    marker.flag_adding.Clear();
+                }
+                // Иначе в нем был какой-то другой.
+                else
+                {
+                    marker.flag_adding.Clear();
+
+                    marker.flag_adding.Add(extraMarker);
+                }
+            }
+            // Иначе, если пустой.
+            else
+            {
+                marker.flag_adding.Add(extraMarker);
+            }
+
+        }
     }
 }
