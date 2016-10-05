@@ -180,6 +180,8 @@ namespace Uniso.InStat.Gui.Forms
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.hockeyField1 = new Uniso.InStat.Gui.Controls.HockeyField();
+            this.button101100 = new Uniso.InStat.Gui.Controls.ButtonEx();
+            this.button101000 = new Uniso.InStat.Gui.Controls.ButtonEx();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -363,7 +365,7 @@ namespace Uniso.InStat.Gui.Forms
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(830, 563);
+            this.panel2.Size = new System.Drawing.Size(830, 612);
             this.panel2.TabIndex = 18;
             // 
             // panel5
@@ -1234,7 +1236,7 @@ namespace Uniso.InStat.Gui.Forms
             this.panel8.BackColor = System.Drawing.Color.Black;
             this.panel8.Controls.Add(this.label12);
             this.panel8.Controls.Add(this.pictureBox2);
-            this.panel8.Location = new System.Drawing.Point(14, 245);
+            this.panel8.Location = new System.Drawing.Point(14, 269);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(802, 73);
             this.panel8.TabIndex = 24;
@@ -1267,7 +1269,7 @@ namespace Uniso.InStat.Gui.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.transparentPanel1.Location = new System.Drawing.Point(5, 19);
             this.transparentPanel1.Name = "transparentPanel1";
-            this.transparentPanel1.Size = new System.Drawing.Size(821, 541);
+            this.transparentPanel1.Size = new System.Drawing.Size(821, 588);
             this.transparentPanel1.TabIndex = 25;
             this.transparentPanel1.MouseEnter += new System.EventHandler(this.transparentPanel1_MouseEnter);
             // 
@@ -1291,7 +1293,7 @@ namespace Uniso.InStat.Gui.Forms
             this.vlcStreamPlayer1.NumScene2 = 0;
             this.vlcStreamPlayer1.Position = 0;
             this.vlcStreamPlayer1.Rate = 1D;
-            this.vlcStreamPlayer1.Size = new System.Drawing.Size(822, 541);
+            this.vlcStreamPlayer1.Size = new System.Drawing.Size(822, 588);
             this.vlcStreamPlayer1.TabIndex = 18;
             this.vlcStreamPlayer1.Text = "vlcStreamPlayer1";
             this.vlcStreamPlayer1.VideoSize = new System.Drawing.Size(0, 0);
@@ -1515,7 +1517,7 @@ namespace Uniso.InStat.Gui.Forms
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.MinimumSize = new System.Drawing.Size(105, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(105, 718);
+            this.panel9.Size = new System.Drawing.Size(105, 832);
             this.panel9.TabIndex = 23;
             // 
             // spareField1
@@ -1526,7 +1528,7 @@ namespace Uniso.InStat.Gui.Forms
             this.spareField1.Game = null;
             this.spareField1.Location = new System.Drawing.Point(0, 17);
             this.spareField1.Name = "spareField1";
-            this.spareField1.Size = new System.Drawing.Size(105, 698);
+            this.spareField1.Size = new System.Drawing.Size(105, 812);
             this.spareField1.TabIndex = 21;
             this.spareField1.Team = null;
             this.spareField1.ChangedPlayersBegin += new System.EventHandler(this.spareField2_ChangedPlayersBegin);
@@ -1543,7 +1545,7 @@ namespace Uniso.InStat.Gui.Forms
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel10.Location = new System.Drawing.Point(1155, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(107, 718);
+            this.panel10.Size = new System.Drawing.Size(107, 832);
             this.panel10.TabIndex = 24;
             // 
             // spareField2
@@ -1554,7 +1556,7 @@ namespace Uniso.InStat.Gui.Forms
             this.spareField2.Game = null;
             this.spareField2.Location = new System.Drawing.Point(0, 15);
             this.spareField2.Name = "spareField2";
-            this.spareField2.Size = new System.Drawing.Size(107, 700);
+            this.spareField2.Size = new System.Drawing.Size(107, 814);
             this.spareField2.TabIndex = 21;
             this.spareField2.Team = null;
             this.spareField2.ChangedPlayersBegin += new System.EventHandler(this.spareField2_ChangedPlayersBegin);
@@ -1566,6 +1568,8 @@ namespace Uniso.InStat.Gui.Forms
             // 
             // panelFullTtd
             // 
+            this.panelFullTtd.Controls.Add(this.button101000);
+            this.panelFullTtd.Controls.Add(this.button101100);
             this.panelFullTtd.Controls.Add(this.button1300200);
             this.panelFullTtd.Controls.Add(this.linkLabel_a12_0);
             this.panelFullTtd.Controls.Add(this.linkLabel_a12_1);
@@ -1596,7 +1600,7 @@ namespace Uniso.InStat.Gui.Forms
             this.panelFullTtd.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelFullTtd.Location = new System.Drawing.Point(105, 0);
             this.panelFullTtd.Name = "panelFullTtd";
-            this.panelFullTtd.Size = new System.Drawing.Size(220, 718);
+            this.panelFullTtd.Size = new System.Drawing.Size(220, 832);
             this.panelFullTtd.TabIndex = 26;
             // 
             // button1300200
@@ -1935,7 +1939,7 @@ namespace Uniso.InStat.Gui.Forms
             this.panel11.Controls.Add(this.panel10);
             this.panel11.Location = new System.Drawing.Point(6, 45);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1262, 718);
+            this.panel11.Size = new System.Drawing.Size(1262, 832);
             this.panel11.TabIndex = 27;
             // 
             // panel12
@@ -1944,7 +1948,7 @@ namespace Uniso.InStat.Gui.Forms
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(325, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(830, 718);
+            this.panel12.Size = new System.Drawing.Size(830, 832);
             this.panel12.TabIndex = 27;
             // 
             // splitContainer1
@@ -1966,8 +1970,8 @@ namespace Uniso.InStat.Gui.Forms
             this.splitContainer1.Panel2.Controls.Add(this.checkBox4);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Panel2.Controls.Add(this.linkLabel10);
-            this.splitContainer1.Size = new System.Drawing.Size(830, 718);
-            this.splitContainer1.SplitterDistance = 563;
+            this.splitContainer1.Size = new System.Drawing.Size(830, 832);
+            this.splitContainer1.SplitterDistance = 612;
             this.splitContainer1.TabIndex = 19;
             // 
             // comboBoxEx1
@@ -2033,7 +2037,7 @@ namespace Uniso.InStat.Gui.Forms
             this.dataGridView1.HideSelection = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 24);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(830, 127);
+            this.dataGridView1.Size = new System.Drawing.Size(830, 181);
             this.dataGridView1.TabIndex = 20;
             this.dataGridView1.UseCompatibleStateImageBehavior = false;
             this.dataGridView1.View = System.Windows.Forms.View.Details;
@@ -2090,11 +2094,35 @@ namespace Uniso.InStat.Gui.Forms
             this.hockeyField1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.hockeyField1_MouseDown);
             this.hockeyField1.MouseEnter += new System.EventHandler(this.hockeyField1_MouseEnter);
             // 
+            // button101100
+            // 
+            this.button101100.Focusable = false;
+            this.button101100.Location = new System.Drawing.Point(112, 714);
+            this.button101100.Name = "button101100";
+            this.button101100.Size = new System.Drawing.Size(98, 36);
+            this.button101100.TabIndex = 3;
+            this.button101100.Tag = "101100";
+            this.button101100.Text = "Отброс шайбы";
+            this.button101100.UseVisualStyleBackColor = true;
+            this.button101100.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button101000
+            // 
+            this.button101000.Focusable = false;
+            this.button101000.Location = new System.Drawing.Point(9, 714);
+            this.button101000.Name = "button101000";
+            this.button101000.Size = new System.Drawing.Size(98, 36);
+            this.button101000.TabIndex = 4;
+            this.button101000.Tag = "101000";
+            this.button101000.Text = "Пас в оффсайд";
+            this.button101000.UseVisualStyleBackColor = true;
+            this.button101000.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1268, 765);
+            this.ClientSize = new System.Drawing.Size(1268, 879);
             this.Controls.Add(this.hockeyField1);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -2297,6 +2325,8 @@ namespace Uniso.InStat.Gui.Forms
         private ComboBoxEx comboBox10;
         public ComboBoxEx comboBoxEx1;
         private HockeyField hockeyField1;
+        private ButtonEx button101000;
+        private ButtonEx button101100;
     }
 }
 

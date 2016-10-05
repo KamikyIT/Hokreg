@@ -154,7 +154,9 @@ namespace Uniso.InStat.Conv
                 _v.Add(ActionEnum._01_08_02, "Вброс (-)");
                 _v.Add(ActionEnum._01_09, "Отбивание шайбы вратарем");
 
-                _v.Add(ActionEnum._01_10, "Заброс безадресный");
+                _v.Add(ActionEnum._01_10, "Пас в оффсайд");
+
+                _v.Add(ActionEnum._01_11, "Отброс шайбы");
 
                 _v.Add(ActionEnum._02_01, "Единоборство");
                 _v.Add(ActionEnum._02_02_01, "Обводка (+)");

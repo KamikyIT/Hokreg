@@ -845,7 +845,9 @@ namespace Uniso.InStat.Game
                 || o.Compare(7, 1)
                 || o.Compare(4)
                 || o.Compare(2, 11)
-                || o.Compare(8, 1)))
+                || o.Compare(8, 1)
+                || o.Compare(1, 11)
+                ))
                 res.Add(StageEnum.Point);
 
             //Точка действия и назначения
@@ -855,7 +857,9 @@ namespace Uniso.InStat.Game
                 || (o.Compare(1, new int[] { 3, 4, 5, 7 }) && ((Game.Marker)o).flag_icing)
                 || (o.Compare(1, 6) && ((Game.Marker)o).flag_icing)
                 //|| (o.Compare(1, 6) && ((Game.Marker)o).flag_adding.Any(x => x.Compare(0, 0) && x.Win == 1))
-                || (o.Compare(3, 9))))
+                || (o.Compare(3, 9))
+                || (o.Compare(1, 10))
+                ))
             {
                 // На всякий запасный, засейвимся
                 if (res.Contains(StageEnum.Point))
