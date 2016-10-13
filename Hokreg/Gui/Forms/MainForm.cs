@@ -2105,7 +2105,7 @@ namespace Uniso.InStat.Gui.Forms
             if (button.Tag is String && Int32.TryParse(button.Tag.ToString(), out tagid))
             {
 #if DEBUG
-                if (tagid == 200400 || tagid == 100601 || tagid == 800100 || tagid == 300600 || tagid == 101000 || tagid == 101100)
+                if (tagid == 200400 || tagid == 100601 || tagid == 800100 || tagid == 300600 || tagid == 101000 || tagid == 101100 || tagid == 300100)
                 {
                     var p = 5;
                 }
