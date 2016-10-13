@@ -775,14 +775,17 @@ namespace Uniso.InStat.Game
 
         public override List<StageEnum> GetStages(List<InStat.Marker> list)
         {
-           List<StageEnum> newMarkerStages = MarkersWomboCombo.GetMarkersStage(list);
+            List<StageEnum> res;
+            res = MarkersWomboCombo.GetMarkersStage(list);
 
-            if (newMarkerStages != null && newMarkerStages.Count > 0)
+            if (res != null && res.Count > 0)
             {
-                return newMarkerStages;
+                return res;
             }
 
-            var res = new List<StageEnum>();
+            
+
+            res = new List<StageEnum>();
 
 
             if (list.Count == 2)

@@ -240,8 +240,17 @@ namespace Uniso.InStat.Models
             return AddChildMarkerRule.None;
         }
 
+        /// <summary>
+        /// Получить список действий для маркеров.
+        /// </summary>
+        /// <param name="markers">Список маркеров.</param>
+        /// <returns>Возвращает список действий, если список маркеров есть. Иначе null.</returns>
         public static List<StageEnum> GetMarkersStage(List<Marker> markers)
         {
+            return null;
+
+            // TODO: вечнопроблемы.
+
             if (markers.Count == 1)
             {
                 return GetMarkersStage((Game.Marker)markers[0]);
@@ -252,6 +261,11 @@ namespace Uniso.InStat.Models
 
         }
 
+        /// <summary>
+        /// Получить список действий для маркера.
+        /// </summary>
+        /// <param name="marker">Список маркеров.</param>
+        /// <returns>Возвращает список действий, если маркер есть. Иначе null.</returns>
         public static List<StageEnum> GetMarkersStage(Game.Marker marker)
         {
             var action_id = marker.ActionId;

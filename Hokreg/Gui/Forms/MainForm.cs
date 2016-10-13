@@ -1847,6 +1847,11 @@ namespace Uniso.InStat.Gui.Forms
                 btn000001_clicked = edit.flag_adding.Any(x => x.Compare(0, 0) && x.Win == 2);
             }
             FormatAddButton(button000001, pas && edit.Win == 2 || marker_vibros_minus && btn000001_clicked);
+            
+            button101000.Enabled = mode_keys;
+            FormatAddButton(button101000, edit.Compare(10, 10, 0));
+            button101100.Enabled = mode_keys;
+            FormatAddButton(button101100, edit.Compare(10, 11, 0));
 
             //Primary
             // ReSharper disable once InconsistentNaming
