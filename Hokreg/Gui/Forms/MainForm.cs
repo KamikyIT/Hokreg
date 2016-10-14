@@ -889,23 +889,51 @@ namespace Uniso.InStat.Gui.Forms
 
         private void InsertViolation(Game.Marker mk, Player player, Half _half, int _second)
         {
-            var form = new ViolationForm(mk, player);
-            form.ShowDialog();
+            var form = new MyViolationForm(mk, player);
 
-            foreach (var mki in form.GetResult())
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                mki.Half = _half;
-                mki.TimeVideo = _second;
-                Game.Insert(mki);
-            }
+                var resultedMarker = form.Result();
 
-            ReloadDataGridView();
+                if (resultedMarker != null)
+                {
+                    resultedMarker.Half = _half;
+                    resultedMarker.TimeVideo = _second;
+                    Game.Insert(resultedMarker);
+                }
 
-            if (form.IsPair && mk.Player2 != player)
-            {
-                Game.Insert(new Game.Marker(Game, 3, 1, mk.Half, mk.TimeVideo) { Player1 = mk.Player2, Player2 = mk.Player1, Point1 = mk.Point1 });
-                InsertViolation(mk, mk.Player2, mk.Half, _second);
+                ReloadDataGridView();
+
+                if (form.IsPair && mk.Player2 != player)
+                {
+                    Game.Insert(
+                        new Game.Marker(Game, 3, 1, mk.Half, mk.TimeVideo)
+                        {
+                            Player1 = mk.Player2,
+                            Player2 = mk.Player1,
+                            Point1 = mk.Point1,
+                        });
+                    InsertViolation(mk, mk.Player2, mk.Half, _second);
+                }
             }
+            
+            //var form = new ViolationForm(mk, player);
+            //form.ShowDialog();
+
+            //foreach (var mki in form.GetResult())
+            //{
+            //    mki.Half = _half;
+            //    mki.TimeVideo = _second;
+            //    Game.Insert(mki);
+            //}
+
+            //ReloadDataGridView();
+
+            //if (form.IsPair && mk.Player2 != player)
+            //{
+            //    Game.Insert(new Game.Marker(Game, 3, 1, mk.Half, mk.TimeVideo) { Player1 = mk.Player2, Player2 = mk.Player1, Point1 = mk.Point1 });
+            //    InsertViolation(mk, mk.Player2, mk.Half, _second);
+            //}
         }
 
         private int reg_time = 0;
@@ -1119,23 +1147,9 @@ namespace Uniso.InStat.Gui.Forms
 
                 }
 
-                if (mk.Compare(3, new int[] {1}))
+                if (mk.Compare(3, 1))
                 {
                     var mkf_time = mk.TimeVideo;
-                    /*int mkf_time_abs = Game.GetActuialTime(mk.Half, mk.TimeVideo, true);
-                    lock (Game.Markers)
-                    {
-                        InStat.Marker mks = Game.Markers.Where(o => o.TimeActualTotal >= mkf_time_abs)
-                            .OrderBy(o => o.TimeActualTotal)
-                            .FirstOrDefault(o => Game.IsStopTimeMarker(o));
-
-                        if (mks != null)
-                        {
-                            mkf_time = mks.TimeVideo;
-                        }
-                    }
-
-                    InsertFine(mk, mk.Player1, Half, mkf_time, false);*/
 
                     InsertViolation(mk, mk.Player1, mk.Half, mk.TimeVideo);
 
@@ -2069,11 +2083,15 @@ namespace Uniso.InStat.Gui.Forms
                     Game.IsCanCreateMarker(Half, time, Game.editMarker.G);
 
                     if (HockeyIce.Role == HockeyIce.RoleEnum.Online)
+                    #region Online
+
                     {
                         fixedTime = Second;
                         if (action_id == 1 && action_type == 1)
                             sw.Start();
                     }
+
+                        #endregion
 
                     ProcessingMarker(Game.editMarker.G);
                 }

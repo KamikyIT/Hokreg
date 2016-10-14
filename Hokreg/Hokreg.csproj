@@ -219,6 +219,12 @@
     <Compile Include="Gui\Forms\MySelectForm.Designer.cs">
       <DependentUpon>MySelectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Forms\MyViolationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Forms\MyViolationForm.Designer.cs">
+      <DependentUpon>MyViolationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Forms\OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Forms\MySelectForm.resx">
       <DependentUpon>MySelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Forms\MyViolationForm.resx">
+      <DependentUpon>MyViolationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Forms\OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
