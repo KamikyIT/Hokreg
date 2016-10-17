@@ -889,51 +889,58 @@ namespace Uniso.InStat.Gui.Forms
 
         private void InsertViolation(Game.Marker mk, Player player, Half _half, int _second)
         {
-            var form = new MyViolationForm(mk, player);
+            var form = new ViolationForm(mk, player);
+            form.ShowDialog();
 
-            if (form.ShowDialog(this) == DialogResult.OK)
+            foreach (var mki in form.GetResult())
             {
-                var resultedMarker = form.Result();
-
-                if (resultedMarker != null)
-                {
-                    resultedMarker.Half = _half;
-                    resultedMarker.TimeVideo = _second;
-                    Game.Insert(resultedMarker);
-                }
-
-                ReloadDataGridView();
-
-                if (form.IsPair && mk.Player2 != player)
-                {
-                    Game.Insert(
-                        new Game.Marker(Game, 3, 1, mk.Half, mk.TimeVideo)
-                        {
-                            Player1 = mk.Player2,
-                            Player2 = mk.Player1,
-                            Point1 = mk.Point1,
-                        });
-                    InsertViolation(mk, mk.Player2, mk.Half, _second);
-                }
+                mki.Half = _half;
+                mki.TimeVideo = _second;
+                Game.Insert(mki);
             }
-            
-            //var form = new ViolationForm(mk, player);
-            //form.ShowDialog();
 
-            //foreach (var mki in form.GetResult())
+            ReloadDataGridView();
+
+            if (form.IsPair && mk.Player2 != player)
+            {
+                Game.Insert(new Game.Marker(Game, 3, 1, mk.Half, mk.TimeVideo) { Player1 = mk.Player2, Player2 = mk.Player1, Point1 = mk.Point1 });
+                InsertViolation(mk, mk.Player2, mk.Half, _second);
+            }
+
+            #region MyRegion
+
+            //var form = new MyViolationForm(mk, player);
+
+            //if (form.ShowDialog(this) == DialogResult.OK)
             //{
-            //    mki.Half = _half;
-            //    mki.TimeVideo = _second;
-            //    Game.Insert(mki);
+            //    var resultedMarker = form.Result();
+
+            //    if (resultedMarker != null)
+            //    {
+            //        resultedMarker.Half = _half;
+            //        resultedMarker.TimeVideo = _second;
+            //        Game.Insert(resultedMarker);
+            //    }
+
+            //    ReloadDataGridView();
+
+            //    // Если парный штраф, то начинат штрафовать второго игрока.
+            //    if (form.IsPair && mk.Player2 != player)
+            //    {
+            //        Game.Insert(
+            //            new Game.Marker(Game, 3, 1, mk.Half, mk.TimeVideo)
+            //            {
+            //                Player1 = mk.Player2,
+            //                Player2 = mk.Player1,
+            //                Point1 = mk.Point1,
+            //            });
+            //        InsertViolation(mk, mk.Player2, mk.Half, _second);
+            //    }
             //}
 
-            //ReloadDataGridView();
+            #endregion
 
-            //if (form.IsPair && mk.Player2 != player)
-            //{
-            //    Game.Insert(new Game.Marker(Game, 3, 1, mk.Half, mk.TimeVideo) { Player1 = mk.Player2, Player2 = mk.Player1, Point1 = mk.Point1 });
-            //    InsertViolation(mk, mk.Player2, mk.Half, _second);
-            //}
+
         }
 
         private int reg_time = 0;
@@ -988,8 +995,8 @@ namespace Uniso.InStat.Gui.Forms
 
 
             if (stage == StageEnum.Player1 || stage == StageEnum.Player2)
-            {
             #region Player1 Player2
+            {
                 if ((mk.Compare(8, 1) || mk.Compare(3, new int[] {1, 2,}))
                     && stage == StageEnum.Player1 && !prevm.Exists(o => o.Compare(4, 6)))
                 {
@@ -2134,6 +2141,181 @@ namespace Uniso.InStat.Gui.Forms
             }
         }
 
+        private void button_foul_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var tagid = 0;
+            if (button.Tag is String && Int32.TryParse(button.Tag.ToString(), out tagid))
+            {
+#if DEBUG
+                if (tagid == 300100)
+                {
+                    var p = 5;
+                }
+
+#endif
+
+                if (HockeyIce.Role != HockeyIce.RoleEnum.Online)
+                {
+                    RegisterFoul(tagid);
+                }
+                else
+                {
+                    button1_Click(sender, e);
+                }
+                
+            }
+
+        }
+
+        private void RegisterFoul(int tagid)
+        {
+            try
+            {
+                var time = fixedTime > 0 ? fixedTime : Second;
+
+                var mk = new Game.Marker(Game)
+                {
+                    ActionCode = tagid,
+                    Half =  this.Half,
+                    TimeVideo = time,
+                    user_id = HockeyIce.User.Id,
+                };
+
+                if (HockeyIce.Role != HockeyIce.RoleEnum.Online || (HockeyIce.Role == HockeyIce.RoleEnum.Online && !Options.G.Game_NoStopVideoInOnline))
+                    vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+
+
+                Game.editMarker.G = mk;
+
+                Game.IsCanCreateMarker(Half, time, Game.editMarker.G);
+                
+                InsertMyViolation(mk);
+
+            }
+            catch (Game.GameBase.InsertMarkerException imex)
+            {
+                lock (Game.editMarker)
+                    Game.editMarker.G = null;
+
+                MessageBox.Show(imex.Message, "Ошибка вставки маркера", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                lock (Game.editMarker)
+                    Game.editMarker.G = null;
+            }
+            finally
+            {
+                ShowTimer();
+                UpdateUI();
+            }
+
+
+        }
+
+        private void InsertMyViolation(Game.Marker mk)
+        {
+            var form = new MyViolationForm(mk);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+
+                this.FoulsStage = MarkersWomboCombo.GetFoulMarkerStages(form.foul, form.foulPlayersCount, form.IsPair);
+
+                ContinueFoulRegister(mk, StageEnum.Standard);
+
+                //foreach (var stage in stages)
+                //{
+                //    switch (stage)
+                //    {
+                //        case StageEnum.Player1:
+                //            #region Player1 
+                //            if (true)
+                //        {
+
+
+
+                //            var stageName = mk.GetNameStage(stage);
+                //            var s = Game.TimeToString(mk.TimeVideo) +
+                //                    Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) +
+                //                    stageName;
+                //            //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk, s);
+
+                //            HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPlayer, mk, s, this.label2);
+                //            RefreshHockeyField();
+
+                //            //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
+                //            mk.FlagGuiUpdate = true;
+
+                //            UpdateUI();
+                //        }
+
+                //            #endregion
+                //            break;
+                //        case StageEnum.Player2:
+                //            #region Player2
+
+                //            if (true)
+                //            {
+
+                //                var stageName = mk.GetNameStage(stage);
+                //                var s = Game.TimeToString(mk.TimeVideo) +
+                //                        Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) +
+                //                        stageName;
+                //                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk, s);
+
+                //                HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPlayer, mk, s, this.label2);
+                //                RefreshHockeyField();
+
+                //                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
+                //                mk.FlagGuiUpdate = true;
+
+                //                UpdateUI();
+                //            }
+
+                //            #endregion
+                //            break;
+                //        case StageEnum.Player2Gk:
+                //            break;
+                //        case StageEnum.Point:
+                //            break;
+                //        case StageEnum.PointAndDest:
+                //            break;
+                //        case StageEnum.CreateMarker:
+                //            break;
+                //        default:
+                //            throw new ArgumentOutOfRangeException("stage!");
+                //    }
+
+            }
+
+
+            //var resultedMarker = form.Result();
+
+            //if (resultedMarker != null)
+            //{
+            //    resultedMarker.Half = mk.Half;
+            //    resultedMarker.TimeVideo = mk.TimeVideo;
+            //    Game.Insert(resultedMarker);
+            //}
+
+            //ReloadDataGridView();
+
+            //// Если парный штраф, то начинат штрафовать второго игрока.
+            //if (form.IsPair && mk.Player2 != player)
+            //{
+            //    Game.Insert(
+            //        new Game.Marker(Game, 3, 1, mk.Half, mk.TimeVideo)
+            //        {
+            //            Player1 = mk.Player2,
+            //            Player2 = mk.Player1,
+            //            Point1 = mk.Point1,
+            //        });
+            //    InsertViolation(mk, mk.Player2, mk.Half, _second);
+            //}
+        }
+
         private void RegisterAddons(int tagid)
         {
             lock (Game.editMarker)
@@ -3073,7 +3255,24 @@ namespace Uniso.InStat.Gui.Forms
                     else
                         Game.editMarker.G.Player1 = e.Player;
 
-                    ProcessingMarker(Game.editMarker.G);
+                    if (Game.editMarker.G.Compare(3, 1))
+                    {
+                        var p = 5;
+                        // Если прямо сейчас был создан первый игрок
+                        if (Game.editMarker.G.Player1 == e.Player)
+                        {
+                            ContinueFoulRegister(Game.editMarker.G, StageEnum.Player1);
+                        }
+                        else
+                        {
+                            ContinueFoulRegister(Game.editMarker.G, StageEnum.Player2);
+                        }
+                        
+                    }
+                    else
+                    {
+                        ProcessingMarker(Game.editMarker.G);
+                    }
                 }
             }
         }
@@ -3090,7 +3289,16 @@ namespace Uniso.InStat.Gui.Forms
 
                     hockeyField1.SetLastClickPointF(e.Point);
 
-                    ProcessingMarker(Game.editMarker.G);
+
+                    if (Game.editMarker.G.Compare(3, 1))
+                    {
+                        var p = 5;
+                        ContinueFoulRegister(Game.editMarker.G, StageEnum.Point);
+                    }
+                    else
+                    {
+                        ProcessingMarker(Game.editMarker.G);
+                    }
                 }
             }
         }
@@ -3104,9 +3312,71 @@ namespace Uniso.InStat.Gui.Forms
                     Game.editMarker.G.Point1 = e.Point1;
                     Game.editMarker.G.Point2 = e.Point2;
 
-                    ProcessingMarker(Game.editMarker.G);
+                    //ProcessingMarker(Game.editMarker.G);
+                    if (Game.editMarker.G.Compare(3, 1))
+                    {
+                        var p = 5;
+                        ContinueFoulRegister(Game.editMarker.G, StageEnum.PointAndDest);
+                    }
+                    else
+                    {
+                        ProcessingMarker(Game.editMarker.G);
+                    }
                 }
             }
+        }
+
+        private List<StageEnum> FoulsStage;
+
+        private void ContinueFoulRegister(Game.Marker mk, StageEnum made_stage)
+        {
+            if (FoulsStage.Exists(x => x == made_stage))
+            {
+                this.FoulsStage.Remove(made_stage);
+            }
+
+            if (FoulsStage.Count > 0)
+            {
+                var stageName = mk.GetNameStage(FoulsStage.First());
+
+                var s = Game.TimeToString(mk.TimeVideo) +
+                        Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) +
+                        stageName;
+                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk, s);
+
+                HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPlayer, mk, s, this.label2);
+                RefreshHockeyField();
+
+                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
+                mk.FlagGuiUpdate = true;
+            }
+            else
+            {
+                #region Create Marker
+
+                fixedTime = 0;
+
+                mk.FlagUpdate = true;
+
+                //Выставляем необходимость синхронизации
+                if (HockeyIce.Role == HockeyIce.RoleEnum.Online && mk.Sync == 0)
+                    mk.Sync = 1;
+
+                if (mk.Compare(3, new int[] {1, 2}))
+                    mk.ExtraOptionsExists = true;
+
+                HockeyGui.SetMode(HockeyGui.ModeEnum.View, null);
+                SetEditMarker((Game.Marker) null, StageEnum.CreateMarker);
+
+                ReloadDataGridView();
+                UpdateTactics();
+
+                #endregion
+
+                Game.Insert(mk);
+            }
+
+            UpdateUI();
         }
 
         private void tabControl1_SizeChanged(object sender, EventArgs e)

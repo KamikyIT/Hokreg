@@ -12,17 +12,15 @@ namespace Uniso.InStat.Gui.Forms
     public partial class MyViolationForm : Form
     {
         private Game.Marker marker = null;
-        private Player foulPlayer = null;
 
         private MyViolationForm()
         {
             InitializeComponent();
         }
 
-        public MyViolationForm(Game.Marker marker, Player player): this()
+        public MyViolationForm(Game.Marker marker): this()
         {
             this.marker = marker;
-            this.foulPlayer = player;
 
             var hasP2 = marker.player2_id > 0;
 
@@ -30,8 +28,7 @@ namespace Uniso.InStat.Gui.Forms
             rb1P.Checked = !hasP2;
             rb0P.Checked = false;
 
-            foulPlayer = player;
-            checkBox1.Enabled = hasP2 && foulPlayer == marker.Player1;
+            checkBox1.Enabled = true;
             
             foulPlayersCount = FoulTypeEnum.None;
 
@@ -119,7 +116,6 @@ namespace Uniso.InStat.Gui.Forms
                 {
                     Half = marker.Half,
                     TimeVideo = marker.TimeVideo,
-                    Player1 = foulPlayer
                 }:
                 null;
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Uniso.InStat.Gui.Forms;
 
 namespace Uniso.InStat.Models
 {
@@ -441,6 +442,16 @@ namespace Uniso.InStat.Models
                 marker.flag_adding.Add(extraMarker);
             }
 
+        }
+
+        internal static List<StageEnum> GetFoulMarkerStages(int foul, MyViolationForm.FoulTypeEnum foulPlayersCount, bool pair)
+        {
+            var res =new List<StageEnum>();
+            res.Add(StageEnum.Player1);
+            res.Add(StageEnum.Player2);
+
+
+            return res;
         }
     }
 }
