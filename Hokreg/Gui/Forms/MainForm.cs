@@ -2214,106 +2214,33 @@ namespace Uniso.InStat.Gui.Forms
 
         }
 
+        private FoulMarkerModel foulMarkerModel;
+
         private void InsertMyViolation(Game.Marker mk)
         {
-            var form = new MyViolationForm(mk);
+            var form = new MyViolationForm();
 
             if (form.ShowDialog(this) == DialogResult.OK)
             {
+                
 
-                this.FoulsStage = MarkersWomboCombo.GetFoulMarkerStages(form.foul, form.foulPlayersCount, form.IsPair);
+                int action_type;
+                List<MarkersWomboCombo.FoulStageEnum> foulStages;
+                bool pair;
+                form.Result(out action_type, out foulStages, out pair);
 
-                ContinueFoulRegister(mk, StageEnum.Standard);
+                foulMarkerModel = new FoulMarkerModel
+                {
+                    ActionType = action_type,
+                    FoulStages = foulStages,
+                    Pair = pair,
+                };
 
-                //foreach (var stage in stages)
-                //{
-                //    switch (stage)
-                //    {
-                //        case StageEnum.Player1:
-                //            #region Player1 
-                //            if (true)
-                //        {
-
-
-
-                //            var stageName = mk.GetNameStage(stage);
-                //            var s = Game.TimeToString(mk.TimeVideo) +
-                //                    Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) +
-                //                    stageName;
-                //            //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk, s);
-
-                //            HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPlayer, mk, s, this.label2);
-                //            RefreshHockeyField();
-
-                //            //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
-                //            mk.FlagGuiUpdate = true;
-
-                //            UpdateUI();
-                //        }
-
-                //            #endregion
-                //            break;
-                //        case StageEnum.Player2:
-                //            #region Player2
-
-                //            if (true)
-                //            {
-
-                //                var stageName = mk.GetNameStage(stage);
-                //                var s = Game.TimeToString(mk.TimeVideo) +
-                //                        Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) +
-                //                        stageName;
-                //                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk, s);
-
-                //                HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPlayer, mk, s, this.label2);
-                //                RefreshHockeyField();
-
-                //                //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
-                //                mk.FlagGuiUpdate = true;
-
-                //                UpdateUI();
-                //            }
-
-                //            #endregion
-                //            break;
-                //        case StageEnum.Player2Gk:
-                //            break;
-                //        case StageEnum.Point:
-                //            break;
-                //        case StageEnum.PointAndDest:
-                //            break;
-                //        case StageEnum.CreateMarker:
-                //            break;
-                //        default:
-                //            throw new ArgumentOutOfRangeException("stage!");
-                //    }
-
+                // Устанавливаем маркер в фоловый.
+                //MarkersWomboCombo.GetFoulMarkerStages(foulMarkerModel);
+                
+                ContinueFoulRegister(mk, MarkersWomboCombo.FoulStageRulesModel.Convert(StageEnum.Standard));
             }
-
-
-            //var resultedMarker = form.Result();
-
-            //if (resultedMarker != null)
-            //{
-            //    resultedMarker.Half = mk.Half;
-            //    resultedMarker.TimeVideo = mk.TimeVideo;
-            //    Game.Insert(resultedMarker);
-            //}
-
-            //ReloadDataGridView();
-
-            //// Если парный штраф, то начинат штрафовать второго игрока.
-            //if (form.IsPair && mk.Player2 != player)
-            //{
-            //    Game.Insert(
-            //        new Game.Marker(Game, 3, 1, mk.Half, mk.TimeVideo)
-            //        {
-            //            Player1 = mk.Player2,
-            //            Player2 = mk.Player1,
-            //            Point1 = mk.Point1,
-            //        });
-            //    InsertViolation(mk, mk.Player2, mk.Half, _second);
-            //}
         }
 
         private void RegisterAddons(int tagid)
@@ -3261,11 +3188,11 @@ namespace Uniso.InStat.Gui.Forms
                         // Если прямо сейчас был создан первый игрок
                         if (Game.editMarker.G.Player1 == e.Player)
                         {
-                            ContinueFoulRegister(Game.editMarker.G, StageEnum.Player1);
+                            ContinueFoulRegister(Game.editMarker.G, MarkersWomboCombo.FoulStageRulesModel.Convert(StageEnum.Player1));
                         }
                         else
                         {
-                            ContinueFoulRegister(Game.editMarker.G, StageEnum.Player2);
+                            ContinueFoulRegister(Game.editMarker.G, MarkersWomboCombo.FoulStageRulesModel.Convert(StageEnum.Player2));
                         }
                         
                     }
@@ -3293,7 +3220,7 @@ namespace Uniso.InStat.Gui.Forms
                     if (Game.editMarker.G.Compare(3, 1))
                     {
                         var p = 5;
-                        ContinueFoulRegister(Game.editMarker.G, StageEnum.Point);
+                        ContinueFoulRegister(Game.editMarker.G, MarkersWomboCombo.FoulStageRulesModel.Convert(StageEnum.Point));
                     }
                     else
                     {
@@ -3316,7 +3243,7 @@ namespace Uniso.InStat.Gui.Forms
                     if (Game.editMarker.G.Compare(3, 1))
                     {
                         var p = 5;
-                        ContinueFoulRegister(Game.editMarker.G, StageEnum.PointAndDest);
+                        ContinueFoulRegister(Game.editMarker.G, MarkersWomboCombo.FoulStageRulesModel.Convert(StageEnum.PointAndDest));
                     }
                     else
                     {
@@ -3326,25 +3253,26 @@ namespace Uniso.InStat.Gui.Forms
             }
         }
 
-        private List<StageEnum> FoulsStage;
+        //private List<StageEnum> FoulsStage;
 
-        private void ContinueFoulRegister(Game.Marker mk, StageEnum made_stage)
+        private void ContinueFoulRegister(Game.Marker mk, MarkersWomboCombo.FoulStageEnum made_stage)
         {
-            if (FoulsStage.Exists(x => x == made_stage))
+            if (this.foulMarkerModel.FoulStages.Exists(x => x == made_stage))
             {
-                this.FoulsStage.Remove(made_stage);
+                this.foulMarkerModel.FoulStages.Remove(made_stage);
             }
 
-            if (FoulsStage.Count > 0)
+            if (this.foulMarkerModel.FoulStages.Count > 0)
             {
-                var stageName = mk.GetNameStage(FoulsStage.First());
+                var stageName = mk.GetNameStage(this.foulMarkerModel.FoulStages.First());
 
                 var s = Game.TimeToString(mk.TimeVideo) +
                         Convert.ToString(HockeyIce.convAction.ConvertTo(mk.Action, typeof(string))) +
                         stageName;
                 //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk, s);
 
-                HockeyGui.SetInviteLabel(HockeyGui.ModeEnum.SelectPlayer, mk, s, this.label2);
+                HockeyGui.SetInviteLabel(MarkersWomboCombo.FoulStageRulesModel.Convert(foulMarkerModel.FoulStages.First()),mk, s, this.label2);
+
                 RefreshHockeyField();
 
                 //HockeyGui.SetMode(HockeyGui.ModeEnum.SelectPlayer, mk);
@@ -3374,6 +3302,12 @@ namespace Uniso.InStat.Gui.Forms
                 #endregion
 
                 Game.Insert(mk);
+
+                List<Game.Marker> markersToAdd = this.foulMarkerModel.GenerateMarkers(mk);
+
+                markersToAdd.ForEach(x => Game.Insert(x));
+
+                foulMarkerModel = null;
             }
 
             UpdateUI();

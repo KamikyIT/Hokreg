@@ -6,26 +6,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Uniso.InStat.Models;
 
 namespace Uniso.InStat.Gui.Forms
 {
     public partial class MyViolationForm : Form
     {
-        private Game.Marker marker = null;
-
-        private MyViolationForm()
+        public MyViolationForm()
         {
             InitializeComponent();
-        }
 
-        public MyViolationForm(Game.Marker marker): this()
-        {
-            this.marker = marker;
 
-            var hasP2 = marker.player2_id > 0;
-
-            rb2P.Checked = hasP2;
-            rb1P.Checked = !hasP2;
+            rb2P.Checked = false;
+            rb1P.Checked = false;
             rb0P.Checked = false;
 
             checkBox1.Enabled = true;
@@ -39,27 +32,56 @@ namespace Uniso.InStat.Gui.Forms
 
         private void UpdateUI()
         {
-            rb1.Enabled = foulPlayersCount != FoulTypeEnum.None;
-            rb2.Enabled = foulPlayersCount == FoulTypeEnum.TwoPlayers;
-            rb3.Enabled = foulPlayersCount == FoulTypeEnum.TwoPlayers;
-            rb4.Enabled = foulPlayersCount == FoulTypeEnum.TwoPlayers || foulPlayersCount == FoulTypeEnum.SoloPLayer;
-            rb5.Enabled = foulPlayersCount == FoulTypeEnum.TwoPlayers;
-            rb6.Enabled = foulPlayersCount == FoulTypeEnum.TwoPlayers;
-            rb7.Enabled = foulPlayersCount == FoulTypeEnum.TwoPlayers;
-            rb8.Enabled = foulPlayersCount == FoulTypeEnum.NoPlayer;
-            rb9.Enabled = foulPlayersCount == FoulTypeEnum.TwoPlayers;
-            rb10.Enabled = foulPlayersCount == FoulTypeEnum.TwoPlayers;
-            rb11.Enabled = foulPlayersCount == FoulTypeEnum.SoloPLayer;
-            rb12.Enabled = foulPlayersCount == FoulTypeEnum.SoloPLayer || foulPlayersCount == FoulTypeEnum.NoPlayer;
-            rb13.Enabled = foulPlayersCount == FoulTypeEnum.TwoPlayers;
-            rb14.Enabled = foulPlayersCount == FoulTypeEnum.SoloPLayer;
+            SetRadioButtonEnabled(rb1);
+            SetRadioButtonEnabled(rb2);
+            SetRadioButtonEnabled(rb3);
+            SetRadioButtonEnabled(rb4);
+            SetRadioButtonEnabled(rb5);
+            SetRadioButtonEnabled(rb6);
+            SetRadioButtonEnabled(rb7);
+            SetRadioButtonEnabled(rb8);
+            SetRadioButtonEnabled(rb9);
+            SetRadioButtonEnabled(rb10);
+            SetRadioButtonEnabled(rb11);
+            SetRadioButtonEnabled(rb12);
+            SetRadioButtonEnabled(rb13);
+            SetRadioButtonEnabled(rb14);
 
-            button1.Enabled = foul > 0;
+            button1.Enabled = action_type > 0;
+        }
+
+        private void SetRadioButtonEnabled(RadioButton rb)
+        {
+            // Если еще не выбрал количетво игроков в фоле
+            if (foulPlayersCount == FoulTypeEnum.None)
+            {
+                rb.Enabled = false;
+                return;
+            }
+
+            var tag = rb.Tag.ToString();
+
+            var rb_action_type = int.Parse(tag);
+
+            var stages = MarkersWomboCombo.GetFoulMarkerPossibleStages(rb_action_type);
+
+            if (foulPlayersCount == FoulTypeEnum.NoPlayer)
+            {
+                rb.Enabled = stages.Contains(MarkersWomboCombo.FoulStageEnum.Player0);
+            }
+            if (foulPlayersCount == FoulTypeEnum.SoloPLayer)
+            {
+                rb.Enabled = stages.Contains(MarkersWomboCombo.FoulStageEnum.Player1);
+            }
+            if (foulPlayersCount == FoulTypeEnum.TwoPlayers)
+            {
+                rb.Enabled = stages.Contains(MarkersWomboCombo.FoulStageEnum.Player2);
+            }
         }
 
         private void ResetFoulTypeChecks()
         {
-            this.foul = 0;
+            this.action_type = 0;
 
             rb1.Checked = false;
             rb2.Checked = false;
@@ -82,13 +104,16 @@ namespace Uniso.InStat.Gui.Forms
             var radioButton = sender as RadioButton;
             if (radioButton != null)
             {
-                var tag = radioButton.Tag.ToString();
+                if (radioButton.Checked)
+                {
+                    var tag = radioButton.Tag.ToString();
 
-                this.foulPlayersCount = (FoulTypeEnum) int.Parse(tag);
+                    this.foulPlayersCount = (FoulTypeEnum)int.Parse(tag);
 
-                UpdateUI();
+                    UpdateUI();
 
-                ResetFoulTypeChecks();
+                    ResetFoulTypeChecks();
+                }
             }
         }
 
@@ -97,29 +122,68 @@ namespace Uniso.InStat.Gui.Forms
             var radioButton = sender as RadioButton;
             if (radioButton != null)
             {
-                var tag = radioButton.Tag.ToString();
+                if (radioButton.Checked)
+                {
+                    var tag = radioButton.Tag.ToString();
 
-                this.foul = int.Parse(tag);
+                    this.action_type = int.Parse(tag);
+
+                    UpdateUI();
+                }
             }
         }
 
-        public int foul { get; set; }
+        private int action_type { get; set; }
 
-        public bool IsPair { get { return this.checkBox1.Checked; } }
+        private bool IsPair { get { return this.checkBox1.Checked; } }
 
-        public FoulTypeEnum foulPlayersCount { get; set; }
+        private FoulTypeEnum foulPlayersCount { get; set; }
 
-        public Game.Marker Result()
+        public void Result(out int action_type, out List<MarkersWomboCombo.FoulStageEnum> stages, out bool pair)
         {
-            var mk = foulPlayersCount > 0?
-                new Game.Marker(marker.game, 9, foul)
-                {
-                    Half = marker.Half,
-                    TimeVideo = marker.TimeVideo,
-                }:
-                null;
+            action_type = this.action_type;
 
-            return mk;
+            stages = GetStages();
+
+            pair = this.IsPair;
+        }
+
+        private List<MarkersWomboCombo.FoulStageEnum> GetStages()
+        {
+            var res = MarkersWomboCombo.GetFoulMarkerPossibleStages(this.action_type);
+
+            switch (foulPlayersCount)
+            {
+                case FoulTypeEnum.TwoPlayers:
+                    break;
+                case FoulTypeEnum.SoloPLayer:
+                    if (res.Contains(MarkersWomboCombo.FoulStageEnum.Player2))
+                    {
+                        res.Remove(MarkersWomboCombo.FoulStageEnum.Player2);
+                    }
+                    break;
+                case FoulTypeEnum.NoPlayer:
+                    if (res.Contains(MarkersWomboCombo.FoulStageEnum.Player2))
+                    {
+                        res.Remove(MarkersWomboCombo.FoulStageEnum.Player2);
+                    }
+                    if (res.Contains(MarkersWomboCombo.FoulStageEnum.Player1))
+                    {
+                        res.Remove(MarkersWomboCombo.FoulStageEnum.Player1);
+                    }
+
+                    if (res.Contains(MarkersWomboCombo.FoulStageEnum.Player0) == false)
+                    {
+                        res.Add(MarkersWomboCombo.FoulStageEnum.Player0);
+                    }
+                    break;
+                case FoulTypeEnum.None:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            return res;
         }
 
         public enum FoulTypeEnum

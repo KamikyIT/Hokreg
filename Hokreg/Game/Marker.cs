@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Uniso.InStat.Classes;
 using Uniso.InStat.Conv;
+using Uniso.InStat.Models;
 
 namespace Uniso.InStat.Game
 {
@@ -309,6 +310,29 @@ namespace Uniso.InStat.Game
         [NonSerialized()]
         public System.Windows.Forms.ListViewItem row = null;
 
+        public string GetNameStage(MarkersWomboCombo.FoulStageEnum stage)
+        {
+            switch (stage)
+            {
+                case MarkersWomboCombo.FoulStageEnum.None:
+                    break;
+                case MarkersWomboCombo.FoulStageEnum.Player0:
+                    break;
+                case MarkersWomboCombo.FoulStageEnum.Player1:
+                    return GetNameStage(StageEnum.Player1);
+                case MarkersWomboCombo.FoulStageEnum.Player2:
+                    return GetNameStage(StageEnum.Player2);
+                case MarkersWomboCombo.FoulStageEnum.Point0:
+                    break;
+                case MarkersWomboCombo.FoulStageEnum.Point1:
+                    return GetNameStage(StageEnum.Point);
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(stage), stage, null);
+            }
+
+            return "";
+        }
+
         public String GetNameStage(StageEnum stage)
         {
             if (Compare(1, 6) && Win == 2)
@@ -393,6 +417,31 @@ namespace Uniso.InStat.Game
         public bool Compare(int action_id, int action_type, int win)
         {
             return this.Compare(action_id, action_type) && this.Win == win;
+        }
+
+        public static void CopyMarkerData(Game.Marker copyFrom, out Game.Marker newMarker)
+        {
+            newMarker = new Marker(copyFrom.game)
+            {
+                user_id = copyFrom.user_id,
+                flag_adding = copyFrom.flag_adding,
+                Half = copyFrom.Half,
+                ActionCode = copyFrom.ActionCode,
+                ActionType = copyFrom.ActionType,
+                Win = copyFrom.Win,
+                TimeVideo = copyFrom.TimeVideo,
+                TimeVideoReal = copyFrom.TimeVideoReal,
+                TimeActual = copyFrom.TimeActual,
+                TimeActualSrv = copyFrom.TimeActualSrv,
+                TimeActualTotal = copyFrom.TimeActualTotal,
+                Player1 =copyFrom.Player1,
+                Player2 =  copyFrom.Player2,
+                Point1 = copyFrom.Point1,
+                Point2 = copyFrom.Point2,
+                Num  = copyFrom.Num,
+                NumTeam1 = copyFrom.NumTeam1,
+                NumTeam2 = copyFrom.NumTeam2,
+            };
         }
     }
 }

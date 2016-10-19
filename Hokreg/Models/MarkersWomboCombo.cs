@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using Uniso.InStat.Gui.Controls;
 using Uniso.InStat.Gui.Forms;
 
 namespace Uniso.InStat.Models
@@ -317,6 +319,196 @@ namespace Uniso.InStat.Models
 
         static MarkersWomboCombo()
         {
+
+            ParseFoulStages();
+
+            ParseMarkerRules();
+
+        }
+
+
+        /// <summary>
+        /// Распарсить правила и требуемые действия(StageEnum) для маркеров фолов.
+        /// </summary>
+        private static void ParseFoulStages()
+        {
+            FoulStagesDictionary = new Dictionary<int, FoulStageRulesModel>();
+
+            var lines = Properties.Resources.foul_marker_rules.Split('\n');
+
+            foreach (var line in lines)
+            {
+                if (string.IsNullOrEmpty(line))
+                {
+                    continue;
+                }
+
+                var parts = line.Split(new char[] {'\r', '\t', '\n'});
+
+                // 1		Прочее												p0	p1	p2  t0  t1
+
+                if (parts.Length < 3)
+                {
+                    continue;
+                }
+
+                var action_type = int.Parse(parts[0]);
+
+                var name = parts[2];
+
+                var p0 = parts.Any(x => x == "p0");
+                var p1 = parts.Any(x => x == "p1");
+                var p2 = parts.Any(x => x == "p2");
+
+                var t0 = parts.Any(x => x == "t0");
+                var t1 = parts.Any(x => x == "t1");
+
+                FoulStagesDictionary.Add(action_type, new FoulStageRulesModel(action_type, name, p0, p1, p2, t0, t1));
+            }
+
+
+        }
+
+        public class FoulStageRulesModel
+        {
+            public int ActionType;
+
+            public string Name;
+
+            public bool Player0;
+            public bool Player1;
+            public bool Player2;
+
+            public bool Point0;
+            public bool Point1;
+
+            public FoulStageRulesModel(int action_type, string name, bool p0, bool p1, bool p2, bool t0, bool t1)
+            {
+                this.ActionType = action_type;
+                this.Name = name;
+                this.Player0 = p0;
+                this.Player1 = p1;
+                this.Player2 = p2;
+
+                this.Point0 = t0;
+                this.Point1 = t1;
+            }
+
+            /// <summary>
+            /// Получить НОВЫЙ ОБЪЕКТ список вообще всех возможных действий для заполнения данного маркера.
+            /// Далее из полученного можно удалять, по ситуации.
+            /// </summary>
+            /// <returns></returns>
+            public List<FoulStageEnum> GetPossibleStages()
+            {
+                var res = new List<FoulStageEnum>();
+
+                // Если без игроков.
+                if (Player0 && !Player1 && !Player2)
+                    res.Add(FoulStageEnum.Player0);
+
+                if (this.Player1)
+                    res.Add(FoulStageEnum.Player1);
+
+                if (this.Player2)
+                {
+
+                    res.Add(FoulStageEnum.Player1);
+                    res.Add(FoulStageEnum.Player2);
+                }
+
+                if (Point0)
+                    res.Add(FoulStageEnum.Point0);
+
+                if (Point1)
+                    res.Add(FoulStageEnum.Point1);
+
+                return res;
+            }
+
+            public static FoulStageEnum Convert(StageEnum st)
+            {
+                switch (st)
+                {
+                    case StageEnum.Standard:
+                        break;
+                    case StageEnum.Body:
+                        break;
+                    case StageEnum.Player1:
+                        return FoulStageEnum.Player1;
+                        break;
+                    case StageEnum.Player2:
+                        return FoulStageEnum.Player2;
+                        break;
+                    case StageEnum.Player2Gk:
+                        break;
+                    case StageEnum.Point:
+                        return FoulStageEnum.Point1;
+                        break;
+                    case StageEnum.PointAndDest:
+                        break;
+                    case StageEnum.Marking:
+                        break;
+                    case StageEnum.ScreenPosition:
+                        break;
+                    case StageEnum.GoalLocation:
+                        break;
+                    case StageEnum.ExtraOptions:
+                        break;
+                    case StageEnum.CreateMarker:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(st), st, null);
+                }
+
+                return FoulStageEnum.None;
+            }
+
+            internal static HockeyGui.ModeEnum Convert(FoulStageEnum foulStageEnum)
+            {
+                switch (foulStageEnum)
+                {
+                    case FoulStageEnum.None:
+                        return HockeyGui.ModeEnum.View;
+                        break;
+                    case FoulStageEnum.Player0:
+                        return HockeyGui.ModeEnum.View;
+                        break;
+                    case FoulStageEnum.Player1:
+                        return HockeyGui.ModeEnum.SelectPlayer;
+                        break;
+                    case FoulStageEnum.Player2:
+                        return HockeyGui.ModeEnum.SelectPlayer;
+                        break;
+                    case FoulStageEnum.Point0:
+                        return HockeyGui.ModeEnum.View;
+                        break;
+                    case FoulStageEnum.Point1:
+                        return HockeyGui.ModeEnum.SelectPoint;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(foulStageEnum), foulStageEnum, null);
+                }
+            }
+        }
+
+        public enum FoulStageEnum
+        {
+            None,
+
+            Player0,
+            Player1,
+            Player2,
+
+            Point0,
+            Point1,
+        }
+
+        /// <summary>
+        /// Распарсить правила создания маркеров из файла "marker_rules.txt" ресурсов.
+        /// </summary>
+        private static void ParseMarkerRules()
+        {
             var marker_rules = Properties.Resources.marker_rules;
 
             markerModels = new List<MyMarkerModel>();
@@ -408,7 +600,6 @@ namespace Uniso.InStat.Models
 
                 //x,	100601,	1,	6,	1,	Выброс(+),	,	v,	v,	,	,	,	,	Выброс удачный, ,   ,
             }
-
         }
 
         private static List<MyMarkerModel> markerModels;
@@ -444,14 +635,106 @@ namespace Uniso.InStat.Models
 
         }
 
-        internal static List<StageEnum> GetFoulMarkerStages(int foul, MyViolationForm.FoulTypeEnum foulPlayersCount, bool pair)
+        internal static List<FoulStageEnum> GetFoulMarkerPossibleStages(FoulMarkerModel foulMarkerModel)
         {
-            var res =new List<StageEnum>();
-            res.Add(StageEnum.Player1);
-            res.Add(StageEnum.Player2);
+            return GetFoulMarkerPossibleStages(foulMarkerModel.ActionType);
+        }
 
+        internal static List<FoulStageEnum> GetFoulMarkerPossibleStages(int action_type)
+        {
+            var foulStageRules = FoulStagesDictionary.FirstOrDefault(x => x.Value.ActionType == action_type).Value;
+
+            return foulStageRules.GetPossibleStages();
+        }
+
+
+        private static Dictionary<int, FoulStageRulesModel> FoulStagesDictionary { get; set; }
+    }
+
+
+    public enum EditFoulMarkerActionEnum
+    {
+        None = 0x0,
+        Player0,
+        Player1,
+        Player2,
+        Point0,
+        Point1,
+    }
+
+    public class FoulMarkerModel
+    {
+        public int ActionType;
+
+        public MyViolationForm.FoulTypeEnum FoulPlayersCount;
+
+        public bool Pair;
+
+        internal List<MarkersWomboCombo.FoulStageEnum> FoulStages;
+
+        public FoulMarkerModel()
+        {
+            
+        }
+
+        private FoulMarkerModel(int foul, MyViolationForm.FoulTypeEnum foulCounTypeEnum, bool pair)
+        {
+            this.ActionType = foul;
+
+            this.FoulPlayersCount = foulCounTypeEnum;
+
+            this.Pair = pair;
+        }
+
+        //public void SetStages(IEnumerable<StageEnum> stages)
+        //{
+        //    Stages = new List<StageEnum>(stages);
+        //}
+
+        public List<Game.Marker> GenerateMarkers(Game.Marker copyMarkerInfo)
+        {
+            var res = new List<Game.Marker>();
+
+            if (Pair)
+            {
+
+                Game.Marker mk1 = null;
+                Game.Marker.CopyMarkerData(copyMarkerInfo, out mk1);
+
+                mk1.ActionId = 9;
+                mk1.ActionType = this.ActionType;
+                mk1.Win = 0;
+
+                res.Add(mk1);
+
+                // Другие игроки, поменялись местами!
+                Game.Marker mk2 = null;
+                Game.Marker.CopyMarkerData(copyMarkerInfo, out mk2);
+
+                mk2.ActionId = 9;
+                mk2.ActionType = this.ActionType;
+                mk2.Win = 0;
+                // меняем игроков.
+                var player = mk2.Player1;
+                mk2.Player1 = mk2.Player2;
+                mk2.Player2 = player;
+
+                res.Add(mk2);
+            }
+            else
+            {
+                Game.Marker mk = null;
+                Game.Marker.CopyMarkerData(copyMarkerInfo, out mk);
+
+                mk.ActionId = 9;
+                mk.ActionType = this.ActionType;
+                mk.Win = 0;
+
+                res.Add(mk);
+            }
 
             return res;
         }
     }
+
 }

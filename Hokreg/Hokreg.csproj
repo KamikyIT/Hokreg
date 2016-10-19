@@ -418,6 +418,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app_icon_48.ico" />
+    <None Include="Resources\foul_marker_rules.txt" />
     <None Include="Resources\marker_rules.txt" />
     <None Include="Resources\ajax-loader2.gif" />
     <None Include="Resources\user2.png" />
