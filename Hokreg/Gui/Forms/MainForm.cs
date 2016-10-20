@@ -1353,6 +1353,9 @@ namespace Uniso.InStat.Gui.Forms
                         }
                     }
 
+
+                    #region Если НЕ Гол и НЕ Борьба у борта
+
                     if (!mk.Compare(8, 1) && !mk.Compare(2, 11))
                     {
                         var foul_list = Game.GetFoulEmpty(mk.Half, mk.TimeVideo);
@@ -1360,7 +1363,10 @@ namespace Uniso.InStat.Gui.Forms
                         Game.Insert(mk);
                     }
 
-                    //Выброс (-)
+                    #endregion
+
+                    #region Выброс (-)
+
                     if (group.Any(o => ((Game.Marker)o).Compare(1, 6, 2)))
                     {
                         // Если Выброс(-) БЕЗ Неточная
@@ -1377,7 +1383,10 @@ namespace Uniso.InStat.Gui.Forms
                         }
                     }
 
-                    //Передачи
+                    #endregion
+
+                    #region Передачи
+
                     foreach (Marker mka in mk.flag_adding)
                     {
                         if (mka.Compare(1, 6) && mka.Win == 2 && mk.Compare(1, new int[] {3, 4, 5, 7,}))
@@ -1452,30 +1461,42 @@ namespace Uniso.InStat.Gui.Forms
                             Game.RecalcActualTime(Game.Markers, Half);
                     }
 
+                    #endregion
+
                     Game.SaveLocal();
 
                     var bullet = false;
 
-                    //Bullet
+                    // Фол
                     if (mk.Compare(3, new int[] {1, 2}))
                     {
                         var sibl = Game.GetSiblings(Half, mk.TimeVideo);
                         if (sibl.Exists(o => o.Compare(5, 9)))
                         {
                             var mksb = sibl.First(o => o.Compare(5, 9));
-                            var mkb = new Game.Marker(Game, 4, 6) {Half = mk.Half, TimeVideo = mk.TimeVideo};
-                            mkb.Team1 = mksb.Team1;
+                            // Буллит
+                            var mkb = new Game.Marker(Game, 4, 6)
+                            {
+                                Half = mk.Half,
+                                TimeVideo = mk.TimeVideo,
+                                Team1 = mksb.Team1
+                            };
                             ProcessingMarker(mkb);
                             bullet = true;
                             return;
                         }
                     }
 
+
+                    #region Бросок заблокированный
+
                     if (mk.Compare(4, 3) && HockeyIce.Role == HockeyIce.RoleEnum.AdvTtd)
                     {
                         ProcessingMarker(new Game.Marker(Game, 2, 5, mk.Half, mk.TimeVideo + 50));
                         return;
                     }
+
+                    #endregion
 
                     if (Game.IsStopTimeMarker(mk))
                     {
@@ -3296,7 +3317,16 @@ namespace Uniso.InStat.Gui.Forms
                 HockeyGui.SetMode(HockeyGui.ModeEnum.View, null);
                 SetEditMarker((Game.Marker) null, StageEnum.CreateMarker);
 
+                var penaltyForm = new MyPenaltyForm(mk, mk.Player1);
+
+                if (penaltyForm.ShowDialog() == DialogResult.OK)
+                {
+                    
+                }
+
+                
                 ReloadDataGridView();
+
                 UpdateTactics();
 
                 #endregion

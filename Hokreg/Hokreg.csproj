@@ -213,6 +213,12 @@
     <Compile Include="Gui\Forms\MarkerEditForm.designer.cs">
       <DependentUpon>MarkerEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Forms\MyPenaltyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Forms\MyPenaltyForm.Designer.cs">
+      <DependentUpon>MyPenaltyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Forms\MySelectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Forms\MarkerEditForm.resx">
       <DependentUpon>MarkerEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Forms\MyPenaltyForm.resx">
+      <DependentUpon>MyPenaltyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Forms\MySelectForm.resx">
       <DependentUpon>MySelectForm.cs</DependentUpon>

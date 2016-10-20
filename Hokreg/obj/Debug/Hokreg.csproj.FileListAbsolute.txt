@@ -91,3 +91,4 @@ C:\Hokreg\Hokreg\obj\Debug\hokreg.exe
 C:\Hokreg\Hokreg\obj\Debug\hokreg.pdb
 C:\Hokreg\Hokreg\obj\Debug\Hokreg.csprojResolveAssemblyReference.cache
 C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.MyViolationForm.resources
+C:\Hokreg\Hokreg\obj\Debug\Uniso.InStat.Gui.Forms.MyPenaltyForm.resources
