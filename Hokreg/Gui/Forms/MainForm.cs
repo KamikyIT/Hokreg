@@ -3317,12 +3317,36 @@ namespace Uniso.InStat.Gui.Forms
                 HockeyGui.SetMode(HockeyGui.ModeEnum.View, null);
                 SetEditMarker((Game.Marker) null, StageEnum.CreateMarker);
 
-                var penaltyForm = new MyPenaltyForm(mk, mk.Player1);
-
-                if (penaltyForm.ShowDialog() == DialogResult.OK)
+                if (foulMarkerModel.Pair)
                 {
+                    var penaltyForm = new MyPenaltyForm(mk, mk.Player1);
+
+                    if (penaltyForm.ShowDialog() == DialogResult.OK)
+                    {
+                        // TODO
+
+
                     
+
+                    }
+                    penaltyForm = new MyPenaltyForm(mk, mk.Player2);
+
+                    if (penaltyForm.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
                 }
+                else
+                {
+                    var penaltyForm = new MyPenaltyForm(mk, mk.Player1);
+
+                    if (penaltyForm.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
+                }
+
+                
 
                 
                 ReloadDataGridView();

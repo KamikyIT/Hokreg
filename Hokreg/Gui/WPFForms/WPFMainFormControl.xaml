@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="Uniso.InStat.Gui.WPFForms.WPFMainFormControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Uniso.InStat.Gui.WPF_Forms"
+             xmlns:viewModel="clr-namespace:Uniso.InStat.Gui.WPF_Forms.MVVM"
+             mc:Ignorable="d" 
+             d:DesignWidth="1600" d:DesignHeight="900">
+
+    <UserControl.Resources>
+        <ControlTemplate x:Key="BlueUnderLineButton" TargetType="Button">
+            <TextBlock Foreground="Blue" TextDecorations="Underline" />
+        </ControlTemplate>
+        <ControlTemplate x:Key="Margin3Button" TargetType="Button">
+            <Button Margin="3"/>
+        </ControlTemplate>
+        <ControlTemplate x:Key="MyRecoloredTestButtonTemplate" TargetType="Button">
+            <Border BorderBrush="BlueViolet" BorderThickness="3" CornerRadius="3" TextBlock.Foreground="White">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="LimeGreen"></GradientStop>
+                            <GradientStop Offset="1" Color="LightBlue"></GradientStop>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+        </ControlTemplate>
+    </UserControl.Resources>
+    
+    <Grid KeyDown="UIElement_OnKeyDown">    
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Медиа Плеер -->
+        <Canvas ZIndex="100" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TextBlock/>
+            <MediaElement Name="MediaElement" Source="{Binding VideoFileName}" Volume="{Binding Value, ElementName=VolumeSlider}" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </Canvas>
+
+        <TabControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <TabItem Header="ТТД" Height="0">
+                <Border BorderBrush="CornflowerBlue" Background="CornflowerBlue">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
+                            <Button Margin="15" Command="{Binding OpenVideoFileCommand}" Click="TestClickCommand" Name="TestButton">
+                                <TextBlock>Открыть видео</TextBlock>
+                            </Button>
+                            <Border BorderBrush="Black" BorderThickness="2">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+                                        <Button Margin="3">
+                                            <TextBlock>Period 1</TextBlock>
+                                        </Button>
+                                        <Button Margin="3">
+                                            <TextBlock>Period 2</TextBlock>
+                                        </Button>
+                                        <Button Margin="3">
+                                            <TextBlock>Period 3</TextBlock>
+                                        </Button>
+                                        <Button Margin="3">
+                                            <TextBlock>Penalty</TextBlock>
+                                        </Button>
+                                        <Button Margin="3">
+                                            <TextBlock>Overtime</TextBlock>
+                                        </Button>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5">
+                                        <Button VerticalAlignment="Center" Margin="3">
+                                            <TextBlock VerticalAlignment="Center" Margin="3">Перерыв</TextBlock>
+                                        </Button>
+                                        <Button Margin="3">
+                                            <TextBlock VerticalAlignment="Center" Margin="3">Конец матча</TextBlock>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            <CheckBox VerticalAlignment="Center" Margin="3">
+                                <TextBlock VerticalAlignment="Center" Margin="3">Останавливать видео на бросках</TextBlock>
+                            </CheckBox>
+                            <Button Margin="15, 20" HorizontalAlignment="Right">
+                                <TextBlock Margin="3">Сохранить</TextBlock>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center">
+
+                            <TextBlock VerticalAlignment="Center" Margin="3">RATE</TextBlock>
+                            <Slider Name="VideoRateSlider" VerticalAlignment="Center" Margin="3" IsSnapToTickEnabled="True"  Minimum="0" Maximum="4" Orientation="Horizontal" TickFrequency="0.25" Value="1" TickPlacement="BottomRight" Width="100" ValueChanged="VideoRateSlider_OnValueChanged">
+                            </Slider>
+                            <TextBlock VerticalAlignment="Center" Margin="3"> x1.0</TextBlock>
+                            <TextBlock VerticalAlignment="Center" Margin="3">Vol.</TextBlock>
+                            <Slider Name="VolumeSlider" VerticalAlignment="Center" Margin="3" Minimum="0" Maximum="1" Orientation="Horizontal" TickFrequency="0.1" Value="1" TickPlacement="BottomRight" Width="100">
+                            </Slider>
+
+                            <Button Background="Transparent" Margin="3">
+                                <TextBlock Foreground="Blue" TextDecorations="Underline">Настройки</TextBlock>
+                            </Button>
+                            <Button Background="Transparent" Margin="3">
+                                <TextBlock Foreground="Blue" TextDecorations="Underline">Поменять команды местами</TextBlock>
+                            </Button>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+            </TabItem>
+            <TabItem Header="Замены" Height="0">
+            </TabItem>
+            <TabItem Header="Полное ТТД" Height="0">
+            </TabItem>
+        </TabControl>
+        
+    </Grid>
+
+</UserControl>
