@@ -277,6 +277,10 @@
     <Compile Include="Gui\WPFForms\MyMediaPlayer.xaml.cs">
       <DependentUpon>MyMediaPlayer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Gui\WPFForms\StreamVideoPlayerWpf.xaml.cs">
+      <DependentUpon>StreamVideoPlayerWpf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WPFForms\StreamVideoPlayerWpf_Delegates.cs" />
     <Compile Include="Gui\WPFForms\WPFMainFormControl.xaml.cs">
       <DependentUpon>WPFMainFormControl.xaml</DependentUpon>
     </Compile>
@@ -459,6 +463,10 @@
     <Page Include="Gui\WPFForms\MyMediaPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gui\WPFForms\StreamVideoPlayerWpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Gui\WPFForms\WPFMainFormControl.xaml">
       <SubType>Designer</SubType>

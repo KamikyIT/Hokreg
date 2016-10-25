@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Uniso.InStat.Gui.WPF_Forms.MVVM;
+using Uniso.InStat.StreamPlayer;
 
 namespace Uniso.InStat.Gui.WPFForms
 {
@@ -22,7 +23,8 @@ namespace Uniso.InStat.Gui.WPFForms
 
             timer = new DispatcherTimer();
 
-            viewModel = new WpfMainFormViewModel(MediaElement, timer);
+            //viewModel = new WpfMainFormViewModel(MediaElement, timer);
+            viewModel = new WpfMainFormViewModel(streamVideoPlayerWpf);
 
             this.DataContext = viewModel;
         }
@@ -43,6 +45,11 @@ namespace Uniso.InStat.Gui.WPFForms
         {
             if (viewModel == null) return;
             viewModel.HandleKeyDown(e);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.streamVideoPlayerWpf.Mode = StreamVideoPlayerWpf.PlayerMode.Play;
         }
     }
 }

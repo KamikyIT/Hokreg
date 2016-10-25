@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:wpfStreamPlayer="clr-namespace:Uniso.InStat.StreamPlayer"
              xmlns:local="clr-namespace:Uniso.InStat.Gui.WPF_Forms"
              xmlns:viewModel="clr-namespace:Uniso.InStat.Gui.WPF_Forms.MVVM"
              mc:Ignorable="d" 
@@ -28,8 +29,8 @@
             </Border>
         </ControlTemplate>
     </UserControl.Resources>
-    
-    <Grid KeyDown="UIElement_OnKeyDown">    
+
+    <Grid KeyDown="UIElement_OnKeyDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/>
@@ -43,9 +44,11 @@
 
         <!-- Медиа Плеер -->
         <Canvas ZIndex="100" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <TextBlock/>
-            <MediaElement Name="MediaElement" Source="{Binding VideoFileName}" Volume="{Binding Value, ElementName=VolumeSlider}" 
-                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Button Canvas.Top="-20" Click="Button_Click">PLAY</Button>
+            <wpfStreamPlayer:StreamVideoPlayerWpf x:Name="streamVideoPlayerWpf" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="520" Width="940" Canvas.Left="10" Canvas.Top="10">
+            </wpfStreamPlayer:StreamVideoPlayerWpf>
+            <!--<MediaElement Name="MediaElement" Source="{Binding VideoFileName}" Volume="{Binding Value, ElementName=VolumeSlider}" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
         </Canvas>
 
         <TabControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3">
@@ -123,7 +126,7 @@
             <TabItem Header="Полное ТТД" Height="0">
             </TabItem>
         </TabControl>
-        
+
     </Grid>
 
 </UserControl>

@@ -100,3 +100,7 @@ C:\Hokreg\Hokreg\obj\Debug\Gui\WPFForms\MyMediaPlayer.g.cs
 C:\Hokreg\Hokreg\obj\Debug\Gui\WPFForms\WPFMainFormControl.g.cs
 C:\Hokreg\Hokreg\obj\Debug\Gui\WPFForms\MyMediaPlayer.baml
 C:\Hokreg\Hokreg\obj\Debug\Gui\WPFForms\WPFMainFormControl.baml
+C:\Hokreg\Hokreg\obj\Debug\Hokreg.csprojResolveAssemblyReference.cache
+C:\Hokreg\Hokreg\obj\Debug\Gui\WPFForms\StreamVideoPlayerWPF.g.cs
+C:\Hokreg\Hokreg\obj\Debug\Gui\WPFForms\StreamVideoPlayerWpf.baml
+C:\Hokreg\Hokreg\obj\Debug\GeneratedInternalTypeHelper.g.cs

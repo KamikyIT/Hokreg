@@ -24,7 +24,7 @@ namespace Uniso.InStat.Gui.Forms
             label1.Visible = streamPlayer1.Buffering;
         }
 
-        void streamPlayer1_PositionChanged(object sender, StreamPlayer.PositionEventArgs e)
+        void streamPlayer1_PositionChanged(object sender, PlayerTypes.StreamPlayer.PositionEventArgs e)
         {
             try
             {
@@ -38,10 +38,10 @@ namespace Uniso.InStat.Gui.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (streamPlayer1.Mode == StreamPlayer.PlayerMode.Play)
-                streamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+            if (streamPlayer1.Mode == PlayerTypes.StreamPlayer.PlayerMode.Play)
+                streamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Pause;
             else
-                streamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
+                streamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Play;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)

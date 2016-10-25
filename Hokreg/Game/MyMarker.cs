@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using Uniso.InStat.Annotations;
 
 namespace Uniso.InStat.Game
 {
@@ -72,9 +73,6 @@ namespace Uniso.InStat.Game
         public int Time { get; set; }
 
         public int FactTime { get; set; }
-
-
-
 
     }
 

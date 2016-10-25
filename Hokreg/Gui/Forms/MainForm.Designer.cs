@@ -2213,7 +2213,7 @@ namespace Uniso.InStat.Gui.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private XComponent.SliderBar.MACTrackBar macTrackBar1;
-        private StreamPlayer vlcStreamPlayer1;
+        private PlayerTypes.StreamPlayer vlcStreamPlayer1;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox2;

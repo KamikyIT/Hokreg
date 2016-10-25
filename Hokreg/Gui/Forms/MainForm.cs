@@ -1515,7 +1515,7 @@ namespace Uniso.InStat.Gui.Forms
                     }
 
                     if (!bullet && vlcStreamPlayer1 != null)
-                        vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
+                        vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Play;
 
                     //SendStreamTicket();
                     ReloadDataGridView();
@@ -1524,7 +1524,7 @@ namespace Uniso.InStat.Gui.Forms
                     if (bullet_period)
                     {
                         RegisterBegin(0, 0);
-                        vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
+                        vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Play;
                     }
                 }
                 else
@@ -1638,7 +1638,7 @@ namespace Uniso.InStat.Gui.Forms
             var lastmk = Game.GetSiblings(Half, Second);
             var prevmk = Game.GetPrevousMarkersHalf(Half, Second, true);
             var proc_and_clear = (edit != null && edit.Compare(0, 0)) || HockeyIce.Role == HockeyIce.RoleEnum.Online;
-            var video_load = (vlcStreamPlayer1 != null && vlcStreamPlayer1.Mode != StreamPlayer.PlayerMode.Stop) || HockeyIce.Role == HockeyIce.RoleEnum.Online;
+            var video_load = (vlcStreamPlayer1 != null && vlcStreamPlayer1.Mode != PlayerTypes.StreamPlayer.PlayerMode.Stop) || HockeyIce.Role == HockeyIce.RoleEnum.Online;
             var bullet_period = Half != null && Half.Index == 255;
             var foul_empty = Game.GetFoulEmpty(Half, Second).Count > 0;
             var mklct = Game.GetLastControlTimeMarker(Half, Second);
@@ -2082,7 +2082,7 @@ namespace Uniso.InStat.Gui.Forms
                 Log.Write(String.Format("CREATE NEW 1: {0}-{1}-{2}", action_id, action_type, win));
 
                 if (HockeyIce.Role != HockeyIce.RoleEnum.Online || (HockeyIce.Role == HockeyIce.RoleEnum.Online && !Options.G.Game_NoStopVideoInOnline))   
-                    vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+                    vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Pause;
 
                 var time = fixedTime > 0 ? fixedTime : Second;
 
@@ -2204,7 +2204,7 @@ namespace Uniso.InStat.Gui.Forms
                 };
 
                 if (HockeyIce.Role != HockeyIce.RoleEnum.Online || (HockeyIce.Role == HockeyIce.RoleEnum.Online && !Options.G.Game_NoStopVideoInOnline))
-                    vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+                    vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Pause;
 
 
                 Game.editMarker.G = mk;
@@ -2976,7 +2976,7 @@ namespace Uniso.InStat.Gui.Forms
             try
             {
                 if (vlcStreamPlayer1 != null)
-                    vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Stop;
+                    vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Stop;
             }
             catch
             { }
@@ -2991,7 +2991,7 @@ namespace Uniso.InStat.Gui.Forms
             timer2.Stop();
             timer1.Stop();
             if (vlcStreamPlayer1 != null)
-                vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Stop;
+                vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Stop;
 
             CaptureStream.Stop();
         }
@@ -3379,7 +3379,7 @@ namespace Uniso.InStat.Gui.Forms
             var mif = new MediaInputForm(Game.Match.Id, Half.Index);
             if (mif.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Stop;
+                vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Stop;
                 
                 Marker mk11 = null;
                 lock (Game.Markers)
@@ -3391,12 +3391,12 @@ namespace Uniso.InStat.Gui.Forms
                 {
                     case 0:
                         vlcStreamPlayer1.OpenUrl(mif.VideoName);
-                        vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
+                        vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Play;
                         break;
 
                     case 1:
                         vlcStreamPlayer1.OpenUrl(mif.VideoName);
-                        vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
+                        vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Play;
                         break;
                 }
             }
@@ -4442,7 +4442,7 @@ namespace Uniso.InStat.Gui.Forms
             ShowStatus("", 0);
             HockeyGui.Mode = HockeyGui.ModeEnum.View;
             SetEditMarker(null, StageEnum.ScreenPosition);
-            vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
+            vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Play;
             HockeyGui.ChangedPlayersList.Clear();
         }
 
@@ -4463,12 +4463,12 @@ namespace Uniso.InStat.Gui.Forms
 
             if (e.KeyData == Options.G.Hotkey_PauseResume)
             {
-                if (vlcStreamPlayer1.Mode != StreamPlayer.PlayerMode.Stop)
+                if (vlcStreamPlayer1.Mode != PlayerTypes.StreamPlayer.PlayerMode.Stop)
                 {
                     vlcStreamPlayer1.Mode =
-                        vlcStreamPlayer1.Mode == StreamPlayer.PlayerMode.Play
-                        ? StreamPlayer.PlayerMode.Pause
-                        : StreamPlayer.PlayerMode.Play;
+                        vlcStreamPlayer1.Mode == PlayerTypes.StreamPlayer.PlayerMode.Play
+                        ? PlayerTypes.StreamPlayer.PlayerMode.Pause
+                        : PlayerTypes.StreamPlayer.PlayerMode.Play;
                 }
 
                 return;
@@ -4558,7 +4558,7 @@ namespace Uniso.InStat.Gui.Forms
             lock (Game.editMarker)
                 proc_and_clear = Game.editMarker.G != null && Game.editMarker.G.Compare(0, 0);
 
-            var video_load = vlcStreamPlayer1 != null && vlcStreamPlayer1.Mode != StreamPlayer.PlayerMode.Stop;
+            var video_load = vlcStreamPlayer1 != null && vlcStreamPlayer1.Mode != PlayerTypes.StreamPlayer.PlayerMode.Stop;
             var rest_time = prevmk.Exists(o => Game.IsRestoreTimeMarker(o));
             var stop_time = prevmk.Exists(o => Game.IsStopTimeMarker(o));
             var stop_game = prevmk.Exists(o => o.Compare(3, 8));
@@ -4589,13 +4589,13 @@ namespace Uniso.InStat.Gui.Forms
             }
         }
 
-        void vlcStreamPlayer1_DownloadSceneResult(object sender, StreamPlayer.DownloadSceneResultEventAgrs e)
+        void vlcStreamPlayer1_DownloadSceneResult(object sender, PlayerTypes.StreamPlayer.DownloadSceneResultEventAgrs e)
         {
             try
             {
                 sync.Execute(() =>
                 {
-                    var player = (StreamPlayer)sender;
+                    var player = (PlayerTypes.StreamPlayer)sender;
                     label16.Text = String.Format("{2}[kbps] {0}/{1}",
                         Utils.TimeFormat(player.DurationUpload),
                         Utils.TimeFormat(player.DurationTotal),
@@ -4625,7 +4625,7 @@ namespace Uniso.InStat.Gui.Forms
             { }
         }
 
-        void vlcStreamPlayer1_DownloadPlaylistResult(object sender, StreamPlayer.DownloadPlaylistResultEventAgrs e)
+        void vlcStreamPlayer1_DownloadPlaylistResult(object sender, PlayerTypes.StreamPlayer.DownloadPlaylistResultEventAgrs e)
         {
             try
             {
@@ -4667,7 +4667,7 @@ namespace Uniso.InStat.Gui.Forms
 
         private Marker last_shot_stop = null;
 
-        private void vlcStreamPlayer1_PositionChanged(object sender, StreamPlayer.PositionEventArgs e)
+        private void vlcStreamPlayer1_PositionChanged(object sender, PlayerTypes.StreamPlayer.PositionEventArgs e)
         {
             sync.Execute(() =>
                 {
@@ -4681,13 +4681,13 @@ namespace Uniso.InStat.Gui.Forms
                     if (hockeyField1.Visible && HockeyIce.Role != HockeyIce.RoleEnum.AdvTtd)
                         hockeyField1.RefreshRgn();
 
-                    if (Options.G.IsStopPlayingOnShot && vlcStreamPlayer1.Mode == StreamPlayer.PlayerMode.Play)
+                    if (Options.G.IsStopPlayingOnShot && vlcStreamPlayer1.Mode == PlayerTypes.StreamPlayer.PlayerMode.Play)
                     {
                         var prev = Game.GetPrevousMarkersHalf(Game.Half, Game.Time, true);
                         if (prev.Any(o => o.Compare(4, new int[] {1, 2, 3, 4, 5}) && o != last_shot_stop))
                         {
                             last_shot_stop = prev.First(o => o.Compare(4, new int[] { 1, 2, 3, 4, 5 }));
-                            vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+                            vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Pause;
                         }
                     }
                 });
@@ -4837,7 +4837,7 @@ namespace Uniso.InStat.Gui.Forms
 
         private void spareField2_ChangedPlayersBegin(object sender, EventArgs e)
         {
-            vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+            vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Pause;
             if (Half != null && Half.Index != 255)
                 hockeyField1.Visible = true;
         }
@@ -4897,7 +4897,7 @@ namespace Uniso.InStat.Gui.Forms
         {
             if (MessageBox.Show("Вернуть всех игроков с площадки?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+                vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Pause;
                 ReturnAllPlayers(Game.Match.Team1, Second, 0);
             }
         }
@@ -4906,7 +4906,7 @@ namespace Uniso.InStat.Gui.Forms
         {
             if (MessageBox.Show("Вернуть всех игроков с площадки?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+                vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Pause;
                 ReturnAllPlayers(Game.Match.Team2, Second, 0);
             }
         }
@@ -4921,7 +4921,7 @@ namespace Uniso.InStat.Gui.Forms
         {
             sync.Execute(() =>
             {
-                if (vlcStreamPlayer1.Mode == StreamPlayer.PlayerMode.Play)
+                if (vlcStreamPlayer1.Mode == PlayerTypes.StreamPlayer.PlayerMode.Play)
                 {
                     //trackBar2.Value = vlcStreamPlayer1.Volume;
                 }
@@ -5134,7 +5134,7 @@ namespace Uniso.InStat.Gui.Forms
                 UpdateUI();
                 ReloadDataGridView();
                 SetEditMarker(null, StageEnum.CreateMarker);
-                vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
+                vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Play;
             }
         }
 
@@ -5151,7 +5151,7 @@ namespace Uniso.InStat.Gui.Forms
                 UpdateUI();
                 ReloadDataGridView();
                 SetEditMarker(null, StageEnum.CreateMarker);
-                vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Play;
+                vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Play;
             }
         }
 
@@ -5500,7 +5500,7 @@ namespace Uniso.InStat.Gui.Forms
             {
                 mk11.Point1 = Point.Empty;
                 Second = mk11.TimeVideo;// -100;
-                vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+                vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Pause;
                 UpdateUI();
                 ProcessingMarker(mk11);
             }
@@ -5518,7 +5518,7 @@ namespace Uniso.InStat.Gui.Forms
                 mk11.Point1 = Point.Empty;
                 mk11.Point2 = Point.Empty;
                 Second = mk11.TimeVideo - 100;
-                vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+                vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Pause;
                 UpdateUI();
                 ProcessingMarker(mk11);
             }
@@ -5535,7 +5535,7 @@ namespace Uniso.InStat.Gui.Forms
             {
                 mk11.Point1 = Point.Empty;
                 Second = mk11.TimeVideo - 100;
-                vlcStreamPlayer1.Mode = StreamPlayer.PlayerMode.Pause;
+                vlcStreamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Pause;
                 UpdateUI();
                 ProcessingMarker(mk11);
             }

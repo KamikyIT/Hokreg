@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -19,6 +20,7 @@ using AxMediaPlayer;
 using Microsoft.Win32;
 using Uniso.InStat.Annotations;
 using Uniso.InStat.Classes;
+using Uniso.InStat.StreamPlayer;
 
 
 namespace Uniso.InStat.Gui.WPF_Forms.MVVM
@@ -33,9 +35,9 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
         private ICommand _openVideoFileCommand = null;
         private bool _canOpenVideoFile;
         private ICommand _mouseDownCommand;
-        private MediaElement mediaElement;
         private bool _mediaElementPlaying;
         private DispatcherTimer timer;
+        private StreamVideoPlayerWpf streamVideoPlayerWpf;
 
         #endregion
 
@@ -47,24 +49,10 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
             _canOpenVideoFile = true;
         }
 
-        public WpfMainFormViewModel(MediaElement mediaElement): this()
+        public WpfMainFormViewModel(StreamVideoPlayerWpf streamVideoPlayerWpf): this()
         {
-            this.mediaElement = mediaElement;
+            this.streamVideoPlayerWpf = streamVideoPlayerWpf;
         }
-
-        public WpfMainFormViewModel(MediaElement mediaElement, DispatcherTimer timer) : this(mediaElement)
-        {
-            this.timer = timer;
-
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
-            timer.Tick += TimerOnTick;
-            timer.Start();
-
-            //dispatcherTimer.Tick += dispatcherTimer_Tick;
-            //dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            //dispatcherTimer.Start();
-        }
-
         
 
         #endregion
@@ -86,6 +74,11 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
 
 
                     this._mediaElementPlaying = true;
+
+                    if (File.Exists(model.VideoFileName))
+                    {
+                        this.streamVideoPlayerWpf.OpenUrl(model.VideoFileName);
+                    }
 
                     // ReSharper disable once UseNameofExpression
                     OnPropertyChanged(@"VideoFileName");
@@ -133,58 +126,16 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
             var p = 5;
 
 
-            var ex = e.Key.ToString();
+            //var ex = e.Key.ToString();
 
-            if (mediaElement.HasVideo)
-            {
-                mediaElement.LoadedBehavior = MediaState.Manual;
-
-                if (ex == Options.G.Hotkey_PauseResume.ToString())
-                {
-                    PlayPauseMediaPlayer();
-                }
-
-
-            }
-
-
-
-            //if (e.KeyData == Options.G.Hotkey_PauseResume)
+            //if (mediaElement.HasVideo)
             //{
-            //    if (vlcStreamPlayer1.Mode != StreamPlayer.PlayerMode.Stop)
+            //    mediaElement.LoadedBehavior = MediaState.Manual;
+            //    if (ex == Options.G.Hotkey_PauseResume.ToString())
             //    {
-            //        vlcStreamPlayer1.Mode =
-            //            vlcStreamPlayer1.Mode == StreamPlayer.PlayerMode.Play
-            //            ? StreamPlayer.PlayerMode.Pause
-            //            : StreamPlayer.PlayerMode.Play;
+            //        PlayPauseMediaPlayer();
             //    }
-
-            //    return;
             //}
-        }
-
-        private void PlayPauseMediaPlayer()
-        {
-            if (_mediaElementPlaying)
-            {
-                mediaElement.Pause();
-                _mediaElementPlaying = false;
-            }
-            else
-            {
-                mediaElement.Play();
-                _mediaElementPlaying = true;
-            }
-        }
-        
-        private void TimerOnTick(object sender, EventArgs eventArgs)
-        {
-            if (mediaElement.HasVideo == false)
-            {
-                return;
-            }
-
-             mediaElement.Clock.CurrentTime
         }
 
         #endregion

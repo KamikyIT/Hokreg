@@ -38,7 +38,7 @@ namespace Uniso.InStat.Gui.Forms
             this.trackBar3 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.streamPlayer1 = new StreamPlayer(this.components);
+            this.streamPlayer1 = new PlayerTypes.StreamPlayer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -132,8 +132,8 @@ namespace Uniso.InStat.Gui.Forms
             this.streamPlayer1.CurrentConnectorSecond = ((long)(0));
             this.streamPlayer1.CurrentSceneFileName = null;
             this.streamPlayer1.Location = new System.Drawing.Point(12, 63);
-            this.streamPlayer1.MediaType = StreamPlayer.MediaTypeEnum.FLAT_FILE;
-            this.streamPlayer1.Mode = StreamPlayer.PlayerMode.Stop;
+            this.streamPlayer1.MediaType = PlayerTypes.StreamPlayer.MediaTypeEnum.FLAT_FILE;
+            this.streamPlayer1.Mode = PlayerTypes.StreamPlayer.PlayerMode.Stop;
             this.streamPlayer1.Name = "streamPlayer1";
             this.streamPlayer1.NumScene1 = 0;
             this.streamPlayer1.NumScene2 = 0;
@@ -170,7 +170,7 @@ namespace Uniso.InStat.Gui.Forms
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private StreamPlayer streamPlayer1;
+        private PlayerTypes.StreamPlayer streamPlayer1;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.TrackBar trackBar2;
         private System.Windows.Forms.TrackBar trackBar3;
