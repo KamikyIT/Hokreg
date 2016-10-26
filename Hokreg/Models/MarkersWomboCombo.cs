@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Uniso.InStat.Gui.Controls;
@@ -322,7 +323,8 @@ namespace Uniso.InStat.Models
 
             ParseFoulStages();
 
-            ParseMarkerRules();
+            //ParseMarkerRules();
+            ParseMarkerProperyRules();
 
         }
 
@@ -504,6 +506,7 @@ namespace Uniso.InStat.Models
             Point1,
         }
 
+        [Obsolete("Use ParseMarkerProperyRules()")]
         /// <summary>
         /// Распарсить правила создания маркеров из файла "marker_rules.txt" ресурсов.
         /// </summary>
@@ -602,7 +605,68 @@ namespace Uniso.InStat.Models
             }
         }
 
+        private static void ParseMarkerProperyRules()
+        {
+            var allText = Properties.Resources.NewMarkersProperties;
+
+            var lines = allText.Split(new char[] {'\n',});
+
+
+            MarkersWomboCombo.MarkerPropertyBasedRules = new List<MarkerPropertyRequires>();
+            
+
+            foreach (var line in lines)
+            {
+                var markerRule = MarkerPropertyRequires.ParseFromString(line);
+
+                if (markerRule != null)
+                {
+                    MarkerPropertyBasedRules.Add(markerRule);
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Словарь с индексами полей в гугол-документе для заполнения правил.
+        /// </summary>
+        public static Dictionary< string, int> IndexesMarkersPropertyBased = new Dictionary<string, int>()
+        {
+            //action_code   name    name_eng    action_id   action_type win player  opponent    point   dest
+            {
+                "action_code", 1
+            },
+            {
+                "name", 2
+            },
+            {
+                "name_eng", 3
+            },
+            {
+                "action_id", 4
+            },
+            {
+                "action_type", 5
+            },
+            {
+                "win", 6
+            },
+            {
+                "player", 7
+            },
+            {
+                "opponent", 8
+            },
+            {
+                "point", 9
+            },
+            {
+                "dest", 10
+            },
+        };
+
         private static List<MyMarkerModel> markerModels;
+        private static List<MarkerPropertyRequires> MarkerPropertyBasedRules;
 
         /// <summary>
         /// Добавить новый ИЛИ убрать предыдущее вхождение нового маркера ИЛИ переключить на новый дочерний маркер в prevMarker дополнительный newMarker. Возможность добавлять СТРОГО один дополнительный маркер.
@@ -735,6 +799,317 @@ namespace Uniso.InStat.Models
 
             return res;
         }
+    }
+
+
+    /// <summary>
+    /// Поля для заполнения инфы о маркере.
+    /// </summary>
+    public enum MarkerkFieldEnum
+    {
+        /// <summary>
+        /// Игрок 1.
+        /// </summary>
+        Player1,
+        /// <summary>
+        /// Пачка игроков из первой команды.
+        /// </summary>
+        Player1Array,
+        /// <summary>
+        /// Команда 1.
+        /// </summary>
+        Team1,
+        /// <summary>
+        /// Игрок 2, из той же команды.
+        /// </summary>
+        PlayerTeammate2,
+        /// <summary>
+        /// Игрок 2, из той же команды, автоматически.
+        /// </summary>
+        PlayerTeammate2Auto,
+        /// <summary>
+        /// Команда 2.
+        /// </summary>
+        Team2,
+        /// <summary>
+        /// Игрок 2, Оппонент.
+        /// </summary>
+        Opponent2,
+        /// <summary>
+        /// Игрок 2, Оппонент, автоматически.
+        /// </summary>
+        Opponent2Auto,
+        /// <summary>
+        /// Много игроков из 
+        /// </summary>
+        /// Игрок 2, Оппонент, не вратарь.
+        OpponentNotGoalKeere2,
+        /// <summary>
+        /// Игрок 2, Вратарь вражеской команды.
+        /// </summary>
+        GoalKeeper2,
+        /// <summary>
+        /// Пачка игроков из первой команды.
+        /// </summary>
+        Opponent2Array,
+        /// <summary>
+        /// Точка 1.
+        /// </summary>
+        Point1,
+        /// <summary>
+        /// Точка 1, в центре поля.
+        /// </summary>
+        Point1Mid,
+        /// <summary>
+        /// Точка 1, или Точка 1 в центре поля.
+        /// </summary>
+        Point1orPoint1Mid,
+        /// <summary>
+        /// Точка 2.
+        /// </summary>
+        Point2,
+        /// <summary>
+        /// Свойство.
+        /// </summary>
+        Property,
+        Point2Auto,
+        Point2AutoVedenie,
+        Player1Same
+    }
+
+    public enum MarkerFieldRequireEnum
+    {
+        No,
+        Maybe,
+        Needs,
+    }
+
+    public class MarkerPropertyRequires
+    {
+        public MarkerPropertyRequires(string name, string eng_name, int action_code, int action_id, int action_type, int win,
+            NeedProperty[] fieldRequrements)
+        {
+            this.name = name;
+            this.eng_name = name;
+            this.action_code = action_code;
+            this.action_id = action_id;
+            this.action_type = action_type;
+            this.win = win;
+            this.Fields = fieldRequrements;
+        }
+
+        public class NeedProperty
+        {
+            public MarkerkFieldEnum FieldType;
+
+            public MarkerFieldRequireEnum NeedsValue;
+
+            public NeedProperty(MarkerkFieldEnum fieldType, MarkerFieldRequireEnum fieldRequire)
+            {
+                this.FieldType = fieldType;
+
+                this.NeedsValue = fieldRequire;
+            }
+        }
+
+
+        public string name;
+        public string eng_name;
+
+        public int action_code;
+        public int action_id;
+        public int action_type;
+        public int win;
+
+
+        public NeedProperty[] Fields;
+
+        public static MarkerPropertyRequires ParseFromString(string line)
+        {
+            if (string.IsNullOrEmpty(line) || string.IsNullOrWhiteSpace(line))
+            {
+                return null;
+            }
+
+
+            var parts = line.Split(new char[] {'\t', '\r'});
+
+            if (parts.Length < MarkersWomboCombo.IndexesMarkersPropertyBased.Count)
+                return null;
+
+
+            var action_code_str = parts[MarkersWomboCombo.IndexesMarkersPropertyBased["action_code"]];
+            var action_code = 0;
+            if (int.TryParse(action_code_str, out action_code) == false)
+            {
+                return null;
+            }
+
+            var name = parts[MarkersWomboCombo.IndexesMarkersPropertyBased["name"]];
+
+            var eng_name = parts[MarkersWomboCombo.IndexesMarkersPropertyBased["name_eng"]];
+
+            var action_id_str = parts[MarkersWomboCombo.IndexesMarkersPropertyBased["action_id"]];
+            var action_id = 0;
+            if (int.TryParse(action_id_str, out action_id) == false)
+            {
+                return null;
+            }
+
+            var action_type_str = parts[MarkersWomboCombo.IndexesMarkersPropertyBased["action_type"]];
+            var action_type = 0;
+            if (int.TryParse(action_type_str, out action_type) == false)
+            {
+                return null;
+            }
+
+            var win_str = parts[MarkersWomboCombo.IndexesMarkersPropertyBased["win"]];
+            var win = 0;
+            if (string.IsNullOrEmpty(win_str) || string.IsNullOrWhiteSpace(win_str))
+            {
+                win = 0;
+            }
+            else
+            {
+                if (int.TryParse(win_str, out win) == false)
+                {
+                    return null;
+                }
+            }
+
+            #region Player1
+
+            var p1 = parts[MarkersWomboCombo.IndexesMarkersPropertyBased["player"]];
+            NeedProperty player1 = null;
+            if (string.IsNullOrEmpty(p1) || string.IsNullOrWhiteSpace(p1))
+            {
+                player1 = new NeedProperty(MarkerkFieldEnum.Player1, MarkerFieldRequireEnum.No);
+            }
+            else if (p1.Contains("p1"))
+            {
+                player1 = new NeedProperty(MarkerkFieldEnum.Player1, p1.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (p1.Contains("TEAM"))
+            {
+                player1 = new NeedProperty(MarkerkFieldEnum.Team1, p1.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if(p1.Contains("p1[]"))
+            {
+                //Player1Array
+                player1 = new NeedProperty(MarkerkFieldEnum.Player1Array, p1.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else
+            {
+                var p = 5;
+                return null;
+            }
+
+            #endregion
+
+
+            #region Player2
+
+            var p2 = parts[MarkersWomboCombo.IndexesMarkersPropertyBased["opponent"]];
+            NeedProperty player2 = null;
+            if (string.IsNullOrEmpty(p2) || string.IsNullOrWhiteSpace(p2))
+            {
+                player2 = new NeedProperty(MarkerkFieldEnum.Opponent2, MarkerFieldRequireEnum.No);
+            }
+            else if (p2.Contains("p2"))
+            {
+                player2 = new NeedProperty(MarkerkFieldEnum.PlayerTeammate2, p2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (p2.Contains("o2"))
+            {
+                player2 = new NeedProperty(MarkerkFieldEnum.Opponent2, p2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (p2.Contains("G2"))
+            {
+                player2 = new NeedProperty(MarkerkFieldEnum.GoalKeeper2, p2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (p2.Contains("o2notG2"))
+            {
+                player2 = new NeedProperty(MarkerkFieldEnum.OpponentNotGoalKeere2, p2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (p2.Contains("p2auto"))
+            {
+                player2 = new NeedProperty(MarkerkFieldEnum.PlayerTeammate2Auto, p2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (p2.Contains("o2ayto"))
+            {
+                player2 = new NeedProperty(MarkerkFieldEnum.Opponent2Auto, p2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (p2.Contains("TEAM"))
+            {
+                player2 = new NeedProperty(MarkerkFieldEnum.Team2, p2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (p2.Contains("p1"))
+            {
+                player2 = new NeedProperty(MarkerkFieldEnum.Player1Same, p2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else
+            {
+                var p = 5;
+                return null;
+            }
+
+            #endregion
+
+            var t1 = parts[MarkersWomboCombo.IndexesMarkersPropertyBased["point"]];
+            NeedProperty point1 = null;
+            if (string.IsNullOrEmpty(t1) || string.IsNullOrWhiteSpace(t1))
+            {
+                point1 = new NeedProperty(MarkerkFieldEnum.Point1, MarkerFieldRequireEnum.No);
+            }
+            else if (t1.Contains("t1"))
+            {
+                point1 = new NeedProperty(MarkerkFieldEnum.Point1, t1.Contains("?")? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (t1.Contains("t1mid"))
+            {
+                point1 = new NeedProperty(MarkerkFieldEnum.Point1Mid, t1.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (t1.Contains("t1|t1mid"))
+            {
+                point1 = new NeedProperty(MarkerkFieldEnum.Point1orPoint1Mid, t1.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else
+            {
+                var p = 5;
+                return null;
+            }
+
+            var t2 = parts[MarkersWomboCombo.IndexesMarkersPropertyBased["dest"]];
+            NeedProperty point2 = null;
+            if (string.IsNullOrEmpty(t2) || string.IsNullOrWhiteSpace(t2))
+            {
+                point2 = new NeedProperty(MarkerkFieldEnum.Point2, MarkerFieldRequireEnum.No);
+            }
+            else if (t2.Contains("t2"))
+            {
+                point2 = new NeedProperty(MarkerkFieldEnum.Point2, t2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (t2.Contains("t2auto"))
+            {
+                point2 = new NeedProperty(MarkerkFieldEnum.Point2Auto, t2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else if (t2.Contains("t2autoVedenie"))
+            {
+                point2 = new NeedProperty(MarkerkFieldEnum.Point2AutoVedenie, t2.Contains("?") ? MarkerFieldRequireEnum.Maybe : MarkerFieldRequireEnum.Needs);
+            }
+            else
+            {
+                var p = 5;
+                return null;
+            }
+
+
+            var markerRule = new MarkerPropertyRequires(name, eng_name, action_code, action_id, action_type, win,
+                new NeedProperty[] {player1, player2, point1, point2});
+
+            return markerRule;
+        }
+
     }
 
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Uniso.InStat.Models;
 
 namespace Uniso.InStat.Gui.WPF_Forms
 {
@@ -14,6 +15,8 @@ namespace Uniso.InStat.Gui.WPF_Forms
         public WpfMainWindow()
         {
             InitializeComponent();
+
+            MarkersWomboCombo.AddSingleNewExtraMarker(null, null);
         }
 
         private void WpfMainWindow_Resize(object sender, EventArgs e)

@@ -1,0 +1,204 @@
+7															СВОЙСТВА (c_match_event_prop)						СВЯЗИ (c_match_event_prop_values)				
+	action_code	name	name_eng	action_id	action_type	win	player	opponent	point	dest	stop time	Описание			Property_ID	Свойства(типы)	Описание	Маркеры	описание		Property_ID	Value_ID	Свойства(значения)	Описание	
+	100000	Передачи													1	Тип Броска	Тип Броска	все 4,8		INSERT INTO c_match_event_prop(id,name,descr) SELECT 1, 'Тип Броска', 'Тип Броска';	1	1	Щелчок	401000	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 1, 'Щелчок', '401000';
+	100100	Вбрасывание	Faceoff	1	1		p1	o2	t1|t1mid		ЗАПУСК	при начале периода и после гола			2	Обзор Вратаря	Обзор Вратаря	все 4,8		INSERT INTO c_match_event_prop(id,name,descr) SELECT 2, 'Обзор Вратаря', 'Обзор Вратаря';	1	2	Щелчок с размахом		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 2, 'Щелчок с размахом', NULL;
+															3	Стойка Вратаря	Стойка Вратаря	все 4,8		INSERT INTO c_match_event_prop(id,name,descr) SELECT 3, 'Стойка Вратаря', 'Стойка Вратаря';	1	3	Кистевой	401100	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 3, 'Кистевой', '401100';
+															4	Начало полета шайбы	время,мс	42, 8		INSERT INTO c_match_event_prop(id,name,descr) SELECT 4, 'Начало полета шайбы', 'время,мс';	1	4	С неудобной руки		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 4, 'С неудобной руки', NULL;
+		ЕСЛИ БЕЗ ИНДЕКС НЕТОЧНАЯ																			1	5	Подставленная клюшка		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 5, 'Подставленная клюшка', NULL;
+	100301	Пас по борту (+)		1	3	1	p1	p2auto	t1	t2auto		Пас по борту точный			5	Куда принял шайбу	Куда принял шайбу	42, 8		INSERT INTO c_match_event_prop(id,name,descr) SELECT 5, 'Куда принял шайбу', 'Куда принял шайбу';	1	6	Бросок с близкой дистанции(добивание)		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 6, 'Бросок с близкой дистанции(добивание)', NULL;
+	100302	Пас по борту (-)		1	3	2	p1	o2auto	t1	t2auto		Пас по борту неточный			6	Шайба коснулась вратаря	время,мс	42, 8		INSERT INTO c_match_event_prop(id,name,descr) SELECT 6, 'Шайба коснулась вратаря', 'время,мс';	2	7	Открытый		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 7, 'Открытый', NULL;
+																					2	8	Закрытый		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 8, 'Закрытый', NULL;
+															7	Рука	Какой рукой был бросок	все 4,8		INSERT INTO c_match_event_prop(id,name,descr) SELECT 7, 'Рука', 'Какой рукой был бросок';	2	9	Открытый + Бросок с обманным движением		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 9, 'Открытый + Бросок с обманным движением', NULL;
+	100401	Пас (+)		1	4	1	p1	p2auto	t1	t2auto		Конструктивная передача точная			8	Точка X в воротах		42, 8	1100401	INSERT INTO c_match_event_prop(id,name,descr) SELECT 8, 'Точка X в воротах', NULL;	2	10	Закрытый + Бросок с обманным движением		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 10, 'Закрытый + Бросок с обманным движением', NULL;
+	100402	Пас (-)		1	4	2	p1	o2auto	t1	t2auto		Конструктивная передача неточная			9	Точка Y в воротах		42, 8	1100401	INSERT INTO c_match_event_prop(id,name,descr) SELECT 9, 'Точка Y в воротах', NULL;	3	11	Выская		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 11, 'Выская', NULL;
+															10	Нарушения		300100		INSERT INTO c_match_event_prop(id,name,descr) SELECT 10, 'Нарушения', NULL;	3	12	Низкая		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 12, 'Низкая', NULL;
+	100501	ОП (+)		1	5	1	p1	p2auto	t1	t2auto		Острая передача точная			11	Голевая( 1й ассистент)	Игрок	8		INSERT INTO c_match_event_prop(id,name,descr) SELECT 11, 'Голевая( 1й ассистент)', 'Игрок';	3	13	В сплите		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 13, 'В сплите', NULL;
+	100502	ОП (-)		1	5	2	p1	o2auto	t1	t2auto		Острая передача неточная			12	Голевая( 2й ассистент)	Игрок	8		INSERT INTO c_match_event_prop(id,name,descr) SELECT 12, 'Голевая( 2й ассистент)', 'Игрок';	3	14	Лежит		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 14, 'Лежит', NULL;
+	100601	Выброс (+)		1	6	1	p1		t1			Выброс удачный									3	15	Отыгран		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 15, 'Отыгран', NULL;
+	100602	Выброс (-)		1	6	2	p1	o2	t1	t2		Выброс неудачный									6	16	Зафиксировал сразу		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 16, 'Зафиксировал сразу', NULL;
+	100801	Вброс (+)		1	8	1	p1	p2auto	t1	t2auto		Вброс удачный									6	17	Зафиксировал с отскока		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 17, 'Зафиксировал с отскока', NULL;
+	100802	Вброс (-)		1	8	2	p1	o2auto	t1	t2auto		Вброс неудачный									6	18	Контролируемый отскок		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 18, 'Контролируемый отскок', NULL;
+																					6	19	Неконтролируемый отскок		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 19, 'Неконтролируемый отскок', NULL;
+	101000	Пас в оффсайд		1	10		p1		t1	t2		Пас в оффсайд									5	20	Над блином		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 20, 'Над блином', NULL;
+	101100	Отброс шайбы		1	11		p1		t1												5	21	Над ловушкой		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 21, 'Над ловушкой', NULL;
+																					5	22	Под блином		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 22, 'Под блином', NULL;
+																					5	23	Под ловушкой		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 23, 'Под ловушкой', NULL;
+		ЕСЛИ ИНДЕКС НЕТОЧНАЯ																			5	24	В дом		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 24, 'В дом', NULL;
+?	100302	Пас по борту (-)		1	3	2	p1		t1	t2											5	25	В тело		INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 25, 'В тело', NULL;
+?	100402	Пас (-)		1	4	2	p1		t1	t2											7	26	Правой	1100101	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 26, 'Правой', '1100101';
+?	100502	ОП (-)		1	5	2	p1		t1	t2											7	27	Левой	1100102	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 27, 'Левой', '1100102';
+?	100602	Выброс (-)		1	6	2	p1		t1	t2											10	28	Прочее	900100	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 28, 'Прочее', '900100';
+?	100802	Вброс (-)		1	8	2	p1		t1	t2											10	29	Толчок соперника на борт	900200	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 29, 'Толчок соперника на борт', '900200';
+																					10	30	Неправильная атака	900300	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 30, 'Неправильная атака', '900300';
+																					10	31	Грубость	900400	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 31, 'Грубость', '900400';
+																					10	32	Игра высоко поднятой клюшкой	900500	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 32, 'Игра высоко поднятой клюшкой', '900500';
+																					10	33	Задержка руками/клюшкой	900600	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 33, 'Задержка руками/клюшкой', '900600';
+																					10	34	Атака Игрока, не владеющего шайбой (блокировка)	900700	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 34, 'Атака Игрока, не владеющего шайбой (блокировка)', '900700';
+																					10	35	Нарушение численного состава	900800	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 35, 'Нарушение численного состава', '900800';
+																					10	36	Удар (клюшкой, локтем, ногой головой)	900900	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 36, 'Удар (клюшкой, локтем, ногой головой)', '900900';
+																					10	37	Подножка	901000	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 37, 'Подножка', '901000';
+	200000	Взаимодействие																			10	38	Сдвиг ворот	901100	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 38, 'Сдвиг ворот', '901100';
+	200100	Единоборство		2	1		p1	o2	t1												10	42	Неспортивное поведение	901200	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 42, 'Неспортивное поведение', '901200';
+	200201	Обводка (+)		2	2	1	p1	o2	t1												10	43	Драка	901300	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 43, 'Драка', '901300';
+	200202	Обводка (-)		2	2	2	p1	o2	t1												10	44	Выброс шайбы	901400	INSERT INTO c_match_event_prop_values(c_match_event_prop, name, descr) SELECT 44, 'Выброс шайбы', '901400';
+	200300	Ведение		2	3		p1		t1	t2autoVedenie	Автоматически из следующего маркера, который НЕ Единоборство( где p1 == this.p1) ИЛИ НЕ Обводка(+) (где p1 == this.p1)														
+																									
+																									
+	200400	Прием		2	4		p1		t1																
+	200500	Подбор		2	5		p1		t1																
+	200600	Отбор		2	6		p1	o2	t1																
+	200700	Перехват		2	7		p1		t1																
+	200702	Перехват неудачный		2	7	2	p1		t1																
+	200800	Неудачная обработка		2	8		p1		t1																
+																									
+																									
+	201100	Борьба у борта		2	11		p1[]	o2[]	t1																
+	201200	Силовой прием	hit	2	1		p1	o2	t1																
+	300000	Остановка игры																							
+	300100	Фол	Foul	3	1		p1?	o2?	t1?																
+																									
+	300300	Проброс	icing	3	3		p1		t1	t2															
+																									
+																									
+																									
+																									
+	300800	Стоп-игра	stoppage	3	8						V														
+	300900	Офсайд	offside	3	9		p1		t1																
+																									
+	400000	Броски								точкой выступают ворота, кроме мимо															
+	400100	Бросок мимо	Missed shot	4	1		p1	G2	t1																
+	400200	Бросок отбитый	Shot on goal	4	2		p1	G2	t1	t2															
+	400300	Бросок заблокированный	blocked shot	4	3		p1	o2notG2	t1	t2															
+																									
+																									
+	400600	Буллит	penalty shot 	4	6		p1	G2	t1mid			В Буллите может быть бросок. Т.Е. Бросок - следствие буллита.													
+																									
+																									
+																									
+	600000	Драки																							
+																									
+																									
+																									
+	700000	Вратарь																							
+	700100	Сэйв	Save	7	1		p1		t1																
+																									
+	900000	Нарушения																							
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+	500000	Штрафы																							
+	500100	ВЫХОД ПОСЛЕ ШТРАФА		5	1																				
+	500200	МАЛЫЙ ШТРАФ (2`).	minor penalty	5	2		p1	p2																	
+	500300	МАЛЫЙ СКАМЕЕЧНЫЙ ШТРАФ (2`).	bench minor penalty	5	3		p1	p2																	
+	500400	ДВОЙНОЙ МАЛЫЙ ШТРАФ (4`)	double minor penalty	5	4		p1	p2																	
+	500500	БОЛЬШОЙ ШТРАФ (5`).	major penalty	5	5		p1	p2																	
+	500600	ДИСЦИПЛИНАРНЫЙ ШТРАФ (10`).	misconduct penalty	5	6		p1	p1																	
+	500700	ДИСЦИПЛИНАРНЫЙ ДО КОНЦА ИГРЫ ШТРАФ (ДКИ).	game misconduct	5	7		p1	p1																	
+	500800	МАТЧ-ШТРАФ (МШ).	match penalty	5	8		p1	p1																	
+	500900	ШТРАФНОЙ БРОСОК (ШБ).	penalty shot 	5	9		p1	p1																	
+																									
+	800000	Гол																							
+	800100	Гол	Goal	8	1		p1	G2			V														
+																									
+	1100000	Позиции																							
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+	1200000	Атаки																							
+	1201000	Атака с ходу 1-0		12	10		TEAM	TEAM				1 атакующий - 0 оппонентов													
+	1201100	Атака с ходу 1-1		12	11		TEAM	TEAM				1 атакующий - 1 оппонент													
+	1201200	Атака с ходу 1-2		12	12		TEAM	TEAM				1 атакующий - 2 оппонента													
+	1201300	Атака с ходу 1-3		12	13		TEAM	TEAM				1 атакующий - 3 оппонента													
+	1202000	Атака с ходу 2-0		12	20		TEAM	TEAM				2 атакующих - 0 оппонентов													
+	1202100	Атака с ходу 2-1		12	21		TEAM	TEAM				2 атакующих - 1 оппонент													
+	1202200	Атака с ходу 2-2		12	22		TEAM	TEAM				2 атакующих - 2 оппонента													
+	1202300	Атака с ходу 2-3		12	23		TEAM	TEAM				2 атакующих - 3 оппонента													
+	1203000	Атака с ходу 3-0		12	30		TEAM	TEAM				3 атакующих - 0 оппонентов													
+	1203100	Атака с ходу 3-1		12	31		TEAM	TEAM				3 атакующих - 1 оппонент													
+	1203200	Атака с ходу 3-2		12	32		TEAM	TEAM				3 атакующих - 2 оппонента													
+	1203300	Атака с ходу 3-3		12	33		TEAM	TEAM				3 атакующих - 3 оппонента													
+	1200100	Конец атаки с ходу		12	1		TEAM	TEAM																	
+																									
+	1300000	Ошибки																							
+	1300100	Грубая ошибка		13	1		p1		t1																
+	1300200	Грубая голевая ошибка		13	2		p1		t1																
+																									
+	1400000	Замены																							
+	1402100	Замена ГК	substitution GK	14	21		p1																		
+	1401200	Замена З Л	substitution D	14	12		p1	p2																	
+	1403200	Замена З П	substitution D	14	32		p1	p2																	
+	1401300	Замена Ф Л	substitution LW	14	13		p1	p2																	
+	1402300	Замена Ф Ц	substitution C	14	23		p1	p2																	
+	1403300	Замена Ф П	substitution RW	14	33		p1	p2																	
+																									
+	1600000	Тактика																							
+	1611300	З Л (первый запасной)		16	112		p1																		
+	1611300	Ф Л (первый запасной)		16	113		p1																		
+	1612100	ГК (первый запасной)		16	121		p1																		
+	1612300	Ф Ц (первый запасной)		16	123		p1																		
+	1613200	З П (первый запасной)		16	132		p1																		
+	1613300	Ф П (первый запасной)		16	133		p1																		
+	1621200	З Л (второй запасной)		16	212		p1																		
+	1621300	Ф Л (второй запасной)		16	213		p1																		
+	1622100	ГК (второй запасной)		16	221		p1																		
+	1622300	Ф Ц (второй запасной)		16	223		p1																		
+	1623200	З П (второй запасной)		16	232		p1																		
+	1623300	Ф П (второй запасной)		16	233		p1																		
+	1631200	З Л (третий запасной)		16	312		p1																		
+	1631300	Ф Л (третий запасной)		16	313		p1																		
+	1632100	ГК (третий запасной)		16	321		p1																		
+	1632300	Ф Ц (третий запасной)		16	323		p1																		
+	1633200	З П (третий запасной)		16	332		p1																		
+	1633300	Ф П (третий запасной)		16	333		p1																		
+	1641200	З Л (четвертый запасной)		16	412		p1																		
+	1641300	Ф Л (четвертый запасной)		16	413		p1																		
+	1642100	ГК (четвертый запасной)		16	421		p1																		
+	1642300	Ф Ц (четвертый запасной)		16	423		p1																		
+	1643200	З П (четвертый запасной)		16	432		p1																		
+	1643300	Ф П (четвертый запасной)		16	433		p1																		
+	1651200	З Л (пятый запасной)		16	512		p1																		
+	1651300	Ф Л (пятый запасной)		16	513		p1																		
+	1652100	ГК (пятый запасной)		16	521		p1																		
+	1652300	Ф Ц (пятый запасной)		16	523		p1																		
+	1653200	З П (пятый запасной)		16	532		p1																		
+	1653300	Ф П (пятый запасной)		16	533		p1																		
+																									
+	1800000	Пределы																							
+	1800100	Начало 1-го периода	1 st period	18	1																				
+	1800200	Начало 2-го периода	2nd period	18	2																				
+	1800800	Начало 3-го периода	3rd period	18	8																				
+	1800500	Начало овертайма	overtime	18	5																				
+	1800700	Буллиты	shootout	18	7																				
+	1800400	Конец матча	game end	18	4																				
+	1800300	Перерыв	intermission	18	3																				
+	1800600	Перерыв на 30 секунд		18	6																				
+	1800900	Синхронизация онлайна		18	9																				
+	1801000	Обрыв трансляции		18	10																				
+																									
+	1000000	Генерируемые маркеры		10	0																				
+	1000100	Потеря шайбы		10	1		p1		t1																
+	1000200	Овладевание шайбой		10	2		p1		t1																
+	1000300	Вход в зону атаки		10	3		p1		t1																
+	1000400	Выход из зоны обороны		10	4		p1		t1																
