@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -31,6 +32,11 @@ namespace Uniso.InStat.StreamPlayer
         public StreamVideoPlayerWpf()
         {
             InitializeComponent();
+
+            Render.Init();
+
+            mediaElement1.Clock = null;
+            mediaElement2.Clock = null;
 
             timer1 = new DispatcherTimer {Interval = TimeSpan.FromMilliseconds(100)};
             timer1.Tick += timer1_Tick;
@@ -81,10 +87,7 @@ namespace Uniso.InStat.StreamPlayer
 
         public string CacheDirectory
         {
-            get
-            {
-                return Environment.CurrentDirectory + @"\cache\";
-            }
+            get { return Environment.CurrentDirectory + @"\cache\"; }
         }
 
         [Browsable(false)]
@@ -105,8 +108,9 @@ namespace Uniso.InStat.StreamPlayer
         {
             var hlp = typeof(MediaElement).GetField("_helper", BindingFlags.NonPublic | BindingFlags.Instance);
             var helperObject = hlp.GetValue(MediaElement);
-            var stateField = helperObject.GetType().GetField("_currentState", BindingFlags.NonPublic | BindingFlags.Instance);
-            var state = (MediaState)stateField.GetValue(helperObject);
+            var stateField = helperObject.GetType()
+                .GetField("_currentState", BindingFlags.NonPublic | BindingFlags.Instance);
+            var state = (MediaState) stateField.GetValue(helperObject);
             return state;
         }
 
@@ -150,7 +154,8 @@ namespace Uniso.InStat.StreamPlayer
                         }
                     }
                     catch
-                    { }
+                    {
+                    }
                 }
 
                 return 0;
@@ -185,7 +190,8 @@ namespace Uniso.InStat.StreamPlayer
                     }
                 }
                 catch
-                { }
+                {
+                }
             }
         }
 
@@ -195,7 +201,7 @@ namespace Uniso.InStat.StreamPlayer
             get
             {
                 if (MediaElement != null)
-                    return Convert.ToInt32(MediaElement.Volume * 100.0);
+                    return Convert.ToInt32(MediaElement.Volume*100.0);
 
                 return 0;
             }
@@ -203,11 +209,12 @@ namespace Uniso.InStat.StreamPlayer
             {
                 try
                 {
-                    mediaElement1.Volume = (double)value / 100.0;
+                    mediaElement1.Volume = (double) value/100.0;
                     mediaElement2.Volume = mediaElement1.Volume;
                 }
                 catch
-                { }
+                {
+                }
             }
         }
 
@@ -272,7 +279,8 @@ namespace Uniso.InStat.StreamPlayer
                             MediaModeChanged(this, EventArgs.Empty);
                     }
                     catch
-                    { }
+                    {
+                    }
                 }
             }
         }
@@ -304,12 +312,12 @@ namespace Uniso.InStat.StreamPlayer
             DurationTotal = 0;
             DurationUpload = 0;
         }
-        
+
         void mediaElement1_MediaEnded(object sender, RoutedEventArgs e)
         {
             Open(currentScene + 1, 0, false);
         }
-        
+
         void mediaElement1_MediaOpened(object sender, RoutedEventArgs e)
         {
             closed = false;
@@ -385,10 +393,10 @@ namespace Uniso.InStat.StreamPlayer
 
         public float GetCurrentSceneSecond()
         {
-            return (float)MediaElement.Position.TotalMilliseconds / 1000.0f;
+            return (float) MediaElement.Position.TotalMilliseconds/1000.0f;
         }
-        
-        
+
+
 
         public void Open(int num, long position, bool set_on_pause)
         {
@@ -414,7 +422,9 @@ namespace Uniso.InStat.StreamPlayer
             _set_on_pause = set_on_pause;
             closed = true;
 
+            //DoAction(StartScene);
             Render.DoAction(StartScene);
+            //Render.MyDoAction(StartScene);
         }
 
         private void StartScene()
@@ -446,19 +456,28 @@ namespace Uniso.InStat.StreamPlayer
                             break;
                     }
 
-                    var curr_pl = MediaElement.Name;
+                    //var curr_pl = MediaElement.Name;
 
                     curr_player = !curr_player;
 
-                    if (MediaElement.Source == null || !MediaElement.Source.AbsoluteUri.Contains(sc.Name))
-                        MediaElement.Source = new System.Uri(CurrentSceneFileName);
+                    try
+                    {
+                        //lock (MediaElement)
+                            if (MediaElement.Source == null || !MediaElement.Source.AbsoluteUri.Contains(sc.Name))
+                                MediaElement.Source = new Uri(CurrentSceneFileName);
+                    }
+                    catch (Exception exc)
+                    {
+                        lock (MediaElement)
+                            MediaElement.Source = new Uri(CurrentSceneFileName);
+                    }
 
                     MediaElement.Visibility = System.Windows.Visibility.Visible;
                     MediaElementShadow.Visibility = System.Windows.Visibility.Hidden;
 
                     MediaElement.Play();
 
-                    curr_pl = MediaElement.Name;
+                    //curr_pl = MediaElement.Name;
 
                     buffering = false;
                     if (MediaBuffering != null)
@@ -466,7 +485,8 @@ namespace Uniso.InStat.StreamPlayer
 
                     needPosition = 0L;
 
-                    if (sc.Index > 1 && MediaType != MediaTypeEnum.FLAT_FILE && scenes.Exists(o => o.Index == sc.Index + 1))
+                    if (sc.Index > 1 && MediaType != MediaTypeEnum.FLAT_FILE &&
+                        scenes.Exists(o => o.Index == sc.Index + 1))
                     {
                         var next = scenes.First(o => o.Index == sc.Index + 1);
                         var fn = string.Empty;
@@ -503,8 +523,10 @@ namespace Uniso.InStat.StreamPlayer
                         ResizeCanvas();
                     }
                 }
-                catch
-                { }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Exception " + ex.Message);
+                }
                 finally
                 {
                     currentScene = _num;
@@ -512,7 +534,7 @@ namespace Uniso.InStat.StreamPlayer
                 }
             }
         }
-        
+
         public Thickness GetVideoMargin()
         {
             return margin;
@@ -544,24 +566,24 @@ namespace Uniso.InStat.StreamPlayer
                     var aw = blackRect.ActualWidth;
                     var ah = blackRect.ActualHeight;
 
-                    var dxv = (double)vs.Width / (double)vs.Height;
-                    var dxc = aw / ah;
+                    var dxv = (double) vs.Width/(double) vs.Height;
+                    var dxc = aw/ah;
 
                     double w, h;
 
                     if (dxv < dxc)
                     {
                         h = blackRect.ActualHeight;
-                        w = dxv * blackRect.ActualHeight;
+                        w = dxv*blackRect.ActualHeight;
                     }
                     else
                     {
                         w = blackRect.ActualWidth;
-                        h = blackRect.ActualWidth / dxv;
+                        h = blackRect.ActualWidth/dxv;
                     }
 
-                    var dw = Convert.ToDouble((aw - w) / 2);
-                    var dh = Convert.ToDouble((ah - h) / 2);
+                    var dw = Convert.ToDouble((aw - w)/2);
+                    var dh = Convert.ToDouble((ah - h)/2);
 
                     margin = new Thickness(dw, dh, dw, dh);
                     mediaElement1.Margin = new Thickness(dw, dh, dw, dh);
@@ -574,7 +596,7 @@ namespace Uniso.InStat.StreamPlayer
             });
         }
 
-        
+
         public void Start(string uri)
         {
             Start(uri, 0, int.MaxValue);
@@ -612,7 +634,7 @@ namespace Uniso.InStat.StreamPlayer
             thread = new Thread(DoStart) {IsBackground = true};
             thread.Start();
         }
-        
+
 
         private void DoStart()
         {
@@ -647,7 +669,7 @@ namespace Uniso.InStat.StreamPlayer
                             catch (Exception ex)
                             {
                                 if (DownloadPlaylistResult != null)
-                                    DownloadPlaylistResult(this, new DownloadPlaylistResultEventAgrs { ErrorCode = ex });
+                                    DownloadPlaylistResult(this, new DownloadPlaylistResultEventAgrs {ErrorCode = ex});
 
                                 Thread.Sleep(1000);
 
@@ -655,7 +677,7 @@ namespace Uniso.InStat.StreamPlayer
                             }
 
                             if (DownloadPlaylistResult != null)
-                                DownloadPlaylistResult(this, new DownloadPlaylistResultEventAgrs { ErrorCode = null });
+                                DownloadPlaylistResult(this, new DownloadPlaylistResultEventAgrs {ErrorCode = null});
 
                             ParseOut(CacheDirectory + "_out.m3u8");
 
@@ -688,7 +710,8 @@ namespace Uniso.InStat.StreamPlayer
                                     catch (Exception ex)
                                     {
                                         if (DownloadSceneResult != null)
-                                            DownloadSceneResult(this, new DownloadSceneResultEventAgrs { ErrorCode = ex, Scene = sc });
+                                            DownloadSceneResult(this,
+                                                new DownloadSceneResultEventAgrs {ErrorCode = ex, Scene = sc});
 
                                         break;
                                     }
@@ -698,12 +721,12 @@ namespace Uniso.InStat.StreamPlayer
 
                                     if (File.Exists(CacheDirectory + sc.Name))
                                     {
-                                        var t = (float)(DateTime.Now.ToFileTime() - t0) / (float)10000;
+                                        var t = (float) (DateTime.Now.ToFileTime() - t0)/(float) 10000;
                                         var sz = (new FileInfo(CacheDirectory + sc.Name)).Length;
 
                                         sc.Uploaded = true;
                                         sc.Size = sz;
-                                        sc.Speed = sz / (t / 1000.0f);// *(8.0f / 1024.0f / 1024.0f);
+                                        sc.Speed = sz/(t/1000.0f); // *(8.0f / 1024.0f / 1024.0f);
 
                                         lock (scenes)
                                             lock (upscs)
@@ -714,7 +737,8 @@ namespace Uniso.InStat.StreamPlayer
                                             }
 
                                         if (DownloadSceneResult != null)
-                                            DownloadSceneResult(this, new DownloadSceneResultEventAgrs { ErrorCode = null, Scene = sc });
+                                            DownloadSceneResult(this,
+                                                new DownloadSceneResultEventAgrs {ErrorCode = null, Scene = sc});
 
                                         if (!openScene)
                                         {
@@ -847,7 +871,8 @@ namespace Uniso.InStat.StreamPlayer
                                         });
 
                                         if (DownloadSceneResult != null)
-                                            DownloadSceneResult(this, new DownloadSceneResultEventAgrs { ErrorCode = ex, Scene = sc });
+                                            DownloadSceneResult(this,
+                                                new DownloadSceneResultEventAgrs {ErrorCode = ex, Scene = sc});
 
                                         break;
                                     }
@@ -863,12 +888,12 @@ namespace Uniso.InStat.StreamPlayer
 
                                     if (File.Exists(CacheDirectory + sc.Name))
                                     {
-                                        var t = (float)(DateTime.Now.ToFileTime() - t0) / (float)10000;
+                                        var t = (float) (DateTime.Now.ToFileTime() - t0)/(float) 10000;
                                         var sz = (new FileInfo(CacheDirectory + sc.Name)).Length;
 
                                         sc.Uploaded = true;
                                         sc.Size = sz;
-                                        sc.Speed = sz / (t / 1000.0f);// *(8.0f / 1024.0f / 1024.0f);
+                                        sc.Speed = sz/(t/1000.0f); // *(8.0f / 1024.0f / 1024.0f);
 
                                         lock (scenes)
                                             lock (upscs)
@@ -879,7 +904,8 @@ namespace Uniso.InStat.StreamPlayer
                                             }
 
                                         if (DownloadSceneResult != null)
-                                            DownloadSceneResult(this, new DownloadSceneResultEventAgrs { ErrorCode = null, Scene = sc });
+                                            DownloadSceneResult(this,
+                                                new DownloadSceneResultEventAgrs {ErrorCode = null, Scene = sc});
                                     }
                                     else
                                         break;
@@ -979,7 +1005,8 @@ namespace Uniso.InStat.StreamPlayer
                 }
             }
             catch (ThreadInterruptedException e)
-            { }
+            {
+            }
         }
 
         private void ParseOut(string fileName)
@@ -989,12 +1016,14 @@ namespace Uniso.InStat.StreamPlayer
                 var fi = new FileInfo(fileName);
 
                 //String[] lines = File.ReadAllLines(fi.FullName);
-                using (var sr = new StreamReader(File.Open(fi.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+                using (
+                    var sr =
+                        new StreamReader(File.Open(fi.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
                 {
                     string line = null;
                     string extInf = null;
                     while ((line = sr.ReadLine()) != null)
-                    //foreach (String line in lines)
+                        //foreach (String line in lines)
                     {
                         if (line.Contains("#EXT-X-ENDLIST"))
                         {
@@ -1026,7 +1055,7 @@ namespace Uniso.InStat.StreamPlayer
                                             scenes.Add(new Scene
                                             {
                                                 Index = num,
-                                                Len = Convert.ToInt32(len * 1000),
+                                                Len = Convert.ToInt32(len*1000),
                                                 Name = line,
                                                 Time0 = t,
                                                 Uploaded = false,
@@ -1042,7 +1071,8 @@ namespace Uniso.InStat.StreamPlayer
                 }
             }
             catch
-            { }
+            {
+            }
         }
 
         private void ClearFolder(string dir)
@@ -1083,7 +1113,7 @@ namespace Uniso.InStat.StreamPlayer
             get
             {
                 return MediaElement != null
-                    && (GetMediaState() == MediaState.Pause || GetMediaState() == MediaState.Play);
+                       && (GetMediaState() == MediaState.Pause || GetMediaState() == MediaState.Play);
             }
         }
 
@@ -1138,13 +1168,14 @@ namespace Uniso.InStat.StreamPlayer
                     }
 
                     if (PositionChanged != null)
-                        PositionChanged(this, new PositionEventArgs { Position = pos });
+                        PositionChanged(this, new PositionEventArgs {Position = pos});
 
                     old_pos = pos;
                 }
             }
             catch
-            { }
+            {
+            }
         }
 
         private void blackRect_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -1155,7 +1186,12 @@ namespace Uniso.InStat.StreamPlayer
 
     public class Render
     {
-        public static void DoAction(Action a)
+        public static void Init()
+        {
+            new System.Windows.Application();
+        }
+
+        public static void Execute(Action a)
         {
             try
             {
@@ -1163,6 +1199,11 @@ namespace Uniso.InStat.StreamPlayer
             }
             catch
             { }
+        }
+
+        public static void DoAction(Action a)
+        {
+            Execute(a);
         }
     }
 }

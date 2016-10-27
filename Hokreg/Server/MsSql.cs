@@ -7,38 +7,53 @@ namespace Uniso.InStat.Server
 {
     public class MsSql
     {
-        public static bool Login(User u, String pass)
-        {
-            using (var conn = GetConnection())
-            {
-                var cmdGet = new SqlCommand();
-                cmdGet.Connection = conn;
-                cmdGet.CommandType = CommandType.StoredProcedure;
-                cmdGet.CommandText = "prc_check_user_id_password";
-                cmdGet.Parameters.Add(new SqlParameter("id", u.Id));
-                cmdGet.Parameters.Add(new SqlParameter("pass", pass));
+        //public static bool Login(User u, String pass)
+        //{
+        //    using (var conn = GetConnection())
+        //    {
+        //        var cmdGet = new SqlCommand
+        //        {
+        //            Connection = conn,
+        //            CommandType = CommandType.StoredProcedure,
+        //            CommandText = "prc_check_user_id_password"
+        //        };
+        //        cmdGet.Parameters.Add(new SqlParameter("id", u.Id));
+        //        cmdGet.Parameters.Add(new SqlParameter("pass", pass));
 
-                var readerGet = cmdGet.ExecuteReader();
+        //        var readerGet = cmdGet.ExecuteReader();
 
-                while (readerGet.Read())
-                {
-                    var res = 0;
-                    if (readerGet.FieldCount > 0 && readerGet[0] is Int32 && Int32.TryParse(readerGet[0].ToString(), out res))
-                        return res == 1;
-                }
-            }
+        //        while (readerGet.Read())
+        //        {
+        //            var res = 0;
+        //            if (readerGet.FieldCount > 0 && readerGet[0] is Int32 && Int32.TryParse(readerGet[0].ToString(), out res))
+        //                return res == 1;
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
+        //public static void GetPlayers(Team team)
+        //{
+        //    var idp = team.Id * 100;
+        //    for (var i = 1; i < 35; i++)
+        //        team.Players.Add(new Player { Id = idp++, IsGk = i <= 5, Name = "Player" + i, Number = i, LastName = "Lastname" + i, Team = team });
+        //}
+
+        //public static IEnumerable<Marker> LoadMarkers(Match selectMatch)
+        //{
+        //    return new List<Marker>();
+        //}
 
         public static List<User> GetUserList()
         {
             using (var conn = GetConnection())
             {
-                var cmdGet = new SqlCommand();
-                cmdGet.Connection = conn;
-                cmdGet.CommandType = CommandType.StoredProcedure;
-                cmdGet.CommandText = "lst_c_users";
+                var cmdGet = new SqlCommand
+                {
+                    Connection = conn,
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "lst_c_users"
+                };
 
                 var readerGet = cmdGet.ExecuteReader();
 
@@ -59,22 +74,7 @@ namespace Uniso.InStat.Server
             }
         }
 
-        public static void GetPlayers(Team team)
-        {
-            var idp = team.Id * 100;
-            for (var i = 1; i < 35; i++)
-                team.Players.Add(new Player { Id = idp++, IsGk = i <= 5, Name = "Player" + i, Number = i, LastName = "Lastname" + i, Team = team });
-        }
-
-        public static void LoadTeamColors(Match m)
-        {
-            
-        }
-
-        public static IEnumerable<Marker> LoadMarkers(Match selectMatch)
-        {
-            return new List<Marker>();
-        }
+        
 
         public static Player GetPlayer(int p, Team tm)
         {

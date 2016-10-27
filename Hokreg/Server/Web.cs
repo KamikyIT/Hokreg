@@ -153,10 +153,10 @@ namespace Uniso.InStat.Server
             datain.Add("match_id", match_id);
             datain.Add("dl", 0);
 
-            var rqst = String.Empty;
+            string rqst;
             var req = Request(HOCK_PRE, "registrator_ask_f_match_event", datain, new Dictionary<string, object>(), out rqst);
 
-            var objlist = (Object[])req["data"];
+            var objlist = (object[])req["data"];
             var res = new List<Marker>();
 
             foreach (Dictionary<string, object> u in objlist)

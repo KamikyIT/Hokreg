@@ -631,39 +631,43 @@ namespace Uniso.InStat.Models
         /// Словарь с индексами полей в гугол-документе для заполнения правил.
         /// </summary>
         public static Dictionary< string, int> IndexesMarkersPropertyBased = new Dictionary<string, int>()
-        {
-            //action_code   name    name_eng    action_id   action_type win player  opponent    point   dest
+            #region IndexesMarkersPropertyBased
+
             {
-                "action_code", 1
-            },
-            {
-                "name", 2
-            },
-            {
-                "name_eng", 3
-            },
-            {
-                "action_id", 4
-            },
-            {
-                "action_type", 5
-            },
-            {
-                "win", 6
-            },
-            {
-                "player", 7
-            },
-            {
-                "opponent", 8
-            },
-            {
-                "point", 9
-            },
-            {
-                "dest", 10
-            },
-        };
+                //action_code   name    name_eng    action_id   action_type win player  opponent    point   dest
+                {
+                    "action_code", 1
+                },
+                {
+                    "name", 2
+                },
+                {
+                    "name_eng", 3
+                },
+                {
+                    "action_id", 4
+                },
+                {
+                    "action_type", 5
+                },
+                {
+                    "win", 6
+                },
+                {
+                    "player", 7
+                },
+                {
+                    "opponent", 8
+                },
+                {
+                    "point", 9
+                },
+                {
+                    "dest", 10
+                },
+            };
+
+        #endregion
 
         private static List<MyMarkerModel> markerModels;
         private static List<MarkerPropertyRequires> MarkerPropertyBasedRules;

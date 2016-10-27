@@ -267,11 +267,11 @@ namespace Uniso.InStat.Gui.Forms
             //throw new Exception(String.Format("Ошибка в маркере {0}. Игрок {1} не был указан в маркерах расстановки", mk.Id, player_id));
         }
 
-        private Player GetPlayer(int player_id, Team team, List<Player> pl)
-        {
-            var pli = pl.Where(o => o.Id == player_id).ToList<Player>();
-            return pli.Count == 0 ? MsSql.GetPlayer(player_id, team) : pli[0];
-        }
+        //private Player GetPlayer(int player_id, Team team, List<Player> pl)
+        //{
+        //    var pli = pl.Where(o => o.Id == player_id).ToList<Player>();
+        //    return pli.Count == 0 ? MsSql.GetPlayer(player_id, team) : pli[0];
+        //}
 
         private bool changed_colors = false;
 
