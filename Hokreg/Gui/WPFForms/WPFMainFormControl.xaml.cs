@@ -21,13 +21,15 @@ namespace Uniso.InStat.Gui.WPFForms
         {
             InitializeComponent();
 
-            timer = new DispatcherTimer();
+
 
             //viewModel = new WpfMainFormViewModel(MediaElement, timer);
-            viewModel = new WpfMainFormViewModel(streamVideoPlayerWpf);
+            viewModel = new WpfMainFormViewModel(streamVideoPlayerWpf, this);
 
             this.DataContext = viewModel;
         }
+
+        
 
         private void TestClickCommand(object sender, RoutedEventArgs e)
         {
@@ -49,7 +51,7 @@ namespace Uniso.InStat.Gui.WPFForms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.streamVideoPlayerWpf.Mode = StreamVideoPlayerWpf.PlayerMode.Play;
+            this.streamVideoPlayerWpf.MediaPlayer_PlayStateChange();
         }
     }
 }

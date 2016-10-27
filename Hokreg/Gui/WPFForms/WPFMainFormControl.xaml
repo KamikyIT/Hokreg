@@ -44,11 +44,9 @@
 
         <!-- Медиа Плеер -->
         <Canvas ZIndex="100" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <Button Canvas.Top="-20" Click="Button_Click">PLAY</Button>
-            <wpfStreamPlayer:StreamVideoPlayerWpf x:Name="streamVideoPlayerWpf" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="520" Width="940" Canvas.Left="10" Canvas.Top="10">
-            </wpfStreamPlayer:StreamVideoPlayerWpf>
-            <!--<MediaElement Name="MediaElement" Source="{Binding VideoFileName}" Volume="{Binding Value, ElementName=VolumeSlider}" 
-                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
+            <Button Canvas.Top="-20" Click="Button_Click" Canvas.Left="105">PLAY</Button>
+            <TextBlock Name="DirtyTimeTextBlock" Canvas.Top="-20" Text="{Binding DirtyTimeString}" Width="100" Background="Aqua" Foreground="Black"/>
+            <wpfStreamPlayer:StreamVideoPlayerWpf x:Name="streamVideoPlayerWpf" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="520" Width="940" Canvas.Left="10" Canvas.Top="10"/>
         </Canvas>
 
         <TabControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3">
@@ -66,19 +64,19 @@
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
                                     <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
-                                        <Button Margin="3">
+                                        <Button Margin="3" Command="{Binding RegisterPeriodMarker}" CommandParameter="Period1">
                                             <TextBlock>Period 1</TextBlock>
                                         </Button>
-                                        <Button Margin="3">
+                                        <Button Margin="3" Command="{Binding RegisterPeriodMarker}" CommandParameter="Period2">
                                             <TextBlock>Period 2</TextBlock>
                                         </Button>
-                                        <Button Margin="3">
+                                        <Button Margin="3" Command="{Binding RegisterPeriodMarker}" CommandParameter="Period3">
                                             <TextBlock>Period 3</TextBlock>
                                         </Button>
-                                        <Button Margin="3">
+                                        <Button Margin="3" Command="{Binding RegisterPeriodMarker}" CommandParameter="Penalty">
                                             <TextBlock>Penalty</TextBlock>
                                         </Button>
-                                        <Button Margin="3">
+                                        <Button Margin="3" Command="{Binding RegisterPeriodMarker}" CommandParameter="Overtime">
                                             <TextBlock>Overtime</TextBlock>
                                         </Button>
                                     </StackPanel>

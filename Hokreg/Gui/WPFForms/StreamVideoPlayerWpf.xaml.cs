@@ -361,7 +361,7 @@ namespace Uniso.InStat.StreamPlayer
             }*/
         }
 
-        void mediaPlayer1_PlayStateChange()
+        public void MediaPlayer_PlayStateChange()
         {
             var ps1 = GetMediaState();
 
@@ -394,6 +394,11 @@ namespace Uniso.InStat.StreamPlayer
         public float GetCurrentSceneSecond()
         {
             return (float) MediaElement.Position.TotalMilliseconds/1000.0f;
+        }
+
+        public float GetCurrentSceneMiliseconds()
+        {
+            return (float) MediaElement.Position.TotalMilliseconds;
         }
 
 
@@ -1143,7 +1148,7 @@ namespace Uniso.InStat.StreamPlayer
                 if (!IsPlayerLive && !openScene && !Buffering)
                     return;
 
-                mediaPlayer1_PlayStateChange();
+                MediaPlayer_PlayStateChange();
 
                 long pos = Position;
 

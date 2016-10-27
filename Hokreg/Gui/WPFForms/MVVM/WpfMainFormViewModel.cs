@@ -20,6 +20,7 @@ using AxMediaPlayer;
 using Microsoft.Win32;
 using Uniso.InStat.Annotations;
 using Uniso.InStat.Classes;
+using Uniso.InStat.Gui.WPFForms;
 using Uniso.InStat.StreamPlayer;
 
 
@@ -38,6 +39,10 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
         private bool _mediaElementPlaying;
         private DispatcherTimer timer;
         private StreamVideoPlayerWpf streamVideoPlayerWpf;
+        private float _dirtyTime;
+        private string _dirtyTimeString;
+        private WPFMainFormControl wPFMainFormControl;
+        private ICommand _registerMarker;
 
         #endregion
 
@@ -52,8 +57,25 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
         public WpfMainFormViewModel(StreamVideoPlayerWpf streamVideoPlayerWpf): this()
         {
             this.streamVideoPlayerWpf = streamVideoPlayerWpf;
+
+            timer = new DispatcherTimer();
+
+            timer.Tick += TimerOnTick;
+
+            timer.Start();
         }
-        
+
+        public WpfMainFormViewModel(StreamVideoPlayerWpf streamVideoPlayerWpf, WPFMainFormControl wPFMainFormControl) : this(streamVideoPlayerWpf)
+        {
+            this.wPFMainFormControl = wPFMainFormControl;
+        }
+
+        private void TimerOnTick(object sender, EventArgs eventArgs)
+        {
+            DirtyTime = streamVideoPlayerWpf.GetCurrentSceneMiliseconds();
+
+            wPFMainFormControl.DirtyTimeTextBlock.Text = DirtyTimeString;
+        }
 
         #endregion
 
@@ -87,6 +109,34 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
             }
         }
 
+        public float DirtyTime
+        {
+            get { return _dirtyTime; }
+            set
+            {
+                if (Math.Abs(_dirtyTime - value) < 0.00001f) return;
+                _dirtyTime = value;
+
+                DirtyTimeString = _dirtyTime.ToString();
+
+                OnPropertyChanged(@"DirtyTime");
+            }
+        }
+
+        public string DirtyTimeString
+        {
+            get
+            {
+                return _dirtyTimeString;
+            }
+            set
+            {
+                if (value == _dirtyTimeString) return;
+                _dirtyTimeString = value;
+                OnPropertyChanged(@"DirtyTimeString");
+            }
+        }
+
         #endregion
 
         #region Commands
@@ -114,7 +164,23 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
             set { _openVideoFileCommand = value; }
         }
 
-        
+        public ICommand RegisterMarker
+        {
+            get
+            {
+                if (_registerMarker == null)
+                {
+                    _registerMarker = new CommandHandler(
+                        (object o) =>
+                        {
+                            var p = 5;
+                        }, true
+                        );
+                }
+                return _registerMarker;
+            }
+            set { _registerMarker = value; }
+        }
 
         #endregion
 
