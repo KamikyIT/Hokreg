@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -42,7 +44,11 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
         private float _dirtyTime;
         private string _dirtyTimeString;
         private WPFMainFormControl wPFMainFormControl;
-        private ICommand _registerMarker;
+        private ICommand _registerMarker123;
+        private ICommand _registerMarkerCommnd;
+        private ObservableCollection<MarkerWithProperty> _markerWithPropertiesCollection;
+        private MarkerWithProperty _selectedMarkerFromDataGrid;
+
 
         #endregion
 
@@ -58,12 +64,52 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
         {
             this.streamVideoPlayerWpf = streamVideoPlayerWpf;
 
+            _registerMarkerCommnd = new CommandHandlerWithParam(RegisterMarkerMethod, CanExecute);
+
             timer = new DispatcherTimer();
 
             timer.Tick += TimerOnTick;
 
             timer.Start();
+
+            _markerWithPropertiesCollection = new ObservableCollection<MarkerWithProperty>();
+
+            Test();
         }
+
+        private void Test()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var mk = new MarkerWithProperty(null)
+                {
+                    ActionCode = 300100,
+                    Point1 = new PointF(1f, 10f),
+                    Player1 = new Player()
+                    {
+                        Name = "aaa",
+                    },
+                    Player2 = new Player()
+                    {
+                        Name = "bbb",
+                    },
+                    Point2 = new PointF(5f, 5f),
+                    Id = i,
+                    Half = new Half(new List<Period>()
+                    {
+                        new Period()
+                        {
+                            Index = 1,
+                            Length = 100,
+                        },
+                    }),
+                    
+                };
+
+                MarkerWithPropertiesCollection.Add(mk);
+            }
+        }
+
 
         public WpfMainFormViewModel(StreamVideoPlayerWpf streamVideoPlayerWpf, WPFMainFormControl wPFMainFormControl) : this(streamVideoPlayerWpf)
         {
@@ -137,6 +183,27 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
             }
         }
 
+        public ObservableCollection<MarkerWithProperty> MarkerWithPropertiesCollection
+        {
+            get { return this._markerWithPropertiesCollection; }
+        }
+
+        public MarkerWithProperty SelectedMarkerFromDataGrid
+        {
+            get { return _selectedMarkerFromDataGrid; }
+            set
+            {
+                if (_selectedMarkerFromDataGrid == value)
+                    return;
+
+                _selectedMarkerFromDataGrid = value;
+                OnPropertyChanged(@"SelectedMarkerFromDataGrid");
+
+
+            }
+        }
+
+
         #endregion
 
         #region Commands
@@ -164,23 +231,49 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
             set { _openVideoFileCommand = value; }
         }
 
-        public ICommand RegisterMarker
+
+        private bool CanExecute(object o)
+        {
+            var p = 5;
+            return true;
+        }
+
+        private void RegisterMarkerMethod(object o)
+        {
+            var p = 5;
+        }
+
+        public ICommand RegisterMarker123
         {
             get
             {
-                if (_registerMarker == null)
+                if (_registerMarker123 == null)
                 {
-                    _registerMarker = new CommandHandler(
-                        (object o) =>
+                    _registerMarker123 = new CommandHandler(
+                        () =>
                         {
                             var p = 5;
                         }, true
                         );
                 }
-                return _registerMarker;
+                return _registerMarker123;
             }
-            set { _registerMarker = value; }
+            set { _registerMarker123 = value; }
         }
+
+
+        private void RegisterMarker(object action_code)
+        {
+            var p = 5;
+        }
+
+        // ReSharper disable once ConvertToAutoProperty
+        public ICommand RegisterMarkerCommand
+        {
+            // ReSharper disable once ConvertPropertyToExpressionBody
+            get { return _registerMarkerCommnd; }
+        }
+
 
         #endregion
 
@@ -255,6 +348,31 @@ namespace Uniso.InStat.Gui.WPF_Forms.MVVM
         }
     }
 
+    public class CommandHandlerWithParam : ICommand
+    {
+        public delegate bool CanExecuteDelegate(object obj);
 
-    
+        private Action<object> _action;
+        private CanExecuteDelegate _canExecute;
+
+        public CommandHandlerWithParam(Action<object> method, CanExecuteDelegate canExecute)
+        {
+            this._action = method;
+            this._canExecute = canExecute;
+        }
+
+        public void Execute(object parameter)
+        {
+            _action(parameter);
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return _canExecute(parameter);
+        }
+
+        public event EventHandler CanExecuteChanged;
+    }
+
+
 }

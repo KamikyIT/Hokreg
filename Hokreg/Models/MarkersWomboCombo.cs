@@ -717,6 +717,23 @@ namespace Uniso.InStat.Models
 
 
         private static Dictionary<int, FoulStageRulesModel> FoulStagesDictionary { get; set; }
+
+        public static string ActionString(int actionCode)
+        {
+            if (actionCode== 0)
+            {
+                return "KEKNOOOL";
+            }
+
+            var rule = MarkersWomboCombo.MarkerPropertyBasedRules.FirstOrDefault(x => x.action_code == actionCode);
+
+            if (rule != null)
+            {
+                return rule.name;
+            }
+
+            return null;
+        }
     }
 
 
