@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Uniso.InStat.Game;
 using Uniso.InStat.Gui;
 using Uniso.InStat.Gui.Forms;
+using Uniso.InStat.Gui.WPFForms;
 using Uniso.InStat.Gui.WPF_Forms;
 using Uniso.Update;
 
@@ -21,9 +22,12 @@ namespace Uniso.InStat
         [STAThread]
         static void Main()
         {
-            var f1 = new WpfMainWindow();
+            var f1 = new EditBrosokForm();
             Application.Run(f1);
             return;
+            //var f1 = new WpfMainWindow();
+            //Application.Run(f1);
+            //return;
 
             Log.IsDebug = true;
             AppInfo.SaveEntryAssemblyVersionToFile();

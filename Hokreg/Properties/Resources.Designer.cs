@@ -91,6 +91,26 @@ namespace Uniso.InStat.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GoalKeeperBody {
+            get {
+                object obj = ResourceManager.GetObject("GoalKeeperBody", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap goalkeeperstate {
+            get {
+                object obj = ResourceManager.GetObject("goalkeeperstate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на ,	,	action_id,	action_type,	win,	name,	name_eng,	player,	opponent,	point,	dest,	stop time,	Доп,	Описание,	order,	,	,	,	,	
         ///,	100000,	,	,	,	Передачи,	,	,	,	,	,	,	,	,	,	,	,	,	,	
         ///x,	100100,	1,	1,	,	Вбрасывание,	Faceoff,	v,	v,	v,	,	,	,	,	,	,	
@@ -106,16 +126,9 @@ namespace Uniso.InStat.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на ,name,name_eng,action_id,action_type,win,player,opponent,point,dest,stop time,Описание
-        ///100000,Передачи,,,,,,,,,,
-        ///100100,Вбрасывание,Faceoff,1,1,,p1,o2,t1,,ЗАПУСК,
-        ///100200,Голевая передача,assist,1,2,,,,,,,
-        ///100300,Пас по борту,,1,3,,,,,,,
-        ///100301,Пас по борту (+),,1,3,1,p1,p2,t1,t2,,Пас по борту точный
-        ///100302,Пас по борту (-),,1,3,2,p1,o2?,t1,t2,,Пас по борту неточный
-        ///100400,Пас (конструктивная передача),,1,4,,,,,,,
-        ///100401,Пас (+),,1,4,1,p1,p2,t1,t2,,Конструктивная передача точная
-        ///100402,Пас (-),,1,4, [остаток строки не уместился]&quot;;.
+        ///   Ищет локализованную строку, похожую на 7															СВОЙСТВА (c_match_event_prop)						СВЯЗИ (c_match_event_prop_values)				
+        ///	action_code	name	name_eng	action_id	action_type	win	player	opponent	point	dest	stop time	Описание			Property_ID	Свойства(типы)	Описание	Маркеры	описание		Property_ID	Value_ID	Свойства(значения)	Описание	
+        ///	100000	Передачи													1	Тип Броска	Тип Броска	все 4,8		INSERT INTO c_match_event_prop(id,name,descr) SELECT 1, &apos;Тип Броска&apos;, &apos;Тип Броска&apos;;	1	1	Щелчок	401000	INSERT INTO c_match_event_prop_values(c_match_event_ [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string NewMarkersProperties {
             get {

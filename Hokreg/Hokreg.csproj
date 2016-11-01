@@ -273,6 +273,18 @@
     <Compile Include="Gui\Forms\InsertSubstitutionForm.Designer.cs">
       <DependentUpon>InsertSubstitutionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\WPFForms\EditBrosokForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\WPFForms\EditBrosokForm.Designer.cs">
+      <DependentUpon>EditBrosokForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WPFForms\GoalKeeperBodyReceiveWpfControl.xaml.cs">
+      <DependentUpon>GoalKeeperBodyReceiveWpfControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\WPFForms\GoalKeeperStateWpfControl.xaml.cs">
+      <DependentUpon>GoalKeeperStateWpfControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gui\WPFForms\MVVM\WpfMainFormViewModel.cs" />
     <Compile Include="Gui\WPFForms\MyMediaPlayer.xaml.cs">
       <DependentUpon>MyMediaPlayer.xaml</DependentUpon>
@@ -420,6 +432,9 @@
     <EmbeddedResource Include="Gui\Forms\ViolationForm.resx">
       <DependentUpon>ViolationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\WPFForms\EditBrosokForm.resx">
+      <DependentUpon>EditBrosokForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\WPFForms\WpfMainWindow.resx">
       <DependentUpon>WpfMainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,6 +469,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app_icon_48.ico" />
+    <None Include="Resources\GoalKeeperBody.png" />
+    <None Include="Resources\goalkeeperstate.png" />
     <None Include="Resources\foul_marker_rules.txt" />
     <None Include="Resources\marker_rules.txt" />
     <None Include="Resources\ajax-loader2.gif" />
@@ -461,6 +478,14 @@
     <None Include="Resources\user2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Gui\WPFForms\GoalKeeperBodyReceiveWpfControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gui\WPFForms\GoalKeeperStateWpfControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gui\WPFForms\MyMediaPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
