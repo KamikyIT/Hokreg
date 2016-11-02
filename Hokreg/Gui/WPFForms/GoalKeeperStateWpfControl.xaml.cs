@@ -36,7 +36,7 @@ namespace Uniso.InStat.Gui.WPFForms
                 this.v_dom_ellipse
             };
 
-            ResultState = GoalKeeperStandingEnum.none;
+            ResultState = GateWayThrowEnum.none;
 
             MainGrid.Background =
                 new ImageBrush(Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.goalkeeperstate.GetHbitmap(),
@@ -44,7 +44,7 @@ namespace Uniso.InStat.Gui.WPFForms
             
         }
 
-        public GoalKeeperStandingEnum ResultState { get; set; }
+        public GateWayThrowEnum ResultState { get; set; }
 
         private void SetEllipsesActivities(Ellipse selected_ellipse)
         {
@@ -105,27 +105,27 @@ namespace Uniso.InStat.Gui.WPFForms
             {
                 case "nad_blin":
                     active_viewbox = nad_blin;
-                    ResultState = GoalKeeperStandingEnum.nad_blin;
+                    ResultState = GateWayThrowEnum.nad_blin;
                     break;
                 case "nad_trap":
                     active_viewbox = nad_trap;
-                    ResultState = GoalKeeperStandingEnum.nad_trap;
+                    ResultState = GateWayThrowEnum.nad_trap;
                     break;
                 case "v_telo":
                     active_viewbox = v_telo;
-                    ResultState = GoalKeeperStandingEnum.v_telo;
+                    ResultState = GateWayThrowEnum.v_telo;
                     break;
                 case "pod_blin":
                     active_viewbox = pod_blin;
-                    ResultState = GoalKeeperStandingEnum.pod_blin;
+                    ResultState = GateWayThrowEnum.pod_blin;
                     break;
                 case "pod_trap":
                     active_viewbox = pod_trap;
-                    ResultState = GoalKeeperStandingEnum.pod_trap;
+                    ResultState = GateWayThrowEnum.pod_trap;
                     break;
                 case "v_dom":
                     active_viewbox = v_dom;
-                    ResultState = GoalKeeperStandingEnum.v_dom;
+                    ResultState = GateWayThrowEnum.v_dom;
                     break;
                 default:
                     break;
@@ -145,7 +145,7 @@ namespace Uniso.InStat.Gui.WPFForms
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    public enum GoalKeeperStandingEnum
+    public enum GateWayThrowEnum
     {
         none,
         nad_blin,

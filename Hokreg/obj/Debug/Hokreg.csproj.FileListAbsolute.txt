@@ -109,3 +109,5 @@ C:\Hokreg\Hokreg\obj\Debug\hokreg.pdb
 C:\Hokreg\Hokreg\obj\Debug\Hokreg.csprojResolveAssemblyReference.cache
 C:\Hokreg\Hokreg\obj\Debug\Gui\WPFForms\GoalKeeperBodyReceiveWpfControl.g.cs
 C:\Hokreg\Hokreg\obj\Debug\Gui\WPFForms\GoalKeeperBodyReceiveWpfControl.baml
+C:\Hokreg\Hokreg\obj\Debug\Gui\WPFForms\HockeyGatesWpfControl.g.cs
+C:\Hokreg\Hokreg\obj\Debug\Gui\WPFForms\HockeyGatesWpfControl.baml

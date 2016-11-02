@@ -111,6 +111,16 @@ namespace Uniso.InStat.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HockeyGateway {
+            get {
+                object obj = ResourceManager.GetObject("HockeyGateway", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на ,	,	action_id,	action_type,	win,	name,	name_eng,	player,	opponent,	point,	dest,	stop time,	Доп,	Описание,	order,	,	,	,	,	
         ///,	100000,	,	,	,	Передачи,	,	,	,	,	,	,	,	,	,	,	,	,	,	
         ///x,	100100,	1,	1,	,	Вбрасывание,	Faceoff,	v,	v,	v,	,	,	,	,	,	,	

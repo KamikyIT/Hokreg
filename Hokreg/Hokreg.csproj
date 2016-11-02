@@ -285,6 +285,9 @@
     <Compile Include="Gui\WPFForms\GoalKeeperStateWpfControl.xaml.cs">
       <DependentUpon>GoalKeeperStateWpfControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Gui\WPFForms\HockeyGatesWpfControl.xaml.cs">
+      <DependentUpon>HockeyGatesWpfControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gui\WPFForms\MVVM\WpfMainFormViewModel.cs" />
     <Compile Include="Gui\WPFForms\MyMediaPlayer.xaml.cs">
       <DependentUpon>MyMediaPlayer.xaml</DependentUpon>
@@ -469,6 +472,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app_icon_48.ico" />
+    <None Include="Resources\HockeyGateway.png" />
     <None Include="Resources\GoalKeeperBody.png" />
     <None Include="Resources\goalkeeperstate.png" />
     <None Include="Resources\foul_marker_rules.txt" />
@@ -483,6 +487,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Gui\WPFForms\GoalKeeperStateWpfControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gui\WPFForms\HockeyGatesWpfControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
