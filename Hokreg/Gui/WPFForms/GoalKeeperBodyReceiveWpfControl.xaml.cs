@@ -351,8 +351,8 @@ namespace Uniso.InStat.Gui.WPFForms
         StickBot = 15,
 
         [XmlEnum("Правая зона")]
-        RightShit,
+        RightShit = 17,
         [XmlEnum("Левая зона")]
-        LeftShit
+        LeftShit = 18,
     }
 }

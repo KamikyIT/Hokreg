@@ -22,7 +22,29 @@ namespace Uniso.InStat
         [STAThread]
         static void Main()
         {
-            var f1 = new EditBrosokForm();
+            //
+            var mks = new List<Game.Marker>();
+
+            mks.Add(new Game.Marker(null)
+            {
+                ActionCode = 300100,
+                TimeVideo = 100200,
+                TimeVideoReal = 100100,
+            });
+            mks.Add(new Game.Marker(null)
+            {
+                ActionCode = 300100,
+                TimeVideo = 100500,
+                TimeVideoReal = 100600,
+            });
+            mks.Add(new Game.Marker(null)
+            {
+                ActionCode = 300100,
+                TimeVideo = 200000,
+                TimeVideoReal = 200500,
+            });
+
+            var f1 = new EditBrosokForm(@"C:\Матчи\10000024_1.mp4", mks);
             Application.Run(f1);
             return;
             //var f1 = new WpfMainWindow();

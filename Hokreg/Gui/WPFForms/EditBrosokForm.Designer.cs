@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.markersListBox = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -60,11 +60,11 @@
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.streamPlayer1 = new Uniso.InStat.PlayerTypes.StreamPlayer(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
+            this.streamPlayer1 = new Uniso.InStat.PlayerTypes.StreamPlayer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -112,13 +112,19 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "33:25.2";
             // 
-            // listBox1
+            // markersListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(861, 53);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(151, 524);
-            this.listBox1.TabIndex = 5;
+            this.markersListBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.markersListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.markersListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.markersListBox.FormattingEnabled = true;
+            this.markersListBox.HorizontalScrollbar = true;
+            this.markersListBox.Location = new System.Drawing.Point(861, 53);
+            this.markersListBox.Name = "markersListBox";
+            this.markersListBox.Size = new System.Drawing.Size(151, 524);
+            this.markersListBox.TabIndex = 5;
+            this.markersListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.markersListBox_DrawItem);
+            this.markersListBox.SelectedIndexChanged += new System.EventHandler(this.markersListBox_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -377,29 +383,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "ФИКСАЦИЯ";
             // 
-            // streamPlayer1
-            // 
-            this.streamPlayer1.BackColor = System.Drawing.Color.Black;
-            this.streamPlayer1.BufferTime = 1000;
-            this.streamPlayer1.CacheDirectory = ".\\cache\\";
-            this.streamPlayer1.CurrentConnectorSecond = ((long)(0));
-            this.streamPlayer1.CurrentSceneFileName = null;
-            this.streamPlayer1.DurationTotal = 0;
-            this.streamPlayer1.DurationUpload = 0;
-            this.streamPlayer1.Location = new System.Drawing.Point(12, 53);
-            this.streamPlayer1.MediaType = Uniso.InStat.PlayerTypes.StreamPlayer.MediaTypeEnum.FLAT_FILE;
-            this.streamPlayer1.Mode = Uniso.InStat.PlayerTypes.StreamPlayer.PlayerMode.Stop;
-            this.streamPlayer1.Name = "streamPlayer1";
-            this.streamPlayer1.NumScene1 = 0;
-            this.streamPlayer1.NumScene2 = 0;
-            this.streamPlayer1.Position = 0;
-            this.streamPlayer1.Rate = 1D;
-            this.streamPlayer1.Size = new System.Drawing.Size(843, 529);
-            this.streamPlayer1.TabIndex = 0;
-            this.streamPlayer1.Text = "streamPlayer1";
-            this.streamPlayer1.VideoSize = new System.Drawing.Size(0, 0);
-            this.streamPlayer1.Volume = 0;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.button19);
@@ -436,6 +419,29 @@
             this.elementHost3.Text = "elementHost3";
             this.elementHost3.Child = null;
             // 
+            // streamPlayer1
+            // 
+            this.streamPlayer1.BackColor = System.Drawing.Color.Black;
+            this.streamPlayer1.BufferTime = 1000;
+            this.streamPlayer1.CacheDirectory = ".\\cache\\";
+            this.streamPlayer1.CurrentConnectorSecond = ((long)(0));
+            this.streamPlayer1.CurrentSceneFileName = null;
+            this.streamPlayer1.DurationTotal = 0;
+            this.streamPlayer1.DurationUpload = 0;
+            this.streamPlayer1.Location = new System.Drawing.Point(12, 53);
+            this.streamPlayer1.MediaType = Uniso.InStat.PlayerTypes.StreamPlayer.MediaTypeEnum.FLAT_FILE;
+            this.streamPlayer1.Mode = Uniso.InStat.PlayerTypes.StreamPlayer.PlayerMode.Stop;
+            this.streamPlayer1.Name = "streamPlayer1";
+            this.streamPlayer1.NumScene1 = 0;
+            this.streamPlayer1.NumScene2 = 0;
+            this.streamPlayer1.Position = 0;
+            this.streamPlayer1.Rate = 1D;
+            this.streamPlayer1.Size = new System.Drawing.Size(843, 529);
+            this.streamPlayer1.TabIndex = 0;
+            this.streamPlayer1.Text = "streamPlayer1";
+            this.streamPlayer1.VideoSize = new System.Drawing.Size(0, 0);
+            this.streamPlayer1.Volume = 0;
+            // 
             // EditBrosokForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,7 +455,7 @@
             this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.markersListBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -477,7 +483,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox markersListBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button5;
