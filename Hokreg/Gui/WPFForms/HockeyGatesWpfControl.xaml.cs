@@ -56,30 +56,50 @@ namespace Uniso.InStat.Gui.WPFForms
 
         private void Canvas_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var canvasWidth = (int)((sender as Canvas).RenderSize).Width;
-            var canvasHeight = (int)((sender as Canvas).RenderSize).Height;
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                var canvasWidth = (int)((sender as Canvas).RenderSize).Width;
+                var canvasHeight = (int)((sender as Canvas).RenderSize).Height;
 
-            Result = ConvertToGatesPoint(e.GetPosition(CanvasGates), canvasWidth, canvasHeight);
+                Result = ConvertToGatesPoint(e.GetPosition(CanvasGates), canvasWidth, canvasHeight);
 
-            Canvas.SetTop(SelectedPointElipse, e.GetPosition(CanvasGates).Y - this.SelectedPointElipse.Height / 2);
-            Canvas.SetLeft(SelectedPointElipse, e.GetPosition(CanvasGates).X - this.SelectedPointElipse.Width / 2);
+                Canvas.SetTop(SelectedPointElipse, e.GetPosition(CanvasGates).Y - this.SelectedPointElipse.Height / 2f);
+                Canvas.SetLeft(SelectedPointElipse, e.GetPosition(CanvasGates).X - this.SelectedPointElipse.Width / 2f);
 
-            SelectedPointElipse.Visibility = Visibility.Visible;
+                SelectedPointElipse.Visibility = Visibility.Visible;
+            }
+            else if (e.ChangedButton == MouseButton.Right)
+            {
+                //ForseSetValue(new PointF(0f, 1f));
+                ForseSetValue(new PointF(-0.15f, 0.52f));
+            }
         }
 
         private PointF ConvertToGatesPoint(System.Windows.Point point, int width, int height)
         {
-            var xp1 = width - point.X;
-            var yp = height - point.Y;
-            var xp = width / 2 - xp1;
+            double xp1 = width - point.X;
+            double yp = height - point.Y;
+            double xp = width / 2f - xp1;
 
-            var koefX = GoalSize.Width/width;
-            var koefY = GoalSize.Width/width;
+            double koefX = GoalSize.Width/width;
+            double koefY = GoalSize.Height / height;
 
-            var x = (float) (xp*koefX);
-            var y = (float) (yp*koefY);
+            double x = (double)(xp*koefX);
+            double y = (double)(yp*koefY);
 
-            return new PointF(x, y);
+            return new PointF((float) x, (float) y);
+        }
+
+        private PointF ConvertFromGatesPoint(PointF point, int width, int height)
+        {
+            double koefX = GoalSize.Width / width;
+            double koefY = GoalSize.Height / height;
+
+            double x = point.X/koefX + width / 2f;
+
+            double y = height - point.Y / koefY;
+            
+            return new PointF((float) x, (float) y);
         }
 
 
@@ -90,18 +110,29 @@ namespace Uniso.InStat.Gui.WPFForms
 
             return string.Format("{{ {0} , {1} }}", x.ToString("0.00"), y.ToString("0.00"));
         }
-
-        // TODO: Сбросить отображение.
+        
         public void ResetDisplay()
         {
-            
+            this.Result = null;
 
+            SelectedPointElipse.Visibility = Visibility.Hidden;
         }
 
-        // TODO: Отобразить точку.
         public void ForseSetValue(PointF value)
         {
-            
+            Result = value;
+
+            var canvasWidth = (int)(this.CanvasGates.RenderSize).Width;
+            var canvasHeight = (int)(this.CanvasGates.RenderSize).Height;
+
+            var point = ConvertFromGatesPoint(Result.Value, canvasWidth, canvasHeight);
+
+            Canvas.SetTop(SelectedPointElipse, point.Y - this.SelectedPointElipse.Height / 2);
+            Canvas.SetLeft(SelectedPointElipse, point.X - this.SelectedPointElipse.Width / 2);
+
+            SelectedPointElipse.Visibility = Visibility.Visible;
+
+            PointTextBlock.Text = DisplayStringResult(Result.Value);
         }
     }
 }

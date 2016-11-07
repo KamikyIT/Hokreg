@@ -31,8 +31,6 @@ namespace Uniso.InStat.Gui.WPFForms
             elementHost3.Child = hockeyGatesWpfControl;
 
             video_view_model = new VideoViewModel(videoFileName, this.streamPlayer1);
-
-            this.brosok_markers = brosokMarkers;
             
             FillMarkersListBox(brosokMarkers);
 
@@ -229,7 +227,6 @@ namespace Uniso.InStat.Gui.WPFForms
             btn.BackColor = selected ? Color.LightSkyBlue : SystemColors.Control;
         }
 
-        private List<Game.Marker> brosok_markers;
 
         private VideoViewModel video_view_model;
         private BrosokModel _currentModel;
@@ -257,9 +254,17 @@ namespace Uniso.InStat.Gui.WPFForms
 
             public string videoFileName { get; private set; }
 
-            public float speed { get; set; }
+            public double Speed
+            {
+                get { return streamPlayer1.Rate; }
+                set { streamPlayer1.Rate = value; }
+            }
 
-            public float volume { get; set; }
+            public int Volume
+            {
+                get { return this.streamPlayer1.Volume; }
+                set { this.streamPlayer1.Volume = value; }
+            }
 
             public VideoViewModel(string videoUri, PlayerTypes.StreamPlayer streamPlayer1)
             {
@@ -267,7 +272,10 @@ namespace Uniso.InStat.Gui.WPFForms
 
                 this.streamPlayer1 = streamPlayer1;
 
-                this.streamPlayer1.Start(this.videoFileName);
+#if DEBUG
+                streamPlayer1.Volume = -4000;
+#endif
+                streamPlayer1.Start(this.videoFileName);
             }
         }
 
@@ -325,8 +333,6 @@ namespace Uniso.InStat.Gui.WPFForms
         public GateWayThrowEnum? GateWayThrow { get; set; }
 
         public GoalKeeperBodyEnum? GoalKeeperBody { get; set; }
-
-        
 
         public PointF? PointInGates { get; set; }
 

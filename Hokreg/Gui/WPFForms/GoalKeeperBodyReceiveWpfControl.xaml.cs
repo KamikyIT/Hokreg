@@ -303,18 +303,76 @@ namespace Uniso.InStat.Gui.WPFForms
             TextBlockMouseOver.Text = string.Empty;
         }
 
-        // TODO: Сбросить отображение.
         public void ResetDisplay()
         {
-            
+            Result = GoalKeeperBodyEnum.None;
 
+            foreach (var ellipse in all_ellipses)
+            {
+                SetActiveEllipse(ellipse, false);
+            }
         }
 
-        // TODO: Изобразить выбранный
         public void ForseSetValue(GoalKeeperBodyEnum value)
         {
-            
+            Result = value;
 
+            Ellipse selected_ellipse = null;
+
+            switch (value)
+            {
+                case GoalKeeperBodyEnum.None:
+                    break;
+                case GoalKeeperBodyEnum.RightShoulder:
+                    selected_ellipse = right_shoulder;
+                    break;
+                case GoalKeeperBodyEnum.LeftShoulder:
+                    selected_ellipse = left_shoulder;
+                    break;
+                case GoalKeeperBodyEnum.Trap:
+                    selected_ellipse = trap;
+                    break;
+                case GoalKeeperBodyEnum.Podyshka:
+                    selected_ellipse = podyshka;
+                    break;
+                case GoalKeeperBodyEnum.Body:
+                    selected_ellipse = body;
+                    break;
+                case GoalKeeperBodyEnum.RightTopShield:
+                    selected_ellipse = right_top_shield;
+                    break;
+                case GoalKeeperBodyEnum.RightMidShield:
+                    selected_ellipse = right_mid_shield;
+                    break;
+                case GoalKeeperBodyEnum.RightBotShield:
+                    selected_ellipse = right_bot_shield;
+                    break;
+                case GoalKeeperBodyEnum.LeftTopShield:
+                    selected_ellipse = left_top_shield;
+                    break;
+                case GoalKeeperBodyEnum.LeftMidShield:
+                    selected_ellipse = left_mid_shield;
+                    break;
+                case GoalKeeperBodyEnum.LeftBotShield:
+                    selected_ellipse = left_bot_shield;
+                    break;
+                case GoalKeeperBodyEnum.StickTop:
+                    selected_ellipse = stick_top;
+                    break;
+                case GoalKeeperBodyEnum.StickBot:
+                    selected_ellipse = stick_bot;
+                    break;
+                case GoalKeeperBodyEnum.RightShit:
+                    selected_ellipse = right_shit;
+                    break;
+                case GoalKeeperBodyEnum.LeftShit:
+                    selected_ellipse = left_shit;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value), value, null);
+            }
+
+            SetEllipsesActivities(selected_ellipse);
         }
     }
 

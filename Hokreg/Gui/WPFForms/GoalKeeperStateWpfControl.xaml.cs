@@ -48,14 +48,9 @@ namespace Uniso.InStat.Gui.WPFForms
 
         private void SetEllipsesActivities(Ellipse selected_ellipse)
         {
-            if (selected_ellipse == null)
-            {
-                return;
-            }
-
             foreach (var ellipse in allEllipses)
             {
-                SetActiveEllipse(ellipse, Equals(ellipse, selected_ellipse));
+                SetActiveEllipse(ellipse, ReferenceEquals(ellipse, selected_ellipse));
             }
         }
 
@@ -143,18 +138,47 @@ namespace Uniso.InStat.Gui.WPFForms
             }
         }
 
-        // TODO: Сбросить отображение.
         public void ResetDisplay()
         {
-            
+            ResultState = GateWayThrowEnum.none;
 
+            SetEllipsesActivities(null);
         }
 
         // TODO: Отобазить результат
         public void ForseSetValue(GateWayThrowEnum value)
         {
-            
+            ResultState = value;
 
+            Ellipse selected_ellipse = null;
+
+            switch (value)
+            {
+                case GateWayThrowEnum.none:
+                    break;
+                case GateWayThrowEnum.nad_blin:
+                    selected_ellipse = nad_blin_ellipse;
+                    break;
+                case GateWayThrowEnum.nad_trap:
+                    selected_ellipse = nad_trap_ellipse;
+                    break;
+                case GateWayThrowEnum.v_telo:
+                    selected_ellipse = v_telo_ellipse;
+                    break;
+                case GateWayThrowEnum.pod_blin:
+                    selected_ellipse = pod_blin_ellipse;
+                    break;
+                case GateWayThrowEnum.pod_trap:
+                    selected_ellipse = pod_trap_ellipse;
+                    break;
+                case GateWayThrowEnum.v_dom:
+                    selected_ellipse = v_dom_ellipse;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value), value, null);
+            }
+            
+            SetEllipsesActivities(selected_ellipse);
         }
     }
 
