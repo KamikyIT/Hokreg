@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblMomentBroska = new System.Windows.Forms.Label();
+            this.lblStartFlyTime = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblMomentOtskoka = new System.Windows.Forms.Label();
+            this.lblEndFlyTime = new System.Windows.Forms.Label();
             this.markersListBox = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBrosokType6 = new System.Windows.Forms.Button();
@@ -61,8 +61,8 @@
             this.btnGoalFixation1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
+            this.btnEndFlyTime = new System.Windows.Forms.Button();
+            this.btnStartFlyTime = new System.Windows.Forms.Button();
             this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
             this.streamPlayer1 = new Uniso.InStat.PlayerTypes.StreamPlayer(this.components);
             this.panel1.SuspendLayout();
@@ -72,15 +72,15 @@
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblMomentBroska
+            // lblStartFlyTime
             // 
-            this.lblMomentBroska.AutoSize = true;
-            this.lblMomentBroska.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblMomentBroska.Location = new System.Drawing.Point(191, 25);
-            this.lblMomentBroska.Name = "lblMomentBroska";
-            this.lblMomentBroska.Size = new System.Drawing.Size(84, 25);
-            this.lblMomentBroska.TabIndex = 1;
-            this.lblMomentBroska.Text = "33:25.2";
+            this.lblStartFlyTime.AutoSize = true;
+            this.lblStartFlyTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblStartFlyTime.Location = new System.Drawing.Point(191, 25);
+            this.lblStartFlyTime.Name = "lblStartFlyTime";
+            this.lblStartFlyTime.Size = new System.Drawing.Size(84, 25);
+            this.lblStartFlyTime.TabIndex = 1;
+            this.lblStartFlyTime.Text = "33:25.2";
             // 
             // label2
             // 
@@ -102,15 +102,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Момент отскока:";
             // 
-            // lblMomentOtskoka
+            // lblEndFlyTime
             // 
-            this.lblMomentOtskoka.AutoSize = true;
-            this.lblMomentOtskoka.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblMomentOtskoka.Location = new System.Drawing.Point(490, 25);
-            this.lblMomentOtskoka.Name = "lblMomentOtskoka";
-            this.lblMomentOtskoka.Size = new System.Drawing.Size(84, 25);
-            this.lblMomentOtskoka.TabIndex = 3;
-            this.lblMomentOtskoka.Text = "33:25.2";
+            this.lblEndFlyTime.AutoSize = true;
+            this.lblEndFlyTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblEndFlyTime.Location = new System.Drawing.Point(490, 25);
+            this.lblEndFlyTime.Name = "lblEndFlyTime";
+            this.lblEndFlyTime.Size = new System.Drawing.Size(84, 25);
+            this.lblEndFlyTime.TabIndex = 3;
+            this.lblEndFlyTime.Text = "33:25.2";
             // 
             // markersListBox
             // 
@@ -149,6 +149,7 @@
             this.btnBrosokType6.TabIndex = 6;
             this.btnBrosokType6.Text = "БРОСОК С БЛИЗКОЙ ДИСТАНЦИИ (ДОБИВАНИЕ)";
             this.btnBrosokType6.UseVisualStyleBackColor = true;
+            this.btnBrosokType6.Click += new System.EventHandler(this.btnBrosokType_Click);
             // 
             // btnBrosokType5
             // 
@@ -158,6 +159,7 @@
             this.btnBrosokType5.TabIndex = 5;
             this.btnBrosokType5.Text = "ПОДСТАВЛЕННАЯ КЛЮШКА";
             this.btnBrosokType5.UseVisualStyleBackColor = true;
+            this.btnBrosokType5.Click += new System.EventHandler(this.btnBrosokType_Click);
             // 
             // btnBrosokType4
             // 
@@ -167,6 +169,7 @@
             this.btnBrosokType4.TabIndex = 4;
             this.btnBrosokType4.Text = "С НЕУДОБНОЙ РУКИ";
             this.btnBrosokType4.UseVisualStyleBackColor = true;
+            this.btnBrosokType4.Click += new System.EventHandler(this.btnBrosokType_Click);
             // 
             // btnBrosokType3
             // 
@@ -176,6 +179,7 @@
             this.btnBrosokType3.TabIndex = 3;
             this.btnBrosokType3.Text = "КИСТЕВОЙ";
             this.btnBrosokType3.UseVisualStyleBackColor = true;
+            this.btnBrosokType3.Click += new System.EventHandler(this.btnBrosokType_Click);
             // 
             // btnBrosokType2
             // 
@@ -185,6 +189,7 @@
             this.btnBrosokType2.TabIndex = 2;
             this.btnBrosokType2.Text = "ЩЕЛЧОК С РАЗМАХОМ";
             this.btnBrosokType2.UseVisualStyleBackColor = true;
+            this.btnBrosokType2.Click += new System.EventHandler(this.btnBrosokType_Click);
             // 
             // btnBrosokType1
             // 
@@ -194,6 +199,7 @@
             this.btnBrosokType1.TabIndex = 1;
             this.btnBrosokType1.Text = "ЩЕЛЧОК";
             this.btnBrosokType1.UseVisualStyleBackColor = true;
+            this.btnBrosokType1.Click += new System.EventHandler(this.btnBrosokType_Click);
             // 
             // label5
             // 
@@ -224,6 +230,7 @@
             this.btnGoalkeeperView3.TabIndex = 3;
             this.btnGoalkeeperView3.Text = "БРОСОК С ОБМАННЫМ ДВИЖЕНИЕМ";
             this.btnGoalkeeperView3.UseVisualStyleBackColor = true;
+            this.btnGoalkeeperView3.Click += new System.EventHandler(this.btnGoalkeeperView_Click);
             // 
             // btnGoalkeeperView2
             // 
@@ -233,6 +240,7 @@
             this.btnGoalkeeperView2.TabIndex = 2;
             this.btnGoalkeeperView2.Text = "ЗАКРЫТЫЙ";
             this.btnGoalkeeperView2.UseVisualStyleBackColor = true;
+            this.btnGoalkeeperView2.Click += new System.EventHandler(this.btnGoalkeeperView_Click);
             // 
             // btnGoalkeeperView1
             // 
@@ -242,6 +250,7 @@
             this.btnGoalkeeperView1.TabIndex = 1;
             this.btnGoalkeeperView1.Text = "ОТКРЫТЫЙ";
             this.btnGoalkeeperView1.UseVisualStyleBackColor = true;
+            this.btnGoalkeeperView1.Click += new System.EventHandler(this.btnGoalkeeperView_Click);
             // 
             // label6
             // 
@@ -294,6 +303,7 @@
             this.btnGoalKeeperStanding4.TabIndex = 3;
             this.btnGoalKeeperStanding4.Text = "ЛЕЖИТ";
             this.btnGoalKeeperStanding4.UseVisualStyleBackColor = true;
+            this.btnGoalKeeperStanding4.Click += new System.EventHandler(this.btnGoalKeeperStanding_Click);
             // 
             // btnGoalKeeperStanding3
             // 
@@ -304,6 +314,7 @@
             this.btnGoalKeeperStanding3.TabIndex = 2;
             this.btnGoalKeeperStanding3.Text = "В СПЛИТЕ";
             this.btnGoalKeeperStanding3.UseVisualStyleBackColor = true;
+            this.btnGoalKeeperStanding3.Click += new System.EventHandler(this.btnGoalKeeperStanding_Click);
             // 
             // btnGoalKeeperStanding2
             // 
@@ -314,6 +325,7 @@
             this.btnGoalKeeperStanding2.TabIndex = 1;
             this.btnGoalKeeperStanding2.Text = "НИЗКАЯ СТОЙКА";
             this.btnGoalKeeperStanding2.UseVisualStyleBackColor = true;
+            this.btnGoalKeeperStanding2.Click += new System.EventHandler(this.btnGoalKeeperStanding_Click);
             // 
             // btnGoalKeeperStanding1
             // 
@@ -324,6 +336,7 @@
             this.btnGoalKeeperStanding1.TabIndex = 0;
             this.btnGoalKeeperStanding1.Text = "ВЫСОКАЯ СТОЙКА";
             this.btnGoalKeeperStanding1.UseVisualStyleBackColor = true;
+            this.btnGoalKeeperStanding1.Click += new System.EventHandler(this.btnGoalKeeperStanding_Click);
             // 
             // panel3
             // 
@@ -345,6 +358,7 @@
             this.btnGoalFixation4.TabIndex = 4;
             this.btnGoalFixation4.Text = "НЕКОНТРОЛИРУЕМЫЙ ОТСКОК";
             this.btnGoalFixation4.UseVisualStyleBackColor = true;
+            this.btnGoalFixation4.Click += new System.EventHandler(this.btnGoalFixation_Click);
             // 
             // btnGoalFixation2
             // 
@@ -354,6 +368,7 @@
             this.btnGoalFixation2.TabIndex = 3;
             this.btnGoalFixation2.Text = "ЗАФИКСИРОВАЛ С ОТСКОКА";
             this.btnGoalFixation2.UseVisualStyleBackColor = true;
+            this.btnGoalFixation2.Click += new System.EventHandler(this.btnGoalFixation_Click);
             // 
             // btnGoalFixation3
             // 
@@ -363,6 +378,7 @@
             this.btnGoalFixation3.TabIndex = 2;
             this.btnGoalFixation3.Text = "КОНТРОЛИРУЕМЫЙ ОТСКОК";
             this.btnGoalFixation3.UseVisualStyleBackColor = true;
+            this.btnGoalFixation3.Click += new System.EventHandler(this.btnGoalFixation_Click);
             // 
             // btnGoalFixation1
             // 
@@ -372,6 +388,7 @@
             this.btnGoalFixation1.TabIndex = 1;
             this.btnGoalFixation1.Text = "ЗАФИКСИРОВАЛ СРАЗУ";
             this.btnGoalFixation1.UseVisualStyleBackColor = true;
+            this.btnGoalFixation1.Click += new System.EventHandler(this.btnGoalFixation_Click);
             // 
             // label7
             // 
@@ -385,30 +402,30 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.button19);
-            this.panel4.Controls.Add(this.button18);
+            this.panel4.Controls.Add(this.btnEndFlyTime);
+            this.panel4.Controls.Add(this.btnStartFlyTime);
             this.panel4.Location = new System.Drawing.Point(1018, 669);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(371, 68);
             this.panel4.TabIndex = 12;
             // 
-            // button19
+            // btnEndFlyTime
             // 
-            this.button19.Location = new System.Drawing.Point(193, 23);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(167, 35);
-            this.button19.TabIndex = 1;
-            this.button19.Text = "КОНЕЦ ПОЛЕТА ШАЙБЫ";
-            this.button19.UseVisualStyleBackColor = true;
+            this.btnEndFlyTime.Location = new System.Drawing.Point(193, 23);
+            this.btnEndFlyTime.Name = "btnEndFlyTime";
+            this.btnEndFlyTime.Size = new System.Drawing.Size(167, 35);
+            this.btnEndFlyTime.TabIndex = 1;
+            this.btnEndFlyTime.Text = "КОНЕЦ ПОЛЕТА ШАЙБЫ";
+            this.btnEndFlyTime.UseVisualStyleBackColor = true;
             // 
-            // button18
+            // btnStartFlyTime
             // 
-            this.button18.Location = new System.Drawing.Point(8, 23);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(167, 35);
-            this.button18.TabIndex = 0;
-            this.button18.Text = "НАЧАЛО ПОЛЕТА ШАЙБЫ";
-            this.button18.UseVisualStyleBackColor = true;
+            this.btnStartFlyTime.Location = new System.Drawing.Point(8, 23);
+            this.btnStartFlyTime.Name = "btnStartFlyTime";
+            this.btnStartFlyTime.Size = new System.Drawing.Size(167, 35);
+            this.btnStartFlyTime.TabIndex = 0;
+            this.btnStartFlyTime.Text = "НАЧАЛО ПОЛЕТА ШАЙБЫ";
+            this.btnStartFlyTime.UseVisualStyleBackColor = true;
             // 
             // elementHost3
             // 
@@ -457,9 +474,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.markersListBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblMomentOtskoka);
+            this.Controls.Add(this.lblEndFlyTime);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblMomentBroska);
+            this.Controls.Add(this.lblStartFlyTime);
             this.Controls.Add(this.streamPlayer1);
             this.Name = "EditBrosokForm";
             this.Text = "EditBrosokForm";
@@ -479,10 +496,10 @@
         #endregion
 
         private PlayerTypes.StreamPlayer streamPlayer1;
-        private System.Windows.Forms.Label lblMomentBroska;
+        private System.Windows.Forms.Label lblStartFlyTime;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblMomentOtskoka;
+        private System.Windows.Forms.Label lblEndFlyTime;
         private System.Windows.Forms.ListBox markersListBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
@@ -511,8 +528,8 @@
         private System.Windows.Forms.Button btnGoalFixation3;
         private System.Windows.Forms.Button btnGoalFixation1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button btnEndFlyTime;
+        private System.Windows.Forms.Button btnStartFlyTime;
         private System.Windows.Forms.Integration.ElementHost elementHost3;
     }
 }

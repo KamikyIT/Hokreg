@@ -33,8 +33,8 @@ namespace Uniso.InStat.Gui.WPFForms
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
             var point = e.GetPosition(sender as IInputElement);
-            var canvasWidth = (int) ((sender as Canvas).RenderSize).Width;
-            var canvasHeight = (int) ((sender as Canvas).RenderSize).Height;
+            var canvasWidth = (int)this.CanvasGates.RenderSize.Width;
+            var canvasHeight = (int)this.CanvasGates.RenderSize.Height;
 
             var outPoint = ConvertToGatesPoint(point, canvasWidth, canvasHeight);
 
@@ -58,8 +58,8 @@ namespace Uniso.InStat.Gui.WPFForms
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                var canvasWidth = (int)((sender as Canvas).RenderSize).Width;
-                var canvasHeight = (int)((sender as Canvas).RenderSize).Height;
+                var canvasWidth = (int)this.CanvasGates.RenderSize.Width;
+                var canvasHeight = (int)this.CanvasGates.RenderSize.Height;
 
                 Result = ConvertToGatesPoint(e.GetPosition(CanvasGates), canvasWidth, canvasHeight);
 
@@ -67,11 +67,6 @@ namespace Uniso.InStat.Gui.WPFForms
                 Canvas.SetLeft(SelectedPointElipse, e.GetPosition(CanvasGates).X - this.SelectedPointElipse.Width / 2f);
 
                 SelectedPointElipse.Visibility = Visibility.Visible;
-            }
-            else if (e.ChangedButton == MouseButton.Right)
-            {
-                //ForseSetValue(new PointF(0f, 1f));
-                ForseSetValue(new PointF(-0.15f, 0.52f));
             }
         }
 

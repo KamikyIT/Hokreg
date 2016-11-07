@@ -36,6 +36,7 @@ namespace Uniso.InStat.Gui.WPFForms
 
             StartSetTagsAndFillControlsDict();
 
+            ResetDisplayProperties();
         }
 
 
@@ -167,12 +168,16 @@ namespace Uniso.InStat.Gui.WPFForms
 
             if (this.current_model.StartFlyTime.HasValue)
             {
-                this.lblMomentBroska.Text = this.current_model.StartFlyTime.Value.ToString();
+                this.lblStartFlyTime.Text = this.current_model.StartFlyTime.Value.ToString();
+
+                SetSelectedButtonColor(this.btnStartFlyTime, true);
             }
 
             if (this.current_model.EndFlyTime.HasValue)
             {
-                this.lblMomentBroska.Text = this.current_model.EndFlyTime.Value.ToString();
+                this.lblStartFlyTime.Text = this.current_model.EndFlyTime.Value.ToString();
+
+                SetSelectedButtonColor(this.btnEndFlyTime, true);
             }
 
             if (this.current_model.GateWayThrow.HasValue)
@@ -214,12 +219,15 @@ namespace Uniso.InStat.Gui.WPFForms
             SetSelectedButtonColor(btnGoalFixation3, false);
             SetSelectedButtonColor(btnGoalFixation4, false);
 
+            SetSelectedButtonColor(btnStartFlyTime, false);
+            SetSelectedButtonColor(btnEndFlyTime, false);
+
             goalKeeperStateWpfControl.ResetDisplay();
             goalKeeperBodyReceiveWpfControl.ResetDisplay();
             hockeyGatesWpfControl.ResetDisplay();
 
-            lblMomentBroska.Text = @"00:00.0";
-            lblMomentOtskoka.Text = @"00:00.0";
+            lblStartFlyTime.Text = @"00:00.0";
+            lblEndFlyTime.Text = @"00:00.0";
         }
 
         private void SetSelectedButtonColor(Button btn, bool selected)
@@ -272,9 +280,14 @@ namespace Uniso.InStat.Gui.WPFForms
 
                 this.streamPlayer1 = streamPlayer1;
 
+                #region Отключить звук при дебаге, бесит.
+
 #if DEBUG
                 streamPlayer1.Volume = -4000;
 #endif
+
+                #endregion
+
                 streamPlayer1.Start(this.videoFileName);
             }
         }
@@ -314,6 +327,60 @@ namespace Uniso.InStat.Gui.WPFForms
         private GoalKeeperStateWpfControl goalKeeperStateWpfControl;
         private GoalKeeperBodyReceiveWpfControl goalKeeperBodyReceiveWpfControl;
         private HockeyGatesWpfControl hockeyGatesWpfControl;
+
+        private void btnBrosokType_Click(object sender, EventArgs e)
+        {
+            var btn = (sender as Button);
+
+            TypeBrosokEnum brosokType;
+            if (btn == null || btn.Tag == null || Enum.TryParse((btn.Tag).ToString(), true, out brosokType) == false)
+            {
+                return;
+            }
+
+            this.current_model.BrosokType = brosokType;
+        }
+
+        private void btnGoalkeeperView_Click(object sender, EventArgs e)
+        {
+            var btn = (sender as Button);
+
+            GoalkeeperViewEnum goalkeeperView;
+            if (btn == null || btn.Tag == null || Enum.TryParse((btn.Tag).ToString(), true, out goalkeeperView) == false)
+            {
+                return;
+            }
+
+            this.current_model.GoalkeeperView = goalkeeperView;
+        }
+
+        private void btnGoalKeeperStanding_Click(object sender, EventArgs e)
+        {
+            var btn = (sender as Button);
+
+            GoalKeeperStandingEnum goalkeeperStandingEnum;
+            if (btn == null || btn.Tag == null || Enum.TryParse((btn.Tag).ToString(), true, out goalkeeperStandingEnum) == false)
+            {
+                return;
+            }
+
+            this.current_model.GoalKeeperStanding = goalkeeperStandingEnum;
+        }
+
+        private void btnGoalFixation_Click(object sender, EventArgs e)
+        {
+            var btn = (sender as Button);
+
+            GoalFixationEnum goalFixation;
+            if (btn == null || btn.Tag == null || Enum.TryParse((btn.Tag).ToString(), true, out goalFixation) == false)
+            {
+                return;
+            }
+
+            this.current_model.GoalFixation = goalFixation;
+        }
+
+
     }
 
     public class BrosokModel
@@ -335,7 +402,6 @@ namespace Uniso.InStat.Gui.WPFForms
         public GoalKeeperBodyEnum? GoalKeeperBody { get; set; }
 
         public PointF? PointInGates { get; set; }
-
 
         public bool CheckValuesAreSet()
         {
