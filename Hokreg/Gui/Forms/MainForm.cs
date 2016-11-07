@@ -4700,7 +4700,7 @@ namespace Uniso.InStat.Gui.Forms
         {
             sync.Execute(() =>
                 {
-                    var pos = macTrackBar1.Value >= 0 ? macTrackBar1.Value : 0;
+                    var pos = macTrackBar1.Value > 0 ? macTrackBar1.Value : 0;
                     vlcStreamPlayer1.Position = pos;
                 });
         }

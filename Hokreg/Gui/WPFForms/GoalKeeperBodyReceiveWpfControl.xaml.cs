@@ -302,6 +302,20 @@ namespace Uniso.InStat.Gui.WPFForms
         {
             TextBlockMouseOver.Text = string.Empty;
         }
+
+        // TODO: Сбросить отображение.
+        public void ResetDisplay()
+        {
+            
+
+        }
+
+        // TODO: Изобразить выбранный
+        public void ForseSetValue(GoalKeeperBodyEnum value)
+        {
+            
+
+        }
     }
 
     public enum GoalKeeperBodyEnum

@@ -90,5 +90,18 @@ namespace Uniso.InStat.Gui.WPFForms
 
             return string.Format("{{ {0} , {1} }}", x.ToString("0.00"), y.ToString("0.00"));
         }
+
+        // TODO: Сбросить отображение.
+        public void ResetDisplay()
+        {
+            
+
+        }
+
+        // TODO: Отобразить точку.
+        public void ForseSetValue(PointF value)
+        {
+            
+        }
     }
 }

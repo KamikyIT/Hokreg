@@ -29,36 +29,36 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMomentBroska = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblMomentOtskoka = new System.Windows.Forms.Label();
             this.markersListBox = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBrosokType6 = new System.Windows.Forms.Button();
+            this.btnBrosokType5 = new System.Windows.Forms.Button();
+            this.btnBrosokType4 = new System.Windows.Forms.Button();
+            this.btnBrosokType3 = new System.Windows.Forms.Button();
+            this.btnBrosokType2 = new System.Windows.Forms.Button();
+            this.btnBrosokType1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnGoalkeeperView3 = new System.Windows.Forms.Button();
+            this.btnGoalkeeperView2 = new System.Windows.Forms.Button();
+            this.btnGoalkeeperView1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnGoalKeeperStanding4 = new System.Windows.Forms.Button();
+            this.btnGoalKeeperStanding3 = new System.Windows.Forms.Button();
+            this.btnGoalKeeperStanding2 = new System.Windows.Forms.Button();
+            this.btnGoalKeeperStanding1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.btnGoalFixation4 = new System.Windows.Forms.Button();
+            this.btnGoalFixation2 = new System.Windows.Forms.Button();
+            this.btnGoalFixation3 = new System.Windows.Forms.Button();
+            this.btnGoalFixation1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button19 = new System.Windows.Forms.Button();
@@ -72,15 +72,15 @@
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblMomentBroska
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(191, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "33:25.2";
+            this.lblMomentBroska.AutoSize = true;
+            this.lblMomentBroska.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMomentBroska.Location = new System.Drawing.Point(191, 25);
+            this.lblMomentBroska.Name = "lblMomentBroska";
+            this.lblMomentBroska.Size = new System.Drawing.Size(84, 25);
+            this.lblMomentBroska.TabIndex = 1;
+            this.lblMomentBroska.Text = "33:25.2";
             // 
             // label2
             // 
@@ -102,15 +102,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Момент отскока:";
             // 
-            // label4
+            // lblMomentOtskoka
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(490, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 25);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "33:25.2";
+            this.lblMomentOtskoka.AutoSize = true;
+            this.lblMomentOtskoka.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMomentOtskoka.Location = new System.Drawing.Point(490, 25);
+            this.lblMomentOtskoka.Name = "lblMomentOtskoka";
+            this.lblMomentOtskoka.Size = new System.Drawing.Size(84, 25);
+            this.lblMomentOtskoka.TabIndex = 3;
+            this.lblMomentOtskoka.Text = "33:25.2";
             // 
             // markersListBox
             // 
@@ -128,72 +128,72 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnBrosokType6);
+            this.panel1.Controls.Add(this.btnBrosokType5);
+            this.panel1.Controls.Add(this.btnBrosokType4);
+            this.panel1.Controls.Add(this.btnBrosokType3);
+            this.panel1.Controls.Add(this.btnBrosokType2);
+            this.panel1.Controls.Add(this.btnBrosokType1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(1018, 53);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(371, 150);
             this.panel1.TabIndex = 6;
             // 
-            // button5
+            // btnBrosokType6
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(201, 106);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(167, 33);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "БРОСОК С БЛИЗКОЙ ДИСТАНЦИИ (ДОБИВАНИЕ)";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnBrosokType6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnBrosokType6.Location = new System.Drawing.Point(201, 106);
+            this.btnBrosokType6.Name = "btnBrosokType6";
+            this.btnBrosokType6.Size = new System.Drawing.Size(167, 33);
+            this.btnBrosokType6.TabIndex = 6;
+            this.btnBrosokType6.Text = "БРОСОК С БЛИЗКОЙ ДИСТАНЦИИ (ДОБИВАНИЕ)";
+            this.btnBrosokType6.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnBrosokType5
             // 
-            this.button6.Location = new System.Drawing.Point(8, 106);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(175, 33);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "ПОДСТАВЛЕННАЯ КЛЮШКА";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnBrosokType5.Location = new System.Drawing.Point(8, 106);
+            this.btnBrosokType5.Name = "btnBrosokType5";
+            this.btnBrosokType5.Size = new System.Drawing.Size(175, 33);
+            this.btnBrosokType5.TabIndex = 5;
+            this.btnBrosokType5.Text = "ПОДСТАВЛЕННАЯ КЛЮШКА";
+            this.btnBrosokType5.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnBrosokType4
             // 
-            this.button3.Location = new System.Drawing.Point(201, 67);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(167, 33);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "С НЕУДОБНОЙ РУКИ";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnBrosokType4.Location = new System.Drawing.Point(201, 67);
+            this.btnBrosokType4.Name = "btnBrosokType4";
+            this.btnBrosokType4.Size = new System.Drawing.Size(167, 33);
+            this.btnBrosokType4.TabIndex = 4;
+            this.btnBrosokType4.Text = "С НЕУДОБНОЙ РУКИ";
+            this.btnBrosokType4.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnBrosokType3
             // 
-            this.button4.Location = new System.Drawing.Point(8, 67);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(175, 33);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "КИСТЕВОЙ";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnBrosokType3.Location = new System.Drawing.Point(8, 67);
+            this.btnBrosokType3.Name = "btnBrosokType3";
+            this.btnBrosokType3.Size = new System.Drawing.Size(175, 33);
+            this.btnBrosokType3.TabIndex = 3;
+            this.btnBrosokType3.Text = "КИСТЕВОЙ";
+            this.btnBrosokType3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnBrosokType2
             // 
-            this.button2.Location = new System.Drawing.Point(201, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(167, 33);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "ЩЕЛЧОК С РАЗМАХОМ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBrosokType2.Location = new System.Drawing.Point(201, 28);
+            this.btnBrosokType2.Name = "btnBrosokType2";
+            this.btnBrosokType2.Size = new System.Drawing.Size(167, 33);
+            this.btnBrosokType2.TabIndex = 2;
+            this.btnBrosokType2.Text = "ЩЕЛЧОК С РАЗМАХОМ";
+            this.btnBrosokType2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnBrosokType1
             // 
-            this.button1.Location = new System.Drawing.Point(8, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 33);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "ЩЕЛЧОК";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBrosokType1.Location = new System.Drawing.Point(8, 28);
+            this.btnBrosokType1.Name = "btnBrosokType1";
+            this.btnBrosokType1.Size = new System.Drawing.Size(175, 33);
+            this.btnBrosokType1.TabIndex = 1;
+            this.btnBrosokType1.Text = "ЩЕЛЧОК";
+            this.btnBrosokType1.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -207,41 +207,41 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button10);
-            this.panel2.Controls.Add(this.button11);
-            this.panel2.Controls.Add(this.button12);
+            this.panel2.Controls.Add(this.btnGoalkeeperView3);
+            this.panel2.Controls.Add(this.btnGoalkeeperView2);
+            this.panel2.Controls.Add(this.btnGoalkeeperView1);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(1018, 209);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(371, 107);
             this.panel2.TabIndex = 7;
             // 
-            // button10
+            // btnGoalkeeperView3
             // 
-            this.button10.Location = new System.Drawing.Point(8, 67);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(175, 33);
-            this.button10.TabIndex = 3;
-            this.button10.Text = "БРОСОК С ОБМАННЫМ ДВИЖЕНИЕМ";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnGoalkeeperView3.Location = new System.Drawing.Point(8, 67);
+            this.btnGoalkeeperView3.Name = "btnGoalkeeperView3";
+            this.btnGoalkeeperView3.Size = new System.Drawing.Size(175, 33);
+            this.btnGoalkeeperView3.TabIndex = 3;
+            this.btnGoalkeeperView3.Text = "БРОСОК С ОБМАННЫМ ДВИЖЕНИЕМ";
+            this.btnGoalkeeperView3.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // btnGoalkeeperView2
             // 
-            this.button11.Location = new System.Drawing.Point(201, 28);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(167, 33);
-            this.button11.TabIndex = 2;
-            this.button11.Text = "ЗАКРЫТЫЙ";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnGoalkeeperView2.Location = new System.Drawing.Point(201, 28);
+            this.btnGoalkeeperView2.Name = "btnGoalkeeperView2";
+            this.btnGoalkeeperView2.Size = new System.Drawing.Size(167, 33);
+            this.btnGoalkeeperView2.TabIndex = 2;
+            this.btnGoalkeeperView2.Text = "ЗАКРЫТЫЙ";
+            this.btnGoalkeeperView2.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // btnGoalkeeperView1
             // 
-            this.button12.Location = new System.Drawing.Point(8, 28);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(175, 33);
-            this.button12.TabIndex = 1;
-            this.button12.Text = "ОТКРЫТЫЙ";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnGoalkeeperView1.Location = new System.Drawing.Point(8, 28);
+            this.btnGoalkeeperView1.Name = "btnGoalkeeperView1";
+            this.btnGoalkeeperView1.Size = new System.Drawing.Size(175, 33);
+            this.btnGoalkeeperView1.TabIndex = 1;
+            this.btnGoalkeeperView1.Text = "ОТКРЫТЫЙ";
+            this.btnGoalkeeperView1.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -273,10 +273,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button13);
-            this.groupBox1.Controls.Add(this.button9);
-            this.groupBox1.Controls.Add(this.button8);
-            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.btnGoalKeeperStanding4);
+            this.groupBox1.Controls.Add(this.btnGoalKeeperStanding3);
+            this.groupBox1.Controls.Add(this.btnGoalKeeperStanding2);
+            this.groupBox1.Controls.Add(this.btnGoalKeeperStanding1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(1248, 322);
             this.groupBox1.Name = "groupBox1";
@@ -285,93 +285,93 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Стойка";
             // 
-            // button13
+            // btnGoalKeeperStanding4
             // 
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button13.Location = new System.Drawing.Point(6, 178);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(129, 37);
-            this.button13.TabIndex = 3;
-            this.button13.Text = "ЛЕЖИТ";
-            this.button13.UseVisualStyleBackColor = true;
+            this.btnGoalKeeperStanding4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGoalKeeperStanding4.Location = new System.Drawing.Point(6, 178);
+            this.btnGoalKeeperStanding4.Name = "btnGoalKeeperStanding4";
+            this.btnGoalKeeperStanding4.Size = new System.Drawing.Size(129, 37);
+            this.btnGoalKeeperStanding4.TabIndex = 3;
+            this.btnGoalKeeperStanding4.Text = "ЛЕЖИТ";
+            this.btnGoalKeeperStanding4.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnGoalKeeperStanding3
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(6, 127);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(129, 37);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "В СПЛИТЕ";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnGoalKeeperStanding3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGoalKeeperStanding3.Location = new System.Drawing.Point(6, 127);
+            this.btnGoalKeeperStanding3.Name = "btnGoalKeeperStanding3";
+            this.btnGoalKeeperStanding3.Size = new System.Drawing.Size(129, 37);
+            this.btnGoalKeeperStanding3.TabIndex = 2;
+            this.btnGoalKeeperStanding3.Text = "В СПЛИТЕ";
+            this.btnGoalKeeperStanding3.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnGoalKeeperStanding2
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button8.Location = new System.Drawing.Point(6, 78);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(129, 37);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "НИЗКАЯ СТОЙКА";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnGoalKeeperStanding2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGoalKeeperStanding2.Location = new System.Drawing.Point(6, 78);
+            this.btnGoalKeeperStanding2.Name = "btnGoalKeeperStanding2";
+            this.btnGoalKeeperStanding2.Size = new System.Drawing.Size(129, 37);
+            this.btnGoalKeeperStanding2.TabIndex = 1;
+            this.btnGoalKeeperStanding2.Text = "НИЗКАЯ СТОЙКА";
+            this.btnGoalKeeperStanding2.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnGoalKeeperStanding1
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(6, 27);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(129, 37);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "ВЫСОКАЯ СТОЙКА";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnGoalKeeperStanding1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGoalKeeperStanding1.Location = new System.Drawing.Point(6, 27);
+            this.btnGoalKeeperStanding1.Name = "btnGoalKeeperStanding1";
+            this.btnGoalKeeperStanding1.Size = new System.Drawing.Size(129, 37);
+            this.btnGoalKeeperStanding1.TabIndex = 0;
+            this.btnGoalKeeperStanding1.Text = "ВЫСОКАЯ СТОЙКА";
+            this.btnGoalKeeperStanding1.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button17);
-            this.panel3.Controls.Add(this.button16);
-            this.panel3.Controls.Add(this.button15);
-            this.panel3.Controls.Add(this.button14);
+            this.panel3.Controls.Add(this.btnGoalFixation4);
+            this.panel3.Controls.Add(this.btnGoalFixation2);
+            this.panel3.Controls.Add(this.btnGoalFixation3);
+            this.panel3.Controls.Add(this.btnGoalFixation1);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Location = new System.Drawing.Point(1018, 549);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(371, 114);
             this.panel3.TabIndex = 11;
             // 
-            // button17
+            // btnGoalFixation4
             // 
-            this.button17.Location = new System.Drawing.Point(193, 69);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(167, 35);
-            this.button17.TabIndex = 4;
-            this.button17.Text = "НЕКОНТРОЛИРУЕМЫЙ ОТСКОК";
-            this.button17.UseVisualStyleBackColor = true;
+            this.btnGoalFixation4.Location = new System.Drawing.Point(193, 69);
+            this.btnGoalFixation4.Name = "btnGoalFixation4";
+            this.btnGoalFixation4.Size = new System.Drawing.Size(167, 35);
+            this.btnGoalFixation4.TabIndex = 4;
+            this.btnGoalFixation4.Text = "НЕКОНТРОЛИРУЕМЫЙ ОТСКОК";
+            this.btnGoalFixation4.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // btnGoalFixation2
             // 
-            this.button16.Location = new System.Drawing.Point(8, 69);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(167, 35);
-            this.button16.TabIndex = 3;
-            this.button16.Text = "ЗАФИКСИРОВАЛ С ОТСКОКА";
-            this.button16.UseVisualStyleBackColor = true;
+            this.btnGoalFixation2.Location = new System.Drawing.Point(8, 69);
+            this.btnGoalFixation2.Name = "btnGoalFixation2";
+            this.btnGoalFixation2.Size = new System.Drawing.Size(167, 35);
+            this.btnGoalFixation2.TabIndex = 3;
+            this.btnGoalFixation2.Text = "ЗАФИКСИРОВАЛ С ОТСКОКА";
+            this.btnGoalFixation2.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // btnGoalFixation3
             // 
-            this.button15.Location = new System.Drawing.Point(193, 28);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(167, 35);
-            this.button15.TabIndex = 2;
-            this.button15.Text = "КОНТРОЛИРУЕМЫЙ ОТСКОК";
-            this.button15.UseVisualStyleBackColor = true;
+            this.btnGoalFixation3.Location = new System.Drawing.Point(193, 28);
+            this.btnGoalFixation3.Name = "btnGoalFixation3";
+            this.btnGoalFixation3.Size = new System.Drawing.Size(167, 35);
+            this.btnGoalFixation3.TabIndex = 2;
+            this.btnGoalFixation3.Text = "КОНТРОЛИРУЕМЫЙ ОТСКОК";
+            this.btnGoalFixation3.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // btnGoalFixation1
             // 
-            this.button14.Location = new System.Drawing.Point(8, 28);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(167, 35);
-            this.button14.TabIndex = 1;
-            this.button14.Text = "ЗАФИКСИРОВАЛ СРАЗУ";
-            this.button14.UseVisualStyleBackColor = true;
+            this.btnGoalFixation1.Location = new System.Drawing.Point(8, 28);
+            this.btnGoalFixation1.Name = "btnGoalFixation1";
+            this.btnGoalFixation1.Size = new System.Drawing.Size(167, 35);
+            this.btnGoalFixation1.TabIndex = 1;
+            this.btnGoalFixation1.Text = "ЗАФИКСИРОВАЛ СРАЗУ";
+            this.btnGoalFixation1.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -457,9 +457,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.markersListBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblMomentOtskoka);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMomentBroska);
             this.Controls.Add(this.streamPlayer1);
             this.Name = "EditBrosokForm";
             this.Text = "EditBrosokForm";
@@ -479,37 +479,37 @@
         #endregion
 
         private PlayerTypes.StreamPlayer streamPlayer1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMomentBroska;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblMomentOtskoka;
         private System.Windows.Forms.ListBox markersListBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBrosokType6;
+        private System.Windows.Forms.Button btnBrosokType5;
+        private System.Windows.Forms.Button btnBrosokType4;
+        private System.Windows.Forms.Button btnBrosokType3;
+        private System.Windows.Forms.Button btnBrosokType2;
+        private System.Windows.Forms.Button btnBrosokType1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnGoalkeeperView3;
+        private System.Windows.Forms.Button btnGoalkeeperView2;
+        private System.Windows.Forms.Button btnGoalkeeperView1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
         private System.Windows.Forms.Integration.ElementHost elementHost2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnGoalKeeperStanding4;
+        private System.Windows.Forms.Button btnGoalKeeperStanding3;
+        private System.Windows.Forms.Button btnGoalKeeperStanding2;
+        private System.Windows.Forms.Button btnGoalKeeperStanding1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button btnGoalFixation4;
+        private System.Windows.Forms.Button btnGoalFixation2;
+        private System.Windows.Forms.Button btnGoalFixation3;
+        private System.Windows.Forms.Button btnGoalFixation1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button18;

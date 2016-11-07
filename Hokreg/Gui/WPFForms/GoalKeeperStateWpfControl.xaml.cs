@@ -142,6 +142,20 @@ namespace Uniso.InStat.Gui.WPFForms
                 this.SetEllipsesActivities(active_ellipse);
             }
         }
+
+        // TODO: Сбросить отображение.
+        public void ResetDisplay()
+        {
+            
+
+        }
+
+        // TODO: Отобазить результат
+        public void ForseSetValue(GateWayThrowEnum value)
+        {
+            
+
+        }
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]

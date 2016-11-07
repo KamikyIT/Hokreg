@@ -95,6 +95,7 @@ namespace Uniso.InStat.Server
             datain.Add("data2_int", mk.Sync);
             datain.Add("f_user", mk.user_id);
             datain.Add("link", mk.Link);
+            // TODO: Вот тут в datain добавлять свойства маркера.
 
             var dataout = new Dictionary<string, object>();
             dataout.Add("ret", "int");

@@ -21,17 +21,73 @@ namespace Uniso.InStat.Gui.WPFForms
         {
             InitializeComponent();
 
-            this.elementHost1.Child = new GoalKeeperStateWpfControl();
+            goalKeeperStateWpfControl = new GoalKeeperStateWpfControl();
+            this.elementHost1.Child = goalKeeperStateWpfControl;
 
-            elementHost2.Child = new GoalKeeperBodyReceiveWpfControl();
+            goalKeeperBodyReceiveWpfControl = new GoalKeeperBodyReceiveWpfControl();
+            elementHost2.Child = goalKeeperBodyReceiveWpfControl;
 
-            elementHost3.Child = new HockeyGatesWpfControl();
+            hockeyGatesWpfControl = new HockeyGatesWpfControl();
+            elementHost3.Child = hockeyGatesWpfControl;
 
             video_view_model = new VideoViewModel(videoFileName, this.streamPlayer1);
 
             this.brosok_markers = brosokMarkers;
             
             FillMarkersListBox(brosokMarkers);
+
+            StartSetTagsAndFillControlsDict();
+
+        }
+
+
+        private Dictionary<object, Button> allButtonControls = new Dictionary<object, Button>();
+
+        
+
+        private void StartSetTagsAndFillControlsDict()
+        {
+            this.btnBrosokType1.Tag = (TypeBrosokEnum) (1);
+            this.btnBrosokType2.Tag = (TypeBrosokEnum) (2);
+            this.btnBrosokType3.Tag = (TypeBrosokEnum) (3);
+            this.btnBrosokType4.Tag = (TypeBrosokEnum) (4);
+            this.btnBrosokType5.Tag = (TypeBrosokEnum) (5);
+            this.btnBrosokType6.Tag = (TypeBrosokEnum) (6);
+
+            this.btnGoalkeeperView1.Tag = (GoalkeeperViewEnum) (1);
+            this.btnGoalkeeperView2.Tag = (GoalkeeperViewEnum) (2);
+            this.btnGoalkeeperView3.Tag = (GoalkeeperViewEnum) (3);
+
+            this.btnGoalKeeperStanding1.Tag = (GoalKeeperStandingEnum) (1);
+            this.btnGoalKeeperStanding2.Tag = (GoalKeeperStandingEnum) (2);
+            this.btnGoalKeeperStanding3.Tag = (GoalKeeperStandingEnum) (3);
+            this.btnGoalKeeperStanding4.Tag = (GoalKeeperStandingEnum) (4);
+
+            this.btnGoalFixation1.Tag = (GoalFixationEnum) (1);
+            this.btnGoalFixation2.Tag = (GoalFixationEnum) (2);
+            this.btnGoalFixation3.Tag = (GoalFixationEnum) (3);
+            this.btnGoalFixation4.Tag = (GoalFixationEnum) (4);
+
+            allButtonControls.Add(btnBrosokType1.Tag, btnBrosokType1);
+            allButtonControls.Add(btnBrosokType2.Tag, btnBrosokType2);
+            allButtonControls.Add(btnBrosokType3.Tag, btnBrosokType3);
+            allButtonControls.Add(btnBrosokType4.Tag, btnBrosokType4);
+            allButtonControls.Add(btnBrosokType5.Tag, btnBrosokType5);
+            allButtonControls.Add(btnBrosokType6.Tag, btnBrosokType6);
+
+            allButtonControls.Add(btnGoalkeeperView1.Tag, btnGoalkeeperView1);
+            allButtonControls.Add(btnGoalkeeperView2.Tag, btnGoalkeeperView2);
+            allButtonControls.Add(btnGoalkeeperView3.Tag, btnGoalkeeperView3);
+            
+            allButtonControls.Add(btnGoalKeeperStanding1.Tag, btnGoalKeeperStanding1);
+            allButtonControls.Add(btnGoalKeeperStanding2.Tag, btnGoalKeeperStanding2);
+            allButtonControls.Add(btnGoalKeeperStanding3.Tag, btnGoalKeeperStanding3);
+            allButtonControls.Add(btnGoalKeeperStanding4.Tag, btnGoalKeeperStanding4);
+
+            allButtonControls.Add(btnGoalFixation1.Tag, btnGoalFixation1);
+            allButtonControls.Add(btnGoalFixation2.Tag, btnGoalFixation2);
+            allButtonControls.Add(btnGoalFixation3.Tag, btnGoalFixation3);
+            allButtonControls.Add(btnGoalFixation4.Tag, btnGoalFixation4);
 
         }
 
@@ -71,7 +127,106 @@ namespace Uniso.InStat.Gui.WPFForms
 
         private void DisplaySelectedCurrentModel()
         {
-            
+            ResetDisplayProperties();
+
+            if (this.current_model == null)
+            {
+                return;
+            }
+
+
+            if (this.current_model.BrosokType.HasValue)
+            {
+                if (allButtonControls.ContainsKey(this.current_model.BrosokType.Value))
+                {
+                    SetSelectedButtonColor(allButtonControls[this.current_model.BrosokType.Value], true);
+                }
+            }
+
+            if (this.current_model.GoalkeeperView.HasValue)
+            {
+                if (allButtonControls.ContainsKey(this.current_model.GoalkeeperView.Value))
+                {
+                    SetSelectedButtonColor(allButtonControls[this.current_model.GoalkeeperView.Value], true);
+                }
+            }
+
+            if (this.current_model.GoalKeeperStanding.HasValue)
+            {
+                if (allButtonControls.ContainsKey(this.current_model.GoalKeeperStanding.Value))
+                {
+                    SetSelectedButtonColor(allButtonControls[this.current_model.GoalKeeperStanding.Value], true);
+                }
+            }
+
+            if (this.current_model.GoalFixation.HasValue)
+            {
+                if (allButtonControls.ContainsKey(this.current_model.GoalFixation.Value))
+                {
+                    SetSelectedButtonColor(allButtonControls[this.current_model.GoalFixation.Value], true);
+                }
+            }
+
+            if (this.current_model.StartFlyTime.HasValue)
+            {
+                this.lblMomentBroska.Text = this.current_model.StartFlyTime.Value.ToString();
+            }
+
+            if (this.current_model.EndFlyTime.HasValue)
+            {
+                this.lblMomentBroska.Text = this.current_model.EndFlyTime.Value.ToString();
+            }
+
+            if (this.current_model.GateWayThrow.HasValue)
+            {
+                this.goalKeeperStateWpfControl.ForseSetValue(this.current_model.GateWayThrow.Value);
+            }
+
+            if (this.current_model.GoalKeeperBody.HasValue)
+            {
+                this.goalKeeperBodyReceiveWpfControl.ForseSetValue(this.current_model.GoalKeeperBody.Value);
+            }
+
+            if (this.current_model.PointInGates.HasValue)
+            {
+                this.hockeyGatesWpfControl.ForseSetValue(this.current_model.PointInGates.Value);
+            }
+        }
+
+        private void ResetDisplayProperties()
+        {
+            SetSelectedButtonColor(btnBrosokType1, false);
+            SetSelectedButtonColor(btnBrosokType2, false);
+            SetSelectedButtonColor(btnBrosokType3, false);
+            SetSelectedButtonColor(btnBrosokType4, false);
+            SetSelectedButtonColor(btnBrosokType5, false);
+            SetSelectedButtonColor(btnBrosokType6, false);
+
+            SetSelectedButtonColor(btnGoalkeeperView1, false);
+            SetSelectedButtonColor(btnGoalkeeperView2, false);
+            SetSelectedButtonColor(btnGoalkeeperView3, false);
+
+            SetSelectedButtonColor(btnGoalKeeperStanding1, false);
+            SetSelectedButtonColor(btnGoalKeeperStanding2, false);
+            SetSelectedButtonColor(btnGoalKeeperStanding3, false);
+            SetSelectedButtonColor(btnGoalKeeperStanding4, false);
+
+            SetSelectedButtonColor(btnGoalFixation1, false);
+            SetSelectedButtonColor(btnGoalFixation2, false);
+            SetSelectedButtonColor(btnGoalFixation3, false);
+            SetSelectedButtonColor(btnGoalFixation4, false);
+
+            goalKeeperStateWpfControl.ResetDisplay();
+            goalKeeperBodyReceiveWpfControl.ResetDisplay();
+            hockeyGatesWpfControl.ResetDisplay();
+
+            lblMomentBroska.Text = @"00:00.0";
+            lblMomentOtskoka.Text = @"00:00.0";
+        }
+
+        private void SetSelectedButtonColor(Button btn, bool selected)
+        {
+            btn.BackColor = selected ? Color.LightSkyBlue : SystemColors.Control;
         }
 
         private List<Game.Marker> brosok_markers;
@@ -85,6 +240,9 @@ namespace Uniso.InStat.Gui.WPFForms
             {
                 this.marker = marker;
             }
+
+            public int TimeVideo => this.marker.TimeVideo;
+
             public Game.Marker marker;
 
             public override string ToString()
@@ -116,8 +274,6 @@ namespace Uniso.InStat.Gui.WPFForms
         private void markersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.current_model = (BrosokModel)markersListBox.Items[markersListBox.SelectedIndex];
-
-
         }
 
         private void markersListBox_DrawItem(object sender, DrawItemEventArgs e)
@@ -145,6 +301,11 @@ namespace Uniso.InStat.Gui.WPFForms
 
             e.DrawFocusRectangle();            
         }
+
+
+        private GoalKeeperStateWpfControl goalKeeperStateWpfControl;
+        private GoalKeeperBodyReceiveWpfControl goalKeeperBodyReceiveWpfControl;
+        private HockeyGatesWpfControl hockeyGatesWpfControl;
     }
 
     public class BrosokModel
@@ -163,6 +324,10 @@ namespace Uniso.InStat.Gui.WPFForms
 
         public GateWayThrowEnum? GateWayThrow { get; set; }
 
+        public GoalKeeperBodyEnum? GoalKeeperBody { get; set; }
+
+        
+
         public PointF? PointInGates { get; set; }
 
 
@@ -179,7 +344,7 @@ namespace Uniso.InStat.Gui.WPFForms
     public enum TypeBrosokEnum
     {
         [XmlEnum("ЩЕЛЧОК")]
-        shelchok,
+        shelchok = 1,
 
         [XmlEnum("ЩЕЛЧОК С РАЗМАХОМ")]
         shelchok_s_razmaxom,
@@ -198,11 +363,10 @@ namespace Uniso.InStat.Gui.WPFForms
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-
     public enum GoalkeeperViewEnum
     {
         [XmlEnum("ОТКРЫТЫЙ")]
-        open,
+        open = 1,
         [XmlEnum("ЗАКРЫТЫЙ")]
         close,
         [XmlEnum("БРОСОК С ОБМАННЫМ ДВИЖЕНИЕМ")]
@@ -213,7 +377,7 @@ namespace Uniso.InStat.Gui.WPFForms
     public enum GoalKeeperStandingEnum
     {
         [XmlEnum("ВЫСОКАЯ СТОЙКА")]
-        high_stand,
+        high_stand = 1,
         [XmlEnum("НИЗКАЯ СТОЙКА")]
         low_stand,
         [XmlEnum("В СПЛИТЕ")]
@@ -226,7 +390,7 @@ namespace Uniso.InStat.Gui.WPFForms
     public enum GoalFixationEnum
     {
         [XmlEnum("ЗАФИКСИРОВАЛ СРАЗУ")]
-        zafiksiroval_srazy,
+        zafiksiroval_srazy = 1,
         [XmlEnum("ЗАФИКСИРОВАЛ С ОТСКОКА")]
         zafiksirovan_s_otskoka,
         [XmlEnum("КОНТРОЛИРУЕМЫЙ ОТСКОК")]
